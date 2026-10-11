@@ -40,8 +40,11 @@ export const MARQUE = {
 };
 
 export const CONTACT = {
-  libelle: 'Réservez sur WhatsApp',
-  numero: '+237 655 394 028',
+  libelle1: 'Réservez',
+  libelle2: 'sur WhatsApp',
+  indicatif: '+237',
+  // Groupes de chiffres affichés un par un, au rythme de la voix.
+  numero: ['655', '394', '028'],
 };
 
 // Fichiers attendus dans public/. Un fichier absent est remplacé par un
@@ -287,7 +290,10 @@ export const REPERES = {
   merite: {phrase: 'Ici', secoursS: 43.29},
   // Scène 5
   reservez: {phrase: 'Réservez', secoursS: 46.08},
-  numero: {phrase: 'six cent', secoursS: 48.4},
+  numero: {phrase: 'six cent', secoursS: 48.24},
+  numero2: {phrase: 'trente-neuf', secoursS: 49.65},
+  numero3: {phrase: 'quarante', secoursS: 50.5},
+  numero4: {phrase: 'vingt-huit', secoursS: 51.4},
   logoFinal: {phrase: 'JP Service Express', secoursS: 52.94},
   signature: {phrase: 'votre trajet', secoursS: 54.84},
 } satisfies Record<string, Repere>;
