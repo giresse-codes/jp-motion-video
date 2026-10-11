@@ -67,7 +67,8 @@ export const LOGO_DETOURE = 'logo-transparent.png';
 // Un plan = une photo (images/...) ou un extrait vidéo (videos/...).
 // `libelle` sert au placeholder si le fichier manque.
 // `debutS` = début de l'extrait dans la vidéo source.
-// `cadrage` = point de zoom (en % de l'image), `zoom` = zoom de départ.
+// `cadrage` = partie de l'image gardée au recadrage et point de zoom (en %),
+// `zoom` = zoom de départ.
 export type Plan = {
   src: string;
   libelle: string;
@@ -122,9 +123,23 @@ export const PLANS = {
     vitesse: 0.6,
     masquerBas: true,
   },
-  aeroport: {
-    src: 'images/aeroport.jpg',
-    libelle: 'AÉROPORT DE DOUALA',
+  // Le panneau / bâtiment est remonté au-dessus de la carte (zoom ancré en bas).
+  aeroportEntree: {
+    src: 'images/aeroport-entree.jpg',
+    libelle: 'AÉROPORT – ENTRÉE',
+    cadrage: {x: 55, y: 100},
+    zoom: 1.3,
+  },
+  aeroportParvis: {
+    src: 'images/aeroport-parvis.jpg',
+    libelle: 'AÉROPORT – PARVIS',
+    cadrage: {x: 50, y: 100},
+    zoom: 1.2,
+  },
+  aeroportTerminal: {
+    src: 'images/aeroport-terminal.jpg',
+    libelle: 'AÉROPORT – TERMINAL',
+    cadrage: {x: 50, y: 20},
   },
   voyage: {
     src: 'videos/douala-ville.mp4',
@@ -142,12 +157,13 @@ export const PLANS = {
   chauffeurPorte: {
     src: 'images/chauffeur-porte.jpg',
     libelle: 'CHAUFFEUR QUI OUVRE LA PORTE',
+    cadrage: {x: 62, y: 40},
   },
   chauffeur: {
-    src: 'images/chauffeur-porte.jpg',
+    src: 'images/chauffeur-gants.jpg',
     libelle: 'CHAUFFEUR PROFESSIONNEL',
-    cadrage: {x: 50, y: 35},
-    zoom: 1.25,
+    cadrage: {x: 80, y: 45},
+    zoom: 1.1,
   },
   vehiculePremium: {
     src: 'videos/douala-ville.mp4',
@@ -157,8 +173,10 @@ export const PLANS = {
     masquerBas: true,
   },
   interieur: {
-    src: 'images/interieur.jpg',
+    src: 'images/chauffeur-gants.jpg',
     libelle: 'INTÉRIEUR DU VÉHICULE',
+    cadrage: {x: 26, y: 55},
+    zoom: 1.15,
   },
   // Scène 5 : fond de l'appel à l'action
   nuit: {
@@ -220,7 +238,7 @@ export const SERVICES: Service[] = [
     prixPrefixe: 'dès',
     unite: 'FCFA',
     avantages: ['Éco : 8 000 FCFA', 'Confort : 10 000 FCFA'],
-    plan: PLANS.aeroport,
+    plan: [PLANS.aeroportEntree, PLANS.aeroportParvis, PLANS.aeroportTerminal],
   },
   {
     id: 'voyage',

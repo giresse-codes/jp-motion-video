@@ -71,7 +71,7 @@ const AvionQuiPasse: React.FC = () => {
   const frame = useCurrentFrame();
   const {width} = useVideoConfig();
   const x = interpolate(frame, [0, 70], [-260, width + 260], {extrapolateRight: 'clamp'});
-  const y = interpolate(frame, [0, 70], [620, 330]);
+  const y = interpolate(frame, [0, 70], [480, 200]);
   return (
     <div
       style={{

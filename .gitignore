@@ -5,3 +5,7 @@ out/
 .DS_Store
 # Vidéos de tiers : ne pas publier sans l'accord de leurs auteurs
 public/videos/
+# Photos qui semblent venir d'internet (banques d'images) : à remplacer par
+# des photos de JP Service ou à publier seulement avec une licence.
+public/images/chauffeur-porte.jpg
+public/images/chauffeur-gants.jpg

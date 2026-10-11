@@ -52,8 +52,10 @@ trouvés : ajuste le découpage ou `SEUIL_DB` / `PAUSE_MIN_S`.
 
 - `logo.png` (fourni) et `logo-transparent.png` (généré).
 - `voiceoff.wav`, `musique.mp3` (optionnelle, baissée sous la voix).
-- `images/` : photos réelles. Chaque plan est déclaré dans `PLANS` de `config.ts`.
+- `images/` : photos réelles. Chaque plan est déclaré dans `PLANS` de `config.ts`
+  (`cadrage` choisit la partie gardée au recadrage vertical).
   Un fichier absent affiche un placeholder propre : la vidéo se rend toujours.
+  `chauffeur-porte.jpg` et `chauffeur-gants.jpg` sont ignorés par git (droits à vérifier).
 - `videos/` : extraits vidéo de tiers, **ignorés par git** (droits d'auteur).
   Ne pas les publier sans l'accord de leurs auteurs.
 - `fonts/` : Montserrat et Inter (licence OFL), chargées hors ligne.

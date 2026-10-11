@@ -58,6 +58,7 @@ export const Media: React.FC<Props> = ({
     width: '100%',
     height: '100%',
     objectFit: 'cover',
+    objectPosition: `${plan.cadrage?.x ?? 50}% ${plan.cadrage?.y ?? 50}%`,
     transform: `translateX(${x}px) scale(${scale})`,
     transformOrigin: origine,
     filter: filtre,
