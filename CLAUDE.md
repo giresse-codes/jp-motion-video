@@ -66,13 +66,14 @@ trouvés : ajuste le découpage ou `SEUIL_DB` / `PAUSE_MIN_S`.
   Ne pas les publier sans l'accord de leurs auteurs.
 - `fonts/` : Montserrat et Inter (licence OFL), chargées hors ligne.
 
-## Skills Remotion officielles
+## Skills HyperFrames (HeyGen)
 
-Installées dans `.claude/skills/` avec `npx skills add remotion-dev/skills -a claude-code --copy`
+Installées dans `.claude/skills/` avec `npx skills add heygen-com/hyperframes -a claude-code --copy`
 (versions figées dans `skills-lock.json`, mise à jour : `npx skills update -p`).
-**À utiliser pour tout travail sur la vidéo** : partir de `remotion-best-practices` (routeur),
-puis `remotion-markup` (animations, timing, audio, effets, transitions), `remotion-render`
-(rendu), `remotion-docs` (API à jour).
+Elles remplacent les skills Remotion. Point d'entrée : `hyperframes` (routeur), puis
+`hyperframes-animation`, `hyperframes-keyframes`, `hyperframes-audio`, `hyperframes-core`,
+`hyperframes-cli`, `media-use`. `remotion-to-hyperframes` sert à porter le code Remotion actuel.
+Attention : HyperFrames est un autre moteur (compositions HTML + GSAP), pas Remotion.
 
 ## Conventions
 
