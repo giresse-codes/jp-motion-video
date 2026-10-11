@@ -1,0 +1,7 @@
+node_modules/
+out/
+.whisper/
+*.log
+.DS_Store
+# Vidéos de tiers : ne pas publier sans l'accord de leurs auteurs
+public/videos/

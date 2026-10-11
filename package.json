@@ -1,0 +1,29 @@
+{
+  "name": "jp-motion-video",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Publicité motion design pour JP Service Express Urbaine (Remotion)",
+  "scripts": {
+    "dev": "remotion studio",
+    "render": "remotion render JPVideo out/jp-service.mp4",
+    "still": "remotion still",
+    "typecheck": "tsc --noEmit",
+    "aligner": "node scripts/aligner.mjs"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.534",
+    "@remotion/fonts": "4.0.534",
+    "@remotion/google-fonts": "4.0.534",
+    "@remotion/media-utils": "4.0.534",
+    "@remotion/motion-blur": "4.0.534",
+    "@remotion/transitions": "4.0.534",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "remotion": "4.0.534"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "5.9"
+  }
+}

@@ -1,0 +1,38 @@
+# Texte de la voix off, découpé selon les pauses de l'enregistrement.
+# Une ligne = un segment de parole entre deux silences (lignes vides et # ignorées).
+# Si tu changes la voix off, ajuste ce découpage puis lance `npm run aligner`.
+JP Service Express Urbaine.
+Rapide.
+Sûr.
+Confortable.
+À Douala,
+entre les embouteillages et les retards,
+se déplacer peut vite devenir un casse-tête.
+Et si vous voyagiez enfin l'esprit tranquille ?
+Avec le service Éco,
+à trois mille francs l'heure,
+profitez d'un véhicule confortable et d'un chauffeur ponctuel.
+Envie de plus ?
+Le service Confort,
+à quatre mille francs l'heure :
+Wi-Fi,
+climatisation et écran multimédia à bord.
+Un vol à prendre ?
+Le service Aéroport vous y conduit dès huit mille francs.
+Et pour vos voyages à travers le Cameroun,
+le service Voyage :
+cinquante mille francs par jour,
+ou cent mille francs pour trois jours.
+Des chauffeurs professionnels,
+attentifs à chaque détail,
+qui vous ouvrent la porte.
+Ici,
+vous êtes traité comme vous le méritez.
+Réservez dès maintenant sur WhatsApp,
+au six cent cinquante-cinq,
+trente-neuf,
+quarante,
+vingt-huit.
+JP Service Express Urbaine :
+votre trajet,
+notre priorité.

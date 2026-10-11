@@ -1,0 +1,737 @@
+[
+ {
+  "text": "JP",
+  "startMs": 355,
+  "endMs": 539
+ },
+ {
+  "text": "Service",
+  "startMs": 539,
+  "endMs": 1032
+ },
+ {
+  "text": "Express",
+  "startMs": 1032,
+  "endMs": 1525
+ },
+ {
+  "text": "Urbaine.",
+  "startMs": 1525,
+  "endMs": 2018
+ },
+ {
+  "text": "Rapide.",
+  "startMs": 2423,
+  "endMs": 2871
+ },
+ {
+  "text": "Sûr.",
+  "startMs": 3379,
+  "endMs": 3705
+ },
+ {
+  "text": "Confortable.",
+  "startMs": 4207,
+  "endMs": 4826
+ },
+ {
+  "text": "À",
+  "startMs": 5624,
+  "endMs": 5732
+ },
+ {
+  "text": "Douala,",
+  "startMs": 5732,
+  "endMs": 6111
+ },
+ {
+  "text": "entre",
+  "startMs": 6547,
+  "endMs": 6783
+ },
+ {
+  "text": "les",
+  "startMs": 6783,
+  "endMs": 6940
+ },
+ {
+  "text": "embouteillages",
+  "startMs": 6940,
+  "endMs": 7529
+ },
+ {
+  "text": "et",
+  "startMs": 7529,
+  "endMs": 7647
+ },
+ {
+  "text": "les",
+  "startMs": 7647,
+  "endMs": 7804
+ },
+ {
+  "text": "retards,",
+  "startMs": 7804,
+  "endMs": 8118
+ },
+ {
+  "text": "se",
+  "startMs": 8499,
+  "endMs": 8635
+ },
+ {
+  "text": "déplacer",
+  "startMs": 8635,
+  "endMs": 9043
+ },
+ {
+  "text": "peut",
+  "startMs": 9043,
+  "endMs": 9269
+ },
+ {
+  "text": "vite",
+  "startMs": 9269,
+  "endMs": 9496
+ },
+ {
+  "text": "devenir",
+  "startMs": 9496,
+  "endMs": 9858
+ },
+ {
+  "text": "un",
+  "startMs": 9858,
+  "endMs": 9994
+ },
+ {
+  "text": "casse-tête.",
+  "startMs": 9994,
+  "endMs": 10447
+ },
+ {
+  "text": "Et",
+  "startMs": 11003,
+  "endMs": 11122
+ },
+ {
+  "text": "si",
+  "startMs": 11122,
+  "endMs": 11240
+ },
+ {
+  "text": "vous",
+  "startMs": 11240,
+  "endMs": 11437
+ },
+ {
+  "text": "voyagiez",
+  "startMs": 11437,
+  "endMs": 11792
+ },
+ {
+  "text": "enfin",
+  "startMs": 11792,
+  "endMs": 12029
+ },
+ {
+  "text": "l'esprit",
+  "startMs": 12029,
+  "endMs": 12344
+ },
+ {
+  "text": "tranquille",
+  "startMs": 12344,
+  "endMs": 12778
+ },
+ {
+  "text": "?",
+  "startMs": 12778,
+  "endMs": 12857
+ },
+ {
+  "text": "Avec",
+  "startMs": 13714,
+  "endMs": 13962
+ },
+ {
+  "text": "le",
+  "startMs": 13962,
+  "endMs": 14112
+ },
+ {
+  "text": "service",
+  "startMs": 14112,
+  "endMs": 14510
+ },
+ {
+  "text": "Éco,",
+  "startMs": 14510,
+  "endMs": 14709
+ },
+ {
+  "text": "à",
+  "startMs": 15045,
+  "endMs": 15108
+ },
+ {
+  "text": "trois",
+  "startMs": 15108,
+  "endMs": 15297
+ },
+ {
+  "text": "mille",
+  "startMs": 15297,
+  "endMs": 15487
+ },
+ {
+  "text": "francs",
+  "startMs": 15487,
+  "endMs": 15708
+ },
+ {
+  "text": "l'heure,",
+  "startMs": 15708,
+  "endMs": 15929
+ },
+ {
+  "text": "profitez",
+  "startMs": 16295,
+  "endMs": 16694
+ },
+ {
+  "text": "d'un",
+  "startMs": 16694,
+  "endMs": 16871
+ },
+ {
+  "text": "véhicule",
+  "startMs": 16871,
+  "endMs": 17270
+ },
+ {
+  "text": "confortable",
+  "startMs": 17270,
+  "endMs": 17802
+ },
+ {
+  "text": "et",
+  "startMs": 17802,
+  "endMs": 17935
+ },
+ {
+  "text": "d'un",
+  "startMs": 17935,
+  "endMs": 18112
+ },
+ {
+  "text": "chauffeur",
+  "startMs": 18112,
+  "endMs": 18555
+ },
+ {
+  "text": "ponctuel.",
+  "startMs": 18555,
+  "endMs": 18954
+ },
+ {
+  "text": "Envie",
+  "startMs": 19426,
+  "endMs": 19675
+ },
+ {
+  "text": "de",
+  "startMs": 19675,
+  "endMs": 19800
+ },
+ {
+  "text": "plus",
+  "startMs": 19800,
+  "endMs": 20007
+ },
+ {
+  "text": "?",
+  "startMs": 20007,
+  "endMs": 20090
+ },
+ {
+  "text": "Le",
+  "startMs": 20622,
+  "endMs": 20776
+ },
+ {
+  "text": "service",
+  "startMs": 20776,
+  "endMs": 21187
+ },
+ {
+  "text": "Confort,",
+  "startMs": 21187,
+  "endMs": 21597
+ },
+ {
+  "text": "à",
+  "startMs": 21836,
+  "endMs": 21905
+ },
+ {
+  "text": "quatre",
+  "startMs": 21905,
+  "endMs": 22149
+ },
+ {
+  "text": "mille",
+  "startMs": 22149,
+  "endMs": 22357
+ },
+ {
+  "text": "francs",
+  "startMs": 22357,
+  "endMs": 22601
+ },
+ {
+  "text": "l'heure",
+  "startMs": 22601,
+  "endMs": 22844
+ },
+ {
+  "text": ":",
+  "startMs": 22844,
+  "endMs": 22914
+ },
+ {
+  "text": "Wi-Fi,",
+  "startMs": 23198,
+  "endMs": 23624
+ },
+ {
+  "text": "climatisation",
+  "startMs": 23821,
+  "endMs": 24663
+ },
+ {
+  "text": "et",
+  "startMs": 24663,
+  "endMs": 24844
+ },
+ {
+  "text": "écran",
+  "startMs": 24844,
+  "endMs": 25205
+ },
+ {
+  "text": "multimédia",
+  "startMs": 25205,
+  "endMs": 25867
+ },
+ {
+  "text": "à",
+  "startMs": 25867,
+  "endMs": 25987
+ },
+ {
+  "text": "bord.",
+  "startMs": 25987,
+  "endMs": 26288
+ },
+ {
+  "text": "Un",
+  "startMs": 26976,
+  "endMs": 27091
+ },
+ {
+  "text": "vol",
+  "startMs": 27091,
+  "endMs": 27244
+ },
+ {
+  "text": "à",
+  "startMs": 27244,
+  "endMs": 27320
+ },
+ {
+  "text": "prendre",
+  "startMs": 27320,
+  "endMs": 27626
+ },
+ {
+  "text": "?",
+  "startMs": 27626,
+  "endMs": 27703
+ },
+ {
+  "text": "Le",
+  "startMs": 28261,
+  "endMs": 28385
+ },
+ {
+  "text": "service",
+  "startMs": 28385,
+  "endMs": 28713
+ },
+ {
+  "text": "Aéroport",
+  "startMs": 28713,
+  "endMs": 29083
+ },
+ {
+  "text": "vous",
+  "startMs": 29083,
+  "endMs": 29288
+ },
+ {
+  "text": "y",
+  "startMs": 29288,
+  "endMs": 29371
+ },
+ {
+  "text": "conduit",
+  "startMs": 29371,
+  "endMs": 29699
+ },
+ {
+  "text": "dès",
+  "startMs": 29699,
+  "endMs": 29864
+ },
+ {
+  "text": "huit",
+  "startMs": 29864,
+  "endMs": 30069
+ },
+ {
+  "text": "mille",
+  "startMs": 30069,
+  "endMs": 30316
+ },
+ {
+  "text": "francs.",
+  "startMs": 30316,
+  "endMs": 30603
+ },
+ {
+  "text": "Et",
+  "startMs": 31178,
+  "endMs": 31308
+ },
+ {
+  "text": "pour",
+  "startMs": 31308,
+  "endMs": 31525
+ },
+ {
+  "text": "vos",
+  "startMs": 31525,
+  "endMs": 31699
+ },
+ {
+  "text": "voyages",
+  "startMs": 31699,
+  "endMs": 32046
+ },
+ {
+  "text": "à",
+  "startMs": 32046,
+  "endMs": 32133
+ },
+ {
+  "text": "travers",
+  "startMs": 32133,
+  "endMs": 32480
+ },
+ {
+  "text": "le",
+  "startMs": 32480,
+  "endMs": 32610
+ },
+ {
+  "text": "Cameroun,",
+  "startMs": 32610,
+  "endMs": 33001
+ },
+ {
+  "text": "le",
+  "startMs": 33298,
+  "endMs": 33449
+ },
+ {
+  "text": "service",
+  "startMs": 33449,
+  "endMs": 33850
+ },
+ {
+  "text": "Voyage",
+  "startMs": 33850,
+  "endMs": 34202
+ },
+ {
+  "text": ":",
+  "startMs": 34202,
+  "endMs": 34302
+ },
+ {
+  "text": "cinquante",
+  "startMs": 34779,
+  "endMs": 35205
+ },
+ {
+  "text": "mille",
+  "startMs": 35205,
+  "endMs": 35460
+ },
+ {
+  "text": "francs",
+  "startMs": 35460,
+  "endMs": 35758
+ },
+ {
+  "text": "par",
+  "startMs": 35758,
+  "endMs": 35928
+ },
+ {
+  "text": "jour,",
+  "startMs": 35928,
+  "endMs": 36141
+ },
+ {
+  "text": "ou",
+  "startMs": 36530,
+  "endMs": 36636
+ },
+ {
+  "text": "cent",
+  "startMs": 36636,
+  "endMs": 36814
+ },
+ {
+  "text": "mille",
+  "startMs": 36814,
+  "endMs": 37027
+ },
+ {
+  "text": "francs",
+  "startMs": 37027,
+  "endMs": 37276
+ },
+ {
+  "text": "pour",
+  "startMs": 37276,
+  "endMs": 37453
+ },
+ {
+  "text": "trois",
+  "startMs": 37453,
+  "endMs": 37666
+ },
+ {
+  "text": "jours.",
+  "startMs": 37666,
+  "endMs": 37880
+ },
+ {
+  "text": "Des",
+  "startMs": 38581,
+  "endMs": 38746
+ },
+ {
+  "text": "chauffeurs",
+  "startMs": 38746,
+  "endMs": 39198
+ },
+ {
+  "text": "professionnels,",
+  "startMs": 39198,
+  "endMs": 39814
+ },
+ {
+  "text": "attentifs",
+  "startMs": 40143,
+  "endMs": 40592
+ },
+ {
+  "text": "à",
+  "startMs": 40592,
+  "endMs": 40682
+ },
+ {
+  "text": "chaque",
+  "startMs": 40682,
+  "endMs": 40997
+ },
+ {
+  "text": "détail,",
+  "startMs": 40997,
+  "endMs": 41311
+ },
+ {
+  "text": "qui",
+  "startMs": 41702,
+  "endMs": 41861
+ },
+ {
+  "text": "vous",
+  "startMs": 41861,
+  "endMs": 42060
+ },
+ {
+  "text": "ouvrent",
+  "startMs": 42060,
+  "endMs": 42378
+ },
+ {
+  "text": "la",
+  "startMs": 42378,
+  "endMs": 42498
+ },
+ {
+  "text": "porte.",
+  "startMs": 42498,
+  "endMs": 42737
+ },
+ {
+  "text": "Ici,",
+  "startMs": 43293,
+  "endMs": 43644
+ },
+ {
+  "text": "vous",
+  "startMs": 44032,
+  "endMs": 44221
+ },
+ {
+  "text": "êtes",
+  "startMs": 44221,
+  "endMs": 44410
+ },
+ {
+  "text": "traité",
+  "startMs": 44410,
+  "endMs": 44674
+ },
+ {
+  "text": "comme",
+  "startMs": 44674,
+  "endMs": 44900
+ },
+ {
+  "text": "vous",
+  "startMs": 44900,
+  "endMs": 45089
+ },
+ {
+  "text": "le",
+  "startMs": 45089,
+  "endMs": 45203
+ },
+ {
+  "text": "méritez.",
+  "startMs": 45203,
+  "endMs": 45505
+ },
+ {
+  "text": "Réservez",
+  "startMs": 46085,
+  "endMs": 46499
+ },
+ {
+  "text": "dès",
+  "startMs": 46499,
+  "endMs": 46684
+ },
+ {
+  "text": "maintenant",
+  "startMs": 46684,
+  "endMs": 47190
+ },
+ {
+  "text": "sur",
+  "startMs": 47190,
+  "endMs": 47375
+ },
+ {
+  "text": "WhatsApp,",
+  "startMs": 47375,
+  "endMs": 47789
+ },
+ {
+  "text": "au",
+  "startMs": 48242,
+  "endMs": 48366
+ },
+ {
+  "text": "six",
+  "startMs": 48366,
+  "endMs": 48532
+ },
+ {
+  "text": "cent",
+  "startMs": 48532,
+  "endMs": 48739
+ },
+ {
+  "text": "cinquante-cinq,",
+  "startMs": 48739,
+  "endMs": 49319
+ },
+ {
+  "text": "trente-neuf,",
+  "startMs": 49654,
+  "endMs": 50191
+ },
+ {
+  "text": "quarante,",
+  "startMs": 50501,
+  "endMs": 50946
+ },
+ {
+  "text": "vingt-huit.",
+  "startMs": 51398,
+  "endMs": 51951
+ },
+ {
+  "text": "JP",
+  "startMs": 52944,
+  "endMs": 53103
+ },
+ {
+  "text": "Service",
+  "startMs": 53103,
+  "endMs": 53528
+ },
+ {
+  "text": "Express",
+  "startMs": 53528,
+  "endMs": 53953
+ },
+ {
+  "text": "Urbaine",
+  "startMs": 53953,
+  "endMs": 54379
+ },
+ {
+  "text": ":",
+  "startMs": 54379,
+  "endMs": 54485
+ },
+ {
+  "text": "votre",
+  "startMs": 54841,
+  "endMs": 55183
+ },
+ {
+  "text": "trajet,",
+  "startMs": 55183,
+  "endMs": 55582
+ },
+ {
+  "text": "notre",
+  "startMs": 55980,
+  "endMs": 56337
+ },
+ {
+  "text": "priorité.",
+  "startMs": 56337,
+  "endMs": 56872
+ }
+]
