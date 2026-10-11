@@ -7,17 +7,17 @@ import {COULEURS} from '../config';
 
 type SansProps = Record<string, never>;
 
-// Zoom rapide flouté : la scène sortante fonce vers la caméra,
-// la scène entrante arrive du fond.
+// Zoom rapide flouté : la scène sortante fonce vers la caméra, la scène
+// entrante arrive déjà zoomée puis se pose. Les deux couvrent tout l'écran.
 const ZoomFlou: React.FC<TransitionPresentationComponentProps<SansProps>> = ({
   children,
   presentationDirection,
   presentationProgress: p,
 }) => {
   const sortante = presentationDirection === 'exiting';
-  const scale = sortante ? interpolate(p, [0, 1], [1, 1.9]) : interpolate(p, [0, 1], [0.6, 1]);
-  const flou = sortante ? interpolate(p, [0, 1], [0, 26]) : interpolate(p, [0, 1], [26, 0]);
-  const opacite = sortante ? 1 : interpolate(p, [0, 0.45, 1], [0, 1, 1]);
+  const scale = sortante ? interpolate(p, [0, 1], [1, 1.8]) : interpolate(p, [0, 1], [1.5, 1]);
+  const flou = sortante ? interpolate(p, [0, 1], [0, 28]) : interpolate(p, [0, 1], [28, 0]);
+  const opacite = sortante ? 1 : interpolate(p, [0.2, 0.6], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
   return (
     <AbsoluteFill
       style={{
