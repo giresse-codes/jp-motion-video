@@ -69,6 +69,7 @@ export const Media: React.FC<Props> = ({
         <OffthreadVideo
           src={src}
           muted
+          playbackRate={plan.vitesse ?? 1}
           trimBefore={Math.round((plan.debutS ?? 0) * fps)}
           style={style}
         />

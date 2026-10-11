@@ -1,4 +1,4 @@
-import {AbsoluteFill, interpolate} from 'remotion';
+import {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';
 import type {
   TransitionPresentation,
   TransitionPresentationComponentProps,
@@ -75,3 +75,25 @@ export const balayage = (): TransitionPresentation<SansProps> => ({
   component: Balayage,
   props: {},
 });
+
+// Bande rouge diagonale qui traverse l'écran autour d'une coupe franche
+// (à l'image `coupe`), pour masquer le raccord à l'intérieur d'une scène.
+export const BandeBalayage: React.FC<{coupe: number; duree?: number}> = ({coupe, duree = 12}) => {
+  const frame = useCurrentFrame();
+  const p = interpolate(frame, [coupe - duree / 2, coupe + duree / 2], [0, 1], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+  });
+  if (p <= 0 || p >= 1) return null;
+  // La bande est assez large pour couvrir tout l'écran au moment de la coupe.
+  const centre = interpolate(p, [0, 1], [-90, 190]);
+  const bande = (l: number) =>
+    `polygon(${centre - l}% 0%, ${centre + l}% 0%, ${centre + l - 60}% 100%, ${centre - l - 60}% 100%)`;
+  return (
+    <AbsoluteFill style={{pointerEvents: 'none'}}>
+      <AbsoluteFill style={{clipPath: bande(48), backgroundColor: COULEURS.rouge}} />
+      <AbsoluteFill style={{clipPath: bande(40), backgroundColor: COULEURS.rougeSombre}} />
+      <AbsoluteFill style={{clipPath: bande(1.5), backgroundColor: COULEURS.blanc, transform: 'translateX(-38%)'}} />
+    </AbsoluteFill>
+  );
+};

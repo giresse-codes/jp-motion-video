@@ -19,7 +19,7 @@ export const Placeholder: React.FC<{libelle: string}> = ({libelle}) => {
         }}
       />
       <AbsoluteFill
-        style={{alignItems: 'center', justifyContent: 'center', gap: 28}}
+        style={{alignItems: 'center', justifyContent: 'center', gap: 28, paddingBottom: '25%'}}
       >
         <svg width={150} height={150} viewBox="0 0 24 24" fill="none">
           <path

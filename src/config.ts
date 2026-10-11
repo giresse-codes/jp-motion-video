@@ -71,6 +71,8 @@ export type Plan = {
   debutS?: number;
   cadrage?: {x: number; y: number};
   zoom?: number;
+  // Vitesse de lecture d'une vidéo (0.5 = ralenti), pour tenir dans le plan.
+  vitesse?: number;
   // Masque les filigranes de la vidéo source en zoomant vers le haut.
   masquerBas?: boolean;
 };
@@ -80,7 +82,8 @@ export const PLANS = {
   embouteillage: {
     src: 'videos/douala-ville.mp4',
     libelle: 'DOUALA – CIRCULATION',
-    debutS: 21.2,
+    debutS: 21.4,
+    vitesse: 0.8,
     masquerBas: true,
   },
   retards: {
@@ -99,19 +102,21 @@ export const PLANS = {
   sereinite: {
     src: 'videos/douala-aerien.mp4',
     libelle: 'DOUALA – VUE AÉRIENNE',
-    debutS: 0.2,
+    debutS: 1.0,
   },
   // Scène 3 : une photo par service
   eco: {
     src: 'videos/douala-ville.mp4',
     libelle: 'VÉHICULE ÉCO',
-    debutS: 31.2,
+    debutS: 28.9,
+    vitesse: 0.6,
     masquerBas: true,
   },
   confort: {
     src: 'videos/douala-ville.mp4',
     libelle: 'VÉHICULE CONFORT',
-    debutS: 33.8,
+    debutS: 31.6,
+    vitesse: 0.6,
     masquerBas: true,
   },
   aeroport: {
@@ -121,9 +126,15 @@ export const PLANS = {
   voyage: {
     src: 'videos/douala-ville.mp4',
     libelle: 'ROUTE – VOYAGE',
-    debutS: 25.1,
+    debutS: 25.15,
+    vitesse: 0.5,
     masquerBas: true,
-},
+  },
+  voyageRoute: {
+    src: 'videos/douala-aerien.mp4',
+    libelle: 'ROUTE – VUE AÉRIENNE',
+    debutS: 11.1,
+  },
   // Scène 4 : professionnalisme
   chauffeurPorte: {
     src: 'images/chauffeur-porte.jpg',
@@ -135,10 +146,10 @@ export const PLANS = {
   },
   // Scène 5 : fond de l'appel à l'action
   nuit: {
-    src: 'videos/douala-ville.mp4',
-    libelle: 'DOUALA – NUIT',
-    debutS: 27.3,
-    masquerBas: true,
+    src: 'videos/douala-aerien.mp4',
+    libelle: 'DOUALA – VUE AÉRIENNE',
+    debutS: 11.1,
+    vitesse: 0.3,
   },
 } satisfies Record<string, Plan>;
 
@@ -153,7 +164,8 @@ export type Service = {
   avantages: string[];
   badge?: string;
   mention?: string;
-  plan: Plan;
+  // Un ou plusieurs plans (la durée est partagée entre eux).
+  plan: Plan | Plan[];
 };
 
 export const SERVICES: Service[] = [
@@ -203,7 +215,7 @@ export const SERVICES: Service[] = [
     avantages: ['Chauffeur dédié', 'Départ quand vous voulez'],
     badge: 'Offre 3 jours : 100 000 FCFA',
     mention: 'Carburant à la charge du client',
-    plan: PLANS.voyage,
+    plan: [PLANS.voyage, PLANS.voyageRoute],
   },
 ];
 
