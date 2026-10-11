@@ -66,6 +66,14 @@ trouvés : ajuste le découpage ou `SEUIL_DB` / `PAUSE_MIN_S`.
   Ne pas les publier sans l'accord de leurs auteurs.
 - `fonts/` : Montserrat et Inter (licence OFL), chargées hors ligne.
 
+## Skills Remotion officielles
+
+Installées dans `.claude/skills/` avec `npx skills add remotion-dev/skills -a claude-code --copy`
+(versions figées dans `skills-lock.json`, mise à jour : `npx skills update -p`).
+**À utiliser pour tout travail sur la vidéo** : partir de `remotion-best-practices` (routeur),
+puis `remotion-markup` (animations, timing, audio, effets, transitions), `remotion-render`
+(rendu), `remotion-docs` (API à jour).
+
 ## Conventions
 
 - Code, commentaires et textes en français.
