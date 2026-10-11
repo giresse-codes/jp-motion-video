@@ -3,6 +3,7 @@ import {COULEURS, MARQUE, ZONE_SURE} from '../config';
 import {Finition, Flash, RouteNeon, Trainees} from '../components/Effets';
 import {MotAnime} from '../components/KineticText';
 import {Embleme} from '../components/Logo';
+import {Son} from '../components/Son';
 import {reperesDe, secousse} from '../lib/scene';
 
 const r = reperesDe('intro');
@@ -126,6 +127,14 @@ export const Intro: React.FC = () => {
         <Flash key={i} a={a} duree={6} couleur={i === 1 ? COULEURS.rouge : '#fff'} force={0.35} />
       ))}
       <Flash a={aMarque} duree={10} couleur={COULEURS.rouge} force={0.5} />
+
+      <Son nom="whooshCourt" a={0} volume={0.7} />
+      <Son nom="neon" a={aMarque - 2} />
+      <Son nom="impact" a={aMarque} volume={0.6} />
+      <Son nom="scintillement" a={aMarque + 24} />
+      {mots.map((a, i) => (
+        <Son key={i} nom="impact" a={a - 1} volume={0.65 + i * 0.12} />
+      ))}
       <Finition />
     </AbsoluteFill>
   );

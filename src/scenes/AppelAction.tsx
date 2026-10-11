@@ -4,6 +4,7 @@ import {Finition, Flash, RouteNeon, Trainees} from '../components/Effets';
 import {MotAnime} from '../components/KineticText';
 import {LogoComplet} from '../components/Logo';
 import {Media} from '../components/Media';
+import {Son} from '../components/Son';
 import {WhatsAppIcon} from '../components/WhatsAppIcon';
 import {reperesDe} from '../lib/scene';
 
@@ -163,6 +164,15 @@ export const AppelAction: React.FC = () => {
 
       <Flash a={aGroupes[0]} duree={6} force={0.25} />
       <Flash a={aLogo} duree={12} couleur={COULEURS.rouge} force={0.55} />
+
+      <Son nom="notif" a={aReservez - 6} />
+      <Son nom="whooshCourt" a={aGroupes[0] - 10} volume={0.6} />
+      {aGroupes.map((a) => (
+        <Son key={a} nom="bip" a={a} />
+      ))}
+      <Son nom="whoosh" a={aLogo - 14} />
+      <Son nom="boom" a={aLogo} />
+      <Son nom="scintillement" a={aLogo + 8} />
       <Finition />
     </AbsoluteFill>
   );

@@ -220,3 +220,55 @@ export const BandesCinema: React.FC<{hauteur?: number}> = ({hauteur = 130}) => {
     </AbsoluteFill>
   );
 };
+
+// Aberration chromatique : les couches rouge et bleue de l'image se décalent
+// (effet d'objectif poussé à fond), via un filtre SVG appliqué au contenu.
+export const Aberration: React.FC<{decalage: number; children: React.ReactNode}> = ({decalage, children}) => {
+  const d = Math.round(decalage * 10) / 10;
+  if (Math.abs(d) < 0.5) return <AbsoluteFill>{children}</AbsoluteFill>;
+  const id = `aberration-${String(d).replace('.', '_')}`;
+  return (
+    <AbsoluteFill>
+      <svg width={0} height={0} style={{position: 'absolute'}}>
+        <filter id={id} colorInterpolationFilters="sRGB">
+          <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="r" />
+          <feOffset in="r" dx={d} dy={0} result="r2" />
+          <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0" result="v" />
+          <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="b" />
+          <feOffset in="b" dx={-d} dy={0} result="b2" />
+          <feBlend in="r2" in2="v" mode="screen" result="rv" />
+          <feBlend in="rv" in2="b2" mode="screen" />
+        </filter>
+      </svg>
+      <AbsoluteFill style={{filter: `url(#${id})`}}>{children}</AbsoluteFill>
+    </AbsoluteFill>
+  );
+};
+
+// Fuite de lumière chaude (rouge / orangé) qui traverse l'image.
+export const FuiteLumiere: React.FC<{duree?: number; graine?: string}> = ({duree = 24, graine = 'fuite'}) => {
+  const frame = useCurrentFrame();
+  const {width, height} = useVideoConfig();
+  const p = frame / duree;
+  if (p < 0 || p > 1) return null;
+  const o = Math.sin(p * Math.PI);
+  const x = interpolate(p, [0, 1], [-0.3, 1.1]) * width;
+  const y = (0.2 + random(graine) * 0.5) * height;
+  return (
+    <AbsoluteFill style={{mixBlendMode: 'screen', opacity: o * 0.85, pointerEvents: 'none'}}>
+      <div
+        style={{
+          position: 'absolute',
+          left: x - 700,
+          top: y - 900,
+          width: 1400,
+          height: 1800,
+          borderRadius: '50%',
+          background: `radial-gradient(ellipse, rgba(255,150,60,0.9) 0%, ${COULEURS.rouge}aa 30%, transparent 65%)`,
+          filter: 'blur(40px)',
+          transform: `rotate(${-25 + random(`${graine}-a`) * 50}deg)`,
+        }}
+      />
+    </AbsoluteFill>
+  );
+};

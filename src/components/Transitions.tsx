@@ -4,6 +4,7 @@ import type {
   TransitionPresentationComponentProps,
 } from '@remotion/transitions';
 import {COULEURS} from '../config';
+import {Aberration} from './Effets';
 
 type SansProps = Record<string, never>;
 
@@ -26,7 +27,7 @@ const ZoomFlou: React.FC<TransitionPresentationComponentProps<SansProps>> = ({
         opacity: opacite,
       }}
     >
-      {children}
+      <Aberration decalage={Math.sin(p * Math.PI) * (sortante ? 16 : -16)}>{children}</Aberration>
     </AbsoluteFill>
   );
 };

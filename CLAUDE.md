@@ -16,6 +16,7 @@ npx remotion still JPVideo out/image.png --frame=300  # image fixe
 npm run typecheck           # vérification TypeScript
 npm run aligner             # recale les textes sur la voix off (voir plus bas)
 python3 scripts/logo-transparent.py   # régénère le logo détouré
+python3 scripts/generer-sfx.py        # régénère les effets sonores (public/sfx/)
 ```
 
 Si Remotion ne peut pas télécharger son navigateur (réseau filtré), utilise un
@@ -30,7 +31,8 @@ Chromium déjà installé : `REMOTION_CHROME=/chemin/headless_shell npx remotion
 - `src/scenes/` : `Intro`, `Probleme`, `Services`, `Professionnalisme`, `AppelAction`.
 - `src/components/` : `Media` (Ken Burns photo/vidéo + placeholder), `KineticText`,
   `Effets` (traînées de lumière, reflets, flashs, route néon, finition), `Transitions`
-  (zoom flouté, balayage diagonal), `ServiceCard`, `Logo`, `WhatsAppIcon`.
+  (zoom flouté avec aberration chromatique, balayage diagonal), `ServiceCard`, `Logo`,
+  `WhatsAppIcon`, `Son` (effet sonore à une image donnée).
 - `src/lib/timing.ts` : calcule les débuts de scènes et les repères à partir de
   `src/voix-timing.json`.
 - `src/lib/audio.ts` : baisse automatique de la musique pendant la voix.
@@ -52,6 +54,10 @@ trouvés : ajuste le découpage ou `SEUIL_DB` / `PAUSE_MIN_S`.
 
 - `logo.png` (fourni) et `logo-transparent.png` (généré).
 - `voiceoff.wav`, `musique.mp3` (optionnelle, baissée sous la voix).
+- `sfx/` : effets sonores **synthétisés** par `scripts/generer-sfx.py` (whoosh, impacts,
+  glitch, tic, pop, bip…), libres de droits. Déclarés dans `SONS` de `config.ts`,
+  placés dans les scènes avec `<Son nom="..." a={image} />`, niveau général
+  `AUDIO.volumeEffets`.
 - `images/` : photos réelles. Chaque plan est déclaré dans `PLANS` de `config.ts`
   (`cadrage` choisit la partie gardée au recadrage vertical).
   Un fichier absent affiche un placeholder propre : la vidéo se rend toujours.

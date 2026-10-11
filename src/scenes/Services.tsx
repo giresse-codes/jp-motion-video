@@ -3,6 +3,7 @@ import {COULEURS, SERVICES, type Plan} from '../config';
 import {Assombri, Finition, Trainees} from '../components/Effets';
 import {IconeAvion} from '../components/Icones';
 import {Media} from '../components/Media';
+import {Son} from '../components/Son';
 import {ServiceCard} from '../components/ServiceCard';
 import {BandeBalayage} from '../components/Transitions';
 import {reperesDe, type CleRepere} from '../lib/scene';
@@ -39,6 +40,8 @@ export const Services: React.FC = () => {
         // Les avantages se répartissent jusqu'à la fin du plan (ou le badge).
         const finAvantages = (rep.badge ? r(rep.badge) - d : duree - 30) - aAvantages;
         const ecart = Math.max(6, Math.min(22, Math.floor(finAvantages / service.avantages.length)));
+        const aCarte = Math.max(4, Math.min(12, aPrix - 14));
+        const aBadge = rep.badge ? r(rep.badge) - d : undefined;
         return (
           <Sequence key={service.id} from={d} durationInFrames={duree}>
             <PlansService plans={([] as Plan[]).concat(service.plan)} duree={duree} sens={i % 2 ? -1 : 1} />
@@ -49,17 +52,27 @@ export const Services: React.FC = () => {
               service={service}
               numero={i + 1}
               total={SERVICES.length}
-              aCarte={Math.max(4, Math.min(12, aPrix - 14))}
+              aCarte={aCarte}
               aPrix={aPrix}
               aAvantages={aAvantages}
               ecartAvantages={ecart}
-              aBadge={rep.badge ? r(rep.badge) - d : undefined}
+              aBadge={aBadge}
             />
+            <Son nom="whooshCourt" a={aCarte - 2} />
+            <Son nom="prix" a={aPrix + 19} />
+            {service.avantages.map((_, k) => (
+              <Son key={k} nom="pop" a={aAvantages + k * ecart} />
+            ))}
+            {aBadge !== undefined && <Son nom="impact" a={aBadge} volume={0.7} />}
+            {service.id === 'aeroport' && <Son nom="whoosh" a={0} volume={0.8} />}
           </Sequence>
         );
       })}
       {debuts.slice(1).map((c) => (
         <BandeBalayage key={c} coupe={c} />
+      ))}
+      {debuts.slice(1).map((c) => (
+        <Son key={c} nom="whoosh" a={c - 8} />
       ))}
       <Finition />
     </AbsoluteFill>

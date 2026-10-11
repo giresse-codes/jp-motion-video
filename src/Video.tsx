@@ -3,9 +3,11 @@ import {AbsoluteFill, Audio, Sequence} from 'remotion';
 import {linearTiming, TransitionSeries} from '@remotion/transitions';
 import {AUDIO, COULEURS, SCENES, TRANSITION_FRAMES} from './config';
 import {balayage, zoomFlou} from './components/Transitions';
+import {FuiteLumiere} from './components/Effets';
+import {Son} from './components/Son';
 import {fichierOuNull} from './lib/assets';
 import {volumeMusique} from './lib/audio';
-import {dureesScenes} from './lib/timing';
+import {coupesScenes, dureesScenes} from './lib/timing';
 import {COMPOSANTS_SCENES} from './scenes';
 
 // Transition qui mène à chaque scène (la première n'en a pas).
@@ -56,6 +58,14 @@ export const Video: React.FC = () => (
       })}
     </TransitionSeries>
     <PisteAudio />
+    {coupesScenes.slice(1).map((c) => (
+      <Fragment key={c}>
+        <Son nom="whoosh" a={c - 12} />
+        <Sequence from={c - 10} durationInFrames={28} layout="none">
+          <FuiteLumiere duree={28} graine={`coupe-${c}`} />
+        </Sequence>
+      </Fragment>
+    ))}
   </AbsoluteFill>
 );
 

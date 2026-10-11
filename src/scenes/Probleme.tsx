@@ -4,6 +4,7 @@ import {Assombri, Finition, Flash, Trainees} from '../components/Effets';
 import {IconeHorloge, IconeLieu} from '../components/Icones';
 import {MotAnime} from '../components/KineticText';
 import {Media} from '../components/Media';
+import {Son} from '../components/Son';
 import {reperesDe, secousse} from '../lib/scene';
 
 const r = reperesDe('probleme');
@@ -181,6 +182,19 @@ export const Probleme: React.FC = () => {
       <Flash a={coupes[1]} duree={5} force={0.45} />
       <Flash a={coupes[2]} duree={5} couleur={COULEURS.rouge} force={0.5} />
       <Flash a={coupes[3]} duree={12} force={0.9} />
+
+      {[aEmb, aRet, aCasse].map((a) => (
+        <Son key={a} nom="glitch" a={a - 1} />
+      ))}
+      {/* Tic-tac de l'horloge pendant « retards » */}
+      {new Array(Math.max(0, Math.floor((aCasse - aRet) / 8))).fill(0).map((_, i) => (
+        <Son key={i} nom="tic" a={aRet + i * 8} />
+      ))}
+      <Son nom="whooshCourt" a={coupes[1] - 4} volume={0.6} />
+      <Son nom="whooshCourt" a={coupes[2] - 4} volume={0.6} />
+      <Son nom="montee" a={coupes[3] - 33} />
+      <Son nom="impact" a={coupes[3]} volume={0.5} />
+      <Son nom="scintillement" a={coupes[3] + 2} />
       <Finition />
     </AbsoluteFill>
   );

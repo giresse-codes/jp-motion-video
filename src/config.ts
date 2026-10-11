@@ -53,11 +53,31 @@ export const AUDIO = {
   voix: 'voiceoff.wav',
   musique: 'musique.mp3',
   volumeVoix: 1,
+  // Niveau général des effets sonores (0 = coupés).
+  volumeEffets: 1,
   volumeMusique: 0.55,
   // Volume de la musique pendant que la voix parle.
   volumeMusiqueSousVoix: 0.13,
   // Durée des fondus de la musique autour de la voix (ms).
   fonduMs: 350,
+};
+
+// Effets sonores synthétisés par scripts/generer-sfx.py (public/sfx/).
+// `volume` est relatif ; AUDIO.volumeEffets règle le niveau général.
+export const SONS = {
+  whoosh: {fichier: 'sfx/whoosh.wav', volume: 0.55},
+  whooshCourt: {fichier: 'sfx/whoosh-court.wav', volume: 0.45},
+  impact: {fichier: 'sfx/impact.wav', volume: 0.7},
+  boom: {fichier: 'sfx/boom.wav', volume: 0.8},
+  montee: {fichier: 'sfx/montee.wav', volume: 0.45},
+  scintillement: {fichier: 'sfx/scintillement.wav', volume: 0.35},
+  glitch: {fichier: 'sfx/glitch.wav', volume: 0.4},
+  tic: {fichier: 'sfx/tic.wav', volume: 0.45},
+  neon: {fichier: 'sfx/neon.wav', volume: 0.4},
+  pop: {fichier: 'sfx/pop.wav', volume: 0.35},
+  prix: {fichier: 'sfx/prix.wav', volume: 0.4},
+  bip: {fichier: 'sfx/bip.wav', volume: 0.35},
+  notif: {fichier: 'sfx/notif.wav', volume: 0.5},
 };
 
 export const LOGO = 'logo.png';

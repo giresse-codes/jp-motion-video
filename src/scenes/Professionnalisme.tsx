@@ -3,6 +3,7 @@ import {COULEURS, PLANS, TEXTES, ZONE_SURE} from '../config';
 import {Assombri, BandesCinema, Finition, Flash, Halo, Reflet} from '../components/Effets';
 import {MotAnime} from '../components/KineticText';
 import {Media} from '../components/Media';
+import {Son} from '../components/Son';
 import {reperesDe} from '../lib/scene';
 
 const r = reperesDe('professionnalisme');
@@ -94,6 +95,13 @@ export const Professionnalisme: React.FC = () => {
 
       <BandesCinema />
       <Flash a={coupes[3]} duree={10} couleur="#FFE2C6" force={0.6} />
+
+      {coupes.slice(1, 4).map((c) => (
+        <Son key={c} nom="whooshCourt" a={c - 4} volume={0.5} />
+      ))}
+      <Son nom="scintillement" a={aPorte - 4} />
+      <Son nom="impact" a={aMerite + 9} volume={0.5} />
+      <Son nom="scintillement" a={aMerite + 24} volume={0.8} />
       <Finition />
     </AbsoluteFill>
   );
