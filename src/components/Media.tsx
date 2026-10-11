@@ -10,9 +10,10 @@ import type {Plan} from '../config';
 import {estVideo, fichierOuNull} from '../lib/assets';
 import {Placeholder} from './Placeholder';
 
-// Zoom appliqué aux vidéos dont le bas porte un filigrane : on ne montre
-// que les deux tiers supérieurs de l'image.
+// Vidéos dont le bas porte un filigrane : on zoome pour que le bas visible
+// de l'image s'arrête au-dessus du filigrane (fraction de la hauteur source).
 const ZOOM_MASQUE = 1.52;
+const BAS_VISIBLE = 0.665;
 
 type Props = {
   plan: Plan;
@@ -44,8 +45,11 @@ export const Media: React.FC<Props> = ({
   const base = (plan.zoom ?? 1.04) * (plan.masquerBas ? ZOOM_MASQUE : 1);
   const scale = base * (1 + amplitude * t);
   const x = interpolate(t, [0, 1], [-derive / 2, derive / 2]);
+  // Avec un zoom s et une origine oy, le bas visible vaut oy + (1 - oy) / s :
+  // on choisit oy pour qu'il reste sur BAS_VISIBLE pendant tout le zoom.
+  const origineMasque = Math.max(0, (BAS_VISIBLE - 1 / scale) / (1 - 1 / scale));
   const origine = plan.masquerBas
-    ? '50% 0%'
+    ? `${plan.cadrage?.x ?? 50}% ${origineMasque * 100}%`
     : `${plan.cadrage?.x ?? 50}% ${plan.cadrage?.y ?? 50}%`;
 
   if (!src) return <Placeholder libelle={plan.libelle} />;

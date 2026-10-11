@@ -80,13 +80,20 @@ export const PLANS = {
   embouteillage: {
     src: 'videos/douala-ville.mp4',
     libelle: 'DOUALA – CIRCULATION',
-    debutS: 3.2,
+    debutS: 21.2,
     masquerBas: true,
   },
   retards: {
     src: 'videos/douala-ville.mp4',
     libelle: 'DOUALA – NUIT',
-    debutS: 12.3,
+    debutS: 36.2,
+    masquerBas: true,
+    zoom: 1.3,
+  },
+  casseTete: {
+    src: 'videos/douala-ville.mp4',
+    libelle: 'DOUALA – CONDUITE DE NUIT',
+    debutS: 12.2,
     masquerBas: true,
   },
   sereinite: {
@@ -98,13 +105,13 @@ export const PLANS = {
   eco: {
     src: 'videos/douala-ville.mp4',
     libelle: 'VÉHICULE ÉCO',
-    debutS: 26.2,
+    debutS: 31.2,
     masquerBas: true,
   },
   confort: {
     src: 'videos/douala-ville.mp4',
     libelle: 'VÉHICULE CONFORT',
-    debutS: 29.4,
+    debutS: 33.8,
     masquerBas: true,
   },
   aeroport: {
@@ -112,10 +119,11 @@ export const PLANS = {
     libelle: 'AÉROPORT DE DOUALA',
   },
   voyage: {
-    src: 'videos/douala-aerien.mp4',
+    src: 'videos/douala-ville.mp4',
     libelle: 'ROUTE – VOYAGE',
-    debutS: 8.3,
-  },
+    debutS: 25.1,
+    masquerBas: true,
+},
   // Scène 4 : professionnalisme
   chauffeurPorte: {
     src: 'images/chauffeur-porte.jpg',
@@ -129,7 +137,7 @@ export const PLANS = {
   nuit: {
     src: 'videos/douala-ville.mp4',
     libelle: 'DOUALA – NUIT',
-    debutS: 34.2,
+    debutS: 27.3,
     masquerBas: true,
   },
 } satisfies Record<string, Plan>;
@@ -204,7 +212,9 @@ export const TEXTES = {
     mot1: 'Embouteillages',
     mot2: 'Retards',
     mot3: 'Casse-tête',
-    promesse: ['Voyagez', "l'esprit", 'tranquille'],
+    lieu: 'Douala',
+    question1: 'Et si vous voyagiez',
+    question2: "l'esprit tranquille ?",
   },
   professionnalisme: {
     ligne1: 'Chauffeurs professionnels',
