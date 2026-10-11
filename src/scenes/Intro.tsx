@@ -1,6 +1,6 @@
 import {AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 import {COULEURS, MARQUE, ZONE_SURE} from '../config';
-import {Finition, Flash, Reflet, RouteNeon, Trainees} from '../components/Effets';
+import {Finition, Flash, RouteNeon, Trainees} from '../components/Effets';
 import {MotAnime} from '../components/KineticText';
 import {Embleme} from '../components/Logo';
 import {reperesDe, secousse} from '../lib/scene';
@@ -85,7 +85,7 @@ export const Intro: React.FC = () => {
             <Embleme largeur={600} />
           </div>
           <div style={{textAlign: 'center', marginTop: 40, position: 'relative', overflow: 'hidden', padding: '0 20px'}}>
-            <MotAnime texte={MARQUE.nomLigne1} a={aMarque + 8} entree="lettres" taille={108} />
+            <MotAnime texte={MARQUE.nomLigne1} a={aMarque + 8} entree="lettres" taille={96} />
             <br />
             <MotAnime
               texte={MARQUE.nomLigne2}
@@ -95,7 +95,6 @@ export const Intro: React.FC = () => {
               couleur={COULEURS.rougeNeon}
               neon
             />
-            <Reflet debut={aMarque + 40} duree={20} />
           </div>
         </AbsoluteFill>
 

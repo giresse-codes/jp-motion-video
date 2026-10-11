@@ -37,9 +37,8 @@ export const MotAnime: React.FC<Props> = ({
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const f = frame - a;
-  if (f < 0) return null;
 
-  const ressort = spring({frame: f, fps, config: {damping: 14, stiffness: 180, mass: 0.7}});
+  const ressort = spring({frame: Math.max(0, f), fps, config: {damping: 14, stiffness: 180, mass: 0.7}});
   const opaciteSortie =
     sortie === undefined
       ? 1
@@ -47,7 +46,7 @@ export const MotAnime: React.FC<Props> = ({
           extrapolateLeft: 'clamp',
           extrapolateRight: 'clamp',
         });
-  const flou = interpolate(f, [0, 6], [18, 0], {extrapolateRight: 'clamp'});
+  const flou = f < 0 ? 0 : interpolate(f, [0, 6], [18, 0], {extrapolateRight: 'clamp'});
 
   let transform = '';
   if (entree === 'choc') {
@@ -67,7 +66,8 @@ export const MotAnime: React.FC<Props> = ({
     color: couleur,
     letterSpacing: -1,
     textShadow: neon ? lueur(couleur === COULEURS.blanc ? COULEURS.rouge : couleur) : '0 6px 30px rgba(0,0,0,0.6)',
-    opacity: Math.min(1, f / 3) * opaciteSortie,
+    // Avant son entrée, le mot est invisible mais garde sa place (pas de saut de mise en page).
+    opacity: Math.max(0, Math.min(1, f / 3)) * opaciteSortie,
     filter: flou > 0.5 ? `blur(${flou}px)` : undefined,
     transform,
     display: 'inline-block',

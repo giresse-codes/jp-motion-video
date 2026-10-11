@@ -140,6 +140,19 @@ export const PLANS = {
     src: 'images/chauffeur-porte.jpg',
     libelle: 'CHAUFFEUR QUI OUVRE LA PORTE',
   },
+  chauffeur: {
+    src: 'images/chauffeur-porte.jpg',
+    libelle: 'CHAUFFEUR PROFESSIONNEL',
+    cadrage: {x: 50, y: 35},
+    zoom: 1.25,
+  },
+  vehiculePremium: {
+    src: 'videos/douala-ville.mp4',
+    libelle: 'VÉHICULE PREMIUM',
+    debutS: 33.4,
+    vitesse: 0.45,
+    masquerBas: true,
+  },
   interieur: {
     src: 'images/interieur.jpg',
     libelle: 'INTÉRIEUR DU VÉHICULE',
@@ -231,7 +244,9 @@ export const TEXTES = {
   professionnalisme: {
     ligne1: 'Chauffeurs professionnels',
     ligne2: 'Attentifs à chaque détail',
-    ligne3: 'Traité comme vous le méritez',
+    porte: 'Votre porte, ouverte pour vous',
+    final1: 'Traité comme',
+    final2: 'vous le méritez',
   },
 };
 

@@ -169,3 +169,54 @@ export const RouteNeon: React.FC<{opacite?: number; vitesse?: number; horizon?: 
     </AbsoluteFill>
   );
 };
+
+// Halo lumineux façon reflet d'objectif, qui traverse l'écran.
+export const Halo: React.FC<{debut: number; duree?: number}> = ({debut, duree = 40}) => {
+  const frame = useCurrentFrame();
+  const {width} = useVideoConfig();
+  const p = interpolate(frame, [debut, debut + duree], [0, 1], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+  });
+  if (p <= 0 || p >= 1) return null;
+  const x = interpolate(p, [0, 1], [-0.2, 1.2]) * width;
+  const o = Math.sin(p * Math.PI);
+  return (
+    <AbsoluteFill style={{mixBlendMode: 'screen', pointerEvents: 'none', opacity: o}}>
+      <div
+        style={{
+          position: 'absolute',
+          left: x - 450,
+          top: 520,
+          width: 900,
+          height: 900,
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(255,240,220,0.9) 0%, rgba(255,90,40,0.35) 25%, transparent 60%)',
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          top: 965,
+          height: 6,
+          background: `linear-gradient(90deg, transparent, rgba(255,220,200,0.8) ${(x / width) * 100}%, transparent)`,
+          filter: 'blur(2px)',
+        }}
+      />
+    </AbsoluteFill>
+  );
+};
+
+// Bandes noires cinéma qui entrent en haut et en bas.
+export const BandesCinema: React.FC<{hauteur?: number}> = ({hauteur = 130}) => {
+  const frame = useCurrentFrame();
+  const h = interpolate(frame, [0, 14], [0, hauteur], {extrapolateRight: 'clamp'});
+  return (
+    <AbsoluteFill style={{pointerEvents: 'none'}}>
+      <div style={{position: 'absolute', top: 0, left: 0, right: 0, height: h, background: 'black'}} />
+      <div style={{position: 'absolute', bottom: 0, left: 0, right: 0, height: h, background: 'black'}} />
+    </AbsoluteFill>
+  );
+};
