@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>JP Service — chauffeur privé</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/gsap.min.js"></script>
+    <script src="js/voix-timing.js"></script>
+    <script src="js/reperes.js"></script>
+    <script src="js/commun.js"></script>
+    <script src="js/scene1.js"></script>
+    <script src="js/scene2.js"></script>
+    <script src="js/scene3.js"></script>
+  </head>
+  <body>
+    <div
+      id="racine"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="42.62"
+      data-fps="30"
+      data-width="1080"
+      data-height="1920"
+    >
+      <!-- ═══ Fond crème vivant (tout le film) ═══ -->
+      <section id="fond" class="clip" data-start="0" data-duration="42.62" data-track-index="0">
+        <div class="fond-creme"></div>
+        <div class="vignette" id="vignette"></div>
+        <svg class="grain" width="1080" height="1920">
+          <filter id="bruit"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" /></filter>
+          <rect width="100%" height="100%" filter="url(#bruit)" />
+        </svg>
+      </section>
+
+      <!-- ═══ Scène 1 : le besoin ═══ -->
+      <section id="s1" class="clip" data-start="0" data-duration="8.15" data-track-index="1">
+        <div id="s1-scene" class="clip">
+          <div id="s1-carte" class="objet carte-ui carte-douala">
+            <div class="carte-entete">DOUALA · 18:00</div>
+            <div class="puce-trafic">TRAFIC DENSE</div>
+          </div>
+          <div id="s1-billet" class="objet carte-ui billet">
+            <div class="billet-corps">
+              <div class="billet-titre">CARTE D'EMBARQUEMENT</div>
+              <div class="billet-trajet">
+                DLA
+                <svg viewBox="0 0 24 24"><path fill="#1d1d1f" d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z" transform="rotate(90 12 12)" /></svg>
+                CDG
+              </div>
+              <div class="billet-villes"><span>Douala</span><span>Paris</span></div>
+              <div class="billet-infos">
+                <div class="billet-info depart"><b>DÉPART</b><span>20:00</span></div>
+                <div class="billet-info"><b>PORTE</b><span>B2</span></div>
+                <div class="billet-info"><b>SIÈGE</b><span>14A</span></div>
+              </div>
+            </div>
+            <div class="billet-talon">
+              <div class="talon-texte">EMB.<br />19:30</div>
+              <div class="code-barres"></div>
+            </div>
+          </div>
+          <div id="s1-valise" class="objet valise"></div>
+          <div id="s1-valise2" class="objet valise" style="left: 600px; top: 760px"></div>
+          <div id="s1-valise3" class="objet valise" style="left: 790px; top: 790px"></div>
+          <div id="s1-taxi1" class="objet taxi" style="left: 0"></div>
+          <div id="s1-taxi2" class="objet taxi" style="left: 0; top: 930px"></div>
+        </div>
+        <div id="s1-rebours" class="objet carte-ui rebours"><small>DÉPART DANS</small><span id="s1-rebours-txt">2 h 00</span></div>
+        <div id="s1-regle"></div>
+        <div class="tete-lecture"></div>
+        <div class="heure-courante" id="s1-heure">18:00</div>
+        <div class="heure-sous">AUJOURD'HUI</div>
+        <div id="s1-sous-titres"></div>
+      </section>
+
+      <!-- ═══ Scène 2 : la bascule ═══ -->
+      <section id="s2" class="clip" data-start="8.15" data-duration="8" data-track-index="2">
+        <div id="s2-phrases" class="clip"></div>
+        <div id="s2-noir" class="noir"></div>
+        <div id="s2-lueur" class="lueur"></div>
+        <div id="s2-phrases-noir" class="clip"></div>
+      </section>
+
+      <!-- ═══ Scène 3 : la solution ═══ -->
+      <section id="s3" class="clip" data-start="15.85" data-duration="14.05" data-track-index="3">
+        <div id="s3-telephone" class="objet telephone">
+          <div class="ecran">
+            <div class="ecran-motif"></div>
+            <div class="wa-entete">
+              <div class="wa-avatar"><img src="assets/logo.png" alt="" /></div>
+              <div>
+                <div class="wa-nom">JP Service Express</div>
+                <div class="wa-statut" style="position: relative">
+                  <span id="s3-statut-ligne">en ligne</span>
+                  <span id="s3-statut-ecrit" style="position: absolute; left: 0; opacity: 0; white-space: nowrap">en train d'écrire…</span>
+                </div>
+              </div>
+            </div>
+            <div id="s3-envoyee" class="bulle bulle-envoyee" style="top: 190px">
+              Bonjour, un chauffeur à 18h15, Bonapriso → aéroport, avec 2 valises.
+              <span class="heure">18:03 <span class="coches">✓✓</span></span>
+            </div>
+            <div id="s3-recue" class="bulle bulle-recue" style="top: 430px">
+              Confirmé <span class="coche-verte" style="display: inline-block"><svg viewBox="0 0 24 24" width="30" height="30" style="vertical-align: -6px"><rect width="24" height="24" rx="5" fill="#2fb24c" /><path d="M6 12.5l4 4 8-9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span><br />Votre chauffeur arrive à <b>18h10</b>.
+              <span class="heure">18:03</span>
+            </div>
+            <div class="wa-saisie">
+              <div class="wa-champ" id="s3-champ"><span class="vide">Message</span></div>
+              <div class="wa-envoyer" id="s3-envoyer">
+                <svg viewBox="0 0 24 24" width="36" height="36"><path d="M3 20.5l18-8.5L3 3.5 3 10l12 2-12 2z" fill="#fff" /></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="s3-pointeur" class="pointeur"></div>
+        <div id="s3-sous-titres"></div>
+      </section>
+
+      <!-- ═══ Piste audio : mix complet (scripts/mixer.py) ═══ -->
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="42.62" data-track-index="10" data-volume="1"></audio>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const R = window.REPERES;
+      window.SCENE1(tl, R);
+      window.SCENE2(tl, R);
+      window.SCENE3(tl, R);
+      // Fond vivant : le vignettage respire lentement.
+      tl.fromTo("#vignette", { scale: 1 }, { scale: 1.06, duration: 6, ease: "sine.inOut", yoyo: true, repeat: 6 }, 0);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

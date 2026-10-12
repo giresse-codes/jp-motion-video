@@ -1,0 +1,2 @@
+// Généré par scripts/mixer.py — ne pas modifier à la main.
+window.REPERES = {"billet": 1.773, "valise": 2.761, "carte": 3.628, "taxis": 4.976, "bagages": 6.289, "tourne": 7.817, "coupure": 8.146, "soyons": 8.696, "attendre": 11.295, "noir": 12.91, "solution": 15.949, "frappe": 15.999, "envoi": 17.44, "reponse": 18.64, "confirme": 19.301, "trajet": 20.059, "arrivee": 22.048, "cartes": [22.591, 24.101, 25.526, 27.286], "fin": 29.514, "slogan": 31.37, "rapide": 35.052, "sur": 36.192, "confortable": 37.068, "bouton": 38.424, "numero": 38.774, "duree": 42.62};
