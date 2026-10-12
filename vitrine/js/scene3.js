@@ -98,8 +98,19 @@
     tl.fromTo("#s3-etiquette-3", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power3.out" }, T.aeroport - 0.2);
     // Roulage le long de la piste puis rotation et montée (z) avec ombre qui s'éloigne.
     const avion = ville.avion;
+    // Ombre au sol qui reste sur la piste et s'estompe, traînée blanche derrière l'avion.
+    const { el } = window.VILLE;
+    const sol = document.getElementById("sol");
+    const ombreAvion = el("div", "ombre-avion", { left: "2300px", top: "2612px" });
+    const trainee = el("div", "trainee-avion", { left: "2300px", top: "2610px" });
+    sol.insertBefore(ombreAvion, avion);
+    sol.insertBefore(trainee, avion);
     tl.fromTo(avion, { x: 0, z: 0, scale: 1 }, { x: 330, duration: 1.0, ease: "power2.in" }, T.aeroport);
-    tl.to(avion, { x: 760, z: 300, scale: 1.25, duration: 1.4, ease: "power1.in" }, T.aeroport + 1.0);
+    tl.fromTo(ombreAvion, { x: 0, opacity: 0.6, scale: 1 }, { x: 330, duration: 1.0, ease: "power2.in" }, T.aeroport);
+    tl.to(avion, { x: 820, z: 560, scale: 1.7, duration: 1.4, ease: "power1.in" }, T.aeroport + 1.0);
+    tl.to(ombreAvion, { x: 980, y: -60, opacity: 0, scale: 0.6, duration: 1.4, ease: "power1.in" }, T.aeroport + 1.0);
+    tl.fromTo(trainee, { scaleX: 0, opacity: 0.9 }, { scaleX: 1, duration: 1.4, ease: "power1.in" }, T.aeroport + 1.0);
+    tl.to(trainee, { opacity: 0, duration: 1.0 }, T.aeroport + 2.2);
     tl.fromTo("#s3-flash", { opacity: 0.12 }, { opacity: 0, duration: 0.3, immediateRender: false }, T.aeroport + 1.0);
     deplier("#carte-aeroport", T.aeroport + 0.1);
     compteur("#carte-aeroport .compteur", 8000, T.aeroportPrix, 0.7);
