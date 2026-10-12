@@ -2,26 +2,27 @@
 
 ## Concept
 
-« Douala s'allume. » Une ville isométrique anthracite que les véhicules JP Service traversent
-en traçant des lignes néon rouges — la route du logo devient le fil conducteur de toute la vidéo :
-là où passe JP, la ville se remet en mouvement.
+« Douala s'anime. » Une ville isométrique lumineuse, baignée d'une lumière chaude de fin de journée,
+où tout bouge en permanence (voitures, piétons, pirogues, oiseaux, nuages). Les véhicules JP
+Service, rouges, la traversent : le rouge est la signature, jamais le décor.
 
-## Couleurs (strictes)
+## Couleurs
 
 | Rôle                | Valeur    | Usage                                                          |
 | ------------------- | --------- | -------------------------------------------------------------- |
-| Nuit (fond)         | `#0B0C0F` | fond général, ciel haut                                        |
-| Anthracite          | `#16181D` | sol, routes                                                    |
-| Béton               | `#23262D` | faces d'immeubles à l'ombre                                    |
-| Acier               | `#343842` | faces d'immeubles éclairées                                    |
-| Toit                | `#454A55` | toits                                                          |
-| Rouge marque        | `#E10600` | véhicules JP, accents pleins, badges                           |
-| Rouge néon          | `#FF2D1F` | lueurs, traînées lumineuses, chiffres clés                     |
-| Blanc chaud         | `#F5F2F0` | textes, marquages au sol, fenêtres allumées                    |
-| Braise (rare)       | `#FF8A4C` | lumière de fin de journée sur l'horizon et les arêtes, à doser |
+| Crème (fond)        | `#F7F1E8` | fonds, voiles derrière les textes, cartes                      |
+| Encre               | `#1B2333` | textes sur fond clair                                          |
+| Bleu nuit           | `#0E1B2E` | ciel haut, nuit (scène 5), voile de la scène 4                 |
+| Jaune doré          | `#F6C445` | mots forts, lumière, traînées, taxis                           |
+| Orange              | `#F2994A` | alertes, badges, lumière rasante                               |
+| Turquoise           | `#2BB5A8` | Wouri, puces, trajets, accents secondaires                     |
+| Rouge marque        | `#E10600` | logo, véhicule JP, prix, bouton WhatsApp (accent seulement)    |
+| Rouge néon          | `#FF2D1F` | halo du véhicule JP, numéro final                              |
+| Blanc chaud         | `#F5F2F0` | marquages, fenêtres, textes sur fond sombre                    |
 
-Un seul accent : le rouge. Les neutres sont légèrement teintés vers le chaud. Pas de dégradé
-linéaire plein écran sur fond sombre (banding H.264) : lueurs radiales uniquement.
+Le rouge n'apparaît que sur un élément fort par scène. Couleur dominante variée par scène :
+doré (accroche), orange (problème), turquoise/crème (services), bleu nuit (chauffeurs),
+nuit étoilée dorée (appel). Dégradés doux radiaux uniquement (pas de banding H.264).
 
 ## Typographie
 
@@ -36,8 +37,8 @@ linéaire plein écran sur fond sombre (banding H.264) : lueurs radiales uniquem
 
 - Isométrique flat premium : toits clairs, face sud éclairée (lumière chaude venant de la gauche),
   face est dans l'ombre, ombres portées douces au sol.
-- Néon rouge : arêtes de boulevards, traînées derrière les véhicules JP, halo sous les véhicules.
-- La nuit (scène 5) : fenêtres blanc chaud et rouges, lampadaires, pont illuminé.
+- Liseré doré sur les boulevards, traînée dorée derrière le véhicule JP, halo rouge sous lui.
+- La nuit (scène 5) : fenêtres blanc chaud et dorées, lampadaires, pont illuminé, lucioles.
 
 ## Mouvement
 

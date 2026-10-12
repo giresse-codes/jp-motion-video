@@ -65,12 +65,9 @@
     ville.palmiers.forEach((p) => {
       tl.fromTo(p.el, { "--p": 0 }, { "--p": 1, duration: 0.5, ease: "back.out(2)" }, 1.1 + (dist(p.x, p.y) / 1800) * 0.8);
     });
-    // Le trafic apparaît puis roule doucement.
+    // Le trafic apparaît (il roule ensuite tout le film : js/ambiance.js).
     ville.vehicules.trafic.forEach((v, i) => {
       tl.fromTo(v.el, { opacity: 0 }, { opacity: 1, duration: 0.3 }, 1.6 + (i % 10) * 0.03);
-      const course = 60 + (i % 5) * 18;
-      const prop = v.axe === "x" ? "x" : "y";
-      tl.fromTo(v.el, { [prop]: 0 }, { [prop]: v.sens * course, duration: 4, ease: "none" }, 1.6);
     });
     tl.fromTo(ville.vehicules.heros, { opacity: 0 }, { opacity: 1, duration: 0.3 }, 1.6);
 

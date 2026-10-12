@@ -46,11 +46,16 @@ Scénario validé (storyboard présenté en conversation) :
 
 ## Customizations
 
-- Direction artistique entièrement rouge : rouge néon #E10600 / #FF2D1F + noir/anthracite profond + blanc,
-  lueurs néon rouges (remplace la palette bleu nuit / jaune initiale, à la demande de l'utilisateur).
+- Direction artistique lumineuse (refonte demandée par l'utilisateur, la version tout rouge était trop
+  rouge) : fond blanc cassé / crème, bleu nuit profond pour la nuit, jaune doré, orange, turquoise,
+  dégradés doux, lumière chaude de fin de journée. Le rouge #E10600 / #FF2D1F reste un accent : logo,
+  véhicule JP, prix, bouton WhatsApp, un élément fort par scène. Voir frame.md.
+- Vie permanente (js/ambiance.js) : circulation continue, piétons, ombres de nuages, reflets du Wouri,
+  pirogues, vols d'oiseaux, poussières dorées (lucioles la nuit).
 - Repères reconnaissables de Douala : pont sur le Wouri, Akwa, Bonanjo, aéroport.
-- Effets sonores synthétisés (ffmpeg / Python) : whoosh caméra, pop cartes, clics, impact logo,
-  riser avant l'appel à l'action, ding WhatsApp — discrets et propres.
+- Effets sonores synthétisés et doux (scripts/sfx-doux.py, accordés en fa majeur) : souffles d'air,
+  marimba, carillon sur les prix, nappe avant l'appel à l'action, cloche WhatsApp, accord du logo.
+  Aucun son agressif (impacts, glitch, klaxons retirés à la demande de l'utilisateur).
 - Chaque animation clé calée sur les mots de la voix.
 
 ## Notes

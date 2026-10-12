@@ -599,3 +599,53 @@ body {
     0 0 0 7px rgba(244, 185, 66, calc(0.35 + 0.5 * var(--nuitee))),
     0 0 calc(30px * var(--nuitee)) calc(10px * var(--nuitee)) rgba(244, 185, 66, calc(0.5 * var(--nuitee)));
 }
+
+/* ── Ambiance (js/ambiance.js) ── */
+.pieton {
+  position: absolute;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+}
+.pieton svg {
+  position: absolute;
+  left: -4px;
+  bottom: 0;
+  transform-origin: 50% 100%;
+  transform: rotateZ(-45deg) rotateX(-90deg) translateY(calc(var(--pas, 0) * -0.6px));
+  overflow: visible;
+}
+.pieton .jambes {
+  transform-origin: 5px 15px;
+  transform: scaleX(var(--pas, 1));
+}
+.ombre-nuage {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(14, 27, 46, 0.16), rgba(14, 27, 46, 0.08) 60%, transparent);
+  pointer-events: none;
+  z-index: 3;
+}
+.ambiance-ecran {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.poussiere {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff1c9;
+  box-shadow: 0 0 8px 2px rgba(255, 214, 130, 0.55);
+}
+.vol-oiseaux {
+  position: absolute;
+  width: 120px;
+  height: 60px;
+}
+.oiseau {
+  position: absolute;
+}
+.oiseau svg {
+  display: block;
+}

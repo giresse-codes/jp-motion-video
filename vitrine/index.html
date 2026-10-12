@@ -10,6 +10,7 @@
     <script src="js/temps.js"></script>
     <script src="js/ville.js"></script>
     <script src="js/camera.js"></script>
+    <script src="js/ambiance.js"></script>
     <link rel="stylesheet" href="css/ville.css" />
     <link rel="stylesheet" href="css/scenes.css" />
     <style>
@@ -233,78 +234,57 @@
       <audio id="voix-chauffeurs" src="assets/voiceoff.mp3" data-start="30" data-media-start="23.91" data-duration="3.68" data-track-index="10" data-volume="1"></audio>
       <audio id="voix-appel" src="assets/voiceoff.mp3" data-start="35.3" data-media-start="27.59" data-duration="9.21" data-track-index="10" data-volume="1"></audio>
       <!-- SFX:DEBUT (généré par scripts/placer-sfx.py — ne pas modifier à la main) -->
-      <audio id="sfx-00-whoosh" src="assets/sfx/whoosh.wav" data-start="0.15" data-duration="0.70" data-track-index="11" data-volume="0.5"></audio>
-      <audio id="sfx-01-neon" src="assets/sfx/neon.wav" data-start="1.47" data-duration="0.55" data-track-index="11" data-volume="0.35"></audio>
-      <audio id="sfx-02-boom" src="assets/sfx/boom.wav" data-start="1.80" data-duration="3.40" data-track-index="12" data-volume="0.55"></audio>
-      <audio id="sfx-03-impact" src="assets/sfx/impact.wav" data-start="2.83" data-duration="1.00" data-track-index="11" data-volume="0.4"></audio>
-      <audio id="sfx-04-whoosh-court" src="assets/sfx/whoosh-court.wav" data-start="3.36" data-duration="0.40" data-track-index="13" data-volume="0.4"></audio>
-      <audio id="sfx-05-impact" src="assets/sfx/impact.wav" data-start="3.98" data-duration="1.00" data-track-index="11" data-volume="0.45"></audio>
-      <audio id="sfx-06-whoosh" src="assets/sfx/whoosh.wav" data-start="4.92" data-duration="0.70" data-track-index="13" data-volume="0.45"></audio>
-      <audio id="sfx-07-glitch" src="assets/sfx/glitch.wav" data-start="6.27" data-duration="0.32" data-track-index="11" data-volume="0.35"></audio>
-      <audio id="sfx-08-klaxon" src="assets/sfx/klaxon.wav" data-start="6.37" data-duration="0.42" data-track-index="12" data-volume="0.3"></audio>
-      <audio id="sfx-09-glitch" src="assets/sfx/glitch.wav" data-start="7.16" data-duration="0.32" data-track-index="11" data-volume="0.35"></audio>
-      <audio id="sfx-10-tic" src="assets/sfx/tic.wav" data-start="7.21" data-duration="0.06" data-track-index="12" data-volume="0.3"></audio>
-      <audio id="sfx-11-klaxon" src="assets/sfx/klaxon.wav" data-start="7.36" data-duration="0.42" data-track-index="12" data-volume="0.25"></audio>
-      <audio id="sfx-12-tic" src="assets/sfx/tic.wav" data-start="7.71" data-duration="0.06" data-track-index="11" data-volume="0.3"></audio>
-      <audio id="sfx-13-klaxon" src="assets/sfx/klaxon.wav" data-start="7.96" data-duration="0.42" data-track-index="11" data-volume="0.2"></audio>
-      <audio id="sfx-14-tic" src="assets/sfx/tic.wav" data-start="8.21" data-duration="0.06" data-track-index="12" data-volume="0.3"></audio>
-      <audio id="sfx-15-tic" src="assets/sfx/tic.wav" data-start="8.71" data-duration="0.06" data-track-index="11" data-volume="0.3"></audio>
-      <audio id="sfx-16-whoosh-court" src="assets/sfx/whoosh-court.wav" data-start="9.32" data-duration="0.40" data-track-index="11" data-volume="0.45"></audio>
-      <audio id="sfx-17-bip" src="assets/sfx/bip.wav" data-start="10.25" data-duration="0.11" data-track-index="11" data-volume="0.35"></audio>
-      <audio id="sfx-18-whoosh" src="assets/sfx/whoosh.wav" data-start="10.45" data-duration="0.70" data-track-index="11" data-volume="0.4"></audio>
-      <audio id="sfx-19-whoosh" src="assets/sfx/whoosh.wav" data-start="11.00" data-duration="0.70" data-track-index="12" data-volume="0.35"></audio>
-      <audio id="sfx-20-pop" src="assets/sfx/pop.wav" data-start="11.85" data-duration="0.12" data-track-index="11" data-volume="0.4"></audio>
-      <audio id="sfx-21-prix" src="assets/sfx/prix.wav" data-start="13.21" data-duration="0.80" data-track-index="11" data-volume="0.35"></audio>
-      <audio id="sfx-22-whoosh" src="assets/sfx/whoosh.wav" data-start="13.78" data-duration="0.70" data-track-index="12" data-volume="0.35"></audio>
-      <audio id="sfx-23-scintillement" src="assets/sfx/scintillement.wav" data-start="14.18" data-duration="1.40" data-track-index="11" data-volume="0.25"></audio>
-      <audio id="sfx-24-pop" src="assets/sfx/pop.wav" data-start="14.53" data-duration="0.12" data-track-index="12" data-volume="0.4"></audio>
-      <audio id="sfx-25-prix" src="assets/sfx/prix.wav" data-start="15.75" data-duration="0.80" data-track-index="11" data-volume="0.35"></audio>
-      <audio id="sfx-26-pop" src="assets/sfx/pop.wav" data-start="16.26" data-duration="0.12" data-track-index="12" data-volume="0.4"></audio>
-      <audio id="sfx-27-pop" src="assets/sfx/pop.wav" data-start="16.56" data-duration="0.12" data-track-index="12" data-volume="0.4"></audio>
-      <audio id="sfx-28-bip" src="assets/sfx/bip.wav" data-start="17.39" data-duration="0.11" data-track-index="11" data-volume="0.35"></audio>
-      <audio id="sfx-29-whoosh" src="assets/sfx/whoosh.wav" data-start="19.23" data-duration="0.70" data-track-index="11" data-volume="0.35"></audio>
-      <audio id="sfx-30-pop" src="assets/sfx/pop.wav" data-start="20.03" data-duration="0.12" data-track-index="11" data-volume="0.4"></audio>
-      <audio id="sfx-31-decollage" src="assets/sfx/decollage.wav" data-start="20.53" data-duration="2.40" data-track-index="11" data-volume="0.45"></audio>
-      <audio id="sfx-32-prix" src="assets/sfx/prix.wav" data-start="21.30" data-duration="0.80" data-track-index="12" data-volume="0.35"></audio>
-      <audio id="sfx-33-whoosh" src="assets/sfx/whoosh.wav" data-start="21.70" data-duration="0.70" data-track-index="13" data-volume="0.45"></audio>
-      <audio id="sfx-34-pop" src="assets/sfx/pop.wav" data-start="24.09" data-duration="0.12" data-track-index="11" data-volume="0.4"></audio>
-      <audio id="sfx-35-whoosh-court" src="assets/sfx/whoosh-court.wav" data-start="24.19" data-duration="0.40" data-track-index="12" data-volume="0.3"></audio>
-      <audio id="sfx-36-whoosh-court" src="assets/sfx/whoosh-court.wav" data-start="24.89" data-duration="0.40" data-track-index="11" data-volume="0.3"></audio>
-      <audio id="sfx-37-whoosh-court" src="assets/sfx/whoosh-court.wav" data-start="25.59" data-duration="0.40" data-track-index="11" data-volume="0.3"></audio>
-      <audio id="sfx-38-prix" src="assets/sfx/prix.wav" data-start="25.86" data-duration="0.80" data-track-index="12" data-volume="0.35"></audio>
-      <audio id="sfx-39-impact" src="assets/sfx/impact.wav" data-start="26.42" data-duration="1.00" data-track-index="11" data-volume="0.3"></audio>
-      <audio id="sfx-40-whoosh" src="assets/sfx/whoosh.wav" data-start="29.20" data-duration="0.70" data-track-index="11" data-volume="0.4"></audio>
-      <audio id="sfx-41-whoosh" src="assets/sfx/whoosh.wav" data-start="30.20" data-duration="0.70" data-track-index="11" data-volume="0.35"></audio>
-      <audio id="sfx-42-impact" src="assets/sfx/impact.wav" data-start="30.80" data-duration="1.00" data-track-index="12" data-volume="0.4"></audio>
-      <audio id="sfx-43-clic" src="assets/sfx/clic.wav" data-start="31.33" data-duration="0.05" data-track-index="11" data-volume="0.5"></audio>
-      <audio id="sfx-44-pop" src="assets/sfx/pop.wav" data-start="31.48" data-duration="0.12" data-track-index="11" data-volume="0.4"></audio>
-      <audio id="sfx-45-pop" src="assets/sfx/pop.wav" data-start="32.07" data-duration="0.12" data-track-index="11" data-volume="0.4"></audio>
-      <audio id="sfx-46-pop" src="assets/sfx/pop.wav" data-start="33.10" data-duration="0.12" data-track-index="11" data-volume="0.4"></audio>
-      <audio id="sfx-47-whoosh" src="assets/sfx/whoosh.wav" data-start="33.70" data-duration="0.70" data-track-index="11" data-volume="0.4"></audio>
-      <audio id="sfx-48-scintillement" src="assets/sfx/scintillement.wav" data-start="34.05" data-duration="1.40" data-track-index="12" data-volume="0.25"></audio>
-      <audio id="sfx-49-montee" src="assets/sfx/montee.wav" data-start="34.39" data-duration="1.10" data-track-index="13" data-volume="0.4"></audio>
-      <audio id="sfx-50-pop" src="assets/sfx/pop.wav" data-start="35.24" data-duration="0.12" data-track-index="11" data-volume="0.35"></audio>
-      <audio id="sfx-51-pop" src="assets/sfx/pop.wav" data-start="36.29" data-duration="0.12" data-track-index="11" data-volume="0.3"></audio>
-      <audio id="sfx-52-clic" src="assets/sfx/clic.wav" data-start="36.39" data-duration="0.05" data-track-index="12" data-volume="0.35"></audio>
-      <audio id="sfx-53-clic" src="assets/sfx/clic.wav" data-start="36.64" data-duration="0.05" data-track-index="11" data-volume="0.35"></audio>
-      <audio id="sfx-54-clic" src="assets/sfx/clic.wav" data-start="36.88" data-duration="0.05" data-track-index="11" data-volume="0.35"></audio>
-      <audio id="sfx-55-clic" src="assets/sfx/clic.wav" data-start="37.12" data-duration="0.05" data-track-index="11" data-volume="0.35"></audio>
-      <audio id="sfx-56-clic" src="assets/sfx/clic.wav" data-start="37.36" data-duration="0.05" data-track-index="11" data-volume="0.35"></audio>
-      <audio id="sfx-57-clic" src="assets/sfx/clic.wav" data-start="37.60" data-duration="0.05" data-track-index="11" data-volume="0.35"></audio>
-      <audio id="sfx-58-clic" src="assets/sfx/clic.wav" data-start="37.84" data-duration="0.05" data-track-index="11" data-volume="0.35"></audio>
-      <audio id="sfx-59-clic" src="assets/sfx/clic.wav" data-start="38.08" data-duration="0.05" data-track-index="11" data-volume="0.35"></audio>
-      <audio id="sfx-60-clic" src="assets/sfx/clic.wav" data-start="38.32" data-duration="0.05" data-track-index="11" data-volume="0.35"></audio>
-      <audio id="sfx-61-clic" src="assets/sfx/clic.wav" data-start="38.56" data-duration="0.05" data-track-index="11" data-volume="0.35"></audio>
-      <audio id="sfx-62-clic" src="assets/sfx/clic.wav" data-start="38.80" data-duration="0.05" data-track-index="11" data-volume="0.35"></audio>
-      <audio id="sfx-63-clic" src="assets/sfx/clic.wav" data-start="39.04" data-duration="0.05" data-track-index="11" data-volume="0.35"></audio>
-      <audio id="sfx-64-clic" src="assets/sfx/clic.wav" data-start="39.29" data-duration="0.05" data-track-index="11" data-volume="0.35"></audio>
-      <audio id="sfx-65-clic" src="assets/sfx/clic.wav" data-start="39.53" data-duration="0.05" data-track-index="11" data-volume="0.35"></audio>
-      <audio id="sfx-66-whoosh" src="assets/sfx/whoosh.wav" data-start="39.82" data-duration="0.70" data-track-index="11" data-volume="0.4"></audio>
-      <audio id="sfx-67-notif" src="assets/sfx/notif.wav" data-start="39.92" data-duration="0.61" data-track-index="12" data-volume="0.55"></audio>
-      <audio id="sfx-68-boom" src="assets/sfx/boom.wav" data-start="40.32" data-duration="3.40" data-track-index="13" data-volume="0.5"></audio>
-      <audio id="sfx-69-scintillement" src="assets/sfx/scintillement.wav" data-start="40.47" data-duration="1.40" data-track-index="14" data-volume="0.3"></audio>
-      <audio id="sfx-70-pop" src="assets/sfx/pop.wav" data-start="40.77" data-duration="0.12" data-track-index="11" data-volume="0.35"></audio>
-      <audio id="sfx-71-impact" src="assets/sfx/impact.wav" data-start="42.72" data-duration="1.00" data-track-index="11" data-volume="0.3"></audio>
+      <audio id="sfx-00-souffle" src="assets/sfx/souffle.wav" data-start="0.10" data-duration="0.90" data-track-index="11" data-volume="0.35"></audio>
+      <audio id="sfx-01-logo-accord" src="assets/sfx/logo-accord.wav" data-start="1.80" data-duration="2.60" data-track-index="11" data-volume="0.45"></audio>
+      <audio id="sfx-02-brillance" src="assets/sfx/brillance.wav" data-start="1.92" data-duration="1.60" data-track-index="12" data-volume="0.25"></audio>
+      <audio id="sfx-03-marimba" src="assets/sfx/marimba.wav" data-start="2.83" data-duration="0.50" data-track-index="13" data-volume="0.3"></audio>
+      <audio id="sfx-04-marimba" src="assets/sfx/marimba.wav" data-start="3.42" data-duration="0.50" data-track-index="13" data-volume="0.3"></audio>
+      <audio id="sfx-05-marimba-grave" src="assets/sfx/marimba-grave.wav" data-start="3.98" data-duration="0.70" data-track-index="12" data-volume="0.35"></audio>
+      <audio id="sfx-06-souffle" src="assets/sfx/souffle.wav" data-start="4.87" data-duration="0.90" data-track-index="11" data-volume="0.3"></audio>
+      <audio id="sfx-07-marimba-grave" src="assets/sfx/marimba-grave.wav" data-start="6.27" data-duration="0.70" data-track-index="11" data-volume="0.25"></audio>
+      <audio id="sfx-08-marimba-grave" src="assets/sfx/marimba-grave.wav" data-start="7.16" data-duration="0.70" data-track-index="11" data-volume="0.25"></audio>
+      <audio id="sfx-09-souffle-court" src="assets/sfx/souffle-court.wav" data-start="9.22" data-duration="0.50" data-track-index="11" data-volume="0.3"></audio>
+      <audio id="sfx-10-valide" src="assets/sfx/valide.wav" data-start="10.25" data-duration="0.55" data-track-index="11" data-volume="0.35"></audio>
+      <audio id="sfx-11-souffle" src="assets/sfx/souffle.wav" data-start="10.40" data-duration="0.90" data-track-index="12" data-volume="0.3"></audio>
+      <audio id="sfx-12-souffle" src="assets/sfx/souffle.wav" data-start="11.00" data-duration="0.90" data-track-index="11" data-volume="0.25"></audio>
+      <audio id="sfx-13-marimba" src="assets/sfx/marimba.wav" data-start="11.85" data-duration="0.50" data-track-index="12" data-volume="0.3"></audio>
+      <audio id="sfx-14-carillon" src="assets/sfx/carillon.wav" data-start="13.21" data-duration="0.90" data-track-index="11" data-volume="0.35"></audio>
+      <audio id="sfx-15-souffle" src="assets/sfx/souffle.wav" data-start="13.78" data-duration="0.90" data-track-index="12" data-volume="0.25"></audio>
+      <audio id="sfx-16-brillance" src="assets/sfx/brillance.wav" data-start="14.18" data-duration="1.60" data-track-index="11" data-volume="0.2"></audio>
+      <audio id="sfx-17-marimba" src="assets/sfx/marimba.wav" data-start="14.53" data-duration="0.50" data-track-index="13" data-volume="0.3"></audio>
+      <audio id="sfx-18-carillon" src="assets/sfx/carillon.wav" data-start="15.75" data-duration="0.90" data-track-index="12" data-volume="0.35"></audio>
+      <audio id="sfx-19-marimba" src="assets/sfx/marimba.wav" data-start="16.26" data-duration="0.50" data-track-index="11" data-volume="0.22"></audio>
+      <audio id="sfx-20-marimba" src="assets/sfx/marimba.wav" data-start="16.56" data-duration="0.50" data-track-index="13" data-volume="0.22"></audio>
+      <audio id="sfx-21-marimba" src="assets/sfx/marimba.wav" data-start="17.39" data-duration="0.50" data-track-index="11" data-volume="0.22"></audio>
+      <audio id="sfx-22-souffle" src="assets/sfx/souffle.wav" data-start="19.23" data-duration="0.90" data-track-index="11" data-volume="0.25"></audio>
+      <audio id="sfx-23-marimba" src="assets/sfx/marimba.wav" data-start="20.03" data-duration="0.50" data-track-index="12" data-volume="0.3"></audio>
+      <audio id="sfx-24-decollage" src="assets/sfx/decollage.wav" data-start="20.53" data-duration="2.60" data-track-index="11" data-volume="0.35"></audio>
+      <audio id="sfx-25-carillon" src="assets/sfx/carillon.wav" data-start="21.30" data-duration="0.90" data-track-index="12" data-volume="0.35"></audio>
+      <audio id="sfx-26-souffle" src="assets/sfx/souffle.wav" data-start="21.65" data-duration="0.90" data-track-index="13" data-volume="0.3"></audio>
+      <audio id="sfx-27-marimba" src="assets/sfx/marimba.wav" data-start="24.09" data-duration="0.50" data-track-index="11" data-volume="0.3"></audio>
+      <audio id="sfx-28-carillon" src="assets/sfx/carillon.wav" data-start="25.86" data-duration="0.90" data-track-index="11" data-volume="0.35"></audio>
+      <audio id="sfx-29-souffle" src="assets/sfx/souffle.wav" data-start="29.20" data-duration="0.90" data-track-index="11" data-volume="0.3"></audio>
+      <audio id="sfx-30-marimba-grave" src="assets/sfx/marimba-grave.wav" data-start="30.80" data-duration="0.70" data-track-index="11" data-volume="0.3"></audio>
+      <audio id="sfx-31-marimba" src="assets/sfx/marimba.wav" data-start="31.48" data-duration="0.50" data-track-index="12" data-volume="0.25"></audio>
+      <audio id="sfx-32-marimba" src="assets/sfx/marimba.wav" data-start="32.07" data-duration="0.50" data-track-index="11" data-volume="0.25"></audio>
+      <audio id="sfx-33-marimba" src="assets/sfx/marimba.wav" data-start="33.10" data-duration="0.50" data-track-index="11" data-volume="0.25"></audio>
+      <audio id="sfx-34-souffle" src="assets/sfx/souffle.wav" data-start="33.70" data-duration="0.90" data-track-index="11" data-volume="0.3"></audio>
+      <audio id="sfx-35-nappe" src="assets/sfx/nappe.wav" data-start="34.19" data-duration="1.60" data-track-index="12" data-volume="0.3"></audio>
+      <audio id="sfx-36-marimba" src="assets/sfx/marimba.wav" data-start="36.29" data-duration="0.50" data-track-index="11" data-volume="0.25"></audio>
+      <audio id="sfx-37-tape" src="assets/sfx/tape.wav" data-start="36.39" data-duration="0.06" data-track-index="12" data-volume="0.2"></audio>
+      <audio id="sfx-38-tape" src="assets/sfx/tape.wav" data-start="36.73" data-duration="0.06" data-track-index="12" data-volume="0.2"></audio>
+      <audio id="sfx-39-tape" src="assets/sfx/tape.wav" data-start="37.07" data-duration="0.06" data-track-index="11" data-volume="0.2"></audio>
+      <audio id="sfx-40-tape" src="assets/sfx/tape.wav" data-start="37.41" data-duration="0.06" data-track-index="11" data-volume="0.2"></audio>
+      <audio id="sfx-41-tape" src="assets/sfx/tape.wav" data-start="37.74" data-duration="0.06" data-track-index="11" data-volume="0.2"></audio>
+      <audio id="sfx-42-tape" src="assets/sfx/tape.wav" data-start="38.08" data-duration="0.06" data-track-index="11" data-volume="0.2"></audio>
+      <audio id="sfx-43-tape" src="assets/sfx/tape.wav" data-start="38.42" data-duration="0.06" data-track-index="11" data-volume="0.2"></audio>
+      <audio id="sfx-44-tape" src="assets/sfx/tape.wav" data-start="38.76" data-duration="0.06" data-track-index="11" data-volume="0.2"></audio>
+      <audio id="sfx-45-tape" src="assets/sfx/tape.wav" data-start="39.09" data-duration="0.06" data-track-index="11" data-volume="0.2"></audio>
+      <audio id="sfx-46-tape" src="assets/sfx/tape.wav" data-start="39.43" data-duration="0.06" data-track-index="11" data-volume="0.2"></audio>
+      <audio id="sfx-47-souffle" src="assets/sfx/souffle.wav" data-start="39.77" data-duration="0.90" data-track-index="11" data-volume="0.3"></audio>
+      <audio id="sfx-48-notif-douce" src="assets/sfx/notif-douce.wav" data-start="39.92" data-duration="1.00" data-track-index="12" data-volume="0.4"></audio>
+      <audio id="sfx-49-logo-accord" src="assets/sfx/logo-accord.wav" data-start="40.32" data-duration="2.60" data-track-index="13" data-volume="0.45"></audio>
+      <audio id="sfx-50-brillance" src="assets/sfx/brillance.wav" data-start="40.52" data-duration="1.60" data-track-index="14" data-volume="0.25"></audio>
       <!-- SFX:FIN -->
     </div>
 
@@ -325,6 +305,7 @@
       const T3 = window.SCENE3(tl, { ville, camera, T2 });
       const T4 = window.SCENE4(tl, { ville, camera, T3 });
       const T5 = window.SCENE5(tl, { ville, camera, T4 });
+      window.AMBIANCE(tl, { ville, T2, T5 });
       window.__timelines["main"] = tl;
     </script>
   </body>

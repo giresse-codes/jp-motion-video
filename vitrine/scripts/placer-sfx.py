@@ -12,9 +12,9 @@ ICI = Path(__file__).resolve().parent.parent
 mots = json.loads((ICI / "assets" / "voix-timing.json").read_text(encoding="utf-8"))["mots"]
 temps_js = (ICI / "js" / "temps.js").read_text(encoding="utf-8")
 SECTIONS = [tuple(float(v) for v in m) for m in re.findall(r"debutVoix: ([\d.]+), finVoix: ([\d.]+), debutFilm: ([\d.]+)", temps_js)]
-DUREES = {"whoosh": 0.7, "whoosh-court": 0.4, "impact": 1.0, "boom": 3.4, "montee": 1.1, "scintillement": 1.4,
-          "glitch": 0.32, "tic": 0.06, "neon": 0.55, "pop": 0.12, "prix": 0.8, "bip": 0.11, "notif": 0.61,
-          "klaxon": 0.42, "clic": 0.05, "decollage": 2.4}
+DUREES = {"souffle": 0.9, "souffle-court": 0.5, "marimba": 0.5, "marimba-grave": 0.7, "carillon": 0.9,
+          "brillance": 1.6, "valide": 0.55, "notif-douce": 1.0, "tape": 0.06, "nappe": 1.6,
+          "logo-accord": 2.6, "decollage": 2.6}
 
 def film(t):
     for a, b, f in SECTIONS:
@@ -37,33 +37,30 @@ pro_debut = 30.0 - 0.5
 ponct, attent, detail = mot("ponctuels"), mot("attentifs"), mot("détail")
 reserv, whats, finnum, jp2, notre = mot("Réservez"), mot("WhatsApp"), mot("vingt-huit", fin=True), mot("JP", 2), mot("notre")
 
-# (son, temps film, volume)
+# (son, temps film, volume) — sons doux (scripts/sfx-doux.py), discrets sous la voix
 sons = [
     # Scène 1
-    ("whoosh", 0.15, 0.5), ("neon", E - 0.35, 0.35), ("boom", E - 0.02, 0.55),
-    ("impact", R_ - 0.03, 0.4), ("whoosh-court", S_ - 0.09, 0.4), ("impact", C_ - 0.04, 0.45),
+    ("souffle", 0.1, 0.35), ("logo-accord", E - 0.02, 0.45), ("brillance", E + 0.1, 0.25),
+    ("marimba", R_ - 0.03, 0.3), ("marimba", S_ - 0.03, 0.3), ("marimba-grave", C_ - 0.04, 0.35),
     # Scène 2
-    ("whoosh", sortie1 - 0.05, 0.45), ("klaxon", emb + 0.05, 0.3), ("glitch", emb - 0.05, 0.35),
-    ("klaxon", ret + 0.15, 0.25), ("glitch", ret - 0.05, 0.35), ("klaxon", ret + 0.75, 0.2),
-    *[("tic", ret + 0.5 * i, 0.3) for i in range(int((nous - ret) / 0.5))],
-    ("whoosh-court", nous, 0.45), ("bip", chg, 0.35), ("whoosh", chg + 0.2, 0.4),
+    ("souffle", sortie1 - 0.1, 0.3), ("marimba-grave", emb - 0.05, 0.25), ("marimba-grave", ret - 0.05, 0.25),
+    ("souffle-court", nous - 0.1, 0.3), ("valide", chg, 0.35), ("souffle", chg + 0.15, 0.3),
     # Scène 3
-    ("whoosh", eco - 1.0, 0.35), ("pop", eco - 0.15, 0.4), ("prix", trois + 0.85, 0.35),
-    ("whoosh", conf - 0.6, 0.35), ("pop", conf + 0.15, 0.4), ("scintillement", conf - 0.2, 0.25),
-    ("prix", quatre + 0.85, 0.35), ("pop", wifi - 0.05, 0.4), ("pop", clim - 0.05, 0.4), ("bip", ecran - 0.05, 0.35),
-    ("whoosh", aero - 0.7, 0.35), ("pop", aero + 0.1, 0.4), ("decollage", aero + 0.6, 0.45), ("prix", huit + 0.65, 0.35),
-    ("whoosh", voyager - 0.35, 0.45), ("pop", voy - 0.1, 0.4),
-    ("whoosh-court", voy, 0.3), ("whoosh-court", voy + 0.7, 0.3), ("whoosh-court", voy + 1.4, 0.3),
-    ("prix", cinq + 0.95, 0.35), ("impact", jour + 0.3, 0.3),
+    ("souffle", eco - 1.0, 0.25), ("marimba", eco - 0.15, 0.3), ("carillon", trois + 0.85, 0.35),
+    ("souffle", conf - 0.6, 0.25), ("marimba", conf + 0.15, 0.3), ("brillance", conf - 0.2, 0.2),
+    ("carillon", quatre + 0.85, 0.35), ("marimba", wifi - 0.05, 0.22), ("marimba", clim - 0.05, 0.22),
+    ("marimba", ecran - 0.05, 0.22),
+    ("souffle", aero - 0.7, 0.25), ("marimba", aero + 0.1, 0.3), ("decollage", aero + 0.6, 0.35),
+    ("carillon", huit + 0.65, 0.35),
+    ("souffle", voyager - 0.4, 0.3), ("marimba", voy - 0.1, 0.3), ("carillon", cinq + 0.95, 0.35),
     # Scène 4
-    ("whoosh", pro_debut - 0.3, 0.4), ("whoosh", pro_debut + 0.7, 0.35), ("impact", pro_debut + 1.3, 0.4),
-    ("clic", ponct - 0.2, 0.5), ("pop", ponct - 0.05, 0.4), ("pop", attent - 0.05, 0.4), ("pop", detail - 0.05, 0.4),
+    ("souffle", pro_debut - 0.3, 0.3), ("marimba-grave", pro_debut + 1.3, 0.3),
+    ("marimba", ponct - 0.05, 0.25), ("marimba", attent - 0.05, 0.25), ("marimba", detail - 0.05, 0.25),
     # Scène 5
-    ("whoosh", detail + 0.55, 0.4), ("montee", reserv - 1.2, 0.4), ("scintillement", detail + 0.9, 0.25),
-    ("pop", reserv - 0.35, 0.35), ("pop", whats - 0.1, 0.3),
-    *[("clic", whats + i * (finnum - whats) / 14, 0.35) for i in range(14)],
-    ("notif", finnum + 0.15, 0.55), ("whoosh", jp2 - 0.45, 0.4), ("boom", jp2 + 0.05, 0.5),
-    ("scintillement", jp2 + 0.2, 0.3), ("pop", jp2 + 0.5, 0.35), ("impact", notre - 0.05, 0.3),
+    ("souffle", detail + 0.55, 0.3), ("nappe", reserv - 1.4, 0.3), ("marimba", whats - 0.1, 0.25),
+    *[("tape", whats + i * (finnum - whats) / 10, 0.2) for i in range(10)],
+    ("notif-douce", finnum + 0.15, 0.4), ("souffle", jp2 - 0.5, 0.3), ("logo-accord", jp2 + 0.05, 0.45),
+    ("brillance", jp2 + 0.25, 0.25),
 ]
 
 lignes = ["      <!-- SFX:DEBUT (généré par scripts/placer-sfx.py — ne pas modifier à la main) -->"]
