@@ -70,10 +70,11 @@ trouvés : ajuste le découpage ou `SEUIL_DB` / `PAUSE_MIN_S`.
 
 Installées dans `.claude/skills/` avec `npx skills add heygen-com/hyperframes -a claude-code --copy`
 (versions figées dans `skills-lock.json`, mise à jour : `npx skills update -p`).
-Elles remplacent les skills Remotion. Point d'entrée : `hyperframes` (routeur), puis
-`hyperframes-animation`, `hyperframes-keyframes`, `hyperframes-audio`, `hyperframes-core`,
-`hyperframes-cli`, `media-use`. `remotion-to-hyperframes` sert à porter le code Remotion actuel.
-Attention : HyperFrames est un autre moteur (compositions HTML + GSAP), pas Remotion.
+**Réservées aux prochains projets.** Cette pub reste en Remotion : ne pas la porter vers
+HyperFrames et ne pas suivre le routeur `hyperframes` pour la modifier, sauf demande
+explicite. HyperFrames est un autre moteur (compositions HTML + GSAP).
+Point d'entrée pour un nouveau projet : `hyperframes` (routeur), puis `hyperframes-animation`,
+`hyperframes-keyframes`, `hyperframes-audio`, `hyperframes-core`, `hyperframes-cli`, `media-use`.
 
 ## Conventions
 
