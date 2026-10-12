@@ -17,6 +17,7 @@ npm run typecheck           # vérification TypeScript
 npm run aligner             # recale les textes sur la voix off (voir plus bas)
 python3 scripts/logo-transparent.py   # régénère le logo détouré
 python3 scripts/generer-sfx.py        # régénère les effets sonores (public/sfx/)
+scripts/voix.sh texte.txt voix.mp3    # voix off MP3 avec Piper TTS (modèles dans voix/)
 ```
 
 Si Remotion ne peut pas télécharger son navigateur (réseau filtré), utilise un
@@ -65,6 +66,14 @@ trouvés : ajuste le découpage ou `SEUIL_DB` / `PAUSE_MIN_S`.
 - `videos/` : extraits vidéo de tiers, **ignorés par git** (droits d'auteur).
   Ne pas les publier sans l'accord de leurs auteurs.
 - `fonts/` : Montserrat et Inter (licence OFL), chargées hors ligne.
+
+## Voix off Piper (réutilisable)
+
+`scripts/voix.sh` transforme un fichier texte en MP3 (Piper TTS, hors ligne, normalisé -16 LUFS).
+Prérequis : `pip install piper-tts`, ffmpeg, et le modèle dans `voix/` (`<voix>.onnx` +
+`<voix>.onnx.json` + `MODEL_CARD`). Voix par défaut `fr_FR-siwis-medium` ; changer avec
+`VOIX=fr_FR-upmc-medium`. Réglages : `VITESSE`, `PAUSE`, `LOCUTEUR`. Les `.onnx` ne sont
+pas commités. Licence : vérifier le `MODEL_CARD` de chaque voix avant un usage commercial.
 
 ## Skills HyperFrames (HeyGen)
 
