@@ -85,6 +85,14 @@ explicite. HyperFrames est un autre moteur (compositions HTML + GSAP).
 Point d'entrée pour un nouveau projet : `hyperframes` (routeur), puis `hyperframes-animation`,
 `hyperframes-keyframes`, `hyperframes-audio`, `hyperframes-core`, `hyperframes-cli`, `media-use`.
 
+## Skills Three.js
+
+`.claude/skills/threejs-*` (10 skills : fundamentals, geometry, materials, lighting, textures,
+animation, loaders, shaders, postprocessing, interaction), copiés depuis
+https://github.com/CloudAI-X/threejs-skills (dossier `skills/`, commit b1c6230, licence MIT
+annoncée dans son README). Mise à jour : recloner et recopier ; ne pas utiliser les commandes
+d'installation du README, elles pointent vers un autre dépôt.
+
 ## Conventions
 
 - Code, commentaires et textes en français.
