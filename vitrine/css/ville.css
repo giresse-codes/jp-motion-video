@@ -1,0 +1,472 @@
+/* Charte : voir frame.md. Toutes les couleurs passent par ces variables. */
+:root {
+  --nuit: #0b0c0f;
+  --anthracite: #16181d;
+  --beton: #23262d;
+  --acier: #343842;
+  --toit: #454a55;
+  --rouge: #e10600;
+  --neon: #ff2d1f;
+  --blanc: #f5f2f0;
+  --braise: #ff8a4c;
+  /* 0 = fin de journée, 1 = nuit (scène 5) : animé par la timeline */
+  --nuitee: 0;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: italic;
+  font-weight: 600;
+  src: url("../assets/fonts/montserrat-latin-600-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: italic;
+  font-weight: 800;
+  src: url("../assets/fonts/montserrat-latin-800-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: italic;
+  font-weight: 900;
+  src: url("../assets/fonts/montserrat-latin-900-italic.woff2") format("woff2");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  background: var(--nuit);
+}
+#root {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--nuit);
+  font-family: "Montserrat", sans-serif;
+  color: var(--blanc);
+}
+
+/* ── Ciel : lueur chaude d'horizon (radiale, pas de dégradé linéaire plein écran) ── */
+.ciel {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(120% 45% at 50% 0%, rgba(255, 138, 76, 0.32) 0%, rgba(225, 6, 0, 0.12) 38%, transparent 70%),
+    radial-gradient(90% 60% at 50% 100%, rgba(225, 6, 0, 0.1) 0%, transparent 60%),
+    var(--nuit);
+}
+.ciel-nuit {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(110% 50% at 50% 0%, rgba(225, 6, 0, 0.22) 0%, transparent 65%), #07080a;
+  opacity: var(--nuitee);
+}
+
+/* ── Scène 3D ── */
+.scene-3d {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.stage {
+  position: absolute;
+  inset: 0;
+  perspective: 4200px; /* = CAMERA.PERSPECTIVE */
+  perspective-origin: 50% 50%;
+}
+.monde {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.sol {
+  position: absolute;
+  left: -1500px;
+  top: -1500px;
+  width: 3000px;
+  height: 3000px;
+  transform-style: preserve-3d;
+  transform: rotateZ(45deg);
+}
+.terrain {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(55% 55% at 52% 52%, rgba(255, 138, 76, 0.07) 0%, transparent 70%),
+    radial-gradient(60% 60% at 52% 52%, #24262d 0%, #1c1e23 55%, #131418 100%);
+}
+
+/* Fleuve Wouri */
+.fleuve {
+  position: absolute;
+  background: linear-gradient(90deg, #0e1013 0%, #15181d 45%, #101216 100%);
+  box-shadow: inset 8px 0 0 rgba(245, 242, 240, 0.08), inset -8px 0 0 rgba(245, 242, 240, 0.08);
+  overflow: hidden;
+}
+.reflet {
+  position: absolute;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(245, 242, 240, 0.35);
+}
+.reflet:nth-child(3n) {
+  background: rgba(255, 45, 31, 0.45);
+}
+.pirogue {
+  position: absolute;
+  width: 16px;
+  height: 64px;
+  border-radius: 50%;
+  background: #4a3a30;
+  box-shadow: 0 0 0 3px rgba(245, 242, 240, 0.12);
+}
+
+/* Routes */
+.route {
+  position: absolute;
+  background: #0f1013;
+  transform-origin: 50% 50%;
+}
+.route-v {
+  background:
+    repeating-linear-gradient(180deg, rgba(245, 242, 240, 0.55) 0 26px, transparent 26px 60px) center / 4px 100% no-repeat,
+    #0f1013;
+}
+.route-h {
+  background:
+    repeating-linear-gradient(90deg, rgba(245, 242, 240, 0.55) 0 26px, transparent 26px 60px) center / 100% 4px no-repeat,
+    #0f1013;
+}
+.route.boulevard {
+  box-shadow:
+    0 0 0 3px rgba(255, 45, 31, 0.85),
+    0 0 26px 4px rgba(255, 45, 31, 0.45);
+}
+
+/* Pont sur le Wouri */
+.pont {
+  position: absolute;
+  transform-style: preserve-3d;
+  transform: translateZ(26px);
+}
+.pont .tablier {
+  position: absolute;
+  inset: 12px 0;
+  background:
+    repeating-linear-gradient(90deg, rgba(245, 242, 240, 0.5) 0 22px, transparent 22px 50px) center / 100% 4px no-repeat,
+    #1a1c21;
+  box-shadow: 0 0 0 2px #2b2e35;
+}
+.pont .garde {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 14px;
+  background: linear-gradient(0deg, #343842, #4a4f5a);
+  transform-origin: 50% 100%;
+}
+.pont .garde-n {
+  top: 0;
+  transform: rotateX(-90deg);
+}
+.pont .garde-s {
+  bottom: 0;
+  transform-origin: 50% 0%;
+  transform: rotateX(90deg);
+}
+.lampadaire {
+  position: absolute;
+  top: 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--blanc);
+  box-shadow: 0 0 calc(8px + 22px * var(--nuitee)) calc(2px + 6px * var(--nuitee)) rgba(255, 220, 190, calc(0.25 + 0.6 * var(--nuitee)));
+  transform: translateZ(40px);
+}
+
+/* Boîtes 3D (immeubles, véhicules) */
+.boite,
+.caisse {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+.caisse {
+  inset: 0;
+}
+.toit {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 70% 30%, rgba(30, 32, 38, 0.9) 0 6px, transparent 7px),
+    radial-gradient(circle at 30% 65%, rgba(30, 32, 38, 0.8) 0 4px, transparent 5px),
+    linear-gradient(135deg, #565b67, var(--toit));
+  transform: translateZ(var(--h));
+  /* acrotère : arête claire côté lumière, sombre côté ombre */
+  box-shadow: inset 4px -4px 0 rgba(255, 190, 150, 0.28), inset -3px 3px 0 rgba(0, 0, 0, 0.35);
+}
+.face {
+  position: absolute;
+  overflow: hidden;
+}
+.face-s {
+  left: 0;
+  top: 100%;
+  width: 100%;
+  height: var(--h);
+  transform-origin: 50% 0%;
+  transform: rotateX(90deg);
+  /* face éclairée : lumière chaude rasante de fin de journée */
+  background: linear-gradient(0deg, #3a3c44 0%, #44464e 60%, #6a4c40 100%);
+}
+.face-e {
+  left: 100%;
+  top: 0;
+  width: var(--h);
+  height: 100%;
+  transform-origin: 0% 50%;
+  transform: rotateY(-90deg);
+  background: linear-gradient(90deg, #1f2127 0%, #23262d 100%);
+}
+.fenetres,
+.fenetres-nuit {
+  position: absolute;
+  inset: 8px 6px 6px 6px;
+}
+.face-s .fenetres {
+  background:
+    repeating-linear-gradient(90deg, transparent 0 10px, rgba(52, 54, 62, 1) 10px 14px),
+    repeating-linear-gradient(0deg, rgba(52, 54, 62, 1) 0 7px, rgba(255, 176, 120, 0.42) 7px 15px, rgba(30, 32, 38, 0.9) 15px 20px);
+}
+.face-e .fenetres {
+  background:
+    repeating-linear-gradient(0deg, transparent 0 10px, rgba(31, 33, 39, 1) 10px 14px),
+    repeating-linear-gradient(90deg, rgba(31, 33, 39, 1) 0 7px, rgba(120, 130, 150, 0.22) 7px 15px, rgba(18, 19, 23, 0.9) 15px 20px);
+}
+.fenetres-nuit {
+  opacity: var(--nuitee);
+}
+.face-s .fenetres-nuit {
+  background:
+    repeating-linear-gradient(90deg, transparent 0 12px, rgba(11, 12, 15, 1) 12px 18px),
+    repeating-linear-gradient(0deg, transparent 0 14px, rgba(255, 226, 196, 0.85) 14px 22px, transparent 22px 30px, rgba(255, 45, 31, 0.7) 30px 38px);
+}
+.face-e .fenetres-nuit {
+  background:
+    repeating-linear-gradient(0deg, transparent 0 12px, rgba(11, 12, 15, 1) 12px 18px),
+    repeating-linear-gradient(90deg, transparent 0 14px, rgba(255, 226, 196, 0.6) 14px 22px, transparent 22px 40px);
+}
+.tour .toit {
+  background: #4f5561;
+  box-shadow: inset 0 0 0 3px rgba(255, 45, 31, 0.55), 0 0 18px rgba(255, 45, 31, 0.35);
+}
+.maison .toit {
+  background: #5a4a44;
+}
+.maison .face-s {
+  background: #4a4240;
+}
+.maison .face-e {
+  background: #2b2626;
+}
+.pagode .toit {
+  background: #2b2e35;
+}
+.toit-pagode {
+  position: absolute;
+  inset: -22px;
+  background:
+    linear-gradient(135deg, transparent 0 46%, rgba(0, 0, 0, 0.25) 46% 54%, transparent 54%),
+    var(--rouge);
+  transform: translateZ(calc(var(--h) + 18px));
+  box-shadow: 0 0 30px rgba(255, 45, 31, 0.5);
+  clip-path: polygon(0 18%, 18% 0, 82% 0, 100% 18%, 100% 82%, 82% 100%, 18% 100%, 0 82%);
+}
+.pile .toit,
+.pile .face {
+  background: #2b2e35;
+}
+.terminal .toit {
+  background: #565c68;
+  box-shadow: inset 0 0 0 4px rgba(245, 242, 240, 0.25);
+}
+.tour-controle .toit {
+  background: #3a3e47;
+}
+.cabine .toit {
+  background: #2a2d34;
+  box-shadow: 0 0 16px rgba(255, 45, 31, 0.6);
+}
+.cabine .face {
+  background: rgba(255, 210, 180, 0.55);
+}
+
+/* Ombres portées */
+.ombre {
+  position: absolute;
+  background: rgba(5, 5, 7, 0.45);
+}
+
+/* Palmiers : plan vertical face caméra */
+.palmier {
+  position: absolute;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+  /* --p : croissance (0 → 1), animée par la timeline */
+  transform: scale3d(var(--p, 1), var(--p, 1), var(--p, 1));
+}
+.palmier svg {
+  position: absolute;
+  left: calc(var(--t) * -0.3);
+  bottom: 0;
+  transform-origin: 50% 100%;
+  transform: rotateZ(-45deg) rotateX(-90deg);
+  overflow: visible;
+}
+
+/* Aéroport */
+.tarmac {
+  position: absolute;
+  background: #1c1e23;
+  box-shadow: inset 0 0 0 3px rgba(245, 242, 240, 0.08);
+}
+.piste {
+  position: absolute;
+  background:
+    repeating-linear-gradient(90deg, rgba(245, 242, 240, 0.85) 0 40px, transparent 40px 90px) center / 100% 5px no-repeat,
+    linear-gradient(0deg, transparent 0 8px, rgba(245, 242, 240, 0.6) 8px 11px, transparent 11px calc(100% - 11px), rgba(245, 242, 240, 0.6) calc(100% - 11px) calc(100% - 8px), transparent calc(100% - 8px)),
+    #0d0e11;
+}
+.avion {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  margin: -60px 0 0 -60px;
+  transform-style: preserve-3d;
+}
+.avion svg {
+  transform: rotate(90deg);
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.5));
+}
+
+/* Véhicules */
+.vehicule {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+.vehicule .toit {
+  background: #c9ccd2;
+}
+.vehicule .face-s {
+  background: #8f939b;
+}
+.vehicule .face-e {
+  background: #5d6168;
+}
+.vehicule-gris .toit {
+  background: #7d828b;
+}
+.vehicule-gris .face-s {
+  background: #5d6168;
+}
+.vehicule-gris .face-e {
+  background: #3e4147;
+}
+.vehicule-jp .toit {
+  background:
+    linear-gradient(90deg, transparent 0 40%, var(--blanc) 40% 60%, transparent 60%),
+    var(--rouge);
+}
+.vehicule-jp .face-s {
+  background: #b80500;
+}
+.vehicule-jp .face-e {
+  background: #7a0300;
+}
+.vehicule .halo {
+  position: absolute;
+  inset: -16px;
+  border-radius: 40%;
+  background: radial-gradient(closest-side, rgba(255, 45, 31, 0.7), transparent);
+  opacity: 0;
+}
+.vehicule-jp .halo {
+  opacity: 1;
+}
+
+/* Feux tricolores */
+.feu {
+  position: absolute;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+}
+.feu-poteau {
+  position: absolute;
+  left: -2px;
+  bottom: 0;
+  width: 4px;
+  height: 56px;
+  background: #2b2e35;
+  transform-origin: 50% 100%;
+  transform: rotateZ(-45deg) rotateX(-90deg);
+}
+.feu-boite {
+  position: absolute;
+  top: -22px;
+  left: -7px;
+  width: 18px;
+  height: 30px;
+  border-radius: 4px;
+  background: #121317;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.feu-boite span {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.feu-r {
+  background: var(--neon);
+  box-shadow: 0 0 12px var(--neon);
+}
+.feu-v {
+  background: #2a3a2e;
+}
+
+/* Nuages (écran, hors 3D) */
+.nuages {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.nuage {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(245, 242, 240, 0.55), rgba(245, 242, 240, 0.18) 60%, transparent);
+}
+
+/* Espaces verts (parcelles libres) */
+.jardin {
+  position: absolute;
+  border-radius: 6px;
+  background: radial-gradient(circle at 40% 40%, #2c4a33, #1e3324);
+  box-shadow: inset 0 0 0 3px rgba(245, 242, 240, 0.05);
+}

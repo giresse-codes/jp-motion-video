@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>JP Service Express Urbaine — vitrine</title>
+    <!-- GSAP embarqué localement : le CDN n'est pas joignable au rendu. -->
+    <script src="js/gsap.min.js"></script>
+    <script src="js/voix-timing.js"></script>
+    <script src="js/ville.js"></script>
+    <script src="js/camera.js"></script>
+    <link rel="stylesheet" href="css/ville.css" />
+    <link rel="stylesheet" href="css/scenes.css" />
+    <style>
+      @font-face {
+        font-family: "Montserrat";
+        font-style: italic;
+        font-weight: 900;
+        src: url("assets/fonts/montserrat-latin-900-italic.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Montserrat";
+        font-style: italic;
+        font-weight: 800;
+        src: url("assets/fonts/montserrat-latin-800-italic.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Montserrat";
+        font-style: italic;
+        font-weight: 600;
+        src: url("assets/fonts/montserrat-latin-600-italic.woff2") format("woff2");
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="45"
+      data-fps="60"
+      data-width="1080"
+      data-height="1920"
+    >
+      <!-- ═══ Monde : ciel + ville 3D, présent tout le film ═══ -->
+      <section id="monde-clip" class="clip" data-start="0" data-duration="45" data-track-index="0">
+        <div class="ciel"></div>
+        <div class="ciel-nuit"></div>
+        <div class="scene-3d">
+          <div class="stage" id="stage">
+            <div class="monde" id="monde" data-layout-allow-overflow>
+              <div class="sol" id="sol"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ Scène 1 : accroche ═══ -->
+      <section id="s1-nuages" class="clip" data-start="0" data-duration="2.2" data-track-index="1">
+        <div class="nuages" id="nuages"></div>
+      </section>
+      <section id="s1" class="clip scene-texte" data-start="0" data-duration="5.9" data-track-index="2">
+        <div class="voile voile-haut"></div>
+        <div class="s1-logo-zone">
+          <div class="onde" id="s1-onde"></div>
+          <div class="etincelles" id="s1-etincelles"></div>
+          <img id="s1-logo" class="s1-logo" src="assets/logo.png" alt="JP Service Express Urbaine" />
+        </div>
+        <div class="s1-mots">
+          <div class="mot-ligne" id="s1-mot-1"><span class="mot">Rapide.</span></div>
+          <div class="mot-ligne decale" id="s1-mot-2"><span class="mot mot-neon">Sûr.</span></div>
+          <div class="mot-ligne" id="s1-mot-3"><span class="mot mot-long">Confortable.</span></div>
+        </div>
+        <div class="flash" id="s1-flash"></div>
+      </section>
+
+      <!-- ═══ Son ═══ -->
+      <audio id="voix" src="assets/voiceoff.mp3" data-start="0" data-duration="42.4" data-track-index="10" data-volume="1"></audio>
+      <audio id="sfx-s1-plongee" src="assets/sfx/whoosh.wav" data-start="0.15" data-duration="0.7" data-track-index="11" data-volume="0.5"></audio>
+      <audio id="sfx-s1-neon" src="assets/sfx/neon.wav" data-start="0.95" data-duration="0.55" data-track-index="12" data-volume="0.35"></audio>
+      <audio id="sfx-s1-impact" src="assets/sfx/boom.wav" data-start="1.28" data-duration="2.5" data-track-index="13" data-volume="0.55"></audio>
+      <audio id="sfx-s1-mot1" src="assets/sfx/impact.wav" data-start="2.38" data-duration="0.9" data-track-index="14" data-volume="0.4"></audio>
+      <audio id="sfx-s1-mot2" src="assets/sfx/whoosh-court.wav" data-start="3.5" data-duration="0.4" data-track-index="15" data-volume="0.4"></audio>
+      <audio id="sfx-s1-mot3" src="assets/sfx/impact.wav" data-start="4.36" data-duration="0.9" data-track-index="16" data-volume="0.45"></audio>
+    </div>
+
+    <script src="js/scene1.js"></script>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const monde = document.getElementById("monde");
+      const ville = window.VILLE.construire(document.getElementById("sol"));
+      const camera = window.CAMERA.creer(monde);
+      window.SCENE1(tl, { ville, camera });
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

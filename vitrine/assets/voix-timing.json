@@ -1,0 +1,522 @@
+{
+ "duree": 42.377,
+ "phrases": [
+  {
+   "debut": 0.0,
+   "fin": 2.241,
+   "phonemes": 4
+  },
+  {
+   "debut": 2.541,
+   "fin": 3.365,
+   "phonemes": 1
+  },
+  {
+   "debut": 3.665,
+   "fin": 4.176,
+   "phonemes": 1
+  },
+  {
+   "debut": 4.476,
+   "fin": 5.393,
+   "phonemes": 1
+  },
+  {
+   "debut": 5.693,
+   "fin": 8.967,
+   "phonemes": 11
+  },
+  {
+   "debut": 9.267,
+   "fin": 10.881,
+   "phonemes": 6
+  },
+  {
+   "debut": 11.181,
+   "fin": 13.364,
+   "phonemes": 6
+  },
+  {
+   "debut": 13.664,
+   "fin": 19.608,
+   "phonemes": 12
+  },
+  {
+   "debut": 19.908,
+   "fin": 22.253,
+   "phonemes": 6
+  },
+  {
+   "debut": 22.553,
+   "fin": 27.696,
+   "phonemes": 16
+  },
+  {
+   "debut": 27.996,
+   "fin": 31.816,
+   "phonemes": 8
+  },
+  {
+   "debut": 32.116,
+   "fin": 37.282,
+   "phonemes": 11
+  },
+  {
+   "debut": 37.582,
+   "fin": 42.377,
+   "phonemes": 8
+  }
+ ],
+ "mots": [
+  {
+   "texte": "JP",
+   "debut": 0.09,
+   "fin": 0.464
+  },
+  {
+   "texte": "Service",
+   "debut": 0.464,
+   "fin": 1.027
+  },
+  {
+   "texte": "Express",
+   "debut": 1.027,
+   "fin": 1.683
+  },
+  {
+   "texte": "Urbaine",
+   "debut": 1.683,
+   "fin": 2.151
+  },
+  {
+   "texte": "Rapide",
+   "debut": 2.574,
+   "fin": 3.332
+  },
+  {
+   "texte": "Sûr",
+   "debut": 3.685,
+   "fin": 4.155
+  },
+  {
+   "texte": "Confortable",
+   "debut": 4.513,
+   "fin": 5.356
+  },
+  {
+   "texte": "À",
+   "debut": 5.824,
+   "fin": 5.887
+  },
+  {
+   "texte": "Douala",
+   "debut": 5.887,
+   "fin": 6.201
+  },
+  {
+   "texte": "les",
+   "debut": 6.201,
+   "fin": 6.452
+  },
+  {
+   "texte": "embouteillages",
+   "debut": 6.452,
+   "fin": 7.079
+  },
+  {
+   "texte": "et",
+   "debut": 7.079,
+   "fin": 7.142
+  },
+  {
+   "texte": "les",
+   "debut": 7.142,
+   "fin": 7.33
+  },
+  {
+   "texte": "retards",
+   "debut": 7.33,
+   "fin": 7.644
+  },
+  {
+   "texte": "font",
+   "debut": 7.644,
+   "fin": 7.832
+  },
+  {
+   "texte": "partie",
+   "debut": 7.832,
+   "fin": 8.146
+  },
+  {
+   "texte": "du",
+   "debut": 8.146,
+   "fin": 8.334
+  },
+  {
+   "texte": "quotidien",
+   "debut": 8.334,
+   "fin": 8.836
+  },
+  {
+   "texte": "Nous",
+   "debut": 9.332,
+   "fin": 9.534
+  },
+  {
+   "texte": "avons",
+   "debut": 9.534,
+   "fin": 9.804
+  },
+  {
+   "texte": "choisi",
+   "debut": 9.804,
+   "fin": 10.141
+  },
+  {
+   "texte": "de",
+   "debut": 10.141,
+   "fin": 10.344
+  },
+  {
+   "texte": "changer",
+   "debut": 10.344,
+   "fin": 10.681
+  },
+  {
+   "texte": "ça",
+   "debut": 10.681,
+   "fin": 10.816
+  },
+  {
+   "texte": "Service",
+   "debut": 11.268,
+   "fin": 11.792
+  },
+  {
+   "texte": "Éco",
+   "debut": 11.792,
+   "fin": 12.054
+  },
+  {
+   "texte": "trois",
+   "debut": 12.054,
+   "fin": 12.403
+  },
+  {
+   "texte": "mille",
+   "debut": 12.403,
+   "fin": 12.665
+  },
+  {
+   "texte": "francs",
+   "debut": 12.665,
+   "fin": 13.014
+  },
+  {
+   "texte": "l'heure",
+   "debut": 13.014,
+   "fin": 13.276
+  },
+  {
+   "texte": "Service",
+   "debut": 13.901,
+   "fin": 14.422
+  },
+  {
+   "texte": "Confort",
+   "debut": 14.422,
+   "fin": 14.943
+  },
+  {
+   "texte": "quatre",
+   "debut": 14.943,
+   "fin": 15.29
+  },
+  {
+   "texte": "mille",
+   "debut": 15.29,
+   "fin": 15.551
+  },
+  {
+   "texte": "francs",
+   "debut": 15.551,
+   "fin": 15.898
+  },
+  {
+   "texte": "l'heure",
+   "debut": 15.898,
+   "fin": 16.158
+  },
+  {
+   "texte": "avec",
+   "debut": 16.158,
+   "fin": 16.505
+  },
+  {
+   "texte": "Wi-Fi",
+   "debut": 16.505,
+   "fin": 16.853
+  },
+  {
+   "texte": "climatisation",
+   "debut": 16.853,
+   "fin": 17.981
+  },
+  {
+   "texte": "et",
+   "debut": 17.981,
+   "fin": 18.068
+  },
+  {
+   "texte": "écran",
+   "debut": 18.068,
+   "fin": 18.502
+  },
+  {
+   "texte": "multimédia",
+   "debut": 18.502,
+   "fin": 19.37
+  },
+  {
+   "texte": "Service",
+   "debut": 20.002,
+   "fin": 20.541
+  },
+  {
+   "texte": "Aéroport",
+   "debut": 20.541,
+   "fin": 21.17
+  },
+  {
+   "texte": "dès",
+   "debut": 21.17,
+   "fin": 21.35
+  },
+  {
+   "texte": "huit",
+   "debut": 21.35,
+   "fin": 21.53
+  },
+  {
+   "texte": "mille",
+   "debut": 21.53,
+   "fin": 21.8
+  },
+  {
+   "texte": "francs",
+   "debut": 21.8,
+   "fin": 22.159
+  },
+  {
+   "texte": "Et",
+   "debut": 22.759,
+   "fin": 22.833
+  },
+  {
+   "texte": "pour",
+   "debut": 22.833,
+   "fin": 23.055
+  },
+  {
+   "texte": "voyager",
+   "debut": 23.055,
+   "fin": 23.572
+  },
+  {
+   "texte": "à",
+   "debut": 23.572,
+   "fin": 23.646
+  },
+  {
+   "texte": "travers",
+   "debut": 23.646,
+   "fin": 24.09
+  },
+  {
+   "texte": "le",
+   "debut": 24.09,
+   "fin": 24.311
+  },
+  {
+   "texte": "Cameroun",
+   "debut": 24.311,
+   "fin": 24.755
+  },
+  {
+   "texte": "le",
+   "debut": 24.755,
+   "fin": 24.977
+  },
+  {
+   "texte": "service",
+   "debut": 24.977,
+   "fin": 25.42
+  },
+  {
+   "texte": "Voyage",
+   "debut": 25.42,
+   "fin": 25.864
+  },
+  {
+   "texte": "dès",
+   "debut": 25.864,
+   "fin": 26.012
+  },
+  {
+   "texte": "cinquante",
+   "debut": 26.012,
+   "fin": 26.529
+  },
+  {
+   "texte": "mille",
+   "debut": 26.529,
+   "fin": 26.751
+  },
+  {
+   "texte": "francs",
+   "debut": 26.751,
+   "fin": 27.047
+  },
+  {
+   "texte": "par",
+   "debut": 27.047,
+   "fin": 27.269
+  },
+  {
+   "texte": "jour",
+   "debut": 27.269,
+   "fin": 27.491
+  },
+  {
+   "texte": "Des",
+   "debut": 28.149,
+   "fin": 28.389
+  },
+  {
+   "texte": "chauffeurs",
+   "debut": 28.389,
+   "fin": 28.788
+  },
+  {
+   "texte": "professionnels",
+   "debut": 28.788,
+   "fin": 29.667
+  },
+  {
+   "texte": "ponctuels",
+   "debut": 29.667,
+   "fin": 30.305
+  },
+  {
+   "texte": "attentifs",
+   "debut": 30.305,
+   "fin": 30.944
+  },
+  {
+   "texte": "à",
+   "debut": 30.944,
+   "fin": 31.024
+  },
+  {
+   "texte": "chaque",
+   "debut": 31.024,
+   "fin": 31.264
+  },
+  {
+   "texte": "détail",
+   "debut": 31.264,
+   "fin": 31.663
+  },
+  {
+   "texte": "Réservez",
+   "debut": 32.323,
+   "fin": 32.939
+  },
+  {
+   "texte": "sur",
+   "debut": 32.939,
+   "fin": 33.203
+  },
+  {
+   "texte": "WhatsApp",
+   "debut": 33.203,
+   "fin": 33.731
+  },
+  {
+   "texte": "au",
+   "debut": 33.731,
+   "fin": 33.819
+  },
+  {
+   "texte": "six",
+   "debut": 33.819,
+   "fin": 33.995
+  },
+  {
+   "texte": "cent",
+   "debut": 33.995,
+   "fin": 34.259
+  },
+  {
+   "texte": "cinquante-cinq",
+   "debut": 34.259,
+   "fin": 35.227
+  },
+  {
+   "texte": "trente-neuf",
+   "debut": 35.227,
+   "fin": 35.931
+  },
+  {
+   "texte": "quarante",
+   "debut": 35.931,
+   "fin": 36.46
+  },
+  {
+   "texte": "vingt-huit",
+   "debut": 36.46,
+   "fin": 37.076
+  },
+  {
+   "texte": "JP",
+   "debut": 37.774,
+   "fin": 38.185
+  },
+  {
+   "texte": "Service",
+   "debut": 38.185,
+   "fin": 38.8
+  },
+  {
+   "texte": "Express",
+   "debut": 38.8,
+   "fin": 39.518
+  },
+  {
+   "texte": "Urbaine",
+   "debut": 39.518,
+   "fin": 40.031
+  },
+  {
+   "texte": "votre",
+   "debut": 40.031,
+   "fin": 40.442
+  },
+  {
+   "texte": "trajet",
+   "debut": 40.442,
+   "fin": 40.954
+  },
+  {
+   "texte": "notre",
+   "debut": 40.954,
+   "fin": 41.365
+  },
+  {
+   "texte": "priorité",
+   "debut": 41.365,
+   "fin": 42.186
+  }
+ ]
+}
