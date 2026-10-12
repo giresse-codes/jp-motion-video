@@ -631,14 +631,14 @@ body {
 }
 .logo-fin {
   position: absolute;
-  left: 140px;
-  top: 560px;
+  left: 100px;
+  top: 470px;
   width: 800px;
 }
 .slogan {
-  top: 820px;
+  top: 740px;
   color: #fff;
-  font-size: 62px;
+  font-size: 56px;
   line-height: 1.18;
 }
 .slogan .m {
@@ -648,7 +648,7 @@ body {
   position: absolute;
   left: 80px;
   width: 840px;
-  top: 1035px;
+  top: 1000px;
   text-align: center;
   font: 700 54px/1 "Inter";
   letter-spacing: -0.02em;
@@ -661,8 +661,8 @@ body {
 }
 .bouton {
   position: absolute;
-  left: 190px;
-  top: 1160px;
+  left: 150px;
+  top: 1100px;
   width: 700px;
   height: 116px;
   border-radius: 18px;
@@ -680,7 +680,7 @@ body {
   position: absolute;
   left: 80px;
   width: 840px;
-  top: 1318px;
+  top: 1262px;
   text-align: center;
   font: 700 46px/1 var(--mono);
   letter-spacing: 0.06em;
@@ -696,4 +696,32 @@ body {
   background: linear-gradient(180deg, transparent, #ffd6c8 30%, #fff 50%, #ffd6c8 70%, transparent);
   box-shadow: 0 0 40px 12px rgba(255, 90, 40, 0.45), 0 0 140px 40px rgba(225, 6, 0, 0.25);
   opacity: 0;
+}
+
+.etat-trajet {
+  position: absolute;
+  left: 30px;
+  top: 66px;
+  font: 700 34px/1.1 "Inter";
+  letter-spacing: -0.01em;
+  color: var(--encre);
+}
+.usage {
+  width: 420px;
+  height: 600px;
+  left: 330px;
+  top: 400px;
+}
+.usage-illus {
+  width: 352px;
+  height: 270px;
+}
+.usage-titre {
+  font-size: 40px;
+}
+.trio .echo {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.3;
 }

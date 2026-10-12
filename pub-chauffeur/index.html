@@ -12,6 +12,7 @@
     <script src="js/scene1.js"></script>
     <script src="js/scene2.js"></script>
     <script src="js/scene3.js"></script>
+    <script src="js/scene4.js"></script>
   </head>
   <body>
     <div
@@ -113,8 +114,36 @@
             </div>
           </div>
         </div>
+        <div id="s3-trajet" class="objet carte-ui trajet">
+          <div class="carte-entete">TRAJET · BONAPRISO → AÉROPORT</div>
+          <div class="heure-arrivee"><span id="s3-heure-trajet">18:10</span> <span class="ok">✓</span></div>
+          <div class="etat-trajet" id="s3-etat">Votre chauffeur arrive</div>
+          <div class="prix-trajet">Aéroport · <b>dès 8 000 FCFA</b></div>
+        </div>
+        <div id="s3-horloge" style="opacity: 0">
+          <div id="s3-regle"></div>
+          <div class="tete-lecture"></div>
+          <div class="heure-courante" id="s3-heure">18:10</div>
+          <div class="heure-sous">AUJOURD'HUI</div>
+        </div>
+        <div id="s3-usages"></div>
         <div id="s3-pointeur" class="pointeur"></div>
         <div id="s3-sous-titres"></div>
+      </section>
+
+      <!-- ═══ Scène 4 : la fin ═══ -->
+      <section id="s4" class="clip" data-start="29.57" data-duration="15.13" data-track-index="4">
+        <div class="fin-fond" id="s4-fond"></div>
+        <svg class="vagues" id="s4-vagues" viewBox="0 0 1200 640" preserveAspectRatio="none"></svg>
+        <img id="s4-logo" class="logo-fin" src="assets/logo.png" alt="JP Service Express Urbaine" />
+        <div id="s4-slogan"></div>
+        <div class="trio" id="s4-trio"><span>Rapide.</span><span>Sûr.</span><span>Confortable.</span></div>
+        <div class="bouton" id="s4-bouton">
+          <svg viewBox="0 0 32 32" width="44" height="44"><path fill="#fff" d="M16 3C9 3 3.4 8.6 3.4 15.5c0 2.4.7 4.7 1.9 6.6L3.5 28.5l6.6-1.7c1.8 1 3.8 1.5 5.9 1.5 7 0 12.6-5.6 12.6-12.6S23 3 16 3zm0 23c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.4 10.4 0 1 1 16 26zm5.7-7.8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1a8.6 8.6 0 0 1-4.3-3.7c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.7 5 2.1.9 2.9 1 4 .8.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+          RÉSERVER SUR WHATSAPP →
+        </div>
+        <div class="numero" id="s4-numero"></div>
+        <div id="s4-pointeur" class="pointeur"></div>
       </section>
 
       <!-- ═══ Piste audio : mix complet (scripts/mixer.py) ═══ -->
@@ -127,6 +156,7 @@
       window.SCENE1(tl, R);
       window.SCENE2(tl, R);
       window.SCENE3(tl, R);
+      window.SCENE4(tl, R);
       // Fond vivant : le vignettage respire lentement.
       tl.fromTo("#vignette", { scale: 1 }, { scale: 1.06, duration: 6, ease: "sine.inOut", yoyo: true, repeat: 6 }, 0);
       window.__timelines = window.__timelines || {};
