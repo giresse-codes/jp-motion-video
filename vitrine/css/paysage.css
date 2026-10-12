@@ -1,0 +1,128 @@
+/* Version horizontale 1920×1080 (présentations investisseurs).
+   Même film que la version verticale : textes et cartes à gauche, ville et illustrations à droite.
+   Chargé uniquement par paysage.html (html[data-format="paysage"]). */
+html[data-format="paysage"],
+html[data-format="paysage"] body {
+  width: 1920px;
+  height: 1080px;
+}
+html[data-format="paysage"] .voile-haut {
+  inset: 0;
+  height: auto;
+  background: radial-gradient(60% 85% at 22% 45%, rgba(11, 12, 15, 0.85) 0%, rgba(11, 12, 15, 0.55) 50%, transparent 80%);
+}
+
+/* Scène 1 */
+html[data-format="paysage"] .s1-logo-zone {
+  left: 110px;
+  right: auto;
+  width: 820px;
+  top: 120px;
+  height: 240px;
+}
+html[data-format="paysage"] .s1-logo {
+  width: 800px;
+}
+html[data-format="paysage"] .s1-mots {
+  left: 120px;
+  right: auto;
+  top: 400px;
+}
+html[data-format="paysage"] .mot-ligne {
+  height: 150px;
+}
+html[data-format="paysage"] .mot {
+  font-size: 138px;
+}
+html[data-format="paysage"] .mot-long {
+  font-size: 122px;
+}
+
+/* Scène 2 */
+html[data-format="paysage"] .s2-haut {
+  left: 110px;
+  right: auto;
+  width: 860px;
+  top: 170px;
+}
+html[data-format="paysage"] .s2-mot {
+  font-size: 100px;
+}
+
+/* Scène 3 */
+html[data-format="paysage"] .cartes {
+  left: 110px;
+  right: auto;
+  width: 800px;
+  top: 120px;
+  height: 760px;
+}
+html[data-format="paysage"] .s3-etiquette {
+  left: 110px;
+  top: 930px;
+}
+html[data-format="paysage"] .voile-confort {
+  background: radial-gradient(55% 75% at 68% 55%, rgba(11, 12, 15, 0.92) 0%, rgba(11, 12, 15, 0.7) 60%, rgba(11, 12, 15, 0.45) 100%);
+}
+html[data-format="paysage"] .eclate {
+  left: auto;
+  right: 170px;
+  top: 400px;
+  margin-left: 0;
+  transform: scale(1.05);
+}
+html[data-format="paysage"] .cameroun-fond {
+  background: radial-gradient(60% 80% at 70% 55%, #1a1c21 0%, #0e0f12 60%, #0b0c0f 100%);
+}
+
+/* Scène 4 */
+html[data-format="paysage"] .s4-titre {
+  left: 110px;
+  right: auto;
+  top: 180px;
+}
+html[data-format="paysage"] .s4-ligne {
+  font-size: 104px;
+}
+html[data-format="paysage"] .badges {
+  left: 110px;
+  right: auto;
+  width: 820px;
+  top: 470px;
+}
+html[data-format="paysage"] .badge-pro {
+  font-size: 40px;
+}
+html[data-format="paysage"] .coupe {
+  left: 760px;
+  top: 250px;
+}
+
+/* Scène 5 */
+html[data-format="paysage"] .s5-titre {
+  left: 110px;
+  right: auto;
+  width: 800px;
+  top: 360px;
+  font-size: 104px;
+}
+html[data-format="paysage"] .telephone-scene {
+  left: auto;
+  right: 160px;
+  width: 700px;
+  top: 40px;
+  height: 1000px;
+}
+html[data-format="paysage"] .telephone {
+  width: 470px;
+  height: 900px;
+}
+html[data-format="paysage"] .s5-final {
+  top: 200px;
+}
+html[data-format="paysage"] .s5-logo {
+  width: 900px;
+}
+html[data-format="paysage"] .s5-numero {
+  top: 820px;
+}

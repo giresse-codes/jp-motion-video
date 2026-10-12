@@ -30,7 +30,7 @@
     // On traverse la carrosserie : flash rouge, voile, la vue en coupe grandit depuis le centre.
     tl.fromTo("#s4-flash", { opacity: 0.55 }, { opacity: 0, duration: 0.35, immediateRender: false }, T.debut + 1.3);
     tl.fromTo("#s4-voile", { opacity: 0 }, { opacity: 1, duration: 0.3 }, T.debut + 1.2);
-    tl.fromTo("#coupe", { scale: 3.4, opacity: 0, filter: "blur(14px)" }, { scale: 1.32, opacity: 1, filter: "blur(0px)", duration: 0.7, ease: "power4.out" }, T.debut + 1.3);
+    tl.fromTo("#coupe", { scale: 3.4, opacity: 0, filter: "blur(14px)" }, { scale: window.CAMERA.PAYSAGE ? 1.05 : 1.32, opacity: 1, filter: "blur(0px)", duration: 0.7, ease: "power4.out" }, T.debut + 1.3);
 
     // Titre calé sur « chauffeurs professionnels ».
     tl.fromTo("#s4-titre-1", { x: -160, opacity: 0, skewX: 14 }, { x: 0, opacity: 1, skewX: 0, duration: 0.45, ease: "power4.out" }, T.chauffeurs - 0.08);

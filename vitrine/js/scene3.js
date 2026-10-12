@@ -34,6 +34,18 @@
     };
     T.fin = 30.0;
 
+    // Position de la carte du Cameroun selon le format (doit correspondre à doualaSurCarte()).
+    const C = window.CAMERA.CADRAGE.carte;
+    Object.assign(document.getElementById("cameroun").style, {
+      left: C.left + "px",
+      top: C.top + "px",
+      width: C.width + "px",
+      height: (C.width * 1280) / 900 + "px",
+    });
+    const svgC = document.getElementById("cameroun-svg");
+    svgC.setAttribute("width", C.width);
+    svgC.setAttribute("height", (C.width * 1280) / 900);
+
     // ── Utilitaires : dépliage d'une carte en verre, compteur de prix ──
     const deplier = (sel, t) => {
       tl.fromTo(sel, { rotationX: 86, y: 120, opacity: 0 }, { rotationX: 0, y: 0, opacity: 1, duration: 0.7, ease: "back.out(1.3)" }, t);
@@ -121,8 +133,8 @@
     // ═════ 4. Voyage — dézoom vers la carte du Cameroun, trajets tracés ═════
     // Le véhicule JP prend la route de l'est (avenue y = 1100) : la caméra recule très loin.
     // La ville rétrécit vers l'écran exact où Douala apparaîtra sur la carte (ox/oy), vue de dessus.
-    const DOUALA_ECRAN = { ox: -241, oy: 279 };
-    tl.to(cam, { ...viser(R.centre.x, R.centre.y, { s: 0.07, rx: 0, rz: 0, ...DOUALA_ECRAN }), duration: 1.6, ease: "power3.inOut", onUpdate: appliquer }, T.voyager - 0.35);
+    const DOUALA_ECRAN = window.CAMERA.doualaSurCarte();
+    tl.to(cam, { ...viser(R.centre.x, R.centre.y, { s: 0.07, rx: 0, rz: 0, absolu: true, ...DOUALA_ECRAN }), duration: 1.6, ease: "power3.inOut", onUpdate: appliquer }, T.voyager - 0.35);
     tl.fromTo(".scene-3d", { opacity: 1 }, { opacity: 0, duration: 0.5, ease: "power2.in" }, T.cameroun - 0.35);
     tl.fromTo("#cameroun-fond", { opacity: 0 }, { opacity: 1, duration: 0.6 }, T.cameroun - 0.6);
     tl.fromTo("#cameroun", { opacity: 0, scale: 2.4 }, { opacity: 1, scale: 1, duration: 1.1, ease: "power3.out" }, T.cameroun - 0.6);

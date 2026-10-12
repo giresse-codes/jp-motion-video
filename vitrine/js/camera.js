@@ -6,6 +6,15 @@
 
 (function () {
   const PERSPECTIVE = 4200; // grande focale : rendu quasi isométrique
+
+  // Cadrage selon le format (html[data-format]) : en vertical, la ville est poussée vers le bas
+  // (textes en haut) ; en horizontal, elle est poussée vers la droite (textes à gauche).
+  const PAYSAGE = document.documentElement.dataset.format === "paysage";
+  const CADRAGE = PAYSAGE
+    ? { ox: 380, oyK: 0.15, oy: 30, sK: 0.82, carte: { left: 1240, top: 140, width: 560 } }
+    : { ox: 0, oyK: 1, oy: 0, sK: 1, carte: { left: 160, top: 380, width: 760 } };
+  const L_ECRAN = PAYSAGE ? 1920 : 1080;
+  const H_ECRAN = PAYSAGE ? 1080 : 1920;
   const RAD = Math.PI / 180;
 
   // Position (avant perspective) d'un point sol (gx, gy, gz) relatif au centre du sol,
@@ -27,14 +36,18 @@
 
   // Pose qui place le point sol (px, py) [coordonnées sol absolues] à l'écran en (ox, oy)
   // (décalage depuis le centre de l'image), à profondeur 0, puis recule/avance de `dolly`.
+  // `absolu: true` : ox/oy sont des positions écran exactes (pas d'ajustement de cadrage).
   function viser(px, py, o) {
     const T = window.VILLE.TAILLE;
-    const v = projeter(px - T / 2, py - T / 2, o.gz || 0, o.rx, o.rz || 0, o.s);
+    const s = o.absolu ? o.s : o.s * CADRAGE.sK;
+    const ox = o.absolu ? o.ox || 0 : (o.ox || 0) + CADRAGE.ox;
+    const oy = o.absolu ? o.oy || 0 : (o.oy || 0) * CADRAGE.oyK + CADRAGE.oy;
+    const v = projeter(px - T / 2, py - T / 2, o.gz || 0, o.rx, o.rz || 0, s);
     return {
-      x: (o.ox || 0) - v.x,
-      y: (o.oy || 0) - v.y,
+      x: ox - v.x,
+      y: oy - v.y,
       z: -v.z + (o.dolly || 0),
-      s: o.s,
+      s,
       rx: o.rx,
       rz: o.rz || 0,
     };
@@ -53,5 +66,15 @@
     return { cam, derive, secousse, appliquer };
   }
 
-  window.CAMERA = { PERSPECTIVE, projeter, viser, creer };
+  // Position écran de Douala sur la carte du Cameroun (point (165 ; 1017,5) du viewBox 900 × 1280),
+  // en décalage depuis le centre de l'image : la ville s'y réduit avant l'ouverture de la carte.
+  function doualaSurCarte() {
+    const k = CADRAGE.carte.width / 900;
+    return {
+      ox: CADRAGE.carte.left + 165 * k - L_ECRAN / 2,
+      oy: CADRAGE.carte.top + 1017.5 * k - H_ECRAN / 2,
+    };
+  }
+
+  window.CAMERA = { PERSPECTIVE, PAYSAGE, CADRAGE, projeter, viser, creer, doualaSurCarte };
 })();
