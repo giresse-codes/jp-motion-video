@@ -22,7 +22,7 @@ l'utilisateur : la tension d'un départ à l'aéroport (18 h, vol à 20 h, bouch
 ## Assets
 
 - sources/reference.mp4 — vidéo de référence de style (non commitée, marque tierce) : reproduire le style, jamais ses marques.
-- sources/voix-perso-brute.wav — voix de l'utilisateur (MP4, remplace la voix Voicebooking), nettoyée par scripts/nettoyer-voix.sh.
+- assets/voiceoff.mp3 — voix off ElevenLabs « Raphael » (Ads, shorts, social media), pauses réglées, -14 LUFS. Remplace la voix Voicebooking puis la voix de l'utilisateur.
 - assets/audio/musique.mp3 — « Cinematic Corporate Business Background » (Alex Morgan, Pixabay), fournie par l'utilisateur, libre de droits.
 - assets/logo.png — logo JP Service (détouré).
 
@@ -46,5 +46,6 @@ l'utilisateur : la tension d'un départ à l'aéroport (18 h, vol à 20 h, bouch
 - Zones sûres : rien d'important dans les 250 px du haut, les 400 px du bas, les 150 px de droite ; sous-titres au-dessus de la zone du bas.
 - « Il est 18 heures » visible dès la première image.
 - Méthode : voix nettoyée + 3 images test, puis piste audio mixée validée AVANT de synchroniser la vidéo ; un commit par scène.
+- Voix ElevenLabs : utilisation commerciale soumise aux conditions du forfait ElevenLabs de l'utilisateur.
 - Réseau filtré : banques de sons en ligne inaccessibles ; sons d'interface uisfx (CC0), le reste fabriqué (scripts/mixer.py).
 - Dépôt public : aucune clé, aucun média sans droits ; la référence reste dans sources/ (ignoré).

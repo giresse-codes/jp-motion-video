@@ -170,12 +170,13 @@
       }
     };
     majVoiture();
-    const depart = R.trajet + 1.5; // « et vous arrivez à l'heure »
+    const depart = R.depart; // « et vous arrivez à l'heure »
+    const approcheD = Math.min(1.0, depart - R.trajet - 0.1);
     // Sortie du téléphone, entrée de la carte du trajet.
     tl.to(tel, { scale: 0.7, x: -700, opacity: 0, filter: "blur(16px)", duration: 0.45, ease: "power2.in" }, R.trajet - 0.4);
     tl.fromTo(trajet, { scale: 0.88, x: 500, opacity: 0, filter: "blur(16px)" },
       { scale: 1, x: 0, opacity: 1, filter: "blur(0px)", duration: 0.6, ease: "power3.out" }, R.trajet - 0.2);
-    tl.fromTo(pos, { approche: 0 }, { approche: 1, duration: 1.0, ease: "power2.inOut", onUpdate: majVoiture }, R.trajet);
+    tl.fromTo(pos, { approche: 0 }, { approche: 1, duration: approcheD, ease: "power2.inOut", onUpdate: majVoiture }, R.trajet);
     tl.fromTo(pos, { route: 0 }, { route: 1, duration: R.arrivee - depart, ease: "power1.inOut", onUpdate: majVoiture, immediateRender: false }, depart);
     // État et heure du trajet.
     const etat = document.getElementById("s3-etat");
@@ -188,8 +189,8 @@
       bandeT.style.transform = `translateX(${decalage(horlogeT.minute).toFixed(1)}px)`;
       hS3.textContent = hhmm(horlogeT.minute);
     };
-    tl.fromTo(horlogeT, { minute: 18 * 60 + 8 }, { minute: 18 * 60 + 10, duration: 1.0, ease: "none", onUpdate: majH }, R.trajet);
-    tl.fromTo(horlogeT, { minute: 18 * 60 + 10 }, { minute: 18 * 60 + 15, duration: depart - R.trajet - 1.0, ease: "none", onUpdate: majH, immediateRender: false }, R.trajet + 1.0);
+    tl.fromTo(horlogeT, { minute: 18 * 60 + 8 }, { minute: 18 * 60 + 10, duration: approcheD, ease: "none", onUpdate: majH }, R.trajet);
+    tl.fromTo(horlogeT, { minute: 18 * 60 + 10 }, { minute: 18 * 60 + 15, duration: Math.max(0.05, depart - R.trajet - approcheD), ease: "none", onUpdate: majH, immediateRender: false }, R.trajet + approcheD);
     tl.fromTo(horlogeT, { minute: 18 * 60 + 15 }, { minute: 18 * 60 + 52, duration: R.arrivee - depart, ease: "power1.inOut", onUpdate: majH, immediateRender: false }, depart);
     majH();
     etat.innerHTML = '<span id="s3-etat-1">Votre chauffeur arrive</span><span id="s3-etat-2" style="position:absolute;left:0;top:0;opacity:0;white-space:nowrap">En route vers l\'aéroport</span><span id="s3-etat-3" style="position:absolute;left:0;top:0;opacity:0;white-space:nowrap">Arrivé à l\'heure</span>';

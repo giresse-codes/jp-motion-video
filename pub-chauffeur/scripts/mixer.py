@@ -1,6 +1,6 @@
 """Mixage complet de la pub : voix + musique + effets, calé mot par mot sur la voix.
 
-Entrées : assets/audio/voix.wav, assets/voix-timing.json, assets/audio/musique.mp3, assets/sfx/ui-*.wav
+Entrées : assets/voiceoff.mp3, assets/voix-timing.json, assets/audio/musique.mp3, assets/sfx/ui-*.wav
 Sorties :
   assets/audio/mix.wav        mix final stéréo 48 kHz, -14 LUFS, crête -1 dBTP (la piste de la vidéo)
   assets/reperes.json         temps des événements sonores (les scènes s'y calent)
@@ -37,7 +37,7 @@ def lire(chemin, canaux=1):
     return x.reshape(-1, canaux).T if canaux > 1 else x
 
 # Voix normalisée (-14 LUFS, preparer-voix.py) puis -2 dB : même équilibre quelle que soit la prise.
-voix = lire(ICI / "assets" / "audio" / "voix-14lufs.wav") * db(-2)
+voix = lire(ICI / "assets" / "voiceoff.mp3") * db(-2)
 mots = json.loads((ICI / "assets" / "voix-timing.json").read_text(encoding="utf-8"))["mots"]
 
 def mot(texte, n=1, fin=False):
@@ -58,10 +58,11 @@ R["attendre"] = mot("ne")
 R["noir"] = mot("Ils")                                 # écran noir + impact
 R["solution"] = mot("Un", 1)                           # « Un message suffit. »
 R["frappe"] = mot("Un", 1) + 0.05
-R["envoi"] = mot("suffit", fin=True) - 0.45
-R["reponse"] = mot("Votre", 2) + 0.3
-R["confirme"] = mot("confirmé") + 0.15
+R["envoi"] = max(mot("suffit", fin=True) - 0.1, R["frappe"] + 0.75)  # le temps de taper
+R["reponse"] = max(mot("Votre", 2) + 0.3, R["envoi"] + 0.55)
+R["confirme"] = max(mot("confirmé") + 0.15, R["reponse"] + 0.4)
 R["trajet"] = mot("il")
+R["depart"] = mot("et", 1)                             # « et vous arrivez à l'heure » : la voiture part
 R["arrivee"] = mot("l'heure", 2)                       # 18h52 ✓
 R["cartes"] = [mot("Un", 2) - 0.12, mot("Vos") - 0.12, mot("Une") - 0.12, mot("Un", 3) - 0.12]
 R["fin"] = mot("JP")                                   # bascule vers le fond sombre, logo
@@ -69,7 +70,7 @@ R["slogan"] = mot("Votre", 3)
 R["rapide"], R["sur"], R["confortable"] = mot("Rapide"), mot("Sûr"), mot("Confortable")
 R["bouton"] = mot("Confortable", fin=True) + 0.75      # le curseur clique « Réserver sur WhatsApp »
 R["numero"] = R["bouton"] + 0.35
-R["duree"] = round(R["bouton"] + 4.2, 2)
+R["duree"] = round(max(R["bouton"] + 4.2, 40.0), 2)  # 40 s minimum (TikTok / Reels) : le plan final tient
 N = int(R["duree"] * SR)
 
 def piste():
@@ -323,7 +324,7 @@ sortie = ICI / "assets" / "audio" / "mix.wav"
 g = -14 - lufs(ecrire_tmp)
 for _ in range(6):
     subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", str(ecrire_tmp), "-af",
-                    f"volume={g:.2f}dB,alimiter=limit=0.89:attack=3:release=80:level=false",
+                    f"volume={g:.2f}dB,alimiter=limit=0.84:attack=3:release=80:level=false",
                     "-ar", str(SR), "-ac", "2", str(sortie)], check=True)
     e = -14 - lufs(sortie)
     if abs(e) < 0.15:
