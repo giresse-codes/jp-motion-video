@@ -7,6 +7,7 @@
     <!-- GSAP embarqué localement : le CDN n'est pas joignable au rendu. -->
     <script src="js/gsap.min.js"></script>
     <script src="js/voix-timing.js"></script>
+    <script src="js/temps.js"></script>
     <script src="js/ville.js"></script>
     <script src="js/camera.js"></script>
     <link rel="stylesheet" href="css/ville.css" />
@@ -74,23 +75,121 @@
         <div class="flash" id="s1-flash"></div>
       </section>
 
+      <!-- ═══ Scène 2 : le problème, puis la solution ═══ -->
+      <section id="s2" class="clip scene-texte" data-start="4.9" data-duration="6.7" data-track-index="3">
+        <div class="voile voile-haut"></div>
+        <div class="s2-haut">
+          <div class="etiquette" id="s2-lieu"><span class="point"></span>À DOUALA</div>
+          <div class="s2-mot" id="s2-mot-1">Embouteillages.</div>
+          <div class="s2-mot s2-mot-icone" id="s2-mot-2">
+            <svg id="s2-horloge" viewBox="0 0 100 100" width="104" height="104">
+              <circle cx="50" cy="50" r="42" fill="none" stroke="#FF2D1F" stroke-width="9" />
+              <line class="aiguille" x1="50" y1="50" x2="50" y2="20" stroke="#F5F2F0" stroke-width="8" stroke-linecap="round" />
+              <circle cx="50" cy="50" r="6" fill="#F5F2F0" />
+            </svg>
+            <span class="neon">Retards.</span>
+          </div>
+          <div class="s2-reponse" id="s2-reponse-1">Nous avons choisi</div>
+          <div class="s2-reponse s2-reponse-forte" id="s2-reponse-2">de changer ça.</div>
+        </div>
+        <div class="flash" id="s2-flash"></div>
+      </section>
+
+      <!-- ═══ Scène 3 : les services ═══ -->
+      <section id="s3" class="clip scene-texte" data-start="11.2" data-duration="19.2" data-track-index="4">
+        <div class="voile voile-haut"></div>
+        <div class="voile voile-confort" id="s3-voile-confort"></div>
+
+        <!-- Carte du Cameroun (service Voyage) -->
+        <div class="cameroun-fond" id="cameroun-fond"></div>
+        <div class="cameroun" id="cameroun">
+          <svg viewBox="0 0 900 1280" width="760" height="1081" id="cameroun-svg"></svg>
+        </div>
+
+        <!-- Vue éclatée du véhicule Confort -->
+        <div class="eclate" id="eclate">
+          <div class="eclate-couche" id="eclate-chassis"></div>
+          <div class="eclate-couche" id="eclate-caisse"></div>
+          <div class="eclate-couche" id="eclate-habitacle"></div>
+          <div class="eclate-couche" id="eclate-toit"></div>
+          <div class="eq eq-gauche" id="eq-wifi">
+            <div class="eq-icone"><svg viewBox="0 0 100 100" width="84" height="84"><path class="onde-wifi" d="M18 44 Q50 14 82 44" /><path class="onde-wifi" d="M30 56 Q50 38 70 56" /><path class="onde-wifi" d="M41 67 Q50 59 59 67" /><circle cx="50" cy="78" r="7" fill="#F5F2F0" /></svg></div>
+            <div class="eq-texte">Wi-Fi</div>
+          </div>
+          <div class="eq eq-droite" id="eq-clim">
+            <div class="eq-icone"><svg viewBox="0 0 100 100" width="84" height="84"><g stroke="#F5F2F0" stroke-width="6" stroke-linecap="round" fill="none"><line x1="50" y1="14" x2="50" y2="86" /><line x1="19" y1="32" x2="81" y2="68" /><line x1="19" y1="68" x2="81" y2="32" /></g><path class="souffle" d="M10 92 Q30 84 50 92 T90 92" stroke="#FF2D1F" stroke-width="4" fill="none" /></svg></div>
+            <div class="eq-texte">Climatisation</div>
+          </div>
+          <div class="eq eq-gauche eq-bas" id="eq-ecran">
+            <div class="eq-icone"><svg viewBox="0 0 100 100" width="84" height="84"><rect x="10" y="22" width="80" height="50" rx="6" fill="none" stroke="#F5F2F0" stroke-width="6" /><path d="M43 36 L60 47 L43 58 Z" fill="#FF2D1F" /><rect class="lecture" x="18" y="80" width="64" height="5" rx="2" fill="#FF2D1F" /></svg></div>
+            <div class="eq-texte">Écran YouTube · USB</div>
+          </div>
+        </div>
+
+        <!-- Cartes de service (verre dépoli, dépliage 3D) -->
+        <div class="cartes">
+          <div class="carte" id="carte-eco">
+            <div class="carte-tete"><span>SERVICE</span><span>01/04</span></div>
+            <div class="carte-nom">Éco</div>
+            <div class="carte-prix"><span class="compteur">0</span><span class="unite">FCFA / heure</span></div>
+            <div class="carte-ligne"><i></i>Véhicule confortable</div>
+            <div class="carte-ligne"><i></i>Chauffeur professionnel</div>
+            <div class="carte-ligne"><i></i>Ponctualité</div>
+          </div>
+          <div class="carte" id="carte-confort">
+            <div class="carte-tete"><span>SERVICE</span><span>02/04</span></div>
+            <div class="carte-nom">Confort</div>
+            <div class="carte-prix"><span class="compteur">0</span><span class="unite">FCFA / heure</span></div>
+            <div class="carte-ligne"><i></i>Véhicule premium</div>
+          </div>
+          <div class="carte" id="carte-aeroport">
+            <div class="carte-tete"><span>SERVICE</span><span>03/04</span></div>
+            <div class="carte-nom">Aéroport</div>
+            <div class="carte-prix"><span class="prefixe">dès</span><span class="compteur">0</span><span class="unite">FCFA</span></div>
+            <div class="carte-options"><div class="option"><b>Éco</b>8 000 FCFA</div><div class="option"><b>Confort</b>10 000 FCFA</div></div>
+          </div>
+          <div class="carte" id="carte-voyage">
+            <div class="carte-tete"><span>SERVICE</span><span>04/04</span></div>
+            <div class="carte-nom">Voyage</div>
+            <div class="carte-prix"><span class="compteur">0</span><span class="unite">FCFA / jour</span></div>
+            <div class="badge">Offre 3 jours · 100 000 FCFA</div>
+            <div class="mention">Carburant à la charge du client</div>
+          </div>
+        </div>
+
+        <div class="etiquette s3-etiquette" id="s3-etiquette-1"><span class="point"></span>BONAPRISO</div>
+        <div class="etiquette s3-etiquette" id="s3-etiquette-3"><span class="point"></span>AÉROPORT DE DOUALA</div>
+        <div class="flash" id="s3-flash"></div>
+      </section>
+
       <!-- ═══ Son ═══ -->
-      <audio id="voix" src="assets/voiceoff.mp3" data-start="0" data-duration="42.4" data-track-index="10" data-volume="1"></audio>
+      <!-- Voix off en 5 sections (valeurs = js/temps.js) -->
+      <audio id="voix-accroche" src="assets/voiceoff.mp3" data-start="0.9" data-media-start="0" data-duration="3.84" data-track-index="10" data-volume="1"></audio>
+      <audio id="voix-probleme" src="assets/voiceoff.mp3" data-start="5.6" data-media-start="3.84" data-duration="5.18" data-track-index="10" data-volume="1"></audio>
+      <audio id="voix-services" src="assets/voiceoff.mp3" data-start="11.5" data-media-start="9.02" data-duration="14.89" data-track-index="10" data-volume="1"></audio>
+      <audio id="voix-chauffeurs" src="assets/voiceoff.mp3" data-start="30" data-media-start="23.91" data-duration="3.68" data-track-index="10" data-volume="1"></audio>
+      <audio id="voix-appel" src="assets/voiceoff.mp3" data-start="35.3" data-media-start="27.59" data-duration="9.21" data-track-index="10" data-volume="1"></audio>
       <audio id="sfx-s1-plongee" src="assets/sfx/whoosh.wav" data-start="0.15" data-duration="0.7" data-track-index="11" data-volume="0.5"></audio>
-      <audio id="sfx-s1-neon" src="assets/sfx/neon.wav" data-start="0.95" data-duration="0.55" data-track-index="12" data-volume="0.35"></audio>
-      <audio id="sfx-s1-impact" src="assets/sfx/boom.wav" data-start="1.28" data-duration="2.5" data-track-index="13" data-volume="0.55"></audio>
-      <audio id="sfx-s1-mot1" src="assets/sfx/impact.wav" data-start="2.38" data-duration="0.9" data-track-index="14" data-volume="0.4"></audio>
-      <audio id="sfx-s1-mot2" src="assets/sfx/whoosh-court.wav" data-start="3.5" data-duration="0.4" data-track-index="15" data-volume="0.4"></audio>
-      <audio id="sfx-s1-mot3" src="assets/sfx/impact.wav" data-start="4.36" data-duration="0.9" data-track-index="16" data-volume="0.45"></audio>
+      <audio id="sfx-s1-neon" src="assets/sfx/neon.wav" data-start="1.47" data-duration="0.55" data-track-index="12" data-volume="0.35"></audio>
+      <audio id="sfx-s1-impact" src="assets/sfx/boom.wav" data-start="1.80" data-duration="2.5" data-track-index="13" data-volume="0.55"></audio>
+      <audio id="sfx-s1-mot1" src="assets/sfx/impact.wav" data-start="2.83" data-duration="0.9" data-track-index="14" data-volume="0.4"></audio>
+      <audio id="sfx-s1-mot2" src="assets/sfx/whoosh-court.wav" data-start="3.36" data-duration="0.4" data-track-index="15" data-volume="0.4"></audio>
+      <audio id="sfx-s1-mot3" src="assets/sfx/impact.wav" data-start="3.98" data-duration="0.9" data-track-index="16" data-volume="0.45"></audio>
     </div>
 
     <script src="js/scene1.js"></script>
+    <script src="js/scene2.js"></script>
+    <script src="js/illustrations.js"></script>
+    <script src="js/scene3.js"></script>
     <script>
       const tl = gsap.timeline({ paused: true });
       const monde = document.getElementById("monde");
       const ville = window.VILLE.construire(document.getElementById("sol"));
       const camera = window.CAMERA.creer(monde);
-      window.SCENE1(tl, { ville, camera });
+      const T1 = window.SCENE1(tl, { ville, camera });
+      const T2 = window.SCENE2(tl, { ville, camera, T1 });
+      window.ILLUSTRATIONS.dessiner();
+      const T3 = window.SCENE3(tl, { ville, camera, T2 });
       window.__timelines["main"] = tl;
     </script>
   </body>

@@ -115,10 +115,11 @@
   }
 
   // Véhicule : petite boîte. type "jp" = rouge marque avec bande blanche et halo néon.
-  function vehicule(parent, x, y, type, orientation) {
+  function vehicule(parent, x, y, type, orientation, echelle) {
+    const k = echelle || 1;
     const horizontal = orientation !== "y";
-    const w = horizontal ? 40 : 20;
-    const d = horizontal ? 20 : 40;
+    const w = (horizontal ? 40 : 20) * k;
+    const d = (horizontal ? 20 : 40) * k;
     const v = el("div", "vehicule vehicule-" + type, {
       left: x - w / 2 + "px",
       top: y - d / 2 + "px",
@@ -126,7 +127,7 @@
       height: d + "px",
     });
     v.innerHTML = `<div class="halo"></div><div class="caisse"><div class="toit"></div><div class="face face-s"></div><div class="face face-e"></div></div>`;
-    v.style.setProperty("--h", type === "jp" ? "14px" : "12px");
+    v.style.setProperty("--h", (type === "jp" ? 14 : 12) * k + "px");
     parent.appendChild(v);
     return v;
   }
@@ -291,7 +292,7 @@
     registre.avion = avion;
 
     // Véhicules : un JP héros + trafic.
-    registre.vehicules.heros = vehicule(sol, 1550, 2150, "jp", "y");
+    registre.vehicules.heros = vehicule(sol, 1550, 2150, "jp", "y", 1.7);
     registre.vehicules.trafic = [];
     const voies = [
       { axe: "x", pos: 1700, de: 900, a: 2100 },
@@ -331,5 +332,14 @@
     return registre;
   }
 
-  window.VILLE = { TAILLE, REPERES, QUARTIERS, construire, prng };
+  // Panneau vertical tourné vers la caméra (icônes, étiquettes posées dans la ville).
+  function panneau(parent, x, y, hauteur, html, classe) {
+    const p = el("div", "panneau " + (classe || ""), { left: x + "px", top: y + "px" });
+    p.style.setProperty("--z", hauteur + "px");
+    p.innerHTML = `<div class="panneau-face">${html}</div>`;
+    parent.appendChild(p);
+    return p;
+  }
+
+  window.VILLE = { TAILLE, REPERES, QUARTIERS, construire, prng, vehicule, panneau, el };
 })();

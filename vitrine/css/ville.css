@@ -405,6 +405,8 @@ body {
 }
 .vehicule-jp .halo {
   opacity: 1;
+  inset: -26px;
+  background: radial-gradient(closest-side, rgba(255, 45, 31, 0.95), rgba(255, 45, 31, 0.3) 55%, transparent);
 }
 
 /* Feux tricolores */
@@ -469,4 +471,37 @@ body {
   border-radius: 6px;
   background: radial-gradient(circle at 40% 40%, #2c4a33, #1e3324);
   box-shadow: inset 0 0 0 3px rgba(245, 242, 240, 0.05);
+}
+
+/* Panneaux verticaux face caméra (icônes de stress, étiquettes de quartiers) */
+.panneau {
+  position: absolute;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+  transform: scale3d(var(--p, 1), var(--p, 1), var(--p, 1));
+}
+.panneau-face {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform-origin: 0% 100%;
+  transform: rotateZ(-45deg) rotateX(-90deg) translateY(calc(-1 * var(--z))) translateX(-50%);
+}
+/* Feux stop des véhicules à l'arrêt */
+.vehicule .stop {
+  position: absolute;
+  inset: -6px;
+  border-radius: 40%;
+  background: radial-gradient(closest-side, rgba(255, 45, 31, 0.8), transparent);
+  opacity: 0;
+}
+.trainee {
+  position: absolute;
+  background: var(--neon);
+  border-radius: 4px;
+  box-shadow: 0 0 10px 3px rgba(255, 45, 31, 0.8), 0 0 34px 8px rgba(255, 45, 31, 0.35);
+}
+.feu-v.allume {
+  background: #3ddc84;
 }

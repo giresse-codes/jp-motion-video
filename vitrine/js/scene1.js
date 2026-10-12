@@ -1,16 +1,10 @@
 // Scène 1 — accroche (0 → ~5,8 s).
 // Rules : 3d-camera-flight (plongée du ciel), spring-pop-entrance (immeubles, palmiers),
 // kinetic-beat-slam (slogan : trois entrées différentes), particle-burst (impact du logo).
-// Chaque temps fort est calé sur un mot de la voix (window.VOIX).
+// Chaque temps fort est calé sur un mot de la voix (window.TEMPS.mot → temps du film).
 
 (function () {
-  // Temps (s) du premier mot de la voix dont le texte correspond, à partir d'un index.
-  function mot(texte, apres) {
-    const liste = window.VOIX.mots;
-    const m = liste.find((x, i) => i >= (apres || 0) && x.texte.replace(/[.,:;]/g, "") === texte);
-    if (!m) throw new Error("Mot introuvable dans la voix : " + texte);
-    return m.debut;
-  }
+  const { mot } = window.TEMPS;
 
   window.SCENE1 = function (tl, ctx) {
     const { ville, camera } = ctx;
@@ -20,7 +14,7 @@
     const alea = window.VILLE.prng(7);
 
     const T = {
-      impact: 1.3, // le logo touche le sol sur « Express »
+      impact: mot("Express"), // le logo touche le sol sur « Express »
       rapide: mot("Rapide"),
       sur: mot("Sûr"),
       confortable: mot("Confortable"),
