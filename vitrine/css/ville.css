@@ -1,14 +1,22 @@
-/* Charte : voir frame.md. Toutes les couleurs passent par ces variables. */
+/* Charte : voir frame.md. Toutes les couleurs passent par ces variables.
+   Le rouge de marque n'est qu'un ACCENT (logo, prix, WhatsApp, véhicules JP). */
 :root {
-  --nuit: #0b0c0f;
-  --anthracite: #16181d;
-  --beton: #23262d;
-  --acier: #343842;
-  --toit: #454a55;
+  /* fonds */
+  --creme: #f7f1e8;
+  --sable: #ecdcc4;
+  --nuit: #0e1b2e;
+  --crepuscule: #1d3557;
+  /* ambiance Douala */
+  --dore: #f4b942;
+  --orange: #f28c38;
+  --turquoise: #2ec4b6;
+  --lagon: #1b8a9a;
+  /* textes */
+  --encre: #14213d;
+  --blanc: #ffffff;
+  /* accent de marque */
   --rouge: #e10600;
   --neon: #ff2d1f;
-  --blanc: #f5f2f0;
-  --braise: #ff8a4c;
   /* 0 = fin de journée, 1 = nuit (scène 5) : animé par la timeline */
   --nuitee: 0;
 }
@@ -42,31 +50,33 @@ body {
   width: 1080px;
   height: 1920px;
   overflow: hidden;
-  background: var(--nuit);
+  background: var(--creme);
 }
 #root {
   position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: var(--nuit);
+  background: var(--creme);
   font-family: "Montserrat", sans-serif;
-  color: var(--blanc);
+  color: var(--encre);
 }
 
-/* ── Ciel : lueur chaude d'horizon (radiale, pas de dégradé linéaire plein écran) ── */
+/* ── Ciel de fin de journée : bleu profond en haut, horizon doré (radiaux superposés) ── */
 .ciel {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(120% 45% at 50% 0%, rgba(255, 138, 76, 0.32) 0%, rgba(225, 6, 0, 0.12) 38%, transparent 70%),
-    radial-gradient(90% 60% at 50% 100%, rgba(225, 6, 0, 0.1) 0%, transparent 60%),
-    var(--nuit);
+    radial-gradient(140% 55% at 50% 58%, rgba(244, 185, 66, 0.95) 0%, rgba(242, 140, 56, 0.75) 28%, rgba(242, 140, 56, 0) 62%),
+    radial-gradient(120% 70% at 50% -10%, #1d3557 0%, #2c4a74 45%, rgba(44, 74, 116, 0) 80%),
+    #f2a65a;
 }
 .ciel-nuit {
   position: absolute;
   inset: 0;
-  background: radial-gradient(110% 50% at 50% 0%, rgba(225, 6, 0, 0.22) 0%, transparent 65%), #07080a;
+  background:
+    radial-gradient(120% 50% at 50% 60%, rgba(46, 196, 182, 0.18) 0%, transparent 60%),
+    radial-gradient(130% 80% at 50% -10%, #0a1424 0%, #0e1b2e 55%, #1d3557 100%);
   opacity: var(--nuitee);
 }
 
@@ -100,59 +110,94 @@ body {
   transform-style: preserve-3d;
   transform: rotateZ(45deg);
 }
+.terrain-lointain {
+  position: absolute;
+  inset: -5000px;
+  background: radial-gradient(closest-side, #ead8bd 0%, #e9cfa6 30%, #f0b878 60%, #f2a65a 100%);
+}
+.terrain-lointain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #0e1b2e;
+  opacity: calc(var(--nuitee) * 0.85);
+}
 .terrain {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(55% 55% at 52% 52%, rgba(255, 138, 76, 0.07) 0%, transparent 70%),
-    radial-gradient(60% 60% at 52% 52%, #24262d 0%, #1c1e23 55%, #131418 100%);
+    radial-gradient(45% 45% at 50% 50%, rgba(255, 214, 140, 0.55) 0%, transparent 70%),
+    radial-gradient(70% 70% at 50% 50%, #f4e9d8 0%, #ead8bd 75%, rgba(234, 216, 189, 0) 100%);
+}
+.terrain::after,
+.face::before,
+.toit::before {
+  /* voile nocturne bleu nuit, piloté par --nuitee */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #0e1b2e;
+  opacity: calc(var(--nuitee) * 0.8);
+  pointer-events: none;
 }
 
-/* Fleuve Wouri */
+/* Fleuve Wouri : turquoise lumineux */
 .fleuve {
   position: absolute;
-  background: linear-gradient(90deg, #0e1013 0%, #15181d 45%, #101216 100%);
-  box-shadow: inset 8px 0 0 rgba(245, 242, 240, 0.08), inset -8px 0 0 rgba(245, 242, 240, 0.08);
+  background: linear-gradient(90deg, #17788a 0%, #2ec4b6 45%, #1b8a9a 100%);
+  box-shadow: inset 10px 0 0 rgba(255, 255, 255, 0.35), inset -10px 0 0 rgba(255, 255, 255, 0.35);
   overflow: hidden;
+}
+.fleuve::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #0b2f45;
+  opacity: calc(var(--nuitee) * 0.75);
 }
 .reflet {
   position: absolute;
   height: 6px;
   border-radius: 3px;
-  background: rgba(245, 242, 240, 0.35);
+  background: rgba(255, 255, 255, 0.75);
+  z-index: 1;
 }
 .reflet:nth-child(3n) {
-  background: rgba(255, 45, 31, 0.45);
+  background: rgba(255, 220, 140, 0.9);
 }
 .pirogue {
   position: absolute;
   width: 16px;
   height: 64px;
   border-radius: 50%;
-  background: #4a3a30;
-  box-shadow: 0 0 0 3px rgba(245, 242, 240, 0.12);
+  background: #8a5a3c;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.4);
+  z-index: 1;
 }
 
-/* Routes */
+/* Routes : asphalte gris-bleu chaud, marquages blancs, bordures claires */
 .route {
   position: absolute;
-  background: #0f1013;
+  background: #59616f;
   transform-origin: 50% 50%;
+  box-shadow: 0 0 0 4px #f3e7d3;
 }
 .route-v {
   background:
-    repeating-linear-gradient(180deg, rgba(245, 242, 240, 0.55) 0 26px, transparent 26px 60px) center / 4px 100% no-repeat,
-    #0f1013;
+    repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0 26px, transparent 26px 60px) center / 4px 100% no-repeat,
+    #59616f;
 }
 .route-h {
   background:
-    repeating-linear-gradient(90deg, rgba(245, 242, 240, 0.55) 0 26px, transparent 26px 60px) center / 100% 4px no-repeat,
-    #0f1013;
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.9) 0 26px, transparent 26px 60px) center / 100% 4px no-repeat,
+    #59616f;
 }
-.route.boulevard {
-  box-shadow:
-    0 0 0 3px rgba(255, 45, 31, 0.85),
-    0 0 26px 4px rgba(255, 45, 31, 0.45);
+.route::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #0e1b2e;
+  opacity: calc(var(--nuitee) * 0.55);
 }
 
 /* Pont sur le Wouri */
@@ -166,15 +211,15 @@ body {
   inset: 12px 0;
   background:
     repeating-linear-gradient(90deg, rgba(245, 242, 240, 0.5) 0 22px, transparent 22px 50px) center / 100% 4px no-repeat,
-    #1a1c21;
-  box-shadow: 0 0 0 2px #2b2e35;
+    #5f6776;
+  box-shadow: 0 0 0 3px #f3e7d3;
 }
 .pont .garde {
   position: absolute;
   left: 0;
   right: 0;
   height: 14px;
-  background: linear-gradient(0deg, #343842, #4a4f5a);
+  background: linear-gradient(0deg, #c9b79c, #efe2cc);
   transform-origin: 50% 100%;
 }
 .pont .garde-n {
@@ -192,8 +237,8 @@ body {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--blanc);
-  box-shadow: 0 0 calc(8px + 22px * var(--nuitee)) calc(2px + 6px * var(--nuitee)) rgba(255, 220, 190, calc(0.25 + 0.6 * var(--nuitee)));
+  background: #fff4d6;
+  box-shadow: 0 0 calc(6px + 26px * var(--nuitee)) calc(1px + 8px * var(--nuitee)) rgba(244, 185, 66, calc(0.2 + 0.7 * var(--nuitee)));
   transform: translateZ(40px);
 }
 
@@ -210,16 +255,19 @@ body {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 70% 30%, rgba(30, 32, 38, 0.9) 0 6px, transparent 7px),
-    radial-gradient(circle at 30% 65%, rgba(30, 32, 38, 0.8) 0 4px, transparent 5px),
-    linear-gradient(135deg, #565b67, var(--toit));
+    radial-gradient(circle at 70% 30%, rgba(120, 110, 100, 0.55) 0 6px, transparent 7px),
+    radial-gradient(circle at 30% 65%, rgba(120, 110, 100, 0.45) 0 4px, transparent 5px),
+    linear-gradient(135deg, #fffaf2, #efe4d4);
   transform: translateZ(var(--h));
-  /* acrotère : arête claire côté lumière, sombre côté ombre */
-  box-shadow: inset 4px -4px 0 rgba(255, 190, 150, 0.28), inset -3px 3px 0 rgba(0, 0, 0, 0.35);
+  /* acrotère : arête dorée côté soleil, ombre douce côté opposé */
+  box-shadow: inset 4px -4px 0 rgba(244, 185, 66, 0.55), inset -3px 3px 0 rgba(20, 33, 61, 0.15);
 }
 .face {
   position: absolute;
   overflow: hidden;
+  /* --mur / --mur-ombre : teinte de façade par immeuble (classes .teinte-*) */
+  --mur: #f1e3cc;
+  --mur-ombre: #b9a88f;
 }
 .face-s {
   left: 0;
@@ -228,8 +276,8 @@ body {
   height: var(--h);
   transform-origin: 50% 0%;
   transform: rotateX(90deg);
-  /* face éclairée : lumière chaude rasante de fin de journée */
-  background: linear-gradient(0deg, #3a3c44 0%, #44464e 60%, #6a4c40 100%);
+  /* face au soleil couchant : chaude, avec un éclat doré en haut */
+  background: linear-gradient(0deg, color-mix(in srgb, var(--mur) 88%, #000 12%) 0%, var(--mur) 55%, color-mix(in srgb, var(--mur) 70%, #f4b942 30%) 100%);
 }
 .face-e {
   left: 100%;
@@ -238,7 +286,8 @@ body {
   height: 100%;
   transform-origin: 0% 50%;
   transform: rotateY(-90deg);
-  background: linear-gradient(90deg, #1f2127 0%, #23262d 100%);
+  /* face à l'ombre : plus froide (lumière du ciel) */
+  background: linear-gradient(90deg, color-mix(in srgb, var(--mur-ombre) 85%, #1d3557 15%) 0%, var(--mur-ombre) 100%);
 }
 .fenetres,
 .fenetres-nuit {
@@ -247,76 +296,85 @@ body {
 }
 .face-s .fenetres {
   background:
-    repeating-linear-gradient(90deg, transparent 0 10px, rgba(52, 54, 62, 1) 10px 14px),
-    repeating-linear-gradient(0deg, rgba(52, 54, 62, 1) 0 7px, rgba(255, 176, 120, 0.42) 7px 15px, rgba(30, 32, 38, 0.9) 15px 20px);
+    repeating-linear-gradient(90deg, transparent 0 10px, var(--mur) 10px 14px),
+    repeating-linear-gradient(0deg, var(--mur) 0 7px, rgba(46, 120, 140, 0.55) 7px 11px, rgba(255, 230, 170, 0.95) 11px 15px, var(--mur) 15px 20px);
 }
 .face-e .fenetres {
   background:
-    repeating-linear-gradient(0deg, transparent 0 10px, rgba(31, 33, 39, 1) 10px 14px),
-    repeating-linear-gradient(90deg, rgba(31, 33, 39, 1) 0 7px, rgba(120, 130, 150, 0.22) 7px 15px, rgba(18, 19, 23, 0.9) 15px 20px);
+    repeating-linear-gradient(0deg, transparent 0 10px, var(--mur-ombre) 10px 14px),
+    repeating-linear-gradient(90deg, var(--mur-ombre) 0 7px, rgba(30, 60, 90, 0.45) 7px 15px, var(--mur-ombre) 15px 20px);
 }
 .fenetres-nuit {
   opacity: var(--nuitee);
+  z-index: 1;
 }
 .face-s .fenetres-nuit {
   background:
-    repeating-linear-gradient(90deg, transparent 0 12px, rgba(11, 12, 15, 1) 12px 18px),
-    repeating-linear-gradient(0deg, transparent 0 14px, rgba(255, 230, 200, 1) 14px 22px, transparent 22px 30px, rgba(255, 60, 40, 0.95) 30px 38px);
+    repeating-linear-gradient(90deg, transparent 0 12px, rgba(14, 27, 46, 1) 12px 18px),
+    repeating-linear-gradient(0deg, transparent 0 14px, rgba(255, 214, 130, 1) 14px 22px, transparent 22px 30px, rgba(255, 244, 214, 0.95) 30px 38px);
 }
 .face-e .fenetres-nuit {
   background:
-    repeating-linear-gradient(0deg, transparent 0 12px, rgba(11, 12, 15, 1) 12px 18px),
-    repeating-linear-gradient(90deg, transparent 0 14px, rgba(255, 226, 196, 0.85) 14px 22px, transparent 22px 40px);
+    repeating-linear-gradient(0deg, transparent 0 12px, rgba(14, 27, 46, 1) 12px 18px),
+    repeating-linear-gradient(90deg, transparent 0 14px, rgba(244, 185, 66, 0.85) 14px 22px, transparent 22px 40px, rgba(46, 196, 182, 0.6) 40px 46px);
+}
+/* Teintes de façades (attribuées par ville.js selon le quartier) */
+.teinte-creme .face { --mur: #f4e8d4; --mur-ombre: #bfae95; }
+.teinte-ocre .face { --mur: #e9b872; --mur-ombre: #a77d4a; }
+.teinte-terre .face { --mur: #d98b5f; --mur-ombre: #9a5d3f; }
+.teinte-peche .face { --mur: #f2c4a0; --mur-ombre: #b38a6c; }
+.teinte-verre .face { --mur: #4fb8b0; --mur-ombre: #2b7a78; }
+.teinte-nuit .face { --mur: #3c5a86; --mur-ombre: #22385a; }
+.teinte-verre .face-s .fenetres,
+.teinte-nuit .face-s .fenetres {
+  background:
+    repeating-linear-gradient(90deg, transparent 0 16px, rgba(255, 255, 255, 0.25) 16px 18px),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 35%, rgba(255, 220, 150, 0.45) 70%, rgba(255, 255, 255, 0) 100%);
 }
 .tour .toit {
-  background: #4f5561;
-  box-shadow: inset 0 0 0 3px rgba(255, 45, 31, 0.55), 0 0 18px rgba(255, 45, 31, 0.35);
+  background: linear-gradient(135deg, #ffffff, #e2ecef);
+  box-shadow: inset 0 0 0 3px rgba(46, 196, 182, 0.7), inset 4px -4px 0 rgba(244, 185, 66, 0.5);
 }
 .maison .toit {
-  background: #5a4a44;
-}
-.maison .face-s {
-  background: #4a4240;
-}
-.maison .face-e {
-  background: #2b2626;
+  background: linear-gradient(135deg, #e07b4f, #c4623a);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.25);
 }
 .pagode .toit {
-  background: #2b2e35;
+  background: #efe4d4;
 }
 .toit-pagode {
   position: absolute;
   inset: -22px;
   background:
-    linear-gradient(135deg, transparent 0 46%, rgba(0, 0, 0, 0.25) 46% 54%, transparent 54%),
-    var(--rouge);
+    linear-gradient(135deg, transparent 0 46%, rgba(0, 0, 0, 0.18) 46% 54%, transparent 54%),
+    linear-gradient(135deg, #f28c38, #d9622b);
   transform: translateZ(calc(var(--h) + 18px));
-  box-shadow: 0 0 30px rgba(255, 45, 31, 0.5);
+  box-shadow: 0 0 24px rgba(242, 140, 56, 0.5);
   clip-path: polygon(0 18%, 18% 0, 82% 0, 100% 18%, 100% 82%, 82% 100%, 18% 100%, 0 82%);
 }
 .pile .toit,
 .pile .face {
-  background: #2b2e35;
+  background: #c9b79c;
 }
 .terminal .toit {
-  background: #565c68;
-  box-shadow: inset 0 0 0 4px rgba(245, 242, 240, 0.25);
+  background: linear-gradient(135deg, #ffffff, #dfe8ea);
+  box-shadow: inset 0 0 0 4px rgba(46, 196, 182, 0.6);
 }
 .tour-controle .toit {
-  background: #3a3e47;
+  background: #f4e8d4;
 }
 .cabine .toit {
-  background: #2a2d34;
-  box-shadow: 0 0 16px rgba(255, 45, 31, 0.6);
+  background: #2b7a78;
+  box-shadow: 0 0 14px rgba(46, 196, 182, 0.6);
 }
 .cabine .face {
-  background: rgba(255, 210, 180, 0.55);
+  background: rgba(46, 196, 182, 0.75);
 }
 
-/* Ombres portées */
+/* Ombres portées : bleutées et douces (lumière du ciel) */
 .ombre {
   position: absolute;
-  background: rgba(5, 5, 7, 0.45);
+  background: rgba(29, 53, 87, 0.22);
 }
 
 /* Palmiers : plan vertical face caméra */
@@ -340,15 +398,15 @@ body {
 /* Aéroport */
 .tarmac {
   position: absolute;
-  background: #1c1e23;
-  box-shadow: inset 0 0 0 3px rgba(245, 242, 240, 0.08);
+  background: #b9b3a7;
+  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.5);
 }
 .piste {
   position: absolute;
   background:
     repeating-linear-gradient(90deg, rgba(245, 242, 240, 0.85) 0 40px, transparent 40px 90px) center / 100% 5px no-repeat,
     linear-gradient(0deg, transparent 0 8px, rgba(245, 242, 240, 0.6) 8px 11px, transparent 11px calc(100% - 11px), rgba(245, 242, 240, 0.6) calc(100% - 11px) calc(100% - 8px), transparent calc(100% - 8px)),
-    #0d0e11;
+    #4a5160;
 }
 .avion {
   position: absolute;
@@ -359,54 +417,63 @@ body {
 }
 .avion svg {
   transform: rotate(90deg);
-  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0 6px 6px rgba(20, 33, 61, 0.35));
 }
 
-/* Véhicules */
+/* Véhicules : trafic coloré (taxis jaunes de Douala, blanc, bleu) ; JP en rouge de marque */
 .vehicule {
   position: absolute;
   transform-style: preserve-3d;
 }
 .vehicule .toit {
-  background: #c9ccd2;
+  background: #ffffff;
+  box-shadow: none;
 }
 .vehicule .face-s {
-  background: #8f939b;
+  background: #e6e2da;
 }
 .vehicule .face-e {
-  background: #5d6168;
+  background: #b9b4aa;
 }
 .vehicule-gris .toit {
-  background: #7d828b;
+  background: #ffd447;
 }
 .vehicule-gris .face-s {
-  background: #5d6168;
+  background: #f4b942;
 }
 .vehicule-gris .face-e {
-  background: #3e4147;
+  background: #c48a1c;
+}
+.vehicule-bleu .toit {
+  background: #5d86c4;
+}
+.vehicule-bleu .face-s {
+  background: #3c5a86;
+}
+.vehicule-bleu .face-e {
+  background: #22385a;
 }
 .vehicule-jp .toit {
   background:
-    linear-gradient(90deg, transparent 0 40%, var(--blanc) 40% 60%, transparent 60%),
+    linear-gradient(90deg, transparent 0 40%, #ffffff 40% 60%, transparent 60%),
     var(--rouge);
 }
 .vehicule-jp .face-s {
-  background: #b80500;
+  background: #c20500;
 }
 .vehicule-jp .face-e {
-  background: #7a0300;
+  background: #8a0400;
 }
 .vehicule .halo {
   position: absolute;
   inset: -16px;
   border-radius: 40%;
-  background: radial-gradient(closest-side, rgba(255, 45, 31, 0.7), transparent);
-  opacity: 0;
+  background: radial-gradient(closest-side, rgba(20, 33, 61, 0.35), transparent);
+  opacity: 1;
 }
 .vehicule-jp .halo {
-  opacity: 1;
-  inset: -26px;
-  background: radial-gradient(closest-side, rgba(255, 45, 31, 0.95), rgba(255, 45, 31, 0.3) 55%, transparent);
+  inset: -24px;
+  background: radial-gradient(closest-side, rgba(255, 45, 31, calc(0.25 + 0.6 * var(--nuitee))), rgba(20, 33, 61, 0.25) 60%, transparent);
 }
 
 /* Feux tricolores */
@@ -422,7 +489,7 @@ body {
   bottom: 0;
   width: 4px;
   height: 56px;
-  background: #2b2e35;
+  background: #3c4250;
   transform-origin: 50% 100%;
   transform: rotateZ(-45deg) rotateX(-90deg);
 }
@@ -433,7 +500,7 @@ body {
   width: 18px;
   height: 30px;
   border-radius: 4px;
-  background: #121317;
+  background: #1b2433;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -462,15 +529,15 @@ body {
 .nuage {
   position: absolute;
   border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(245, 242, 240, 0.55), rgba(245, 242, 240, 0.18) 60%, transparent);
+  background: radial-gradient(closest-side, rgba(255, 248, 236, 0.85), rgba(255, 236, 210, 0.35) 60%, transparent);
 }
 
 /* Espaces verts (parcelles libres) */
 .jardin {
   position: absolute;
   border-radius: 6px;
-  background: radial-gradient(circle at 40% 40%, #2c4a33, #1e3324);
-  box-shadow: inset 0 0 0 3px rgba(245, 242, 240, 0.05);
+  background: radial-gradient(circle at 40% 40%, #8cc56b, #5a9a4f);
+  box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.25);
 }
 
 /* Panneaux verticaux face caméra (icônes de stress, étiquettes de quartiers) */
@@ -498,9 +565,9 @@ body {
 }
 .trainee {
   position: absolute;
-  background: var(--neon);
+  background: linear-gradient(90deg, var(--dore), #ffffff);
   border-radius: 4px;
-  box-shadow: 0 0 10px 3px rgba(255, 45, 31, 0.8), 0 0 34px 8px rgba(255, 45, 31, 0.35);
+  box-shadow: 0 0 10px 3px rgba(244, 185, 66, 0.7), 0 0 30px 6px rgba(255, 255, 255, 0.4);
 }
 .feu-v.allume {
   background: #3ddc84;
@@ -513,7 +580,7 @@ body {
   height: 110px;
   margin: -55px 0 0 -55px;
   border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(0, 0, 0, 0.7), transparent);
+  background: radial-gradient(closest-side, rgba(20, 33, 61, 0.45), transparent);
 }
 .trainee-avion {
   position: absolute;
@@ -525,9 +592,10 @@ body {
   background: linear-gradient(90deg, rgba(245, 242, 240, 0), rgba(245, 242, 240, 0.85));
   box-shadow: 0 0 14px rgba(245, 242, 240, 0.6);
 }
-/* Nuit : boulevards plus lumineux, toits des tours en néon */
+/* Boulevards : liseré doré discret le jour, éclairage public doré la nuit */
 .route.boulevard {
   box-shadow:
-    0 0 0 3px rgba(255, 45, 31, 0.85),
-    0 0 calc(26px + 30px * var(--nuitee)) calc(4px + 8px * var(--nuitee)) rgba(255, 45, 31, calc(0.45 + 0.35 * var(--nuitee)));
+    0 0 0 4px #f3e7d3,
+    0 0 0 7px rgba(244, 185, 66, calc(0.35 + 0.5 * var(--nuitee))),
+    0 0 calc(30px * var(--nuitee)) calc(10px * var(--nuitee)) rgba(244, 185, 66, calc(0.5 * var(--nuitee)));
 }

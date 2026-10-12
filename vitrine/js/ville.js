@@ -21,8 +21,8 @@
   }
 
   // Trame routière : avenues verticales (x) et horizontales (y), en coordonnées sol.
-  const AVENUES_X = [650, 950, 1250, 1550, 1850, 2150];
-  const AVENUES_Y = [800, 1100, 1400, 1700, 2000, 2300];
+  const AVENUES_X = [650, 950, 1250, 1550, 1850, 2150, 2450];
+  const AVENUES_Y = [800, 1100, 1400, 1700, 2000, 2300, 2600];
   const LARGEUR_ROUTE = 70;
   const BOULEVARDS = { x: [1550], y: [1700, 1400] }; // bordés de néon
 
@@ -35,6 +35,9 @@
     { id: "nord", nom: "Deïdo", x0: 650, x1: 1250, y0: 800, y1: 1100, hMin: 60, hMax: 160 },
     { id: "est", nom: "Bali", x0: 1850, x1: 2150, y0: 800, y1: 1400, hMin: 80, hMax: 200 },
     { id: "sud", nom: "Bonapriso sud", x0: 1250, x1: 1550, y0: 1400, y1: 2300, hMin: 40, hMax: 120 },
+    // Périphérie : quartiers résidentiels bas qui prolongent la ville jusqu'à l'horizon.
+    { id: "periph", nom: "Périphérie", x0: 0, x1: 3000, y0: 2300, y1: 3000, hMin: 24, hMax: 60 },
+    { id: "periph", nom: "Périphérie", x0: 2150, x1: 3000, y0: 0, y1: 3000, hMin: 24, hMax: 70 },
   ];
 
   // Repères nommés (centres en coordonnées sol), utilisés par la caméra et les étiquettes.
@@ -132,11 +135,30 @@
     return v;
   }
 
+  // Teinte de façade selon le quartier : Akwa vitré (turquoise, bleu nuit), Bonanjo colonial
+  // (crème, ocre), centre chaleureux (pêche, ocre), quartiers résidentiels clairs.
+  const TEINTES = {
+    akwa: ["teinte-verre", "teinte-nuit", "teinte-verre", "teinte-creme"],
+    bonanjo: ["teinte-creme", "teinte-ocre", "teinte-creme", "teinte-peche"],
+    centre: ["teinte-peche", "teinte-ocre", "teinte-verre", "teinte-creme"],
+    est: ["teinte-terre", "teinte-creme", "teinte-nuit"],
+    nord: ["teinte-ocre", "teinte-creme", "teinte-terre"],
+    bonapriso: ["teinte-creme", "teinte-peche", "teinte-creme"],
+    sud: ["teinte-peche", "teinte-creme", "teinte-ocre"],
+  };
+  function teinte(quartier, h, r) {
+    if (h > 260) return r < 0.5 ? "teinte-verre" : "teinte-nuit";
+    const l = TEINTES[quartier] || ["teinte-creme", "teinte-ocre", "teinte-peche"];
+    return l[Math.floor(r * l.length) % l.length];
+  }
+
   function construire(sol) {
     const alea = prng(20261012);
     const registre = { batiments: [], routes: [], palmiers: [], vehicules: {}, etiquettes: {} };
 
     // Sol des îlots (trottoirs) puis routes.
+    // Sol étendu bien au-delà de la ville : l'horizon se perd dans une brume dorée.
+    sol.appendChild(el("div", "terrain-lointain"));
     sol.appendChild(el("div", "terrain"));
 
     // Fleuve Wouri (bande à l'ouest) avec reflets.
@@ -165,13 +187,13 @@
         left: x - LARGEUR_ROUTE / 2 + "px",
         top: "700px",
         width: LARGEUR_ROUTE + "px",
-        height: "1950px",
+        height: "2250px",
       });
       sol.appendChild(r);
       registre.routes.push({ el: r, axe: "y", pos: x });
     });
     AVENUES_Y.forEach((y) => {
-      const long = y === 1100 ? TAILLE - 540 : 2160; // l'avenue y=1100 file vers l'est (route du voyage)
+      const long = y === 1100 ? TAILLE - 540 : 2460; // l'avenue y=1100 file vers l'est (route du voyage)
       const r = el("div", "route route-h" + (BOULEVARDS.y.includes(y) ? " boulevard" : ""), {
         left: (y === 1400 ? 540 : 560) + "px",
         top: y - LARGEUR_ROUTE / 2 + "px",
@@ -207,16 +229,19 @@
           y1: AVENUES_Y[j + 1] - LARGEUR_ROUTE / 2 - 12,
         });
 
+    // Aucun îlot sur l'emprise de l'aéroport.
+    const surAeroport = (il) => il.x1 > 2220 && il.y1 > 1960;
     const quartierDe = (cx, cy) =>
       QUARTIERS.find((q) => cx >= q.x0 && cx < q.x1 && cy >= q.y0 && cy < q.y1) || { id: "divers", hMin: 50, hMax: 140 };
 
     ilots.forEach((il) => {
+      if (surAeroport(il)) return;
       const cx = (il.x0 + il.x1) / 2;
       const cy = (il.y0 + il.y1) / 2;
       const q = quartierDe(cx, cy);
       // La Pagode de Bonanjo occupe tout son îlot.
       if (Math.abs(cx - REPERES.pagode.x) < 150 && Math.abs(cy - REPERES.pagode.y) < 150) {
-        const b = boite(sol, il.x0 + 40, il.y0 + 40, il.x1 - il.x0 - 80, il.y1 - il.y0 - 80, 70, { classe: "pagode", fenetres: true, hDepart: 0 });
+        const b = boite(sol, il.x0 + 40, il.y0 + 40, il.x1 - il.x0 - 80, il.y1 - il.y0 - 80, 70, { classe: "pagode teinte-creme", fenetres: true, hDepart: 0 });
         const toitP = el("div", "toit-pagode");
         b.appendChild(toitP);
         const o = ombre(sol, il.x0 + 40, il.y0 + 40, il.x1 - il.x0 - 80, il.y1 - il.y0 - 80, 110);
@@ -225,7 +250,7 @@
         return;
       }
       // Découpe de l'îlot en 1 à 4 parcelles.
-      const residentiel = q.id === "bonapriso" || q.id === "sud";
+      const residentiel = q.id === "bonapriso" || q.id === "sud" || q.id === "periph";
       const nx = residentiel ? 3 : alea() < 0.5 ? 2 : 1;
       const ny = residentiel ? 3 : alea() < 0.5 ? 2 : 1;
       const pw = (il.x1 - il.x0) / nx;
@@ -250,7 +275,7 @@
           const w = pw - 2 * marge;
           const d = pd - 2 * marge;
           const h = Math.round(q.hMin + (q.hMax - q.hMin) * Math.pow(alea(), residentiel ? 1 : 1.6));
-          const classe = residentiel ? "maison" : h > 260 ? "tour" : "immeuble";
+          const classe = (residentiel ? "maison" : h > 260 ? "tour" : "immeuble") + " " + teinte(q.id, h, alea());
           const o = ombre(sol, x, y, w, d, h);
           const b = boite(sol, x, y, w, d, h, { classe, fenetres: !residentiel || h > 40, hDepart: 0 });
           registre.batiments.push({ el: b, ombre: o, x: x + w / 2, y: y + d / 2, h, quartier: q.id });
@@ -273,10 +298,10 @@
     registre.piste = piste;
     const tarmac = el("div", "tarmac", { left: "2260px", top: "2330px", width: "560px", height: "250px" });
     sol.appendChild(tarmac);
-    const terminal = boite(sol, 2290, 2350, 330, 110, 60, { classe: "terminal", fenetres: true, hDepart: 0 });
+    const terminal = boite(sol, 2290, 2350, 330, 110, 60, { classe: "terminal teinte-verre", fenetres: true, hDepart: 0 });
     const oT = ombre(sol, 2290, 2350, 330, 110, 60);
     registre.batiments.push({ el: terminal, ombre: oT, x: 2455, y: 2405, h: 60, quartier: "aeroport" });
-    const tour = boite(sol, 2680, 2370, 34, 34, 170, { classe: "tour-controle", hDepart: 0 });
+    const tour = boite(sol, 2680, 2370, 34, 34, 170, { classe: "tour-controle teinte-creme", hDepart: 0 });
     const oTr = ombre(sol, 2680, 2370, 34, 34, 170);
     registre.batiments.push({ el: tour, ombre: oTr, x: 2697, y: 2387, h: 170, quartier: "aeroport" });
     const cabine = boite(tour, -10, -10, 54, 54, 26, { classe: "cabine" });
@@ -310,7 +335,8 @@
         const decal = sens * 14;
         const x = v.axe === "x" ? p : v.pos + decal;
         const y = v.axe === "x" ? v.pos + decal : p;
-        const type = (k + iv) % 4 === 0 ? "blanc" : "gris";
+        // Taxis jaunes (« gris » historique), voitures blanches et bleues.
+        const type = ["gris", "blanc", "gris", "bleu", "gris", "blanc"][(k * 7 + iv * 3) % 6];
         const car = vehicule(sol, x, y, type, v.axe === "x" ? "x" : "y");
         registre.vehicules.trafic.push({ el: car, axe: v.axe, sens, x, y, voie: iv });
       }

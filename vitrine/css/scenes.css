@@ -12,12 +12,16 @@
 .voile-haut {
   top: 0;
   height: 1250px;
-  background: radial-gradient(85% 60% at 50% 38%, rgba(11, 12, 15, 0.82) 0%, rgba(11, 12, 15, 0.55) 45%, transparent 78%);
+  background: radial-gradient(85% 55% at 50% 34%, rgba(247, 241, 232, 0.92) 0%, rgba(247, 241, 232, 0.6) 45%, rgba(247, 241, 232, 0) 78%);
+}
+/* Scène 1 : le haut de l'image est le ciel bleu profond, pas besoin de voile clair */
+#s1 .voile-haut {
+  background: radial-gradient(85% 45% at 50% 30%, rgba(14, 27, 46, 0.55) 0%, rgba(14, 27, 46, 0) 75%);
 }
 .flash {
   position: absolute;
   inset: 0;
-  background: var(--neon);
+  background: radial-gradient(circle at 50% 40%, #fff6dc 0%, var(--dore) 70%);
   opacity: 0;
   mix-blend-mode: screen;
 }
@@ -37,7 +41,7 @@
   display: block;
   width: 940px;
   height: auto;
-  filter: drop-shadow(0 0 24px rgba(255, 45, 31, 0.55));
+  filter: drop-shadow(0 10px 30px rgba(14, 27, 46, 0.6));
 }
 .onde {
   position: absolute;
@@ -47,8 +51,8 @@
   height: 260px;
   margin: -130px 0 0 -450px;
   border-radius: 50%;
-  border: 6px solid var(--neon);
-  box-shadow: 0 0 40px var(--neon), inset 0 0 30px rgba(255, 45, 31, 0.6);
+  border: 6px solid var(--dore);
+  box-shadow: 0 0 40px rgba(244, 185, 66, 0.9), inset 0 0 30px rgba(255, 246, 220, 0.7);
   opacity: 0;
 }
 .etincelles {
@@ -64,8 +68,8 @@
   height: 10px;
   margin: -5px;
   border-radius: 50%;
-  background: var(--blanc);
-  box-shadow: 0 0 14px 4px var(--neon);
+  background: #fff6dc;
+  box-shadow: 0 0 14px 4px var(--dore);
   opacity: 0;
 }
 .s1-mots {
@@ -92,14 +96,15 @@
   line-height: 1;
   letter-spacing: -0.035em;
   color: var(--blanc);
-  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+  text-shadow:
+    0 3px 0 rgba(14, 27, 46, 0.35),
+    0 8px 30px rgba(14, 27, 46, 0.65);
 }
 .mot-neon {
-  color: var(--neon);
+  color: var(--turquoise);
   text-shadow:
-    0 0 2px var(--neon),
-    0 0 24px rgba(255, 45, 31, 0.75),
-    0 10px 40px rgba(0, 0, 0, 0.8);
+    0 3px 0 #13606a,
+    0 8px 30px rgba(14, 27, 46, 0.6);
 }
 .mot-long {
   font-size: 134px;
@@ -111,22 +116,23 @@
   align-items: center;
   gap: 16px;
   padding: 14px 26px;
-  border: 3px solid rgba(255, 45, 31, 0.9);
+  border: 2px solid rgba(255, 255, 255, 0.9);
   border-radius: 999px;
-  background: rgba(11, 12, 15, 0.7);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 12px 30px rgba(20, 33, 61, 0.18);
   font-family: "Space Mono", monospace;
   font-weight: 700;
   font-size: 34px;
   letter-spacing: 0.12em;
-  color: var(--blanc);
+  color: var(--encre);
 }
 .etiquette .point {
   display: block;
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: var(--neon);
-  box-shadow: 0 0 14px var(--neon);
+  background: var(--turquoise);
+  box-shadow: 0 0 0 5px rgba(46, 196, 182, 0.25);
 }
 
 /* ── Scène 2 ── */
@@ -147,8 +153,8 @@
   font-size: 104px;
   line-height: 1.02;
   letter-spacing: -0.035em;
-  color: var(--blanc);
-  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.85);
+  color: var(--encre);
+  text-shadow: 0 4px 24px rgba(247, 241, 232, 0.9);
 }
 .s2-mot-icone {
   display: flex;
@@ -156,11 +162,8 @@
   gap: 26px;
 }
 .neon {
-  color: var(--neon);
-  text-shadow:
-    0 0 2px var(--neon),
-    0 0 24px rgba(255, 45, 31, 0.75),
-    0 10px 40px rgba(0, 0, 0, 0.8);
+  color: var(--orange);
+  text-shadow: 0 4px 24px rgba(247, 241, 232, 0.9);
 }
 .s2-reponse {
   position: absolute;
@@ -170,7 +173,7 @@
   font-weight: 700;
   font-size: 44px;
   letter-spacing: 0.02em;
-  color: var(--blanc);
+  color: var(--encre);
 }
 .s2-reponse-forte {
   top: 110px;
@@ -180,11 +183,8 @@
   font-size: 106px;
   white-space: nowrap;
   letter-spacing: -0.035em;
-  color: var(--neon);
-  text-shadow:
-    0 0 2px var(--neon),
-    0 0 30px rgba(255, 45, 31, 0.75),
-    0 10px 40px rgba(0, 0, 0, 0.8);
+  color: var(--lagon);
+  text-shadow: 0 4px 24px rgba(247, 241, 232, 0.95);
 }
 
 /* ── Scène 3 : cartes en verre dépoli (dépliage 3D) ── */
@@ -205,14 +205,13 @@
   padding: 44px 52px 48px;
   border-radius: 36px;
   background:
-    radial-gradient(120% 80% at 0% 0%, rgba(245, 242, 240, 0.14) 0%, transparent 55%),
-    rgba(22, 24, 29, 0.62);
-  border: 2px solid rgba(245, 242, 240, 0.18);
+    radial-gradient(120% 80% at 0% 0%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0) 60%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 246, 232, 0.7) 100%);
+  border: 2px solid rgba(255, 255, 255, 0.95);
   box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.55),
-    0 0 0 1px rgba(255, 45, 31, 0.25),
-    inset 0 -3px 0 rgba(255, 45, 31, 0.85);
-  backdrop-filter: blur(18px) saturate(1.2);
+    0 30px 80px rgba(20, 33, 61, 0.28),
+    inset 0 -4px 0 rgba(244, 185, 66, 0.9);
+  backdrop-filter: blur(18px) saturate(1.3);
   transform-origin: 50% 100%;
   opacity: 0;
 }
@@ -223,7 +222,7 @@
   font-weight: 700;
   font-size: 28px;
   letter-spacing: 0.18em;
-  color: var(--neon);
+  color: var(--lagon);
 }
 .carte-nom {
   margin-top: 6px;
@@ -232,7 +231,7 @@
   font-size: 132px;
   line-height: 1.02;
   letter-spacing: -0.035em;
-  color: var(--blanc);
+  color: var(--encre);
 }
 .carte-prix {
   display: flex;
@@ -248,8 +247,8 @@
   line-height: 1;
   letter-spacing: -0.03em;
   font-variant-numeric: tabular-nums;
-  color: var(--neon);
-  text-shadow: 0 0 2px var(--neon), 0 0 28px rgba(255, 45, 31, 0.6);
+  color: var(--rouge);
+  text-shadow: none;
   transform-origin: 0% 70%;
 }
 .carte-prix .unite,
@@ -257,7 +256,7 @@
   font-family: "Space Mono", monospace;
   font-weight: 700;
   font-size: 34px;
-  color: var(--blanc);
+  color: var(--encre);
 }
 .carte-ligne {
   display: flex;
@@ -267,15 +266,15 @@
   font-family: "Space Mono", monospace;
   font-weight: 400;
   font-size: 36px;
-  color: var(--blanc);
+  color: var(--encre);
 }
 .carte-ligne i {
   display: block;
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: var(--neon);
-  box-shadow: 0 0 12px var(--neon);
+  background: var(--turquoise);
+  box-shadow: 0 0 0 6px rgba(46, 196, 182, 0.22);
 }
 .carte-options {
   display: flex;
@@ -285,12 +284,12 @@
   flex: 1;
   padding: 20px 24px;
   border-radius: 20px;
-  border: 2px solid rgba(245, 242, 240, 0.2);
-  background: rgba(11, 12, 15, 0.45);
+  border: 2px solid rgba(20, 33, 61, 0.1);
+  background: rgba(255, 255, 255, 0.75);
   font-family: "Space Mono", monospace;
   font-weight: 700;
   font-size: 36px;
-  color: var(--blanc);
+  color: var(--encre);
 }
 .option b {
   display: block;
@@ -298,14 +297,14 @@
   font-style: italic;
   font-weight: 900;
   font-size: 40px;
-  color: var(--neon);
+  color: var(--lagon);
 }
 .badge {
   display: inline-block;
   padding: 16px 26px;
   border-radius: 16px;
-  background: var(--rouge);
-  box-shadow: 0 0 34px rgba(255, 45, 31, 0.7);
+  background: linear-gradient(135deg, var(--dore), var(--orange));
+  box-shadow: 0 12px 30px rgba(242, 140, 56, 0.45);
   font-family: "Space Mono", monospace;
   font-weight: 700;
   font-size: 36px;
@@ -316,7 +315,7 @@
   margin-top: 18px;
   font-family: "Space Mono", monospace;
   font-size: 28px;
-  color: rgba(245, 242, 240, 0.8);
+  color: rgba(20, 33, 61, 0.75);
 }
 .s3-etiquette {
   position: absolute;
@@ -325,7 +324,7 @@
 }
 .voile-confort {
   inset: 0;
-  background: radial-gradient(70% 45% at 50% 68%, rgba(11, 12, 15, 0.92) 0%, rgba(11, 12, 15, 0.7) 60%, rgba(11, 12, 15, 0.45) 100%);
+  background: radial-gradient(70% 45% at 50% 68%, rgba(255, 250, 242, 0.95) 0%, rgba(247, 241, 232, 0.82) 60%, rgba(247, 241, 232, 0.6) 100%);
   opacity: 0;
 }
 
@@ -350,7 +349,7 @@
 }
 #eclate-toit svg,
 #eclate-habitacle svg {
-  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0 14px 18px rgba(20, 33, 61, 0.3));
 }
 .eq {
   position: absolute;
@@ -359,9 +358,9 @@
   gap: 16px;
   padding: 12px 22px 12px 12px;
   border-radius: 999px;
-  border: 2px solid rgba(255, 45, 31, 0.8);
-  background: rgba(11, 12, 15, 0.82);
-  box-shadow: 0 0 30px rgba(255, 45, 31, 0.35);
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 14px 34px rgba(20, 33, 61, 0.2);
   opacity: 0;
 }
 .eq-gauche {
@@ -381,11 +380,11 @@
   width: 84px;
   height: 84px;
   border-radius: 50%;
-  background: rgba(225, 6, 0, 0.25);
+  background: linear-gradient(135deg, var(--turquoise), var(--lagon));
 }
 .onde-wifi {
   fill: none;
-  stroke: #f5f2f0;
+  stroke: #ffffff;
   stroke-width: 7;
   stroke-linecap: round;
 }
@@ -393,14 +392,16 @@
   font-family: "Space Mono", monospace;
   font-weight: 700;
   font-size: 32px;
-  color: var(--blanc);
+  color: var(--encre);
 }
 
 /* Carte du Cameroun */
 .cameroun-fond {
   position: absolute;
   inset: 0;
-  background: radial-gradient(80% 55% at 30% 62%, #1a1c21 0%, #0e0f12 60%, #0b0c0f 100%);
+  background:
+    radial-gradient(80% 55% at 30% 62%, rgba(46, 196, 182, 0.25) 0%, rgba(46, 196, 182, 0) 60%),
+    radial-gradient(120% 90% at 50% 40%, #fbf5ea 0%, #f1e3cc 70%, #e6d0ae 100%);
   opacity: 0;
 }
 .cameroun {
@@ -414,39 +415,40 @@
   opacity: 0;
 }
 .cameroun .pays-fond {
-  fill: rgba(35, 38, 45, 0.85);
+  fill: #f4b942;
+  fill-opacity: 0.35;
 }
 .cameroun .pays {
   fill: none;
-  stroke: rgba(245, 242, 240, 0.85);
+  stroke: #d9822b;
   stroke-width: 4;
   stroke-dasharray: 1;
   stroke-linejoin: round;
 }
 .cameroun .trajet {
   fill: none;
-  stroke: var(--neon);
+  stroke: var(--lagon);
   stroke-width: 9;
   stroke-linecap: round;
   stroke-dasharray: 1;
 }
 .cameroun .point-depart {
-  fill: var(--neon);
-  stroke: var(--blanc);
+  fill: var(--rouge);
+  stroke: #ffffff;
   stroke-width: 5;
 }
 .cameroun .point-arrivee {
-  fill: var(--blanc);
-  stroke: var(--neon);
+  fill: #ffffff;
+  stroke: var(--lagon);
   stroke-width: 5;
 }
 .cameroun text {
   font-family: "Space Mono", monospace;
   font-weight: 700;
   font-size: 40px;
-  fill: var(--blanc);
+  fill: var(--encre);
   paint-order: stroke;
-  stroke: rgba(11, 12, 15, 0.9);
+  stroke: rgba(255, 250, 242, 0.95);
   stroke-width: 8px;
 }
 
@@ -460,7 +462,9 @@
 /* ── Scène 4 : professionnalisme ── */
 .voile-s4 {
   inset: 0;
-  background: radial-gradient(75% 50% at 50% 62%, rgba(40, 8, 6, 0.9) 0%, rgba(11, 12, 15, 0.94) 60%, #0b0c0f 100%);
+  background:
+    radial-gradient(70% 45% at 55% 66%, rgba(244, 185, 66, 0.35) 0%, rgba(244, 185, 66, 0) 65%),
+    radial-gradient(120% 90% at 50% 30%, #1d3557 0%, #0e1b2e 70%);
   opacity: 0;
 }
 .s4-titre {
@@ -517,9 +521,9 @@
   gap: 12px;
   padding: 8px 22px 8px 10px;
   border-radius: 999px;
-  border: 3px solid rgba(255, 45, 31, 0.9);
-  background: rgba(11, 12, 15, 0.85);
-  box-shadow: 0 0 34px rgba(255, 45, 31, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3);
   font-weight: 900;
   font-style: italic;
   font-size: 36px;
@@ -530,7 +534,7 @@
 /* ── Scène 5 : appel à l'action ── */
 .voile-s5 {
   inset: 0;
-  background: radial-gradient(70% 45% at 50% 42%, rgba(11, 12, 15, 0.82) 0%, rgba(11, 12, 15, 0.5) 60%, transparent 100%);
+  background: radial-gradient(70% 45% at 50% 42%, rgba(14, 27, 46, 0.78) 0%, rgba(14, 27, 46, 0.45) 60%, transparent 100%);
   opacity: 0;
 }
 .s5-titre {
@@ -562,11 +566,11 @@
   height: 980px;
   padding: 22px;
   border-radius: 70px;
-  background: linear-gradient(160deg, #2a2d34, #0e0f12);
+  background: linear-gradient(160deg, #3c5a86, #14213d);
   box-shadow:
-    0 0 0 3px #3a3e47,
-    0 0 50px rgba(255, 45, 31, 0.45),
-    0 60px 90px rgba(0, 0, 0, 0.7);
+    0 0 0 3px #5d86c4,
+    0 0 60px rgba(46, 196, 182, 0.35),
+    0 60px 90px rgba(0, 0, 0, 0.55);
   transform-origin: 50% 100%;
   opacity: 0;
 }
@@ -576,7 +580,7 @@
   height: 100%;
   border-radius: 50px;
   overflow: hidden;
-  background: #121317;
+  background: #f7f1e8;
   display: flex;
   flex-direction: column;
 }
@@ -585,8 +589,8 @@
   align-items: center;
   gap: 18px;
   padding: 50px 26px 22px;
-  background: #1b1d22;
-  border-bottom: 2px solid rgba(245, 242, 240, 0.08);
+  background: #ffffff;
+  border-bottom: 2px solid rgba(20, 33, 61, 0.08);
 }
 .tel-avatar {
   width: 78px;
@@ -608,14 +612,14 @@
   display: flex;
   flex-direction: column;
   font-family: "Space Mono", monospace;
-  color: var(--blanc);
+  color: var(--encre);
 }
 .tel-contact b {
   font-size: 30px;
 }
 .tel-contact span {
   font-size: 24px;
-  color: #3ddc84;
+  color: var(--lagon);
 }
 .tel-fil {
   flex: 1;
@@ -624,8 +628,8 @@
   flex-direction: column;
   gap: 22px;
   background:
-    radial-gradient(circle at 20% 30%, rgba(255, 45, 31, 0.06) 0 2px, transparent 3px) 0 0 / 48px 48px,
-    #121317;
+    radial-gradient(circle at 20% 30%, rgba(46, 196, 182, 0.12) 0 2px, transparent 3px) 0 0 / 48px 48px,
+    #f7f1e8;
 }
 .bulle {
   max-width: 88%;
@@ -635,18 +639,19 @@
   font-weight: 700;
   font-size: 34px;
   line-height: 1.3;
-  color: var(--blanc);
+  color: var(--encre);
 }
 .bulle-recue {
   align-self: flex-start;
-  background: #23262d;
+  background: #ffffff;
+  box-shadow: 0 6px 16px rgba(20, 33, 61, 0.1);
   border-top-left-radius: 8px;
 }
 .bulle-envoyee {
   align-self: flex-end;
-  background: var(--rouge);
+  background: linear-gradient(135deg, #d9fbe8, #b8f0d2);
   border-top-right-radius: 8px;
-  box-shadow: 0 0 34px rgba(255, 45, 31, 0.45);
+  box-shadow: 0 6px 16px rgba(20, 33, 61, 0.12);
   min-height: 90px;
 }
 .curseur {
@@ -655,13 +660,13 @@
   height: 36px;
   margin-left: 4px;
   vertical-align: -6px;
-  background: var(--blanc);
+  background: var(--encre);
 }
 .coches {
   display: block;
   text-align: right;
   font-size: 26px;
-  color: var(--blanc);
+  color: #34b7f1;
   opacity: 0;
 }
 .tel-saisie {
@@ -671,10 +676,10 @@
   margin: 0 20px 26px;
   padding: 18px 26px;
   border-radius: 999px;
-  background: #1f2127;
+  background: #ffffff;
   font-family: "Space Mono", monospace;
   font-size: 28px;
-  color: rgba(245, 242, 240, 0.5);
+  color: rgba(20, 33, 61, 0.45);
 }
 .tel-envoyer {
   display: block;
@@ -696,7 +701,7 @@
 .s5-logo {
   width: 940px;
   height: auto;
-  filter: drop-shadow(0 0 30px rgba(255, 45, 31, 0.6));
+  filter: drop-shadow(0 10px 40px rgba(0, 0, 0, 0.6));
   opacity: 0;
 }
 .s5-slogan {
@@ -706,7 +711,11 @@
   letter-spacing: -0.03em;
   color: var(--blanc);
   text-align: center;
-  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.85);
+  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+.s5-slogan .neon {
+  color: var(--dore);
+  text-shadow: 0 0 30px rgba(244, 185, 66, 0.45);
 }
 .s5-slogan span {
   display: inline-block;
@@ -724,13 +733,27 @@
   gap: 20px;
   padding: 18px 40px 18px 22px;
   border-radius: 999px;
-  border: 3px solid rgba(255, 45, 31, 0.9);
-  background: rgba(11, 12, 15, 0.88);
-  box-shadow: 0 0 40px rgba(255, 45, 31, 0.45);
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  background: linear-gradient(135deg, #ff2d1f, var(--rouge));
+  box-shadow: 0 18px 50px rgba(225, 6, 0, 0.45);
   font-family: "Space Mono", monospace;
   font-weight: 700;
   font-size: 54px;
   color: var(--blanc);
   white-space: nowrap;
   opacity: 0;
+}
+
+/* Scène 4 : sur fond bleu nuit, l'accent passe au doré */
+.s4-ligne.neon {
+  color: var(--dore);
+  text-shadow: 0 0 30px rgba(244, 185, 66, 0.35);
+}
+.badge-pro {
+  color: var(--encre);
+}
+/* Scène 5 : sur la ville de nuit */
+.s5-titre .neon {
+  color: var(--dore);
+  text-shadow: 0 0 30px rgba(244, 185, 66, 0.35);
 }

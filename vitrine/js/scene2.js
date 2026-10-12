@@ -54,7 +54,7 @@
         const p = a.depart + a.pas * k;
         const x = a.axe === "x" ? p : a.voie;
         const y = a.axe === "x" ? a.voie : p;
-        const v = vehicule(sol, x, y, (k + ia) % 3 === 0 ? "blanc" : "gris", a.axe);
+        const v = vehicule(sol, x, y, ["gris", "blanc", "bleu", "gris"][(k + ia) % 4], a.axe);
         const stop = el("div", "stop");
         v.appendChild(stop);
         files.push({ el: v, stop, axe: a.axe, sens: a.sens, rang: k, approche: ia });
@@ -74,13 +74,13 @@
 
     // ── Icônes de stress au-dessus du bouchon (horloges, alertes) ──
     const horloge = (taille) => `<svg viewBox="0 0 100 100" width="${taille}" height="${taille}">
-      <circle cx="50" cy="50" r="44" fill="#16181d" stroke="#FF2D1F" stroke-width="8"/>
-      <line class="aiguille-g" x1="50" y1="50" x2="50" y2="18" stroke="#F5F2F0" stroke-width="7" stroke-linecap="round"/>
-      <line class="aiguille-p" x1="50" y1="50" x2="70" y2="50" stroke="#FF2D1F" stroke-width="7" stroke-linecap="round"/>
-      <circle cx="50" cy="50" r="6" fill="#F5F2F0"/></svg>`;
+      <circle cx="50" cy="50" r="44" fill="#ffffff" stroke="#F28C38" stroke-width="8"/>
+      <line class="aiguille-g" x1="50" y1="50" x2="50" y2="18" stroke="#14213D" stroke-width="7" stroke-linecap="round"/>
+      <line class="aiguille-p" x1="50" y1="50" x2="70" y2="50" stroke="#F28C38" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="50" cy="50" r="6" fill="#14213D"/></svg>`;
     const alerte = (taille) => `<svg viewBox="0 0 100 100" width="${taille}" height="${taille}">
-      <path d="M50 6 L96 88 L4 88 Z" fill="#E10600" stroke="#F5F2F0" stroke-width="5" stroke-linejoin="round"/>
-      <rect x="45" y="34" width="10" height="30" rx="4" fill="#F5F2F0"/><circle cx="50" cy="75" r="6" fill="#F5F2F0"/></svg>`;
+      <path d="M50 6 L96 88 L4 88 Z" fill="#F4B942" stroke="#ffffff" stroke-width="5" stroke-linejoin="round"/>
+      <rect x="45" y="34" width="10" height="30" rx="4" fill="#14213D"/><circle cx="50" cy="75" r="6" fill="#14213D"/></svg>`;
     const icones = [
       panneau(sol, C.x - 260, C.y + 14, 120, horloge(120), "icone"),
       panneau(sol, C.x + 250, C.y - 14, 150, alerte(110), "icone"),
@@ -140,7 +140,7 @@
             const pas = Math.floor(etat.k * 10);
             const d = etat.k >= 1 ? 0 : ((pas * 37) % 11) - 5;
             document.querySelector(sel).style.textShadow =
-              d === 0 ? "" : `${d * 3}px 0 rgba(255,45,31,0.9), ${-d * 2}px 0 rgba(245,242,240,0.6)`;
+              d === 0 ? "" : `${d * 3}px 0 rgba(242,140,56,0.9), ${-d * 2}px 0 rgba(46,196,182,0.7)`;
           },
         },
         t0,
