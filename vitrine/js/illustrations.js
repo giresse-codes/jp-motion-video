@@ -111,10 +111,75 @@
     document.getElementById("cameroun-svg").innerHTML = c;
   }
 
+  // Véhicule en coupe (scène 4) : la face avant-gauche est ouverte sur l'habitacle,
+  // la portière arrière pivote autour de sa charnière (polygone recalculé par porte(angle)).
+  const COUPE = { L: 440, W: 210, ox: 520, oy: 210 };
+  function polygonePorte(angle) {
+    const { W, ox, oy } = COUPE;
+    // Portière arrière gauche : x de 250 à 360 (charnière côté avant, x = 360), z de 18 à 118.
+    const a = (angle * Math.PI) / 180;
+    const xh = 360, larg = 110;
+    const coin = (z, ouvert) => {
+      const x = xh - larg * Math.cos(ouvert ? a : 0);
+      const y = W + larg * Math.sin(ouvert ? a : 0);
+      return iso(x, y, z, ox, oy);
+    };
+    return [iso(xh, W, 18, ox, oy), coin(18, true), coin(118, true), iso(xh, W, 118, ox, oy)];
+  }
+  function vueCoupe() {
+    const { L, W, ox, oy } = COUPE;
+    let c = "";
+    // Ombre au sol
+    const ombreSol = [iso(-20, -20, 0, ox, oy), iso(L + 20, -20, 0, ox, oy), iso(L + 20, W + 60, 0, ox, oy), iso(-20, W + 60, 0, ox, oy)];
+    c += `<polygon points="${pts(ombreSol)}" fill="rgba(0,0,0,0.45)"/>`;
+    c += roue(70, 0, ox, oy) + roue(L - 80, 0, ox, oy);
+    c += boite(0, 0, 0, L, W, 18, ["#2b2e35", "#1b1d22", "#16181d"], ox, oy);
+    // Face droite (arrière-droite) pleine, rouge ; face gauche coupée : seulement le bas de caisse.
+    const droite = [iso(L, 0, 18, ox, oy), iso(L, W, 18, ox, oy), iso(L, W, 118, ox, oy), iso(L, 0, 118, ox, oy)];
+    c += `<polygon points="${pts(droite)}" fill="#7a0300"/>`;
+    const fond = [iso(0, 0, 18, ox, oy), iso(L, 0, 18, ox, oy), iso(L, 0, 150, ox, oy), iso(0, 0, 150, ox, oy)];
+    c += `<polygon points="${pts(fond)}" fill="#3a0200"/>`;
+    // Plancher et sièges visibles par la coupe
+    c += boite(10, 10, 18, L - 20, W - 20, 8, ["#1f2127", "#16181d", "#121317"], ox, oy);
+    [[90, 22], [90, 116], [220, 22], [220, 116]].forEach(([x, y]) => {
+      c += boite(x, y, 26, 66, 70, 26, ["#3e414a", "#2e3037", "#25272d"], ox, oy);
+      c += boite(x, y, 52, 16, 70, 56, ["#4a4f5a", "#343842", "#2b2e35"], ox, oy);
+      const s = [iso(x + 4, y + 35, 53, ox, oy), iso(x + 62, y + 35, 53, ox, oy)];
+      c += `<line x1="${s[0][0]}" y1="${s[0][1]}" x2="${s[1][0]}" y2="${s[1][1]}" stroke="#FF2D1F" stroke-width="3"/>`;
+    });
+    // Tableau de bord et écran allumé
+    c += boite(340, 24, 26, 40, W - 48, 44, ["#2b2e35", "#1b1d22", "#16181d"], ox, oy);
+    const ecran = [iso(345, 70, 72, ox, oy), iso(345, 140, 72, ox, oy), iso(345, 140, 104, ox, oy), iso(345, 70, 104, ox, oy)];
+    c += `<polygon points="${pts(ecran)}" fill="#FF2D1F"/>`;
+    // Bas de caisse gauche (la coupe) avec liseré blanc
+    const bas = [iso(0, W, 18, ox, oy), iso(L, W, 18, ox, oy), iso(L, W, 46, ox, oy), iso(0, W, 46, ox, oy)];
+    c += `<polygon points="${pts(bas)}" fill="#c20500"/>`;
+    const lis = [iso(0, W, 46, ox, oy), iso(L, W, 46, ox, oy), iso(L, W, 50, ox, oy), iso(0, W, 50, ox, oy)];
+    c += `<polygon points="${pts(lis)}" fill="#F5F2F0"/>`;
+    // Montants et toit vitré
+    [[20, 0], [L - 20, 0], [L - 20, W]].forEach(([x, y]) => {
+      const a = iso(x, y, 118, ox, oy), b = iso(x, y, 160, ox, oy);
+      c += `<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="#2b2e35" stroke-width="7"/>`;
+    });
+    const toit = [iso(20, 0, 160, ox, oy), iso(L - 20, 0, 160, ox, oy), iso(L - 20, W, 160, ox, oy), iso(20, W, 160, ox, oy)];
+    c += `<polygon points="${pts(toit)}" fill="rgba(225,6,0,0.32)" stroke="#F5F2F0" stroke-width="3"/>`;
+    const bande = [iso(20, W / 2 - 14, 161, ox, oy), iso(L - 20, W / 2 - 14, 161, ox, oy), iso(L - 20, W / 2 + 14, 161, ox, oy), iso(20, W / 2 + 14, 161, ox, oy)];
+    c += `<polygon points="${pts(bande)}" fill="#F5F2F0"/>`;
+    // Roues avant (devant la caisse)
+    c += roue(70, W, ox, oy) + roue(L - 80, W, ox, oy);
+    // Portière (animée)
+    c += `<polygon id="coupe-porte" points="${pts(polygonePorte(0))}" fill="#e10600" stroke="#F5F2F0" stroke-width="3"/>`;
+    document.getElementById("coupe-vehicule").innerHTML = svg(c, 1040, 620);
+  }
+
   window.ILLUSTRATIONS = {
     dessiner() {
       vueEclatee();
       carteCameroun();
+      vueCoupe();
+    },
+    porte(angle) {
+      document.getElementById("coupe-porte").setAttribute("points", pts(polygonePorte(angle)));
     },
   };
 })();
