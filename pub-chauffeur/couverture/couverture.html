@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<title>Couverture — Votre vol part à 20h.</title>
+<!-- Image de couverture (miniature TikTok / Reels). Rendue par scripts/couverture.sh. -->
+<link rel="stylesheet" href="../css/style.css" />
+<style>
+  .titre { position:absolute; left:70px; width:860px; top:930px; text-align:center;
+    font:700 118px/1.06 "Inter"; letter-spacing:-0.035em; color:var(--encre); }
+  .titre .bloc { position:relative; display:inline-block; padding:0 .12em; }
+  .titre .bloc-fond { transform:none; }
+  .titre .bloc span:not(.bloc-fond) { position:relative; color:var(--blanc); }
+  .sous { position:absolute; left:70px; width:860px; top:1222px; text-align:center;
+    font:600 36px/1.3 "Inter"; color:var(--gris-fonce); }
+  .marque { position:absolute; left:70px; width:860px; top:1330px; text-align:center;
+    font:700 26px/1 monospace; letter-spacing:.2em; color:var(--rouge); }
+  .billet { top:330px; transform:rotate(-4deg); }
+  .valise { left:720px; top:520px; transform:rotate(5deg); }
+</style>
+</head>
+<body>
+<div id="racine">
+  <div class="fond-creme"></div><div class="vignette"></div>
+  <div class="objet carte-ui billet">
+    <div class="billet-corps">
+      <div class="billet-titre">CARTE D'EMBARQUEMENT</div>
+      <div class="billet-trajet">DLA <svg viewBox="0 0 24 24"><path fill="#1d1d1f" d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z" transform="rotate(90 12 12)"/></svg> CDG</div>
+      <div class="billet-villes"><span>Douala</span><span>Paris</span></div>
+      <div class="billet-infos"><div class="billet-info depart"><b>DÉPART</b><span>20:00</span></div><div class="billet-info"><b>PORTE</b><span>B2</span></div><div class="billet-info"><b>SIÈGE</b><span>14A</span></div></div>
+    </div>
+    <div class="billet-talon"><div class="talon-texte">EMB.<br/>19:30</div><div class="code-barres"></div></div>
+  </div>
+  <div class="objet valise"><svg viewBox="0 0 210 300" width="210" height="300"><rect x="78" y="6" width="54" height="60" rx="10" fill="none" stroke="#3a3533" stroke-width="10"/><rect x="18" y="56" width="174" height="214" rx="26" fill="#3b3431"/><rect x="56" y="70" width="12" height="186" rx="6" fill="#2a2523"/><rect x="142" y="70" width="12" height="186" rx="6" fill="#2a2523"/><rect x="132" y="96" width="44" height="30" rx="6" fill="#f3eee6"/><circle cx="52" cy="282" r="14" fill="#1d1d1f"/><circle cx="158" cy="282" r="14" fill="#1d1d1f"/></svg></div>
+  <div class="titre">Votre vol part à <span class="bloc"><span class="bloc-fond"></span><span>20h.</span></span></div>
+  <div class="sous">Il est 18 h. Les bouchons, les taxis pleins…</div>
+  <div class="marque">JP SERVICE · CHAUFFEUR PRIVÉ À DOUALA</div>
+</div>
+</body>
+</html>
