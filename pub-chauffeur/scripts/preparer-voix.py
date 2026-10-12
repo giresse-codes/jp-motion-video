@@ -1,6 +1,7 @@
 """Voix off prête à mixer : silences trop longs raccourcis, aucun autre traitement.
 
-Entrées : sources/voix-brute.wav (Voicebooking) et sources/timing-brut.json (aligner-voix.py).
+Entrées : sources/voix-perso.wav (voix de l'utilisateur nettoyée par scripts/nettoyer-voix.sh)
+et sources/timing-perso.json (aligner-voix.py). Autre prise : python3 scripts/preparer-voix.py <voix.wav> <timing.json>
 Sorties :
   assets/audio/voix.wav        voix 48 kHz mono, pauses resserrées (niveau d'origine, pour le mixage)
   assets/audio/voix-14lufs.wav la même normalisée à -14 LUFS (écoute seule)
@@ -20,7 +21,10 @@ ICI = Path(__file__).resolve().parent.parent
 SR = 48000
 DEBUT = 0.35  # avant « Il est dix-huit heures » : le texte est déjà à l'écran
 
-donnees = json.loads((ICI / "sources" / "timing-brut.json").read_text(encoding="utf-8"))
+import sys
+BRUT = Path(sys.argv[1]) if len(sys.argv) > 2 else ICI / "sources" / "voix-perso.wav"
+TIMING = Path(sys.argv[2]) if len(sys.argv) > 2 else ICI / "sources" / "timing-perso.json"
+donnees = json.loads(TIMING.read_text(encoding="utf-8"))
 mots = donnees["mots"]
 
 # Pause maximale avant un mot donné (texte du mot -> secondes). Par défaut 0,45 s.
@@ -40,7 +44,7 @@ for i, m in enumerate(mots):
     if m["texte"] == "Votre" and mots[i - 1]["texte"] == "suffit.":
         PAUSE_PAR_INDEX[i] = 0.45
 
-brut = ICI / "sources" / "voix-brute.wav"
+brut = BRUT
 pcm = subprocess.run(["ffmpeg", "-loglevel", "error", "-i", str(brut), "-ac", "1", "-ar", str(SR),
                       "-f", "f32le", "-"], capture_output=True, check=True).stdout
 x = np.frombuffer(pcm, dtype=np.float32).copy()
@@ -107,7 +111,7 @@ for _ in range(6):  # le limiteur mange un peu de niveau : on corrige le gain
         break
     gain += ecart
 
-sortie = {"duree": round(len(voix) / SR, 3), "source": "voix-brute.wav (Voicebooking), pauses resserrées",
+sortie = {"duree": round(len(voix) / SR, 3), "source": f"{BRUT.name}, pauses resserrées",
           "methode": donnees["methode"], "mots": mots}
 (ICI / "assets" / "voix-timing.json").write_text(json.dumps(sortie, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 (ICI / "js").mkdir(exist_ok=True)

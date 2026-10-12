@@ -36,7 +36,8 @@ def lire(chemin, canaux=1):
     x = np.frombuffer(pcm, dtype=np.float32).copy()
     return x.reshape(-1, canaux).T if canaux > 1 else x
 
-voix = lire(ICI / "assets" / "audio" / "voix.wav")
+# Voix normalisée (-14 LUFS, preparer-voix.py) puis -2 dB : même équilibre quelle que soit la prise.
+voix = lire(ICI / "assets" / "audio" / "voix-14lufs.wav") * db(-2)
 mots = json.loads((ICI / "assets" / "voix-timing.json").read_text(encoding="utf-8"))["mots"]
 
 def mot(texte, n=1, fin=False):
@@ -164,7 +165,8 @@ for nom in ("rapide", "sur", "confortable"):
         poser(V, seg, m["debut"] + retard, g, pan)
 
 # ════════════ 2. MUSIQUE ════════════
-DECALAGE = 2.7  # temps musique = temps vidéo + 2,7 s : la montée de la musique tombe sur « Rapide »
+MONTEE_MUSIQUE = 38.46  # instant (s) où la musique fournie s'élève (mesuré : attaque + saut de niveau)
+DECALAGE = MONTEE_MUSIQUE - (R["rapide"] - 0.1)  # la montée tombe juste avant « Rapide »
 mus = lire(ICI / "assets" / "audio" / "musique.mp3", 2)
 M = piste()
 src = mus[:, int(DECALAGE * SR): int(DECALAGE * SR) + N]
@@ -178,7 +180,8 @@ s0, s1 = R["solution"] - 0.35, R["rapide"]
 montee = np.clip((tt - s0) / (s1 - s0), 0, 1)
 gain = np.where(tt < R["coupure"], -27.0, gain)
 gain = np.where((tt >= s0) & (tt < s1), -15 + 9 * montee ** 1.5, gain)
-gain = np.where(tt >= s1, -4.0, gain)
+gain = np.where(tt >= s1, -6.0, gain)
+gain = np.where(tt >= R["confortable"] + 0.9, -2.5, gain)  # après la voix : la musique porte la fin
 # Fondu de sortie final.
 f0 = R["duree"] - 2.6
 gain = np.where(tt > f0, gain - 40 * np.clip((tt - f0) / 2.6, 0, 1) ** 2, gain)

@@ -1,432 +1,432 @@
 {
- "duree": 37.951,
- "source": "voix-brute.wav (Voicebooking), pauses resserrées",
+ "duree": 40.342,
+ "source": "voix-perso.wav, pauses resserrées",
  "methode": "DTW-MFCC sur prise Piper alignée (phonèmes)",
  "mots": [
   {
    "texte": "Il",
    "debut": 0.35,
-   "fin": 0.434
+   "fin": 0.43
   },
   {
    "texte": "est",
-   "debut": 0.574,
-   "fin": 0.614
+   "debut": 0.478,
+   "fin": 0.558
   },
   {
    "texte": "dix-huit",
-   "debut": 0.614,
-   "fin": 0.933
+   "debut": 0.648,
+   "fin": 0.997
   },
   {
    "texte": "heures.",
-   "debut": 1.063,
-   "fin": 1.173
+   "debut": 1.007,
+   "fin": 1.336
   },
   {
    "texte": "Votre",
-   "debut": 1.773,
-   "fin": 2.028
+   "debut": 1.899,
+   "fin": 2.165
   },
   {
    "texte": "vol",
-   "debut": 2.112,
-   "fin": 2.352
+   "debut": 2.185,
+   "fin": 2.449
   },
   {
    "texte": "part",
-   "debut": 2.412,
-   "fin": 2.521
+   "debut": 2.564,
+   "fin": 2.743
   },
   {
    "texte": "à",
-   "debut": 2.551,
-   "fin": 2.631
+   "debut": 2.763,
+   "fin": 2.843
   },
   {
    "texte": "vingt",
-   "debut": 2.661,
-   "fin": 2.791
+   "debut": 2.863,
+   "fin": 3.073
   },
   {
    "texte": "heures.",
-   "debut": 2.841,
-   "fin": 3.113
+   "debut": 3.212,
+   "fin": 3.364
   },
   {
    "texte": "Les",
-   "debut": 3.708,
-   "fin": 3.858
+   "debut": 3.964,
+   "fin": 4.135
   },
   {
    "texte": "bouchons.",
-   "debut": 3.878,
-   "fin": 4.226
+   "debut": 4.195,
+   "fin": 4.512
   },
   {
    "texte": "Les",
-   "debut": 4.826,
-   "fin": 4.926
+   "debut": 5.112,
+   "fin": 5.241
   },
   {
    "texte": "taxis",
-   "debut": 4.976,
-   "fin": 5.335
+   "debut": 5.281,
+   "fin": 5.61
   },
   {
    "texte": "pleins.",
-   "debut": 5.355,
-   "fin": 5.524
+   "debut": 5.67,
+   "fin": 5.946
   },
   {
    "texte": "Les",
-   "debut": 6.124,
-   "fin": 6.249
+   "debut": 6.555,
+   "fin": 6.678
   },
   {
    "texte": "bagages.",
-   "debut": 6.289,
-   "fin": 6.708
+   "debut": 6.698,
+   "fin": 7.257
   },
   {
    "texte": "Et",
-   "debut": 7.308,
-   "fin": 7.348
+   "debut": 7.857,
+   "fin": 7.944
   },
   {
    "texte": "l'heure",
-   "debut": 7.348,
-   "fin": 7.608
+   "debut": 7.984,
+   "fin": 8.173
   },
   {
    "texte": "qui",
-   "debut": 7.648,
-   "fin": 7.767
+   "debut": 8.253,
+   "fin": 8.343
   },
   {
    "texte": "tourne.",
-   "debut": 7.817,
-   "fin": 8.106
+   "debut": 8.363,
+   "fin": 8.588
   },
   {
    "texte": "Soyons",
-   "debut": 8.696,
-   "fin": 9.174
+   "debut": 9.188,
+   "fin": 9.594
   },
   {
    "texte": "honnêtes…",
-   "debut": 9.284,
-   "fin": 9.523
+   "debut": 9.664,
+   "fin": 10.053
   },
   {
    "texte": "Certains",
-   "debut": 10.323,
-   "fin": 10.696
+   "debut": 10.419,
+   "fin": 11.015
   },
   {
    "texte": "déplacements…",
-   "debut": 10.726,
-   "fin": 11.265
+   "debut": 11.06,
+   "fin": 11.624
   },
   {
    "texte": "ne",
-   "debut": 11.295,
-   "fin": 11.394
+   "debut": 11.709,
+   "fin": 11.799
   },
   {
    "texte": "peuvent",
-   "debut": 11.434,
-   "fin": 11.604
+   "debut": 11.829,
+   "fin": 12.058
   },
   {
    "texte": "pas",
-   "debut": 11.634,
-   "fin": 11.873
+   "debut": 12.098,
+   "fin": 12.258
   },
   {
    "texte": "attendre.",
-   "debut": 11.883,
-   "fin": 12.36
+   "debut": 12.328,
+   "fin": 12.689
   },
   {
    "texte": "Ils",
-   "debut": 12.91,
-   "fin": 13.15
+   "debut": 13.136,
+   "fin": 13.565
   },
   {
    "texte": "méritent",
-   "debut": 13.44,
-   "fin": 14.168
+   "debut": 13.615,
+   "fin": 14.004
   },
   {
    "texte": "un",
-   "debut": 14.455,
-   "fin": 14.495
+   "debut": 14.004,
+   "fin": 14.113
   },
   {
    "texte": "chauffeur.",
-   "debut": 14.495,
-   "fin": 15.311
+   "debut": 14.153,
+   "fin": 14.743
   },
   {
    "texte": "Un",
-   "debut": 15.949,
-   "fin": 16.08
+   "debut": 15.543,
+   "fin": 15.838
   },
   {
    "texte": "message",
-   "debut": 16.11,
-   "fin": 16.549
+   "debut": 15.838,
+   "fin": 16.437
   },
   {
    "texte": "suffit.",
-   "debut": 16.88,
-   "fin": 17.89
+   "debut": 16.437,
+   "fin": 16.886
   },
   {
    "texte": "Votre",
-   "debut": 18.34,
-   "fin": 18.622
+   "debut": 17.24,
+   "fin": 17.644
   },
   {
    "texte": "chauffeur",
-   "debut": 18.711,
-   "fin": 19.001
+   "debut": 17.664,
+   "fin": 18.053
   },
   {
    "texte": "est",
-   "debut": 19.111,
-   "fin": 19.151
+   "debut": 18.143,
+   "fin": 18.183
   },
   {
    "texte": "confirmé,",
-   "debut": 19.151,
-   "fin": 19.609
+   "debut": 18.183,
+   "fin": 18.684
   },
   {
    "texte": "il",
-   "debut": 20.059,
-   "fin": 20.182
+   "debut": 19.094,
+   "fin": 19.41
   },
   {
    "texte": "vient",
-   "debut": 20.222,
-   "fin": 20.381
+   "debut": 19.51,
+   "fin": 19.71
   },
   {
    "texte": "vous",
-   "debut": 20.441,
-   "fin": 20.521
+   "debut": 19.829,
+   "fin": 19.869
   },
   {
    "texte": "chercher,",
-   "debut": 20.531,
-   "fin": 20.88
+   "debut": 19.869,
+   "fin": 20.425
   },
   {
    "texte": "et",
-   "debut": 21.33,
-   "fin": 21.37
+   "debut": 20.823,
+   "fin": 20.937
   },
   {
    "texte": "vous",
-   "debut": 21.37,
-   "fin": 21.559
+   "debut": 20.977,
+   "fin": 21.176
   },
   {
    "texte": "arrivez",
-   "debut": 21.559,
-   "fin": 21.888
+   "debut": 21.236,
+   "fin": 21.506
   },
   {
    "texte": "à",
-   "debut": 22.008,
-   "fin": 22.048
+   "debut": 21.546,
+   "fin": 21.626
   },
   {
    "texte": "l'heure.",
-   "debut": 22.048,
-   "fin": 22.261
+   "debut": 21.635,
+   "fin": 21.825
   },
   {
    "texte": "Un",
-   "debut": 22.711,
-   "fin": 22.793
+   "debut": 22.275,
+   "fin": 22.315
   },
   {
    "texte": "chauffeur",
-   "debut": 22.893,
-   "fin": 23.202
+   "debut": 22.315,
+   "fin": 22.863
   },
   {
    "texte": "pour",
-   "debut": 23.242,
-   "fin": 23.342
+   "debut": 22.973,
+   "fin": 23.013
   },
   {
    "texte": "la",
-   "debut": 23.372,
-   "fin": 23.472
+   "debut": 23.013,
+   "fin": 23.123
   },
   {
    "texte": "journée.",
-   "debut": 23.512,
-   "fin": 23.771
+   "debut": 23.168,
+   "fin": 23.512
   },
   {
    "texte": "Vos",
-   "debut": 24.221,
-   "fin": 24.347
+   "debut": 23.962,
+   "fin": 24.13
   },
   {
    "texte": "rendez-vous",
-   "debut": 24.397,
-   "fin": 24.716
+   "debut": 24.17,
+   "fin": 24.479
   },
   {
    "texte": "d'affaires.",
-   "debut": 24.746,
-   "fin": 25.196
+   "debut": 24.599,
+   "fin": 25.092
   },
   {
    "texte": "Une",
-   "debut": 25.646,
-   "fin": 25.828
+   "debut": 25.542,
+   "fin": 25.674
   },
   {
    "texte": "balade",
-   "debut": 25.848,
-   "fin": 26.128
+   "debut": 25.694,
+   "fin": 25.993
   },
   {
    "texte": "privée",
-   "debut": 26.148,
-   "fin": 26.437
+   "debut": 26.093,
+   "fin": 26.383
   },
   {
    "texte": "dans",
-   "debut": 26.477,
-   "fin": 26.567
+   "debut": 26.432,
+   "fin": 26.552
   },
   {
    "texte": "Douala.",
-   "debut": 26.607,
-   "fin": 26.956
+   "debut": 26.572,
+   "fin": 26.95
   },
   {
    "texte": "Un",
-   "debut": 27.406,
-   "fin": 27.507
+   "debut": 27.4,
+   "fin": 27.69
   },
   {
    "texte": "week-end",
-   "debut": 27.567,
-   "fin": 27.946
+   "debut": 27.74,
+   "fin": 28.049
   },
   {
    "texte": "à",
-   "debut": 27.946,
-   "fin": 28.026
+   "debut": 28.049,
+   "fin": 28.169
   },
   {
    "texte": "Limbé",
-   "debut": 28.066,
-   "fin": 28.185
+   "debut": 28.209,
+   "fin": 28.608
   },
   {
    "texte": "ou",
-   "debut": 28.435,
-   "fin": 28.475
+   "debut": 28.757,
+   "fin": 28.797
   },
   {
    "texte": "à",
-   "debut": 28.475,
-   "fin": 28.545
+   "debut": 28.797,
+   "fin": 28.847
   },
   {
    "texte": "Kribi.",
-   "debut": 28.585,
-   "fin": 28.914
+   "debut": 28.877,
+   "fin": 29.169
   },
   {
    "texte": "JP",
-   "debut": 29.514,
-   "fin": 29.933
+   "debut": 29.769,
+   "fin": 30.388
   },
   {
    "texte": "Service",
-   "debut": 30.013,
-   "fin": 30.322
+   "debut": 30.458,
+   "fin": 31.187
   },
   {
    "texte": "Express",
-   "debut": 30.362,
-   "fin": 30.771
+   "debut": 31.217,
+   "fin": 31.785
   },
   {
    "texte": "Urbaine.",
-   "debut": 30.771,
-   "fin": 31.2
+   "debut": 31.915,
+   "fin": 32.393
   },
   {
    "texte": "Votre",
-   "debut": 31.37,
-   "fin": 31.729
+   "debut": 32.993,
+   "fin": 33.218
   },
   {
    "texte": "chauffeur",
-   "debut": 31.829,
-   "fin": 32.138
+   "debut": 33.248,
+   "fin": 33.657
   },
   {
    "texte": "privé,",
-   "debut": 32.168,
-   "fin": 32.507
+   "debut": 33.757,
+   "fin": 34.221
   },
   {
    "texte": "où",
-   "debut": 32.957,
-   "fin": 32.997
+   "debut": 34.681,
+   "fin": 34.814
   },
   {
    "texte": "vous",
-   "debut": 32.997,
-   "fin": 33.147
+   "debut": 34.864,
+   "fin": 35.014
   },
   {
    "texte": "voulez,",
-   "debut": 33.247,
-   "fin": 33.486
+   "debut": 35.173,
+   "fin": 35.369
   },
   {
    "texte": "quand",
-   "debut": 33.936,
-   "fin": 34.053
+   "debut": 35.819,
+   "fin": 35.993
   },
   {
    "texte": "vous",
-   "debut": 34.093,
-   "fin": 34.212
+   "debut": 36.023,
+   "fin": 36.173
   },
   {
    "texte": "voulez.",
-   "debut": 34.292,
-   "fin": 34.502
+   "debut": 36.243,
+   "fin": 36.574
   },
   {
    "texte": "Rapide.",
-   "debut": 35.052,
-   "fin": 35.642
+   "debut": 37.124,
+   "fin": 37.594
   },
   {
    "texte": "Sûr.",
-   "debut": 36.192,
-   "fin": 36.518
+   "debut": 38.144,
+   "fin": 38.589
   },
   {
    "texte": "Confortable",
-   "debut": 37.068,
-   "fin": 37.674
+   "debut": 39.139,
+   "fin": 39.753
   }
  ]
 }

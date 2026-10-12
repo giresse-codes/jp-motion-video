@@ -110,13 +110,21 @@ for mot, g in zip(ecrits, groupes):
     debut = hors_silence(debut, True)
     fin = hors_silence(fin, False)
     mots.append({"texte": mot, "debut": round(debut, 3), "fin": round(max(fin, debut + 0.08), 3)})
-# Corrections vérifiées à la mesure (voisement, hauteur) là où la DTW hésite :
-# (mot, occurrence) -> (début, fin) ; None garde la valeur calculée.
-CORRECTIONS = {
-    ("Ils", 1): (14.58, 14.82),        # « Ils » isolé, voisé, avant une pause
-    ("méritent", 1): (15.11, None),
-    ("suffit.", 1): (18.55, 19.56),     # « suffit » traîne jusqu'à 19,56 s (fin grave)
-}
+# Corrections vérifiées à la mesure (voisement, hauteur) là où la DTW hésite, propres à chaque
+# enregistrement : scripts/corrections-<nom du fichier>.json = [[mot, occurrence, début, fin], ...]
+# (début ou fin à null pour garder la valeur calculée).
+# Le premier mot après un silence démarre à la fin de ce silence (la DTW a tendance à retarder).
+for k, m in enumerate(mots):
+    avant = mots[k - 1]["fin"] if k else 0.0
+    fins = [b for a, b in silences if avant - 0.05 <= a and b <= m["debut"] and m["debut"] - b < 0.3]
+    if fins:
+        m["debut"] = round(max(fins), 3)
+
+fichier_corr = ICI / "scripts" / f"corrections-{CIBLE.stem}.json"
+CORRECTIONS = {}
+if fichier_corr.exists():
+    for texte, n, d, f in json.loads(fichier_corr.read_text(encoding="utf-8")):
+        CORRECTIONS[(texte, n)] = (d, f)
 vus = {}
 for m in mots:
     vus[m["texte"]] = vus.get(m["texte"], 0) + 1

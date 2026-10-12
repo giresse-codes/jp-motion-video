@@ -22,7 +22,7 @@ l'utilisateur : la tension d'un départ à l'aéroport (18 h, vol à 20 h, bouch
 ## Assets
 
 - sources/reference.mp4 — vidéo de référence de style (non commitée, marque tierce) : reproduire le style, jamais ses marques.
-- sources/voix-brute.wav — voix off Voicebooking (un seul fichier contenant les 3 parties).
+- sources/voix-perso-brute.wav — voix de l'utilisateur (MP4, remplace la voix Voicebooking), nettoyée par scripts/nettoyer-voix.sh.
 - assets/audio/musique.mp3 — « Cinematic Corporate Business Background » (Alex Morgan, Pixabay), fournie par l'utilisateur, libre de droits.
 - assets/logo.png — logo JP Service (détouré).
 
