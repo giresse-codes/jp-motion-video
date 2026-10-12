@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Essai Three.js : voiture</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #f7f1e8;
+      }
+      #scene-3d {
+        position: absolute;
+        inset: 0;
+      }
+      #three-layer {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+    </style>
+    <!-- Three.js 0.181.2 embarqué (licence MIT, js/three-LICENSE) : le CDN n'est pas joignable ici. -->
+    <script type="importmap">
+      { "imports": { "three": "./js/three.module.min.js" } }
+    </script>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-no-timeline
+      data-start="0"
+      data-duration="3"
+      data-fps="60"
+      data-width="1080"
+      data-height="1920"
+    >
+      <section id="scene-3d" class="clip" data-start="0" data-duration="3" data-track-index="0">
+        <canvas id="three-layer"></canvas>
+      </section>
+    </div>
+
+    <script type="module">
+      // Essai : une voiture 3D simple qui roule, rendue image par image par HyperFrames.
+      // Toute la scène est une fonction du temps vidéo (rendreA(t)) : aucune horloge du navigateur,
+      // aucun requestAnimationFrame. HyperFrames envoie le temps de chaque image via « hf-seek ».
+      import * as THREE from "three";
+
+      const L = 1080;
+      const H = 1920;
+      const ROUGE = 0xe10600;
+      const CREME = 0xf7f1e8;
+
+      const canvas = document.getElementById("three-layer");
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, preserveDrawingBuffer: true });
+      renderer.setSize(L, H, false);
+      renderer.setPixelRatio(1); // sortie indépendante de l'écran
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color(CREME);
+      scene.fog = new THREE.Fog(CREME, 18, 46);
+
+      const camera = new THREE.PerspectiveCamera(34, L / H, 0.1, 120);
+
+      // Lumière chaude de fin de journée + remplissage doux (pas de face noire).
+      const soleil = new THREE.DirectionalLight(0xffe2b0, 2.6);
+      soleil.position.set(-6, 10, 6);
+      soleil.castShadow = true;
+      soleil.shadow.mapSize.set(2048, 2048);
+      Object.assign(soleil.shadow.camera, { left: -8, right: 8, top: 8, bottom: -8, near: 1, far: 40 });
+      scene.add(soleil, soleil.target);
+      scene.add(new THREE.HemisphereLight(0xfff4e0, 0x8a7a66, 1.1));
+
+      // ── Décor : sol, route, marquages, palmiers stylisés ──
+      const mat = (couleur, extra = {}) => new THREE.MeshStandardMaterial({ color: couleur, roughness: 0.8, ...extra });
+      const sol = new THREE.Mesh(new THREE.PlaneGeometry(200, 60), mat(0xe9dcc3));
+      sol.rotation.x = -Math.PI / 2;
+      sol.receiveShadow = true;
+      scene.add(sol);
+
+      const route = new THREE.Mesh(new THREE.PlaneGeometry(200, 5), mat(0x59616f, { roughness: 0.9 }));
+      route.rotation.x = -Math.PI / 2;
+      route.position.y = 0.01;
+      route.receiveShadow = true;
+      scene.add(route);
+
+      const tiret = new THREE.BoxGeometry(1.2, 0.02, 0.14);
+      const blanc = mat(0xffffff);
+      for (let x = -40; x < 80; x += 3) {
+        const t = new THREE.Mesh(tiret, blanc);
+        t.position.set(x, 0.02, 0);
+        scene.add(t);
+      }
+      [-2.6, 2.6].forEach((z) => {
+        const bord = new THREE.Mesh(new THREE.BoxGeometry(200, 0.12, 0.25), mat(0xf6e7c8));
+        bord.position.set(0, 0.06, z);
+        bord.receiveShadow = true;
+        scene.add(bord);
+      });
+
+      const tronc = new THREE.CylinderGeometry(0.09, 0.13, 2.4, 8);
+      const feuille = new THREE.ConeGeometry(0.9, 0.5, 7);
+      for (let i = 0; i < 18; i++) {
+        const x = -20 + i * 5.5;
+        const z = i % 2 ? -5 : -7.5; // côté fond seulement : rien entre la caméra et la voiture
+        const arbre = new THREE.Group();
+        const t = new THREE.Mesh(tronc, mat(0x6b5444));
+        t.position.y = 1.2;
+        const f = new THREE.Mesh(feuille, mat(0x2f8a5a));
+        f.position.y = 2.5;
+        f.scale.y = 0.6;
+        [t, f].forEach((m) => (m.castShadow = true));
+        arbre.add(t, f);
+        arbre.position.set(x, 0, z);
+        scene.add(arbre);
+      }
+
+      // ── Voiture : caisse rouge, habitacle vitré, bande blanche, quatre roues ──
+      const voiture = new THREE.Group();
+      const caisse = new THREE.Group(); // suspendue : elle oscille légèrement au-dessus des roues
+      const corps = new THREE.Mesh(new THREE.BoxGeometry(3.2, 0.6, 1.5), mat(ROUGE, { roughness: 0.35, metalness: 0.2 }));
+      corps.position.y = 0.65;
+      const habitacle = new THREE.Mesh(
+        new THREE.BoxGeometry(1.7, 0.55, 1.32),
+        mat(0x2c4a66, { roughness: 0.1, metalness: 0.3 }),
+      );
+      habitacle.position.set(-0.15, 1.2, 0);
+      const toit = new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.08, 1.3), mat(ROUGE, { roughness: 0.35 }));
+      toit.position.set(-0.15, 1.5, 0);
+      const bande = new THREE.Mesh(new THREE.BoxGeometry(3.22, 0.1, 1.52), mat(0xffffff));
+      bande.position.y = 0.72;
+      const phareMat = mat(0xfff1c4, { emissive: 0xffd27a, emissiveIntensity: 1.2 });
+      const feuMat = mat(0xff2d1f, { emissive: 0xff2d1f, emissiveIntensity: 0.8 });
+      [-0.5, 0.5].forEach((z) => {
+        const phare = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.16, 0.3), phareMat);
+        phare.position.set(1.61, 0.75, z);
+        const feu = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.14, 0.3), feuMat);
+        feu.position.set(-1.61, 0.75, z);
+        caisse.add(phare, feu);
+      });
+      [corps, habitacle, toit, bande].forEach((m) => {
+        m.castShadow = true;
+        caisse.add(m);
+      });
+      voiture.add(caisse);
+
+      const R_ROUE = 0.36;
+      const roueGeo = new THREE.CylinderGeometry(R_ROUE, R_ROUE, 0.28, 24);
+      roueGeo.rotateX(Math.PI / 2); // axe de la roue le long de z
+      const jante = new THREE.BoxGeometry(0.5, 0.08, 0.3); // rayon visible : montre la rotation
+      const roues = [];
+      [[1.05, 0.72], [1.05, -0.72], [-1.05, 0.72], [-1.05, -0.72]].forEach(([x, z]) => {
+        const roue = new THREE.Group();
+        const pneu = new THREE.Mesh(roueGeo, mat(0x22252b, { roughness: 0.95 }));
+        pneu.castShadow = true;
+        const rayon = new THREE.Mesh(jante, mat(0xd9dde3, { metalness: 0.6, roughness: 0.3 }));
+        rayon.position.z = z > 0 ? 0.01 : -0.01;
+        roue.add(pneu, rayon);
+        roue.position.set(x, R_ROUE, z);
+        voiture.add(roue);
+        roues.push(roue);
+      });
+      scene.add(voiture);
+
+      // ── Tout ce qui bouge, en fonction du seul temps vidéo t (secondes) ──
+      const distance = (t) => 2.2 * t + 0.5 * t * t; // démarrage puis accélération douce
+      const vise = new THREE.Vector3();
+
+      function rendreA(t) {
+        const d = distance(t);
+        voiture.position.x = d;
+        roues.forEach((r) => (r.rotation.z = -d / R_ROUE)); // roulement sans glissement
+        caisse.position.y = Math.sin(t * 14) * 0.012; // suspension
+        caisse.rotation.z = -0.025 * Math.min(1, t); // la caisse se cabre un peu à l'accélération
+
+        // Caméra 3/4 avant, en retrait : elle suit moins vite que la voiture, qui traverse donc
+        // l'image de gauche à droite, et tourne lentement autour d'elle.
+        const cx = 0.8 * d + 1.2;
+        const a = 0.75 - t * 0.12;
+        camera.position.set(cx + 14 * Math.cos(a), 5.6 - t * 0.3, 14 * Math.sin(a) + 2);
+        vise.set(cx + 0.4, 0.6, 0);
+        camera.lookAt(vise);
+
+        // L'ombre suit la voiture.
+        soleil.position.set(d - 6, 10, 6);
+        soleil.target.position.set(d, 0, 0);
+
+        renderer.render(scene, camera);
+      }
+
+      window.addEventListener("hf-seek", (e) => rendreA(e.detail.time));
+      rendreA(window.__hfThreeTime || 0);
+    </script>
+  </body>
+</html>
