@@ -115,7 +115,7 @@
     const courbe = plans.motion.querySelector("#courbe"), bille = plans.motion.querySelector("#bille"), Lc = courbe.getTotalLength();
 
     // ── Horloge unique ──
-    const monde = $("monde"), heros = $("heros"), mot = $("mot"), phrase = $("phrase"), flash = $("flash"), turb = $("turb"), lueur = $("lueur");
+    const monde = $("monde"), heros = $("heros"), mot = $("mot"), phrase = $("phrase"), flash = $("flash"), grain = $("grain"), lueur = $("lueur");
     function maj(t) {
       const z = cam(t), p = planA(t);
       const enPlan = p && p.nom !== "essaim";
@@ -129,7 +129,7 @@
         s.e.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) scale(${(k * 0.9).toFixed(3)}) rotate(${s.rot.toFixed(1)}deg)`;
         s.e.style.opacity = (brume * (enPlan ? 0.35 : t >= T.fin ? 0.4 : 1)).toFixed(3);
       });
-      essaim.style.filter = enPlan ? "blur(6px)" : t >= T.fin ? "blur(3px)" : "none";
+      essaim.style.filter = enPlan ? "blur(4px)" : t >= T.fin ? "blur(2px)" : "none";
       // Plans
       Object.entries(plans).forEach(([nom, el]) => {
         if (enPlan && p.nom === nom) {
@@ -148,7 +148,9 @@
       const zoomBuild = t >= T.montee && t < T.drop ? 1 + 0.05 * Math.exp(-u * 8) + 0.06 * (t - T.montee) / (T.drop - T.montee) : 1;
       monde.style.transform = `translate(${sx.toFixed(1)}px, ${sy.toFixed(1)}px) scale(${zoomBuild.toFixed(3)})`;
       const ca = 12 * force;
-      monde.style.filter = ca > 0.4 ? `drop-shadow(${ca.toFixed(1)}px 0 0 rgba(255,40,90,.55)) drop-shadow(${(-ca).toFixed(1)}px 0 0 rgba(60,200,255,.5))` : "none";
+      // Aberration chromatique sur le seul plan affiché (léger à calculer).
+      const chroma = ca > 0.4 ? `drop-shadow(${ca.toFixed(1)}px 0 0 rgba(255,40,90,.55)) drop-shadow(${(-ca).toFixed(1)}px 0 0 rgba(60,200,255,.5))` : "none";
+      Object.entries(plans).forEach(([nom, el]) => { el.style.filter = enPlan && p.nom === nom ? chroma : "none"; });
       const mesure = T.mots.some(([tm]) => Math.abs(t - tm) < 0.5 && t >= tm);
       let fl = 0;
       if (t >= T.drop) fl = Math.max(fl, Math.exp(-(t - T.drop) * 5));
@@ -156,7 +158,7 @@
       if (t >= T.fin) fl = Math.max(fl, 0.8 * Math.exp(-(t - T.fin) * 6));
       flash.style.opacity = fl.toFixed(3);
       lueur.style.opacity = (0.7 + 0.3 * Math.sin(t * 1.3)).toFixed(3);
-      turb.setAttribute("seed", String(Math.floor(t * 24) % 97));
+      { const g = Math.floor(t * 24); grain.style.transform = `translate(${Math.round(hasard(g) * 60 - 30)}px, ${Math.round(hasard(g + 0.5) * 60 - 30)}px)`; } // grain précalculé, déplacé
       // Phrases douces
       let ph = "", op = 0;
       T.phrases.forEach(([a, b, txt]) => { if (t >= a && t < b) { ph = txt; op = clamp((t - a) / 0.5) * clamp((b - t) / 0.4); } });

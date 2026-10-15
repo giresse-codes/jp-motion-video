@@ -58,7 +58,7 @@ html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; backgro
 
 /* Effets */
 #flash { position: absolute; inset: 0; background: #fff; opacity: 0; mix-blend-mode: screen; }
-.grain { position: absolute; inset: 0; opacity: .09; mix-blend-mode: overlay; pointer-events: none; }
+.grain { position: absolute; inset: -60px; opacity: .10; mix-blend-mode: overlay; pointer-events: none; background: url(../assets/grain.png); }
 .vignette { position: absolute; inset: 0; background: radial-gradient(70% 55% at 50% 50%, transparent 45%, rgba(0,0,0,.8) 100%); pointer-events: none; }
 
 /* Fin */
