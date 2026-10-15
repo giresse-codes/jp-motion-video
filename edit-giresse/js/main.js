@@ -1,195 +1,191 @@
-// Edit TikTok « GIRESSE » — dev, monteur, designer. La cheerleader, c'est l'informatique.
-// Style de la référence : noir, voile de feu orange, logo + nom en serif, pilules lumineuses,
-// curseur, texte qui s'écrit avec les dernières lettres orange, pluie de code, carte de site en verre
-// inclinée, « fond bleu », signature finale en lettres qui tombent. Tout est calé sur window.T.
+// Edit TikTok « GIRESSE » façon edit crush : on flotte dans un tunnel de milliers de sites web,
+// un site « héros » apparaît comme la crush, puis le drop enchaîne les coupes sur les temps
+// (sites, code, montage, courbes d'animation, appli) — un portfolio qui ne dit pas son nom.
+// Une seule horloge calcule tout à partir du temps : déterministe, sûr en recherche avant/arrière.
 
 (function () {
-  const P1 = "Je veux un site pour mon travail de dev & motion design.";
-  const P2 = "Je veux un fond bleu.";
-  const P3 = "Ajoute mes projets.";
-  const SOUS_TITRES = [
-    "Ma cheerleader ? L'informatique.",
-    "Toujours là quand je code.",
-    "Elle compile mes idées.",
-    "Elle ne me lâche jamais, même à 3 h du mat'.",
-    "Ctrl + S. Toujours.",
+  const PALETTES = [
+    ["#fff4ec", "#ff6f91", "#1d1720", "#ffd3dd"], ["#0f0f14", "#ffb8cf", "#ffffff", "#2a2233"], ["#f2efe8", "#1d1d1f", "#1d1d1f", "#d9d3c7"],
+    ["#11151f", "#7aa2ff", "#ffffff", "#1d2740"], ["#ffe8d6", "#ff8a3d", "#2b1a10", "#ffc9a3"], ["#e9f7f1", "#1f9d74", "#0f2a22", "#bfe8d8"],
+    ["#f3edff", "#7b5cff", "#1c1430", "#d9ccff"], ["#141010", "#ff4d4d", "#ffffff", "#2b1d1d"], ["#fdfbf7", "#c9a96e", "#1b1a17", "#efe5d2"],
+    ["#0b1a1f", "#3fd0c9", "#e8ffff", "#123139"], ["#fff0f6", "#d6336c", "#2b0f1c", "#ffc2d9"], ["#1a1a1a", "#f5f5f5", "#f5f5f5", "#333333"],
   ];
-  const PILULES = [
-    ["Créer", '<path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z" fill="none" stroke="#fff" stroke-width="2"/>'],
-    ["Coder", '<path d="M8 6l-6 6 6 6M16 6l6 6-6 6" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>'],
-    ["Designer", '<path d="M3 21l3-1 12-12-2-2L4 18zM14 6l4 4" fill="none" stroke="#fff" stroke-width="2"/>'],
-    ["Monter", '<rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="#fff" stroke-width="2"/><path d="M10 9l5 3-5 3z" fill="#fff"/>'],
-    ["Déployer", '<path d="M12 3c4 3 5 7 4 11l-4 4-4-4c-1-4 0-8 4-11zM9 18l-3 3M15 18l3 3" fill="none" stroke="#fff" stroke-width="2"/>'],
-  ];
-  const TAGS = ["HTML", "CSS", "JavaScript", "Python", "React", "After Effects", "Premiere Pro", "Figma"];
-  const PROJETS = [
-    ["Site web", "HTML · CSS · JavaScript", '<path d="M30 30l-18 18 18 18M70 30l18 18-18 18M58 22L42 74" fill="none" stroke="#9fc0ff" stroke-width="7" stroke-linecap="round"/>'],
-    ["Montage vidéo", "Premiere Pro · CapCut", '<rect x="10" y="22" width="80" height="52" rx="8" fill="none" stroke="#9fc0ff" stroke-width="6"/><path d="M42 36l18 12-18 12z" fill="#9fc0ff"/><path d="M10 84h80" stroke="#9fc0ff" stroke-width="6" stroke-dasharray="8 6"/>'],
-    ["Motion design", "After Effects · HyperFrames", '<path d="M12 78C30 20 70 80 88 22" fill="none" stroke="#9fc0ff" stroke-width="6"/><circle cx="12" cy="78" r="7" fill="#9fc0ff"/><circle cx="88" cy="22" r="7" fill="#9fc0ff"/><path d="M12 78L40 30M88 22L60 70" stroke="#9fc0ff" stroke-width="3" stroke-dasharray="4 5"/>'],
-  ];
-  const CODE = [
-    ['<span style="color:#ff9f43">const</span> giresse = <span style="color:#7ee787">() =></span> motion(design);', ""],
-    ['<span style="color:#79c0ff">git</span> push origin main', ""],
-    ['&lt;<span style="color:#ff7b72">div</span> class=<span style="color:#a5d6ff">"hero"</span>&gt;', ""],
-    ['<span style="color:#7ee787">npm</span> run build  <span style="color:#7ee787">✓</span>', ""],
-    ['gsap.to(<span style="color:#a5d6ff">".carte"</span>, { rotationY: <span style="color:#ff9f43">-14</span> })', ""],
-    ['<span style="color:#d2a8ff">def</span> rendu(frame): <span style="color:#ff9f43">return</span> frame', ""],
-    ['@keyframes <span style="color:#ffa657">feu</span> { to { opacity: 1 } }', ""],
-    ['ffmpeg -i edit.mp4 -c:v libx264 tiktok.mp4', ""],
-  ];
-  const POINTEUR = `<svg viewBox="0 0 24 24" width="64" height="64"><path d="M5 2l14 11-6.2.8 3.7 7.3-2.6 1.3-3.6-7.4L5 19z" fill="#fff" stroke="#111" stroke-width="1.2" stroke-linejoin="round"/></svg>`;
+  const MOTS_TITRES = ["Studio", "Atelier", "Nova", "Bloom", "Maison", "Pixel", "Lumen", "Vague", "Orbit", "Sable", "Ember", "Flux"];
+
+  // Mini-site généré : 5 mises en page × 12 palettes.
+  function site(i, telephone) {
+    const [fond, accent, texte, bloc] = PALETTES[i % PALETTES.length];
+    const type = i % 5;
+    const d = document.createElement("div");
+    d.className = "site" + (telephone ? " tel" : "");
+    d.style.background = fond;
+    let h = `<div class="s-nav"><span class="s-logo" style="background:${accent}"></span>${[40, 34, 46].map((w) => `<i style="width:${w}px;background:${texte}"></i>`).join("")}</div>`;
+    const titre = MOTS_TITRES[(i * 7) % MOTS_TITRES.length];
+    if (telephone) {
+      h += `<div class="s-bloc" style="left:16px;right:16px;top:50px;height:170px;background:${bloc}"></div>
+        <div class="s-titre" style="left:18px;top:236px;color:${texte};font-size:28px">${titre}</div>
+        <div class="s-ligne" style="left:18px;top:282px;width:150px;background:${texte};opacity:.35"></div>
+        <div class="s-ligne" style="left:18px;top:300px;width:110px;background:${texte};opacity:.35"></div>
+        <div class="s-bouton" style="left:18px;right:18px;bottom:24px;height:40px;border-radius:20px;background:${accent}"></div>`;
+    } else if (type === 0) { // landing
+      h += `<div class="s-titre" style="left:24px;top:76px;color:${texte}">${titre}<br><span style="color:${accent}">digital.</span></div>
+        <div class="s-ligne" style="left:24px;top:160px;width:170px;background:${texte};opacity:.3"></div>
+        <div class="s-ligne" style="left:24px;top:178px;width:130px;background:${texte};opacity:.3"></div>
+        <div class="s-bouton" style="left:24px;top:210px;width:110px;background:${accent}"></div>
+        <div class="s-bloc" style="right:22px;top:58px;width:200px;height:200px;border-radius:100px;background:${bloc}"></div>`;
+    } else if (type === 1) { // boutique
+      h += `<div class="s-titre" style="left:24px;top:52px;color:${texte};font-size:22px">${titre} Shop</div>`;
+      for (let k = 0; k < 4; k++) h += `<div class="s-bloc" style="left:${24 + k * 110}px;top:96px;width:96px;height:120px;background:${k % 2 ? bloc : accent};opacity:${k % 2 ? 1 : 0.85}"></div><div class="s-ligne" style="left:${24 + k * 110}px;top:228px;width:70px;background:${texte};opacity:.35"></div><div class="s-ligne" style="left:${24 + k * 110}px;top:246px;width:40px;background:${accent}"></div>`;
+    } else if (type === 2) { // portfolio
+      h += `<div class="s-bloc" style="left:22px;top:52px;width:280px;height:226px;background:${bloc}"></div>
+        <div class="s-bloc" style="left:314px;top:52px;width:144px;height:107px;background:${accent};opacity:.8"></div>
+        <div class="s-bloc" style="left:314px;top:171px;width:144px;height:107px;background:${texte};opacity:.15"></div>
+        <div class="s-titre" style="left:36px;top:226px;color:${texte};font-size:24px">${titre}</div>`;
+    } else if (type === 3) { // tableau de bord
+      h += `<div class="s-bloc" style="left:0;top:34px;width:90px;bottom:0;border-radius:0;background:${bloc}"></div>`;
+      for (let k = 0; k < 6; k++) h += `<div class="s-bloc" style="left:${120 + k * 55}px;bottom:30px;width:34px;height:${40 + ((k * 53) % 140)}px;background:${k === 4 ? accent : texte};opacity:${k === 4 ? 1 : 0.25}"></div>`;
+      h += `<div class="s-titre" style="left:120px;top:52px;color:${texte};font-size:22px">${titre} Board</div>`;
+    } else { // blog / magazine
+      h += `<div class="s-titre" style="left:0;right:0;top:56px;text-align:center;color:${texte};font-size:34px">${titre}</div>
+        <div class="s-bloc" style="left:24px;top:110px;width:210px;height:160px;background:${accent};opacity:.85"></div>
+        ${[0, 1, 2, 3, 4].map((k) => `<div class="s-ligne" style="left:252px;top:${116 + k * 30}px;width:${200 - (k % 2) * 60}px;background:${texte};opacity:.3"></div>`).join("")}`;
+    }
+    d.innerHTML = h;
+    return d;
+  }
+
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const hasard = (n) => { const x = Math.sin(n * 12.9898) * 43758.5453; return x - Math.floor(x); };
 
   window.CONSTRUIRE = function (tl) {
-    const T = window.T;
+    const T = window.T, D = T.duree, B = T.temps;
     const $ = (id) => document.getElementById(id);
-    const D = T.duree;
 
-    // ── Texte qui s'écrit : dernières lettres en dégradé orange pendant l'écriture ──
-    const ecrire = (txt, p, classeQueue = "queue", n = 6) => {
-      const k = Math.round(txt.length * clamp(p));
-      if (k >= txt.length && p >= 1) return txt.replace(/&/g, "&amp;");
-      const vu = txt.slice(0, k);
-      const a = vu.slice(0, Math.max(0, vu.length - n)).replace(/&/g, "&amp;");
-      const b = vu.slice(Math.max(0, vu.length - n)).replace(/&/g, "&amp;");
-      return `${a}<span class="${classeQueue}">${b}</span>`;
+    // ── Essaim : 216 sites en tunnel ──
+    const essaim = $("essaim");
+    const ANNEAUX = 24, PAR_ANNEAU = 9, ECART = 300, L = ANNEAUX * ECART, F = 900;
+    const sites = [];
+    for (let r = 0; r < ANNEAUX; r++) for (let k = 0; k < PAR_ANNEAU; k++) {
+      const n = r * PAR_ANNEAU + k, tel = hasard(n * 3.1) < 0.18;
+      const e = site(n, tel);
+      essaim.appendChild(e);
+      const a = (k / PAR_ANNEAU) * Math.PI * 2 + r * 0.45 + hasard(n) * 0.4;
+      const rayon = 900 + hasard(n + 7) * 700;
+      sites.push({ e, X: Math.cos(a) * rayon, Y: Math.sin(a) * rayon * 1.25, Z: r * ECART + hasard(n + 3) * 120, rot: (hasard(n + 11) - 0.5) * 16, w: tel ? 220 : 480, h: tel ? 440 : 300 });
+    }
+    // Vitesse de la caméra selon l'énergie du son, intégrée une fois (pas de 1/120 s).
+    const temps = B;
+    const indiceTemps = (t) => { let i = -1; for (let k = 0; k < temps.length; k++) if (t >= temps[k]) i = k; return i; };
+    const PLANS_DROP = ["essaim", "siteA", "code", "siteB", "montage", "essaim", "siteC", "motion", "tel", "siteD", "essaim", "code", "siteA", "montage", "essaim", "siteB", "motion", "siteC", "essaim", "tel", "siteD", "code", "montage", "essaim"];
+    const planA = (t) => {
+      if (t < T.drop || t >= T.ralenti) return null;
+      const i = indiceTemps(t) - indiceTemps(T.drop);
+      return { nom: PLANS_DROP[i % PLANS_DROP.length], i, u: t - temps[indiceTemps(t)] };
     };
+    function vitesse(t) {
+      if (t < T.montee) return 520;
+      if (t < T.drop) return 520 + 900 * ((t - T.montee) / (T.drop - T.montee));
+      if (t < T.ralenti) { const p = planA(t); return p && p.nom === "essaim" ? 4200 * Math.exp(-p.u * 2.5) + 900 : 900; }
+      if (t < T.fin) return 160;
+      return 260;
+    }
+    const PAS = 1 / 120, camZ = [0];
+    for (let k = 1; k <= Math.ceil(D / PAS) + 2; k++) camZ.push(camZ[k - 1] + vitesse(k * PAS) * PAS);
+    const cam = (t) => { const x = t / PAS, k = Math.floor(x); return camZ[k] + (camZ[k + 1] - camZ[k]) * (x - k); };
 
-    // ── Horloge unique : feu, saisie, sous-titres, pluie de code ──
-    const flammes = [$("flamme-1"), $("flamme-2"), $("flamme-3")];
-    const saisie = $("saisie-texte"), st = $("st"), pluie = $("pluie");
-    const colonnes = Array.from({ length: 9 }, (_, i) => {
-      const pre = document.createElement("pre");
-      pre.innerHTML = Array.from({ length: 14 }, (_, k) => CODE[(i * 3 + k) % CODE.length][0]).join("\n");
-      pre.style.left = (-120 + i * 150) + "px";
-      pluie.appendChild(pre);
-      return pre;
-    });
+    // ── Plans du drop ──
+    const zoneP = $("plans");
+    const plans = {};
+    const grandSite = (i) => { const p = document.createElement("div"); p.className = "plan"; const s = site(i, false); s.style.transform = "scale(2.083)"; s.style.transformOrigin = "0 0"; s.style.borderRadius = "0"; p.appendChild(s); return p; };
+    plans.siteA = grandSite(0); plans.siteB = grandSite(3); plans.siteC = grandSite(5); plans.siteD = grandSite(9);
+    plans.code = document.createElement("div"); plans.code.className = "plan code";
+    plans.code.innerHTML = `<span class="c">// idée → écran</span>\n<span class="k">const</span> <span class="f">projet</span> = <span class="k">await</span> <span class="f">creer</span>({\n  style: <span class="s">"unique"</span>,\n  motion: <span class="k">true</span>,\n  pour: <span class="s">"toi"</span>,\n});\n<span class="f">projet</span>.<span class="f">lancer</span>(); <span class="c">// ✓ en ligne</span>`;
+    plans.montage = document.createElement("div"); plans.montage.className = "plan montage";
+    plans.montage.innerHTML = `<div class="m-ecran"></div>` + [["#ff8fb1", 0.08, 0.5], ["#ffd59a", 0.3, 0.42], ["#9ad7ff", 0.05, 0.72], ["#b6a3ff", 0.45, 0.3]].map(([c, a, l], k) =>
+      `<div class="m-piste" style="top:${490 + k * 58}px;left:${40 + a * 920}px;right:auto;width:${l * 920}px;background:${c};opacity:.85"></div>`).join("") + `<div class="m-tete" id="m-tete"></div>`;
+    plans.motion = document.createElement("div"); plans.motion.className = "plan motion";
+    plans.motion.innerHTML = `<svg viewBox="0 0 1000 760"><g stroke="#2a2a36" stroke-width="2">${Array.from({ length: 9 }, (_, k) => `<line x1="0" y1="${k * 95}" x2="1000" y2="${k * 95}"/><line x1="${k * 125}" y1="0" x2="${k * 125}" y2="760"/>`).join("")}</g>
+      <path id="courbe" d="M60 640 C 360 640 380 120 940 120" fill="none" stroke="#ff9ec4" stroke-width="10" stroke-linecap="round"/>
+      <line x1="60" y1="640" x2="360" y2="640" stroke="#ffd59a" stroke-width="4"/><line x1="940" y1="120" x2="380" y2="120" stroke="#ffd59a" stroke-width="4"/>
+      <circle cx="60" cy="640" r="16" fill="#fff"/><circle cx="940" cy="120" r="16" fill="#fff"/><circle cx="360" cy="640" r="11" fill="#ffd59a"/><circle cx="380" cy="120" r="11" fill="#ffd59a"/>
+      <circle id="bille" r="22" fill="#ff5c8a"/></svg>`;
+    plans.tel = document.createElement("div"); plans.tel.className = "plan"; plans.tel.style.background = "transparent"; plans.tel.style.boxShadow = "none";
+    { const s = site(10, true); s.style.left = "390px"; s.style.top = "160px"; s.style.transform = "scale(1.9)"; s.style.transformOrigin = "50% 0"; plans.tel.appendChild(s); }
+    Object.values(plans).forEach((p) => zoneP.appendChild(p));
+    const courbe = plans.motion.querySelector("#courbe"), bille = plans.motion.querySelector("#bille"), Lc = courbe.getTotalLength();
+
+    // ── Horloge unique ──
+    const monde = $("monde"), heros = $("heros"), mot = $("mot"), phrase = $("phrase"), flash = $("flash"), turb = $("turb"), lueur = $("lueur");
     function maj(t) {
-      flammes.forEach((f, i) => {
-        const a = Math.sin(t * (0.9 + i * 0.25) + i * 2) * (8 + i * 3), s = 1 + 0.06 * Math.sin(t * 1.7 + i);
-        const dx = Math.sin(t * 0.7 + i) * 40, dy = Math.cos(t * 0.6 + i * 1.3) * 50;
-        f.setAttribute("transform", `translate(${dx.toFixed(1)} ${dy.toFixed(1)}) rotate(${a.toFixed(2)} 600 900) scale(${s.toFixed(3)})`);
+      const z = cam(t), p = planA(t);
+      const enPlan = p && p.nom !== "essaim";
+      // Essaim
+      sites.forEach((s, n) => {
+        let rel = ((s.Z - z) % L + L) % L;
+        if (rel < 60) { s.e.style.opacity = "0"; return; }
+        const k = F / rel;
+        const x = 540 + s.X * k - s.w / 2, y = 960 + s.Y * k - s.h / 2;
+        const brume = clamp((L - rel) / 2200) * clamp((rel - 60) / 300);
+        s.e.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) scale(${(k * 0.9).toFixed(3)}) rotate(${s.rot.toFixed(1)}deg)`;
+        s.e.style.opacity = (brume * (enPlan ? 0.35 : t >= T.fin ? 0.4 : 1)).toFixed(3);
       });
-      // Saisie
-      let html = '<span class="vide">Demande à GIRESSE…</span>';
-      if (t >= T.saisie1 && t < T.envoi1) html = ecrire(P1, (t - T.saisie1) / (T.saisie1Fin - T.saisie1));
-      else if (t >= T.saisie2 && t < T.envoi2) html = ecrire(P2, (t - T.saisie2) / (T.saisie2Fin - T.saisie2));
-      else if (t >= T.saisie3 && t < T.saisie3Fin + 0.15) html = ecrire(P3, (t - T.saisie3) / (T.saisie3Fin - T.saisie3));
-      saisie.innerHTML = html;
-      // Sous-titres
-      let s = "";
-      T.st.forEach(([a, b], i) => {
-        const suivant = i < T.st.length - 1 ? T.st[i + 1][0] : b + 0.6;
-        if (t >= a - 0.05 && t < Math.min(b + 0.35, suivant - 0.02)) s = ecrire(SOUS_TITRES[i], (t - a) / Math.max(0.35, (b - a) * 0.6), "queue", 5);
+      essaim.style.filter = enPlan ? "blur(6px)" : t >= T.fin ? "blur(3px)" : "none";
+      // Plans
+      Object.entries(plans).forEach(([nom, el]) => {
+        if (enPlan && p.nom === nom) {
+          const punch = 1 + 0.16 * Math.exp(-p.u * 11), sens = p.i % 2 ? 1 : -1;
+          el.style.opacity = "1";
+          el.style.transform = `translate(${(sens * 18 * Math.exp(-p.u * 6)).toFixed(1)}px, ${(-p.u * 30).toFixed(1)}px) scale(${punch.toFixed(3)}) rotate(${(sens * 2.2).toFixed(2)}deg)`;
+        } else el.style.opacity = "0";
       });
-      st.innerHTML = s;
-      // Pluie de code
-      colonnes.forEach((c, i) => {
-        c.style.transform = `translateY(${((-900 + ((t * (1400 + i * 120)) % 2600)) - 400).toFixed(0)}px)`;
-      });
+      if (enPlan && p.nom === "montage") $("m-tete").style.left = (60 + p.u * 1500) + "px";
+      if (enPlan && p.nom === "motion") { const q = courbe.getPointAtLength(clamp(p.u / 0.45) * Lc); bille.setAttribute("cx", q.x); bille.setAttribute("cy", q.y); }
+      // Coup sur chaque temps : tremblement, aberration chromatique, flash
+      const ib = indiceTemps(t), u = ib >= 0 ? t - temps[ib] : 9;
+      const actif = t >= T.drop && t < T.ralenti;
+      const force = actif ? Math.exp(-u * 16) : t >= T.montee && t < T.drop ? 0.45 * Math.exp(-u * 14) : 0;
+      const sx = (hasard(ib * 1.7) - 0.5) * 36 * force, sy = (hasard(ib * 2.3) - 0.5) * 36 * force;
+      const zoomBuild = t >= T.montee && t < T.drop ? 1 + 0.05 * Math.exp(-u * 8) + 0.06 * (t - T.montee) / (T.drop - T.montee) : 1;
+      monde.style.transform = `translate(${sx.toFixed(1)}px, ${sy.toFixed(1)}px) scale(${zoomBuild.toFixed(3)})`;
+      const ca = 12 * force;
+      monde.style.filter = ca > 0.4 ? `drop-shadow(${ca.toFixed(1)}px 0 0 rgba(255,40,90,.55)) drop-shadow(${(-ca).toFixed(1)}px 0 0 rgba(60,200,255,.5))` : "none";
+      const mesure = T.mots.some(([tm]) => Math.abs(t - tm) < 0.5 && t >= tm);
+      let fl = 0;
+      if (t >= T.drop) fl = Math.max(fl, Math.exp(-(t - T.drop) * 5));
+      if (actif) fl = Math.max(fl, (mesure ? 0.55 : 0.12) * Math.exp(-u * 18));
+      if (t >= T.fin) fl = Math.max(fl, 0.8 * Math.exp(-(t - T.fin) * 6));
+      flash.style.opacity = fl.toFixed(3);
+      lueur.style.opacity = (0.7 + 0.3 * Math.sin(t * 1.3)).toFixed(3);
+      turb.setAttribute("seed", String(Math.floor(t * 24) % 97));
+      // Phrases douces
+      let ph = "", op = 0;
+      T.phrases.forEach(([a, b, txt]) => { if (t >= a && t < b) { ph = txt; op = clamp((t - a) / 0.5) * clamp((b - t) / 0.4); } });
+      phrase.textContent = ph;
+      phrase.style.opacity = op.toFixed(3);
+      phrase.style.filter = `blur(${((1 - op) * 10).toFixed(1)}px)`;
+      // Mots du portfolio, en flash
+      let m = "", om = 0;
+      T.mots.forEach(([tm, txt]) => { if (t >= tm && t < tm + 1.0) { m = txt; om = (t - tm < 0.06 || (t - tm > 0.12 && t - tm < 0.16)) ? 1 : clamp((tm + 1.0 - t) / 0.25); } });
+      mot.textContent = m;
+      mot.style.opacity = om.toFixed(3);
+      mot.style.transform = `scale(${(1 + 0.12 * Math.exp(-(t % 1) * 0)).toFixed(3)})`;
     }
     const horloge = { t: 0 };
     tl.fromTo(horloge, { t: 0 }, { t: D, duration: D, ease: "none", onUpdate: () => maj(horloge.t) }, 0);
     maj(0);
-    tl.fromTo("#feu", { opacity: 0.35 }, { opacity: 1, duration: 1.6, ease: "power2.out" }, 0);
 
-    // ── Intro : logo + nom (lettres en serif qui se dévoilent) ──
-    tl.fromTo("#logo", { opacity: 0, scale: 0.6, filter: "blur(20px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.7, ease: "power3.out" }, T.logo);
-    const nom = $("nom");
-    nom.innerHTML = "GIRESSE".split("").map((l) => `<span>${l}</span>`).join("");
-    tl.fromTo("#nom span", { opacity: 0, y: 40, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: "power3.out", stagger: 0.09 }, T.nom);
-    tl.to("#logo", { scale: 0.5, y: -300, duration: 0.5, ease: "power3.inOut" }, T.chips - 0.2);
-    tl.to("#nom", { scale: 0.6, y: -330, duration: 0.5, ease: "power3.inOut" }, T.chips - 0.2);
+    // ── Le site « héros » (la crush) ──
+    tl.fromTo(heros, { opacity: 0, scale: 0.35, filter: "blur(18px)", y: 120 }, { opacity: 1, scale: 0.82, filter: "blur(0px)", y: 0, duration: 1.0, ease: "power3.out" }, T.heros);
+    tl.to(heros, { scale: 1.0, duration: T.drop - T.heros - 1.0, ease: "power2.in" }, T.heros + 1.0);
+    tl.to(heros, { opacity: 0, scale: 1.6, filter: "blur(16px)", duration: 0.18, ease: "power2.in" }, T.drop - 0.12);
+    tl.fromTo(heros, { opacity: 0, scale: 0.9, filter: "blur(14px)" }, { opacity: 1, scale: 1.0, filter: "blur(0px)", duration: 0.6, ease: "power2.out", immediateRender: false }, T.ralenti);
+    tl.to(heros, { scale: 1.06, duration: T.fin - T.ralenti - 0.3, ease: "sine.inOut" }, T.ralenti + 0.6);
+    tl.to(heros, { opacity: 0, y: -260, scale: 0.7, filter: "blur(12px)", duration: 0.35, ease: "power2.in" }, T.fin - 0.3);
 
-    // ── Pilules qui claquent sur les temps, le curseur clique « Coder » ──
-    const zoneP = $("pilules");
-    zoneP.style.top = "880px";
-    const pils = PILULES.map(([nomP, ic]) => {
-      const p = document.createElement("div");
-      p.className = "pilule";
-      p.innerHTML = `<svg viewBox="0 0 24 24">${ic}</svg>${nomP}`;
-      zoneP.appendChild(p);
-      return p;
-    });
-    const quand = [T.temps[0], T.temps[1], T.temps[2], T.temps[3], T.temps[3] + 0.12];
-    pils.forEach((p, i) => tl.fromTo(p, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2.5)" }, quand[i]));
-    const coder = pils[1];
-    const r = coder.getBoundingClientRect();
-    const pointeur = $("pointeur");
-    pointeur.innerHTML = POINTEUR;
-    tl.fromTo(pointeur, { x: 860, y: 1500, opacity: 0 }, { x: r.left + r.width / 2 - 8, y: r.top + r.height / 2 - 4, opacity: 1, duration: 0.6, ease: "power2.out" }, T.survol - 0.5);
-    tl.to(coder, { backgroundColor: "rgba(255,122,26,0.28)", boxShadow: "0 0 44px rgba(255,160,60,0.95), inset 0 0 20px rgba(255,170,90,0.5)", duration: 0.15 }, T.survol);
-    tl.to(pointeur, { scale: 0.85, duration: 0.06, yoyo: true, repeat: 1 }, T.clic - 0.03);
-    tl.to(coder, { scale: 0.92, duration: 0.06, yoyo: true, repeat: 1 }, T.clic - 0.03);
-    tl.to(pointeur, { opacity: 0, duration: 0.25 }, T.clic + 0.2);
-    tl.to(["#logo", "#nom", "#pilules"], { opacity: 0, y: "-=80", filter: "blur(10px)", duration: 0.3, ease: "power2.in" }, T.clic + 0.05);
-
-    // ── Saisie : apparaît pour chaque demande ──
-    const boite = $("saisie");
-    boite.style.height = "280px";
-    [[T.clic + 0.05, T.pluie1 - 0.05], [T.saisie2 - 0.2, T.bleu + 0.1], [T.saisie3 - 0.15, T.projets[0] - 0.05]].forEach(([a, b]) => {
-      tl.fromTo(boite, { opacity: 0, y: 80, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "power3.out", immediateRender: false }, a);
-      tl.to(boite, { opacity: 0, y: 60, duration: 0.2, ease: "power2.in" }, b);
-    });
-    tl.set(boite, { opacity: 0 }, 0);
-    [T.envoi1, T.envoi2, T.saisie3Fin + 0.08].forEach((t) => tl.to("#saisie-envoyer", { scale: 0.82, duration: 0.07, yoyo: true, repeat: 1 }, t - 0.05));
-
-    // ── Pluie de code (transition) ──
-    [[T.pluie1, T.carte], [T.pluie2, T.fin]].forEach(([a, b]) => {
-      tl.fromTo(pluie, { opacity: 0, filter: "blur(10px)" }, { opacity: 1, filter: "blur(3px)", duration: 0.25, immediateRender: false }, a);
-      tl.to(pluie, { opacity: 0, filter: "blur(14px)", duration: 0.3 }, b - 0.3);
-    });
-
-    // ── Carte du site en verre, inclinée en 3D ──
-    const carte = $("carte");
-    tl.fromTo(carte, { opacity: 0, rotationY: -50, rotationX: 18, z: -700, scale: 0.7, filter: "blur(14px)" },
-      { opacity: 1, rotationY: -16, rotationX: 7, z: 0, scale: 1, filter: "blur(0px)", duration: 0.65, ease: "power3.out" }, T.carte);
-    tl.to(carte, { rotationY: -5, rotationX: 3, duration: T.projets[0] - T.carte - 0.7, ease: "sine.inOut" }, T.carte + 0.65);
-    // Pulsation sur les temps forts (montage).
-    window.T.st.forEach(([a]) => tl.fromTo(carte, { scale: 1 }, { scale: 1.035, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, a));
-
-    // Fond bleu
-    tl.to("#carte-bleu", { opacity: 1, duration: 0.35, ease: "power2.inOut" }, T.bleu);
-    tl.to(carte, { borderColor: "rgba(170,200,255,0.75)", boxShadow: "0 0 80px rgba(47,107,255,0.65), 0 40px 100px rgba(0,0,0,0.6)", duration: 0.35 }, T.bleu);
-    tl.fromTo("#feu", { filter: "saturate(1.15) hue-rotate(0deg)" }, { filter: "saturate(1.3) hue-rotate(200deg)", duration: 0.5, ease: "power2.inOut", immediateRender: false }, T.bleu);
-    tl.to("#feu", { filter: "saturate(1.15) hue-rotate(0deg)", duration: 0.6, ease: "power2.inOut" }, T.fin - 0.4);
-
-    // Compétences qui claquent sur les temps
-    const zoneT = $("tags");
-    TAGS.forEach((nomT, i) => {
-      const e = document.createElement("span");
-      e.className = "tag";
-      e.textContent = nomT;
-      zoneT.appendChild(e);
-      tl.fromTo(e, { opacity: 0, scale: 0.4, y: 14 }, { opacity: 1, scale: 1, y: 0, duration: 0.25, ease: "back.out(2.6)", immediateRender: false }, T.tags[i]);
-    });
-
-    // ── Projets en éventail ──
-    tl.to(carte, { scale: 0.78, y: -140, opacity: 0.35, filter: "blur(6px)", duration: 0.4, ease: "power2.inOut" }, T.projets[0] - 0.1);
-    const zoneJ = $("projets");
-    const EVENTAIL = [{ x: -230, r: -8, y: 40 }, { x: 0, r: 0, y: 0 }, { x: 230, r: 8, y: 40 }];
-    PROJETS.forEach(([titre, sous, ic], i) => {
-      const c = document.createElement("div");
-      c.className = "projet";
-      c.innerHTML = `<div class="projet-visuel"><svg viewBox="0 0 100 100" width="170" height="170">${ic}</svg></div><div class="projet-titre">${titre}</div><div class="projet-sous">${sous}</div>`;
-      c.style.zIndex = i === 1 ? 3 : 2;
-      zoneJ.appendChild(c);
-      tl.fromTo(c, { opacity: 0, x: 0, y: 900, rotation: 0, scale: 0.9 },
-        { opacity: 1, x: EVENTAIL[i].x, y: EVENTAIL[i].y, rotation: EVENTAIL[i].r, scale: 0.92, duration: 0.45, ease: "power3.out" }, T.projets[i]);
-    });
-    // Plongée dans le code puis noir.
-    tl.to(["#projets", "#carte"], { scale: 2.2, opacity: 0, filter: "blur(20px)", duration: 0.5, ease: "power3.in" }, T.pluie2);
-
-    // ── Fin : logo + « Built with GIRESSE. » en lettres qui tombent ──
-    tl.fromTo("#fin-logo", { opacity: 0, scale: 0.3, filter: "blur(14px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.55, ease: "back.out(1.8)" }, T.fin);
-    const sig = $("signature");
-    sig.innerHTML = "Built with GIRESSE.".split("").map((l) => `<span>${l === " " ? " " : l}</span>`).join("");
-    sig.querySelectorAll("span").forEach((s, i) => {
-      const rot = ((i * 37) % 50) - 25;
-      tl.fromTo(s, { opacity: 0, y: -260 - (i % 4) * 60, rotation: rot, filter: "blur(6px)" },
-        { opacity: 1, y: 0, rotation: 0, filter: "blur(0px)", duration: 0.55, ease: "bounce.out" }, T.lettres + i * 0.045);
-    });
-    tl.to("#fin-logo", { scale: 1.06, duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, T.lettres + 1.2);
+    // ── Fin ──
+    tl.fromTo("#fin-logo", { opacity: 0, scale: 0.6, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.6, ease: "power3.out" }, T.fin);
+    tl.fromTo("#fin-nom", { opacity: 0, y: 30, filter: "blur(14px)", letterSpacing: "0.3em" }, { opacity: 1, y: 0, filter: "blur(0px)", letterSpacing: "0.02em", duration: 1.0, ease: "power3.out" }, T.fin + 0.35);
+    tl.fromTo("#fin-sous", { opacity: 0 }, { opacity: 1, duration: 0.8 }, T.fin + 1.1);
+    tl.to(["#fin-logo", "#fin-nom", "#fin-sous"], { opacity: 0, filter: "blur(10px)", duration: 0.8 }, D - 0.9);
   };
 })();

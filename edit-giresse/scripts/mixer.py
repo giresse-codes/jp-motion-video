@@ -1,5 +1,5 @@
 """Bande-son de l'edit : le son fourni par l'utilisateur (son TikTok réutilisé) + effets discrets.
-Effets : uisfx (CC0) pour la frappe et les clics, souffles fabriqués pour les transitions.
+Effets : deux souffles fabriqués (montée vers le drop, bascule vers la fin), très discrets.
 Sortie : assets/audio/mix.wav (-14 LUFS, crête < -1 dBTP). Le son n'est pas commité (droits).
 Usage (depuis edit-giresse/) : python3 scripts/mixer.py
 """
@@ -39,14 +39,8 @@ ui = lambda n: lire(ICI / "assets" / "sfx" / f"ui-{n}.wav")
 son = lire(ICI / "assets" / "audio" / "son.wav", 2)[:, :N]
 son = np.pad(son, ((0, 0), (0, N - son.shape[1])))
 S = np.zeros((2, N))
-for a, b in ((T["saisie1"], T["saisie1Fin"]), (T["saisie2"], T["saisie2Fin"]), (T["saisie3"], T["saisie3Fin"])):
-    for t in np.arange(a, b, 0.07):
-        poser(S, ui("typing"), t, -24 + rng.uniform(-2, 2), 0.1)
-for t in (T["clic"], T["envoi1"], T["envoi2"], T["saisie3Fin"] + 0.08):
-    poser(S, ui("press"), t - 0.03, -17)
-poser(S, souffle(0.9, 200, 3000, 0.7), T["pluie1"] - 0.2, -16)
-poser(S, souffle(0.9, 200, 3000, 0.7), T["pluie2"] - 0.2, -16)
-poser(S, souffle(0.5, 400, 2500, 0.4), T["carte"] - 0.1, -20)
+poser(S, souffle(1.1, 150, 3500, 0.92), T["drop"] - 1.0, -15)   # aspiration vers le drop
+poser(S, souffle(0.8, 200, 2200, 0.6), T["fin"] - 0.4, -18)     # bascule vers la fin
 mix = son + S
 tmp = ICI / "assets" / "audio" / "mix-brut.wav"
 with wave.open(str(tmp), "wb") as w:

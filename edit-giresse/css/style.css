@@ -1,72 +1,68 @@
-/* Edit « GIRESSE » — style de la référence : noir, voile de feu orange, verre lumineux. */
+/* Edit « GIRESSE » — façon edit crush : noir profond, lueurs rosées, grain, flashs. */
 @font-face { font-family: "Inter"; src: url("../assets/fonts/inter-latin-400-normal.woff2") format("woff2"); font-weight: 400; }
 @font-face { font-family: "Inter"; src: url("../assets/fonts/inter-latin-600-normal.woff2") format("woff2"); font-weight: 600; }
 @font-face { font-family: "Inter"; src: url("../assets/fonts/inter-latin-700-normal.woff2") format("woff2"); font-weight: 700; }
-:root { --orange: #ff7a1a; --orange-vif: #ffb04a; --bleu: #2f6bff; --noir: #050505; --mono: "JetBrains Mono", monospace; }
+:root { --rose: #ffb8cf; --peche: #ffd9b0; --noir: #050406; }
 html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: var(--noir); font-family: "Inter", sans-serif; color: #fff; }
 #racine { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--noir); }
 .clip { position: absolute; inset: 0; }
 
-/* Voile de feu */
-#feu { position: absolute; inset: 0; filter: saturate(1.15); }
-#feu svg { position: absolute; inset: 0; }
-.vignette-noire { position: absolute; inset: 0; background: radial-gradient(75% 55% at 50% 50%, transparent 40%, rgba(0,0,0,.75) 100%); }
+#monde { position: absolute; inset: 0; will-change: transform, filter; }
+.lueur { position: absolute; inset: -10%; background:
+  radial-gradient(40% 30% at 50% 45%, rgba(255,170,200,.22), transparent 70%),
+  radial-gradient(60% 40% at 30% 80%, rgba(255,200,150,.12), transparent 70%); }
+#essaim { position: absolute; inset: 0; }
 
-/* Intro : logo + nom */
-.logo { position: absolute; left: 330px; top: 560px; width: 420px; height: 420px; mix-blend-mode: screen; }
-.nom { position: absolute; left: 0; width: 1080px; top: 1010px; text-align: center; font: 700 150px/1 "EB Garamond", serif; letter-spacing: .02em; color: #fff; text-shadow: 0 0 40px rgba(255,140,40,.55); }
-.nom span { display: inline-block; }
+/* Mini-sites (générés) */
+.site { position: absolute; left: 0; top: 0; width: 480px; height: 300px; border-radius: 14px; overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,.55); transform-origin: 50% 50%; will-change: transform, opacity, filter; }
+.site.tel { width: 220px; height: 440px; border-radius: 28px; }
+.s-nav { position: absolute; left: 0; right: 0; top: 0; height: 34px; display: flex; align-items: center; gap: 10px; padding: 0 14px; box-sizing: border-box; }
+.s-nav i { display: block; height: 6px; border-radius: 3px; opacity: .7; }
+.s-logo { width: 22px; height: 22px; border-radius: 6px; margin-right: auto; }
+.s-bloc { position: absolute; border-radius: 8px; }
+.s-ligne { position: absolute; height: 9px; border-radius: 5px; }
+.s-titre { position: absolute; font: 700 30px/1.02 "Inter"; letter-spacing: -0.03em; white-space: nowrap; }
+.s-bouton { position: absolute; height: 26px; border-radius: 13px; }
 
-/* Pilules */
-.pilules { position: absolute; left: 70px; width: 860px; top: 1180px; display: flex; flex-wrap: wrap; justify-content: center; gap: 22px; }
-.pilule { display: inline-flex; align-items: center; gap: 12px; padding: 20px 30px; border-radius: 40px; font: 600 38px/1 "Inter"; color: #fff;
-  background: rgba(20,12,8,.55); border: 2px solid rgba(255,255,255,.75); box-shadow: 0 0 22px rgba(255,190,120,.45), inset 0 0 14px rgba(255,170,90,.25); }
-.pilule svg { width: 34px; height: 34px; }
-.pilule.active { background: rgba(255,122,26,.25); border-color: #fff; box-shadow: 0 0 40px rgba(255,160,60,.9), inset 0 0 20px rgba(255,170,90,.5); }
+/* Grand site héros (la « crush ») */
+#heros { position: absolute; left: 90px; top: 640px; width: 900px; height: 560px; border-radius: 30px; overflow: hidden;
+  box-shadow: 0 0 120px rgba(255,170,200,.45), 0 40px 120px rgba(0,0,0,.7); opacity: 0; will-change: transform, opacity, filter; }
+.h-fond { position: absolute; inset: 0; background: linear-gradient(150deg, #1b1020 0%, #2a1530 45%, #0d0a14 100%); }
+.h-halo { position: absolute; width: 520px; height: 520px; right: -120px; top: -140px; border-radius: 50%; background: radial-gradient(circle, rgba(255,150,190,.55), transparent 65%); }
+.h-nav { position: absolute; left: 44px; right: 44px; top: 34px; display: flex; gap: 30px; font: 600 24px/1 "Inter"; color: rgba(255,255,255,.8); }
+.h-nav b { margin-right: auto; font: 700 26px/1 "EB Garamond", serif; font-style: italic; color: #fff; letter-spacing: .04em; }
+.h-titre { position: absolute; left: 44px; top: 170px; font: 400 104px/0.95 "EB Garamond", serif; font-style: italic; letter-spacing: -0.02em; color: #fff; }
+.h-sous { position: absolute; left: 48px; top: 400px; font: 600 26px/1.3 "Inter"; color: rgba(255,255,255,.7); }
+.h-bouton { position: absolute; left: 48px; bottom: 40px; padding: 16px 28px; border-radius: 30px; background: #fff; color: #120a12; font: 700 24px/1 "Inter"; }
+.h-carte { position: absolute; right: 50px; bottom: 50px; width: 300px; height: 200px; border-radius: 20px; background: linear-gradient(140deg, rgba(255,184,207,.85), rgba(255,217,176,.75)); }
 
-/* Champ de saisie */
-.saisie { position: absolute; left: 90px; top: 1190px; width: 820px; height: 250px; border-radius: 40px; background: rgba(14,10,8,.82);
-  border: 1.5px solid rgba(255,255,255,.12); box-shadow: 0 30px 80px rgba(0,0,0,.6), 0 0 60px rgba(255,120,30,.18); box-sizing: border-box; padding: 38px 42px; }
-.saisie-texte { font: 600 46px/1.25 "Inter"; letter-spacing: -0.015em; color: #fff; }
-.saisie-texte .queue { background: linear-gradient(90deg, #fff, #ff7a1a 60%, #ffb04a); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.saisie-texte .vide { color: #6d6660; }
-.saisie-bas { position: absolute; left: 42px; right: 34px; bottom: 28px; display: flex; align-items: center; justify-content: space-between; }
-.saisie-plus { font: 400 54px/1 "Inter"; color: #d8d2cc; }
-.saisie-droite { display: flex; align-items: center; gap: 24px; font: 600 30px/1 "Inter"; color: #bdb5ad; }
-.saisie-envoyer { width: 68px; height: 68px; border-radius: 18px; background: var(--orange); display: flex; align-items: center; justify-content: center; }
+/* Plans du drop */
+.plan { position: absolute; left: 40px; top: 560px; width: 1000px; height: 760px; border-radius: 28px; overflow: hidden; opacity: 0;
+  box-shadow: 0 0 90px rgba(255,170,200,.25), 0 40px 120px rgba(0,0,0,.7); will-change: transform, opacity; }
+.code { background: #0d0d14; padding: 60px 50px; box-sizing: border-box; font: 600 34px/1.6 "JetBrains Mono", monospace; color: #e6e6f0; white-space: pre; }
+.code .k { color: #ff9ec4; } .code .s { color: #ffd59a; } .code .f { color: #9ad7ff; } .code .c { color: #6b6b80; }
+.montage { background: #121218; }
+.m-ecran { position: absolute; left: 40px; right: 40px; top: 40px; height: 400px; border-radius: 16px; background: linear-gradient(140deg, #3a1f3a, #1b2440); }
+.m-piste { position: absolute; left: 40px; right: 40px; height: 44px; border-radius: 8px; }
+.m-tete { position: absolute; top: 470px; bottom: 30px; width: 4px; background: #ff5c8a; box-shadow: 0 0 20px #ff5c8a; }
+.motion { background: #101016; }
+.motion svg { position: absolute; inset: 0; }
 
-/* Sous-titres (style de la référence : écriture, dernières lettres orange) */
-.st { position: absolute; left: 80px; width: 840px; top: 262px; text-align: center; font: 700 64px/1.18 "Inter"; letter-spacing: -0.025em; color: #fff; text-shadow: 0 4px 30px rgba(0,0,0,.6); }
-.st .queue { color: var(--orange-vif); text-shadow: 0 0 24px rgba(255,140,40,.8); }
+/* Textes façon edit */
+.mot { position: absolute; left: 0; width: 1080px; top: 860px; text-align: center; font: 400 150px/1 "EB Garamond", serif; font-style: italic; color: #fff;
+  text-shadow: 0 0 40px rgba(255,170,200,.7); opacity: 0; letter-spacing: -0.01em; }
+.phrase { position: absolute; left: 90px; width: 900px; top: 1380px; text-align: center; font: 400 66px/1.15 "EB Garamond", serif; font-style: italic;
+  color: #fff; text-shadow: 0 0 14px #000, 0 0 30px rgba(0,0,0,.9), 0 0 40px rgba(255,170,200,.5); opacity: 0;
+  background: radial-gradient(60% 70% at 50% 50%, rgba(5,4,6,.85), rgba(5,4,6,0) 75%); padding: 40px 0; }
 
-/* Pluie de code */
-.pluie { position: absolute; inset: 0; overflow: hidden; opacity: 0; }
-.pluie pre { position: absolute; margin: 0; font: 700 34px/1.35 var(--mono); white-space: pre; }
-
-/* Carte du site */
-.scene3d { position: absolute; inset: 0; perspective: 1800px; }
-.carte { position: absolute; left: 150px; top: 450px; width: 780px; height: 700px; border-radius: 38px; overflow: hidden; transform-style: preserve-3d;
-  border: 2px solid rgba(255,200,140,.65); box-shadow: 0 0 70px rgba(255,130,30,.55), 0 40px 100px rgba(0,0,0,.6); opacity: 0; }
-.carte-fond { position: absolute; inset: 0; background: linear-gradient(140deg, #ffb347 0%, #ff7a1a 45%, #c94400 100%); }
-.carte-fond-bleu { position: absolute; inset: 0; background: linear-gradient(140deg, #6fa0ff 0%, #2f6bff 45%, #0f2fb8 100%); opacity: 0; }
-.carte-verre { position: absolute; inset: 0; background: linear-gradient(160deg, rgba(255,255,255,.28), rgba(255,255,255,0) 45%); }
-.carte-nav { position: absolute; left: 40px; right: 40px; top: 34px; display: flex; align-items: center; gap: 30px; font: 600 26px/1 "Inter"; color: rgba(255,255,255,.92); }
-.carte-nav .marque { width: 54px; height: 54px; border-radius: 14px; background: rgba(0,0,0,.35); display: flex; align-items: center; justify-content: center; font: 700 22px/1 "Inter"; margin-right: auto; }
-.carte-titre { position: absolute; left: 48px; top: 170px; font: 700 76px/1.02 "Inter"; letter-spacing: -0.03em; color: #fff; }
-.carte-sous { position: absolute; left: 50px; top: 345px; font: 600 30px/1.3 "Inter"; color: rgba(255,255,255,.88); }
-.carte-bouton { position: absolute; left: 50px; bottom: 44px; padding: 18px 30px; border-radius: 14px; background: #fff; color: #111; font: 700 28px/1 "Inter"; }
-.tags { position: absolute; left: 48px; right: 40px; top: 455px; display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 12px; }
-.tag { padding: 12px 18px; border-radius: 24px; background: rgba(0,0,0,.35); border: 1.5px solid rgba(255,255,255,.55); font: 600 26px/1 "Inter"; opacity: 0; }
-
-/* Mini-cartes projets */
-.projet { position: absolute; left: 350px; top: 560px; width: 380px; height: 470px; border-radius: 30px; overflow: hidden; opacity: 0;
-  border: 2px solid rgba(160,190,255,.7); box-shadow: 0 0 60px rgba(47,107,255,.55), 0 30px 80px rgba(0,0,0,.6); background: linear-gradient(150deg, #1a2c6e, #0b1230); }
-.projet-visuel { height: 260px; display: flex; align-items: center; justify-content: center; }
-.projet-titre { padding: 26px 30px 0; font: 700 40px/1.1 "Inter"; }
-.projet-sous { padding: 10px 30px 0; font: 600 24px/1.3 "Inter"; color: rgba(255,255,255,.75); }
+/* Effets */
+#flash { position: absolute; inset: 0; background: #fff; opacity: 0; mix-blend-mode: screen; }
+.grain { position: absolute; inset: 0; opacity: .09; mix-blend-mode: overlay; pointer-events: none; }
+.vignette { position: absolute; inset: 0; background: radial-gradient(70% 55% at 50% 50%, transparent 45%, rgba(0,0,0,.8) 100%); pointer-events: none; }
 
 /* Fin */
-.fin-logo { position: absolute; left: 430px; top: 700px; width: 220px; height: 220px; mix-blend-mode: screen; }
-.signature { position: absolute; left: 0; width: 1080px; top: 960px; text-align: center; font: 700 96px/1 "EB Garamond", serif; color: #fff; text-shadow: 0 0 30px rgba(255,140,40,.5); }
-.signature span { display: inline-block; white-space: pre; }
-.pointeur { position: absolute; left: 0; top: 0; width: 64px; height: 64px; z-index: 40; filter: drop-shadow(0 4px 8px rgba(0,0,0,.6)); }
+.fin-logo { position: absolute; left: 390px; top: 650px; width: 300px; height: 300px; mix-blend-mode: screen; opacity: 0; }
+.fin-nom { position: absolute; left: 0; width: 1080px; top: 990px; text-align: center; font: 400 150px/1 "EB Garamond", serif; font-style: italic; color: #fff;
+  text-shadow: 0 0 40px rgba(255,170,200,.6); opacity: 0; letter-spacing: .02em; }
+.fin-sous { position: absolute; left: 0; width: 1080px; top: 1170px; text-align: center; font: 600 30px/1 "Inter"; letter-spacing: .32em; color: rgba(255,255,255,.65); opacity: 0; }

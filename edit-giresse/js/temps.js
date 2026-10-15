@@ -1,3 +1,3 @@
-// Repères (secondes) calés sur le son (117,5 BPM, un temps = 0,51 s, mesures à 1.83, 3.88, 5.90,
-// 7.94, 9.96, 12.00, 14.02, 16.07, 18.11, 20.13). Partagés par js/main.js et scripts/mixer.py.
-window.T = {"logo":0.35,"nom":0.95,"chips":1.83,"temps":[1.83,2.32,2.81,3.34],"survol":3.3,"clic":3.88,"saisie1":4.1,"saisie1Fin":5.55,"envoi1":5.62,"pluie1":5.9,"carte":6.94,"st":[[7.13,9.13],[9.71,10.66],[12.0,13.33],[13.77,17.28],[17.83,18.78]],"saisie2":9.96,"saisie2Fin":11.0,"envoi2":11.49,"bleu":12.0,"tags":[12.49,13.03,13.51,14.02,14.54,15.05,15.56,16.07],"saisie3":16.07,"saisie3Fin":16.9,"projets":[17.09,17.6,18.11],"pluie2":18.62,"fin":20.13,"lettres":20.4,"duree":23.7};
+// Repères (secondes) calés sur le son : 117,5 BPM, temps détectés (librosa), drop sur le temps 6.94.
+// Partagés par js/main.js et scripts/mixer.py (garder une seule ligne window.T = {...};).
+window.T = {"temps":[1.83,2.32,2.81,3.34,3.88,4.37,4.88,5.39,5.9,6.41,6.94,7.43,7.94,8.45,8.96,9.45,9.96,10.47,10.98,11.49,12.0,12.49,13.03,13.51,14.02,14.54,15.05,15.56,16.07,16.58,17.09,17.6,18.11,18.62,19.11,19.62,20.13,20.64,21.15,21.66,22.18,22.69],"phrases":[[0.35,2.2,"il y a des milliers de sites…"],[3.5,5.7,"…mais un seul te ressemble."]],"heros":4.6,"montee":5.9,"drop":6.94,"mots":[[7.94,"code."],[9.96,"montage."],[12.0,"motion."],[14.02,"design."]],"ralenti":18.62,"fin":20.13,"duree":23.7};
