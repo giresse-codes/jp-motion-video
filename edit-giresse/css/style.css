@@ -66,3 +66,14 @@ html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; backgro
 .fin-nom { position: absolute; left: 0; width: 1080px; top: 990px; text-align: center; font: 400 150px/1 "EB Garamond", serif; font-style: italic; color: #fff;
   text-shadow: 0 0 40px rgba(255,170,200,.6); opacity: 0; letter-spacing: .02em; }
 .fin-sous { position: absolute; left: 0; width: 1080px; top: 1170px; text-align: center; font: 600 30px/1 "Inter"; letter-spacing: .32em; color: rgba(255,255,255,.65); opacity: 0; }
+
+/* Ouverture (identique à la fin) */
+.debut { opacity: 1; }
+/* « GIRESSE » géant en contour qui défile derrière les plans */
+.defile { position: absolute; left: 0; top: 760px; white-space: nowrap; font: 700 360px/1 "Inter"; letter-spacing: -0.04em;
+  color: transparent; -webkit-text-stroke: 2px rgba(255,190,215,.55); opacity: 0; }
+/* Fuites de lumière chaudes */
+.fuites { position: absolute; inset: 0; pointer-events: none; mix-blend-mode: screen; }
+.fuites i { position: absolute; width: 1400px; height: 1400px; border-radius: 50%; display: block;
+  background: radial-gradient(circle, rgba(255,140,170,.45), rgba(255,170,120,.18) 40%, transparent 70%); }
+.plan.trio { background: transparent; box-shadow: none; overflow: visible; }

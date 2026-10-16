@@ -76,11 +76,14 @@
     // Vitesse de la caméra selon l'énergie du son, intégrée une fois (pas de 1/120 s).
     const temps = B;
     const indiceTemps = (t) => { let i = -1; for (let k = 0; k < temps.length; k++) if (t >= temps[k]) i = k; return i; };
-    const PLANS_DROP = ["essaim", "siteA", "code", "siteB", "montage", "essaim", "siteC", "motion", "tel", "siteD", "essaim", "code", "siteA", "montage", "essaim", "siteB", "motion", "siteC", "essaim", "tel", "siteD", "code", "montage", "essaim"];
+    const PLANS_DROP = ["essaim", "siteA", "code", "siteB", "montage", "essaim", "siteC", "motion", "tel", "siteD", "trio", "code", "siteA", "montage", "essaim", "siteB", "motion", "siteC", "trio", "tel", "siteD", "code", "montage", "essaim"];
     const planA = (t) => {
       if (t < T.drop || t >= T.ralenti) return null;
       const i = indiceTemps(t) - indiceTemps(T.drop);
-      return { nom: PLANS_DROP[i % PLANS_DROP.length], i, u: t - temps[indiceTemps(t)] };
+      let u = t - temps[indiceTemps(t)], nom = PLANS_DROP[i % PLANS_DROP.length];
+      // Coupe doublée (croche) sur un temps sur quatre : le plan suivant arrive à mi-temps.
+      if (i % 4 === 3 && u > 0.255) { nom = PLANS_DROP[(i + 5) % PLANS_DROP.length]; u -= 0.255; if (nom === "essaim") nom = "siteB"; }
+      return { nom, i, u };
     };
     function vitesse(t) {
       if (t < T.montee) return 520;
@@ -111,10 +114,14 @@
       <circle id="bille" r="22" fill="#ff5c8a"/></svg>`;
     plans.tel = document.createElement("div"); plans.tel.className = "plan"; plans.tel.style.background = "transparent"; plans.tel.style.boxShadow = "none";
     { const s = site(10, true); s.style.left = "390px"; s.style.top = "160px"; s.style.transform = "scale(1.9)"; s.style.transformOrigin = "50% 0"; plans.tel.appendChild(s); }
+    plans.trio = document.createElement("div"); plans.trio.className = "plan trio";
+    [1, 6, 11].forEach((n, k) => { const s = site(n, false); s.style.left = (k * 26) + "px"; s.style.top = (-90 + k * 215) + "px"; s.style.transform = `scale(1.95) rotate(${(k - 1) * 3}deg)`; s.style.transformOrigin = "0 0"; plans.trio.appendChild(s); });
     Object.values(plans).forEach((p) => zoneP.appendChild(p));
     const courbe = plans.motion.querySelector("#courbe"), bille = plans.motion.querySelector("#bille"), Lc = courbe.getTotalLength();
 
     // ── Horloge unique ──
+    const defile = $("defile"), fuites = [...document.querySelectorAll("#fuites i")];
+    defile.textContent = "GIRESSE · GIRESSE · GIRESSE · GIRESSE · ";
     const monde = $("monde"), heros = $("heros"), mot = $("mot"), phrase = $("phrase"), flash = $("flash"), grain = $("grain"), lueur = $("lueur");
     function maj(t) {
       const z = cam(t), p = planA(t);
@@ -127,15 +134,15 @@
         const x = 540 + s.X * k - s.w / 2, y = 960 + s.Y * k - s.h / 2;
         const brume = clamp((L - rel) / 2200) * clamp((rel - 60) / 300);
         s.e.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) scale(${(k * 0.9).toFixed(3)}) rotate(${s.rot.toFixed(1)}deg)`;
-        s.e.style.opacity = (brume * (enPlan ? 0.35 : t >= T.fin ? 0.4 : 1)).toFixed(3);
+        s.e.style.opacity = (brume * (enPlan ? 0.35 : t >= T.fin ? 0.4 : t < T.titre ? 0.3 : 1)).toFixed(3);
       });
-      essaim.style.filter = enPlan ? "blur(4px)" : t >= T.fin ? "blur(2px)" : "none";
+      essaim.style.filter = enPlan ? "blur(4px)" : t >= T.fin || t < T.titre ? "blur(2px)" : "none";
       // Plans
       Object.entries(plans).forEach(([nom, el]) => {
         if (enPlan && p.nom === nom) {
           const punch = 1 + 0.16 * Math.exp(-p.u * 11), sens = p.i % 2 ? 1 : -1;
           el.style.opacity = "1";
-          el.style.transform = `translate(${(sens * 18 * Math.exp(-p.u * 6)).toFixed(1)}px, ${(-p.u * 30).toFixed(1)}px) scale(${punch.toFixed(3)}) rotate(${(sens * 2.2).toFixed(2)}deg)`;
+          el.style.transform = `perspective(1400px) translate(${(sens * 18 * Math.exp(-p.u * 6)).toFixed(1)}px, ${(-p.u * 30).toFixed(1)}px) rotateY(${(sens * 14 * Math.exp(-p.u * 5)).toFixed(2)}deg) rotateX(${(5 * Math.exp(-p.u * 5)).toFixed(2)}deg) scale(${punch.toFixed(3)}) rotate(${(sens * 2.2).toFixed(2)}deg)`;
         } else el.style.opacity = "0";
       });
       if (enPlan && p.nom === "montage") $("m-tete").style.left = (60 + p.u * 1500) + "px";
@@ -159,6 +166,18 @@
       flash.style.opacity = fl.toFixed(3);
       lueur.style.opacity = (0.7 + 0.3 * Math.sin(t * 1.3)).toFixed(3);
       { const g = Math.floor(t * 24); grain.style.transform = `translate(${Math.round(hasard(g) * 60 - 30)}px, ${Math.round(hasard(g + 0.5) * 60 - 30)}px)`; } // grain précalculé, déplacé
+      // « GIRESSE » en contour qui défile pendant le drop
+      defile.style.opacity = actif ? (enPlan ? 0.22 : 0.35).toFixed(2) : "0";
+      defile.style.transform = `translateX(${(-((t * 520) % 2200)).toFixed(0)}px)`;
+      // Fuites de lumière : balaient l'image, plus fortes au début de chaque mesure
+      const mes = T.mots.reduce((m, [tm]) => (t >= tm ? t - tm : m), 9);
+      fuites.forEach((f, k) => {
+        const x = -300 + 900 * (0.5 + 0.5 * Math.sin(t * (0.5 + k * 0.3) + k * 2)), y = 200 + 1200 * (0.5 + 0.5 * Math.cos(t * (0.4 + k * 0.2) + k));
+        f.style.transform = `translate(${x.toFixed(0)}px, ${y.toFixed(0)}px)`;
+        f.style.opacity = (0.25 + (actif ? 0.5 * Math.exp(-mes * 2.5) : 0) + (t < T.titre ? 0.2 : 0)).toFixed(3);
+      });
+      // Ouverture : flash quand le titre explose dans le tunnel
+      if (t >= T.titre && t < T.titre + 0.5) flash.style.opacity = Math.max(+flash.style.opacity, 0.7 * Math.exp(-(t - T.titre) * 7)).toFixed(3);
       // Phrases douces
       let ph = "", op = 0;
       T.phrases.forEach(([a, b, txt]) => { if (t >= a && t < b) { ph = txt; op = clamp((t - a) / 0.5) * clamp((b - t) / 0.4); } });
@@ -183,6 +202,11 @@
     tl.fromTo(heros, { opacity: 0, scale: 0.9, filter: "blur(14px)" }, { opacity: 1, scale: 1.0, filter: "blur(0px)", duration: 0.6, ease: "power2.out", immediateRender: false }, T.ralenti);
     tl.to(heros, { scale: 1.06, duration: T.fin - T.ralenti - 0.3, ease: "sine.inOut" }, T.ralenti + 0.6);
     tl.to(heros, { opacity: 0, y: -260, scale: 0.7, filter: "blur(12px)", duration: 0.35, ease: "power2.in" }, T.fin - 0.3);
+
+    // ── Ouverture : la même signature que la fin, qui explose dans le tunnel sur le premier temps ──
+    tl.fromTo("#debut-logo", { scale: 0.92 }, { scale: 1, duration: T.titre, ease: "sine.out" }, 0);
+    tl.fromTo("#debut-nom", { letterSpacing: "0.08em" }, { letterSpacing: "0.02em", duration: T.titre, ease: "sine.out" }, 0);
+    tl.to(["#debut-logo", "#debut-nom", "#debut-sous"], { scale: 3.2, opacity: 0, filter: "blur(18px)", duration: 0.35, ease: "power3.in", stagger: 0.03 }, T.titre - 0.12);
 
     // ── Fin ──
     tl.fromTo("#fin-logo", { opacity: 0, scale: 0.6, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.6, ease: "power3.out" }, T.fin);
