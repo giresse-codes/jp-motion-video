@@ -3,7 +3,7 @@
 @font-face { font-family: "Montserrat"; src: url("../assets/fonts/montserrat-latin-900-normal.woff2") format("woff2"); font-weight: 900; }
 @font-face { font-family: "Inter"; src: url("../assets/fonts/inter-latin-600-normal.woff2") format("woff2"); font-weight: 600; }
 @font-face { font-family: "Inter"; src: url("../assets/fonts/inter-latin-700-normal.woff2") format("woff2"); font-weight: 700; }
-:root { --rouge: #E10600; --noir: #060606; --gris: #9a9aa2; --chaud: #d9a066; }
+:root { --jaune: #FFC400; --bleu: #1B2A6B; --vert: #25D366; --rouge: #E10600; --noir: #060606; --gris: #9a9aa2; --chaud: #d9a066; }
 html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: var(--noir); color: #fff; font-family: "Inter", sans-serif; }
 #racine { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--noir); }
 .clip, .couche { position: absolute; inset: 0; }
@@ -69,3 +69,27 @@ html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; backgro
 .grain { position: absolute; inset: 0; opacity: .06; pointer-events: none; mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E"); }
 .vignette { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(75% 60% at 50% 50%, transparent 55%, rgba(0,0,0,.7) 100%); }
+
+/* ── Couleurs : jaune taxi (accroche), gris (chaos), bleu profond (calme), vert WhatsApp (action) ── */
+#fond-hook { background: var(--jaune); }
+.hook { color: #0b0b0b; }
+.droite { background: var(--jaune); }
+.droite .etiquette { color: rgba(0,0,0,.6); }
+.compteur { color: #0b0b0b; }
+.separation { background: #0b0b0b; width: 6px; left: 537px; }
+.bleu { background: radial-gradient(80% 55% at 50% 40%, #24398f 0%, var(--bleu) 55%, #0d1538 100%); opacity: 0; }
+.balayage i { border-right: none; box-shadow: none; }
+.balayage i:nth-child(1) { background: var(--jaune); }
+.balayage i:nth-child(2) { background: var(--rouge); }
+.balayage i:nth-child(3) { background: var(--bleu); }
+.calme-fond { background: radial-gradient(75% 50% at 45% 38%, #2c44a6 0%, var(--bleu) 55%, #0b1230 100%); }
+.porte { background: linear-gradient(150deg, #1a2350 0%, #0e1435 55%, #080c22 100%); }
+.moyen { color: var(--jaune); }
+.atout { background: #fff; color: var(--bleu); border: none; box-shadow: 0 20px 50px rgba(5,10,40,.45); }
+.atout svg [stroke="#fff"] { stroke: var(--bleu); }
+.atout svg [fill="#fff"] { fill: var(--bleu); }
+#fin-fond { background: var(--jaune); }
+.rappel { color: #0b0b0b; }
+.plus i { background: var(--jaune); box-shadow: none; }
+.cta { background: var(--vert); color: #fff; box-shadow: 0 24px 60px rgba(0,0,0,.35); }
+.vignette { opacity: .45; }

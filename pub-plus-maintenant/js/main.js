@@ -13,11 +13,18 @@
     const tous = (sel) => Array.from(document.querySelectorAll(sel));
 
     // ════ HOOK : chaque ligne claque, la caméra tressaille, coupure sèche ════
+    // Chaque ligne inverse les couleurs : jaune/noir, noir/jaune… (coupes franches, pas de fondu).
+    const FONDS = ["#FFC400", "#0b0b0b", "#FFC400", "#0b0b0b"];
+    tl.set("#fond-hook", { backgroundColor: FONDS[0] }, 0);
+    tl.set("#hook", { color: "#0b0b0b" }, 0);
     tous(".ligne").forEach((el, i) => {
+      tl.set("#fond-hook", { backgroundColor: FONDS[i] }, T.hook[i] + 0.14);
+      tl.set("#hook", { color: FONDS[i] === "#0b0b0b" ? "#FFC400" : "#0b0b0b" }, T.hook[i] + 0.14);
       tl.fromTo(el, { opacity: 0, scale: 1.7 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in" }, T.hook[i]);
       tl.fromTo("#camera", { x: 0, y: 0 }, { keyframes: [{ x: -14, y: 8, duration: 0.04 }, { x: 10, y: -6, duration: 0.05 }, { x: 0, y: 0, duration: 0.07 }] }, T.hook[i] + 0.14);
     });
     tl.set("#hook", { opacity: 0 }, T.coupe);
+    tl.set("#fond-hook", { opacity: 0 }, T.coupe);
 
     // ════ CHAOS : bouchon gris à gauche, compteur et jauge à droite ════
     const bouchon = $("bouchon");
@@ -62,6 +69,8 @@
       tl.fromTo(el, { x: 0 }, { x: 3000, duration: 0.7, ease: "power3.inOut" }, T.balayage + i * 0.07);
     });
     tl.set("#chaos", { opacity: 0 }, T.balayage + 0.32);
+    tl.set("#bleu", { opacity: 1 }, T.balayage + 0.4);
+    tl.set("#bleu", { opacity: 0 }, T.boucle);
     // Une lueur chaude s'ouvre là où la porte va s'entrebâiller.
     tl.fromTo("#lueur", { opacity: 0, height: 0, top: 760, left: 750 }, { opacity: 1, height: 760, top: 380, duration: 0.6, ease: "power2.out" }, T.lueur);
     tl.to("#lueur", { opacity: 0, duration: 0.3 }, T.calme + 0.2);
@@ -83,6 +92,7 @@
     tl.set("#fin", { opacity: 1 }, T.boucle);
     tl.fromTo("#rappel", { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.18, ease: "power3.out" }, T.boucle + 0.05);
     tl.set("#rappel", { opacity: 0 }, T.plus - 0.05);
+    tl.set("#fin-fond", { background: "radial-gradient(80% 55% at 50% 40%, #24398f 0%, #1B2A6B 55%, #0d1538 100%)" }, T.plus);
     tl.fromTo("#plus", { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.14, ease: "power4.in" }, T.plus);
     tl.fromTo("#camera", { x: 0, y: 0 }, { keyframes: [{ x: -16, y: 9, duration: 0.04 }, { x: 11, y: -7, duration: 0.05 }, { x: 0, y: 0, duration: 0.08 }] }, T.plus + 0.14);
     tl.fromTo("#trait", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power3.out" }, T.plus + 0.2);
