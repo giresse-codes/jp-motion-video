@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>JP Service — Plus maintenant</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/gsap.min.js"></script>
+    <script src="js/temps.js"></script>
+    <script src="js/main.js"></script>
+  </head>
+  <body>
+    <div id="racine" data-composition-id="main" data-start="0" data-duration="15" data-fps="30" data-width="1080" data-height="1920">
+      <section id="scene" class="clip" data-start="0" data-duration="15" data-track-index="0">
+        <div id="camera" class="couche">
+          <!-- HOOK -->
+          <div id="hook" class="hook">
+            <div class="ligne">VOUS</div><div class="ligne">CONDUISEZ</div><div class="ligne">ENCORE</div><div class="ligne">À DOUALA&nbsp;?</div>
+          </div>
+
+          <!-- CHAOS : écran divisé -->
+          <div id="chaos" class="couche">
+            <div id="bouchon" class="bouchon"></div>
+            <div class="separation"></div>
+            <div class="droite">
+              <div class="etiquette" style="top: 560px">MINUTES PERDUES</div>
+              <div id="compteur" class="compteur">0</div>
+              <div id="jauge" class="jauge">
+                <svg width="420" height="250" viewBox="0 0 420 250">
+                  <path d="M30 220 A180 180 0 0 1 300 64" fill="none" stroke="#3a3a40" stroke-width="26" stroke-linecap="round" />
+                  <path d="M318 76 A180 180 0 0 1 390 220" fill="none" stroke="#E10600" stroke-width="26" stroke-linecap="round" />
+                  <g id="aiguille" style="transform-origin: 210px 220px"><path d="M204 220 L210 70 L216 220Z" fill="#fff" /></g>
+                  <circle cx="210" cy="220" r="18" fill="#fff" />
+                </svg>
+                <div class="etiquette" style="top: 270px">STRESS</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CALME : intérieur premium -->
+          <div id="calme" class="couche">
+            <div class="calme-fond"></div>
+            <div class="baie">
+              <div class="interieur">
+                <div class="vitre"></div>
+                <div class="dossier"></div>
+                <div class="assise"></div>
+                <div class="accoudoir"></div>
+                <div id="ambiance" class="ambiance"></div>
+              </div>
+              <div id="porte" class="porte"><div class="poignee"></div><div class="chrome"></div></div>
+            </div>
+            <svg id="chauffeur" class="chauffeur" viewBox="0 0 160 520" width="160" height="520">
+              <path d="M52 40 C52 16 108 16 108 40 L112 52 L48 52Z" fill="#050506" />
+              <circle cx="80" cy="66" r="30" fill="#050506" />
+              <path d="M34 116 C34 100 54 94 80 94 C106 94 126 100 126 116 L136 300 L114 300 L110 510 L88 510 L80 320 L72 510 L50 510 L46 300 L24 300Z" fill="#050506" />
+            </svg>
+            <div id="texte1" class="sous-titre"><div class="grand">Asseyez-vous.</div><div class="moyen">On s'occupe du reste.</div></div>
+            <div id="texte2" class="atouts">
+              <div class="atout"><svg viewBox="0 0 48 48"><path d="M6 18a26 26 0 0 1 36 0M12 25a17 17 0 0 1 24 0M18 32a8 8 0 0 1 12 0" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" /><circle cx="24" cy="38" r="3.5" fill="#fff" /></svg>Wi-Fi</div>
+              <div class="atout"><svg viewBox="0 0 48 48"><g stroke="#fff" stroke-width="4" stroke-linecap="round"><path d="M24 6v36M8.4 15l31.2 18M8.4 33l31.2-18" /><path d="M19 9l5 5 5-5M19 39l5-5 5 5" fill="none" /></g></svg>Clim</div>
+              <div class="atout"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="17" fill="none" stroke="#fff" stroke-width="4" /><circle cx="24" cy="24" r="4" fill="#fff" /><path d="M8 22h12M28 22h12M24 28v12" stroke="#fff" stroke-width="4" /></svg>Chauffeur pro</div>
+            </div>
+          </div>
+
+          <!-- BOUCLE + CTA -->
+          <div id="fin" class="couche">
+            <img id="logo" class="logo" src="assets/logo.png" alt="JP Service Express Urbaine" />
+            <div id="rappel" class="rappel">Vous conduisez encore&nbsp;?</div>
+            <div id="plus" class="plus"><div>PLUS</div><div>MAINTENANT.</div><i id="trait"></i></div>
+            <div id="cta" class="cta">
+              <svg viewBox="0 0 32 32" width="56" height="56"><path fill="#25D366" d="M16 3C9 3 3.4 8.6 3.4 15.5c0 2.4.7 4.7 1.9 6.6L3.5 28.5l6.6-1.7c1.8 1 3.8 1.5 5.9 1.5 7 0 12.6-5.6 12.6-12.6S23 3 16 3zm5.7 15.2c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1a8.6 8.6 0 0 1-4.3-3.7c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.7 5 2.1.9 2.9 1 4 .8.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z" /></svg>
+              WhatsApp : +237 655 394 028
+            </div>
+          </div>
+        </div>
+
+        <!-- RUPTURE : balayage géométrique -->
+        <div id="balayage" class="couche balayage"><i></i><i></i><i></i></div>
+        <div id="lueur" class="lueur"></div>
+        <div class="grain"></div>
+        <div class="vignette"></div>
+      </section>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="15" data-track-index="10" data-volume="1"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      window.CONSTRUIRE(tl);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
