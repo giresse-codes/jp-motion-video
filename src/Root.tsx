@@ -5,7 +5,8 @@ import {debutsScenes, dureesScenes, dureeTotaleFrames} from './lib/timing';
 import {COMPOSANTS_SCENES} from './scenes';
 import {PisteAudio, Video} from './Video';
 import {Video15} from './video15/Video15';
-import {VIDEO15} from './config';
+import {Video20} from './video20/Video20';
+import {VIDEO15, VIDEO20} from './config';
 
 chargerPolices();
 
@@ -35,6 +36,14 @@ export const Root: React.FC = () => (
       id="Video15"
       component={Video15}
       durationInFrames={VIDEO15.dureeS * VIDEO.fps}
+      fps={VIDEO.fps}
+      width={VIDEO.width}
+      height={VIDEO.height}
+    />
+    <Composition
+      id="Video20"
+      component={Video20}
+      durationInFrames={VIDEO20.dureeS * VIDEO.fps}
       fps={VIDEO.fps}
       width={VIDEO.width}
       height={VIDEO.height}

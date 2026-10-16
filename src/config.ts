@@ -373,3 +373,33 @@ export const VIDEO15 = {
   // Effets sonores doux (déjà dans public/sfx), volumes bas.
   sons: {alarme: 0.5, notif: 0.7, passage: 0.5, logo: 0.4},
 };
+
+// ── Video20 : « Chauffeur à la journée » (20 s) ──
+export const VIDEO20 = {
+  dureeS: 20,
+  scenes: {agenda: 0, stress: 3, carte: 8, fin: 15},
+  textes: {
+    jour: 'MARDI',
+    rendezVous: [
+      {heure: '08:30', titre: 'Client', lieu: 'Akwa'},
+      {heure: '10:00', titre: 'Banque', lieu: 'Bonanjo'},
+      {heure: '12:30', titre: 'Déjeuner', lieu: 'Bonapriso'},
+      {heure: '15:00', titre: 'Réunion', lieu: 'Bali'},
+      {heure: '17:30', titre: 'Livraison', lieu: 'Deïdo'},
+    ],
+    agenda: '5 rendez-vous.\n1 journée.',
+    stress: ['Parking', 'Chaleur', 'Trafic', 'Retard'],
+    question: 'Et si vous ne conduisiez pas ?',
+    route: "Votre chauffeur s'occupe de la route.",
+    offre: 'Chauffeur à la journée',
+    service: 'Service Confort',
+    prix: '4 000 FCFA/h',
+    fleuve: 'WOURI',
+    reservez: 'Réservez sur WhatsApp',
+  },
+  // Position des 5 rendez-vous sur la carte (repère 1080×880, posé à top 300).
+  pins: [
+    {x: 230, y: 170}, {x: 770, y: 280}, {x: 330, y: 470}, {x: 800, y: 630}, {x: 440, y: 790},
+  ],
+  sons: {ligne: 0.3, chute: 0.3, coche: 0.45, passage: 0.35, logo: 0.4},
+};

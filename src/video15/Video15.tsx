@@ -17,20 +17,20 @@ const s = (sec: number) => Math.round(sec * fps);
 const clampOpts = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 
 // Apparition / disparition douce d'un bloc (images relatives à la séquence).
-const fondu = (f: number, entree: number, sortie: number, d = 8) =>
+export const fondu = (f: number, entree: number, sortie: number, d = 8) =>
   interpolate(f, [entree, entree + d, sortie - d, sortie], [0, 1, 1, 0], clampOpts);
 
-const Fond: React.FC<{teinte?: string}> = ({teinte = '#1a0a0a'}) => (
+export const Fond: React.FC<{teinte?: string}> = ({teinte = '#1a0a0a'}) => (
   <AbsoluteFill style={{background: `radial-gradient(ellipse 90% 60% at 50% 40%, ${teinte} 0%, ${COULEURS.noir} 70%)`}} />
 );
 
 // Texte d'accompagnement, toujours dans la zone sûre.
-const Legende: React.FC<{texte: string; f: number; entree: number; sortie: number; top: number; taille?: number}> = ({texte, f, entree, sortie, top, taille = 84}) => {
+export const Legende: React.FC<{texte: string; f: number; entree: number; sortie: number; top: number; taille?: number}> = ({texte, f, entree, sortie, top, taille = 84}) => {
   const o = fondu(f, entree, sortie, 10);
   const y = interpolate(f, [entree, entree + 14], [30, 0], {...clampOpts, easing: Easing.out(Easing.cubic)});
   return (
     <div style={{position: 'absolute', left: 90, right: 90, top, textAlign: 'center', opacity: o, transform: `translateY(${y}px)`,
-      fontFamily: POLICES.titre, fontWeight: 800, fontSize: taille, color: COULEURS.blanc, letterSpacing: '-0.02em', textShadow: '0 6px 30px rgba(0,0,0,.6)'}}>
+      fontFamily: POLICES.titre, fontWeight: 800, fontSize: taille, color: COULEURS.blanc, letterSpacing: '-0.02em', whiteSpace: 'pre-line', textShadow: '0 6px 30px rgba(0,0,0,.6)'}}>
       {texte}
     </div>
   );
@@ -70,7 +70,7 @@ const Reveil: React.FC = () => {
 };
 
 // Silhouettes plates : voiture (vue de côté) et chauffeur sans visage.
-const Voiture: React.FC<{largeur: number; phares?: boolean}> = ({largeur, phares = true}) => (
+export const Voiture: React.FC<{largeur: number; phares?: boolean}> = ({largeur, phares = true}) => (
   <svg width={largeur} height={largeur * 0.36} viewBox="0 0 500 180">
     <path d="M30 120 L70 70 C90 48 120 40 160 40 L320 40 C350 40 372 50 392 70 L440 112 L478 120 C492 124 496 134 496 146 L496 150 L10 150 L10 134 C10 126 18 120 30 120Z" fill="#0f0f12" stroke="#2a2a30" strokeWidth={3} />
     <path d="M130 108 L162 60 L250 60 L250 108Z M262 60 L330 60 C344 60 356 66 366 76 L396 108 L262 108Z" fill="#23252b" />
@@ -165,10 +165,11 @@ const Route: React.FC = () => {
 };
 
 // ── 11–15 s : logo, slogan, WhatsApp et numéro ──
-const Fin: React.FC = () => {
+// Réutilisée par Video20 (sortie = fin du fondu, en images).
+export const Fin: React.FC<{sortie?: number; reservez?: string}> = ({sortie = s(4) + 30, reservez = T.reservez}) => {
   const f = useCurrentFrame();
   const logo = spring({frame: f, fps, config: {damping: 14}});
-  const contact = fondu(f, 54, s(4) + 30, 10);
+  const contact = fondu(f, 54, sortie, 10);
   return (
     <AbsoluteFill>
       <Fond teinte="#1c0707" />
@@ -178,7 +179,7 @@ const Fin: React.FC = () => {
       </div>
       <div style={{position: 'absolute', left: 90, right: 90, top: 1120, opacity: contact, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 22}}>
         <div style={{display: 'flex', alignItems: 'center', gap: 20, fontFamily: POLICES.texte, fontWeight: 700, fontSize: 52, color: COULEURS.blanc}}>
-          <WhatsAppIcon taille={72} />{T.reservez}
+          <WhatsAppIcon taille={72} />{reservez}
         </div>
         <div style={{fontFamily: POLICES.titre, fontWeight: 900, fontSize: 78, letterSpacing: '0.02em', color: COULEURS.blanc}}>
           {CONTACT.indicatif} {CONTACT.numero.join(' ')}
