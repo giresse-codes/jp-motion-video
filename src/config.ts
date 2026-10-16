@@ -350,3 +350,26 @@ export const AVANCE_COUPE_S = 0.25;
 
 // Durée des transitions entre scènes (images).
 export const TRANSITION_FRAMES = 14;
+
+// ── Video15 : pub courte « Service aéroport » (15 s) ──
+// Temps en secondes ; chaque texte reste lisible au moins 2 s.
+export const VIDEO15 = {
+  dureeS: 15,
+  scenes: {reveil: 0, notif: 3, route: 6, fin: 11},
+  textes: {
+    heure: '04:30',
+    alarme: 'ALARME · VOL 06:00',
+    vol: 'Vol à 6 h.',
+    appli: 'JP Service',
+    notification: 'Votre chauffeur est arrivé.',
+    maintenant: 'maintenant',
+    service: 'SERVICE AÉROPORT',
+    prix: [
+      {nom: 'Éco', montant: '8 000 FCFA'},
+      {nom: 'Confort', montant: '10 000 FCFA'},
+    ],
+    reservez: 'Réservez sur WhatsApp',
+  },
+  // Effets sonores doux (déjà dans public/sfx), volumes bas.
+  sons: {alarme: 0.5, notif: 0.7, passage: 0.5, logo: 0.4},
+};
