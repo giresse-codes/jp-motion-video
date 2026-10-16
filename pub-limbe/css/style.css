@@ -1,0 +1,60 @@
+/* « Samedi à Limbé » — couleurs franches de la journée, typo bold, rouge du logo en accent. */
+@font-face { font-family: "Montserrat"; src: url("../assets/fonts/montserrat-latin-800-normal.woff2") format("woff2"); font-weight: 800; }
+@font-face { font-family: "Montserrat"; src: url("../assets/fonts/montserrat-latin-900-normal.woff2") format("woff2"); font-weight: 900; }
+@font-face { font-family: "Inter"; src: url("../assets/fonts/inter-latin-600-normal.woff2") format("woff2"); font-weight: 600; }
+@font-face { font-family: "Inter"; src: url("../assets/fonts/inter-latin-700-normal.woff2") format("woff2"); font-weight: 700; }
+:root { --jaune: #FFC400; --bleu: #1B2A6B; --vert: #25D366; --rouge: #E10600; --noir: #0b0b0b; }
+html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: var(--noir); color: #fff; font-family: "Inter", sans-serif; }
+#racine { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--noir); }
+.clip, .couche { position: absolute; inset: 0; }
+
+/* Journée */
+#journee { opacity: 0; }
+#ciel { background-color: #FFD27A; }
+.ciel-voile { background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.45) 60%, rgba(255,255,255,0) 100%); }
+.soleil { position: absolute; left: 0; top: 0; width: 170px; height: 170px; margin: -85px 0 0 -85px; border-radius: 50%; background: #FFF3B0; box-shadow: 0 0 0 26px rgba(255,243,176,.35); }
+.plan { position: absolute; inset: 0; opacity: 0; }
+.plan svg { position: absolute; inset: 0; }
+
+.horloge { position: absolute; left: 90px; top: 290px; height: 84px; padding: 0 34px; border-radius: 42px; background: var(--noir); display: flex; align-items: center; gap: 16px;
+  font: 900 44px/1 "Montserrat"; letter-spacing: .02em; font-variant-numeric: tabular-nums; box-shadow: 0 14px 30px rgba(0,0,0,.25); }
+.horloge .point { width: 16px; height: 16px; border-radius: 8px; background: var(--rouge); }
+.badge { position: absolute; right: 90px; top: 290px; height: 84px; padding: 0 30px; border-radius: 42px; background: var(--jaune); color: var(--noir);
+  display: flex; align-items: center; font: 900 38px/1 "Montserrat"; opacity: 0; box-shadow: 0 14px 30px rgba(0,0,0,.25); }
+
+.sous { position: absolute; left: 90px; right: 90px; top: 1330px; text-align: center; opacity: 0; }
+.sous .carte { display: inline-block; background: var(--noir); padding: 26px 40px 30px; border-radius: 34px; box-shadow: 0 20px 50px rgba(0,0,0,.3); }
+.sous .s1 { font: 900 78px/1.08 "Montserrat"; letter-spacing: -0.02em; }
+.sous .s2 { font: 800 46px/1.2 "Montserrat"; color: var(--jaune); margin-top: 10px; }
+
+.question { position: absolute; left: 0; right: 0; top: 0; height: 1920px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: var(--jaune); color: var(--noir); font: 900 190px/0.98 "Montserrat"; letter-spacing: -0.04em; opacity: 0; }
+
+.reponse { position: absolute; left: 90px; right: 90px; top: 520px; text-align: center; opacity: 0; }
+.reponse .r1 { font: 900 110px/1 "Montserrat"; letter-spacing: -0.03em; color: var(--jaune); }
+.reponse .r2 { font: 900 72px/1.1 "Montserrat"; letter-spacing: -0.02em; margin-top: 20px; }
+.prix { position: absolute; left: 90px; right: 90px; top: 1290px; padding: 36px 30px 34px; border-radius: 40px; background: #fff; color: var(--noir); text-align: center; opacity: 0;
+  box-shadow: 0 30px 70px rgba(0,0,0,.45); }
+.prix .p1 { font: 900 92px/1 "Montserrat"; letter-spacing: -0.03em; }
+.prix .p1 small { font-size: 46px; color: #555; }
+.prix .p2 { display: inline-block; margin-top: 20px; padding: 12px 26px; border-radius: 20px; background: var(--jaune); font: 900 50px/1.1 "Montserrat"; }
+.prix .p3 { margin-top: 18px; font: 700 32px/1.2 "Inter"; color: #555; }
+
+/* Hook */
+.hook-fond { background: var(--jaune); }
+.hook { position: absolute; left: 70px; right: 70px; top: 560px; text-align: center; color: var(--noir); }
+.ligne { font: 900 118px/1.02 "Montserrat"; letter-spacing: -0.035em; opacity: 0; }
+.ligne.grosse { font-size: 300px; line-height: 1; color: var(--rouge); margin-top: 10px; }
+
+/* Fin */
+.fin { background: var(--jaune); color: var(--noir); opacity: 0; }
+.fin-heure { position: absolute; left: 70px; right: 70px; top: 560px; text-align: center; font: 900 150px/1 "Montserrat"; letter-spacing: -0.04em; }
+.fin-sous { position: absolute; left: 70px; right: 70px; top: 740px; text-align: center; font: 800 54px/1.2 "Montserrat"; }
+.bande-logo { position: absolute; left: 140px; right: 140px; top: 900px; height: 230px; border-radius: 40px; background: var(--noir); display: flex; align-items: center; justify-content: center; }
+.bande-logo img { width: 700px; }
+.cta { position: absolute; left: 90px; right: 90px; top: 1210px; height: 130px; border-radius: 65px; background: var(--vert); color: #fff;
+  display: flex; align-items: center; justify-content: center; gap: 18px; font: 800 44px/1 "Montserrat"; box-shadow: 0 24px 60px rgba(0,0,0,.25); }
+
+.eclair { background: #fff; opacity: 0; pointer-events: none; }
+.grain { position: absolute; inset: 0; opacity: .05; pointer-events: none; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E"); }
