@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>JP Service — Famille à Limbé</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/gsap.min.js"></script>
+    <script src="js/temps.js"></script>
+    <script src="js/main.js"></script>
+  </head>
+  <body>
+    <div id="racine" data-composition-id="main" data-start="0" data-duration="22" data-fps="30" data-width="1080" data-height="1920">
+      <section id="scene" class="clip" data-start="0" data-duration="22" data-track-index="0">
+        <div id="camera" class="couche">
+          <!-- Ciel : aube -> jour doré -> soir (fondus enchaînés) -->
+          <div id="ciel-aube" class="couche ciel"></div>
+          <div id="ciel-jour" class="couche ciel"></div>
+          <div id="ciel-soir" class="couche ciel"></div>
+          <div id="soleil" class="soleil"></div>
+          <div id="nuages" class="couche"></div>
+          <!-- Paysage en 3 plans (parallaxe) -->
+          <svg id="plan-loin" class="plan" viewBox="0 0 1400 700" width="1400" height="700"></svg>
+          <svg id="plan-milieu" class="plan" viewBox="0 0 1400 700" width="1400" height="700"></svg>
+          <svg id="plan-proche" class="plan" viewBox="0 0 1400 700" width="1400" height="700"></svg>
+          <div id="voiture" class="voiture"><svg id="berline" viewBox="0 0 820 300" width="560" height="205"></svg><i id="phare" class="phare"></i></div>
+          <div id="poussiere" class="couche"></div>
+
+          <!-- HOOK : groupe « Famille » -->
+          <div id="chat" class="verre chat">
+            <div class="chat-tete"><div class="avatars"><i style="background:#F59E0B">M</i><i style="background:#22C55E">P</i><i style="background:#EC4899">A</i></div>
+              <div><b>Famille 🏖️</b><span>Samedi · 07:00</span></div></div>
+            <div class="fil">
+              <div class="msg" id="m0"><em style="color:#F59E0B">Maman</em>On part à Limbé&nbsp;??</div>
+              <div class="msg" id="m1"><em style="color:#22C55E">Paul</em>Oui&nbsp;!!</div>
+              <div class="msg" id="m2"><em style="color:#EC4899">Awa</em>Oui&nbsp;!! 🙌</div>
+              <div class="msg" id="m3"><em style="color:#F59E0B">Maman</em>Qui conduit&nbsp;?</div>
+              <div class="msg points" id="m4"><i></i><i></i><i></i></div>
+            </div>
+          </div>
+          <div id="texte1" class="phrase" data-mots="Personne|ne|veut|*conduire."></div>
+
+          <!-- BASCULE bleu nuit -->
+          <div id="nuit" class="couche nuit"><div id="etoiles" class="couche"></div></div>
+          <div id="texte2" class="phrase centre" data-mots="Et|si|*personne|n'avait|à|conduire&nbsp;?"></div>
+
+          <!-- SOLUTION : trajet Douala -> Limbé + timeline -->
+          <div id="carte" class="verre carte"><svg id="plan" viewBox="0 0 840 520" width="840" height="520"></svg></div>
+          <div id="timeline" class="verre timeline">
+            <div class="etape"><b>07:00</b><span>Départ</span><i>✓</i></div>
+            <div class="etape"><b>09:00</b><span>Plage</span><i>✓</i></div>
+            <div class="etape"><b>13:00</b><span>Déjeuner</span><i>✓</i></div>
+            <div class="etape"><b>18:00</b><span>Retour</span><i>✓</i></div>
+          </div>
+          <div id="texte3" class="phrase haut" data-mots="Vous,|vous|*profitez."></div>
+
+          <!-- PRIX -->
+          <div id="prix" class="verre prix">
+            <div class="prix-nom">Service Voyage</div>
+            <div class="prix-montant"><span class="or">50&nbsp;000</span> FCFA <small>/ jour</small></div>
+            <div id="offre" class="offre"><i>✓</i> Offre 3 jours · 100&nbsp;000 FCFA</div>
+            <div id="carburant" class="carburant">Carburant à la charge du client</div>
+          </div>
+          <div id="bandeau" class="bandeau"><div id="defile" class="defile"></div></div>
+
+          <!-- OUTRO : le soleil se couche derrière le logo -->
+          <div id="outro" class="couche">
+            <div id="outro-ciel" class="couche"></div>
+            <div id="soleil-fin" class="soleil-fin"></div>
+            <div id="horizon" class="horizon"></div>
+            <img id="logo" class="logo" src="assets/logo.png" alt="JP Service Express Urbaine" />
+            <div id="slogan" class="phrase slogan" data-mots="*Rapide.|Sûr.|Confortable."></div>
+            <div id="contact" class="contact">WhatsApp · +237 655 394 028</div>
+          </div>
+        </div>
+        <div class="grain"></div>
+        <div class="vignette"></div>
+      </section>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="22" data-track-index="10" data-volume="1"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      window.CONSTRUIRE(tl);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
