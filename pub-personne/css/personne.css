@@ -1,0 +1,19 @@
+/* « 4 h 30 et personne » : compléments propres à cette vidéo (le style commun de la série est dans style.css). */
+.reveil { position: absolute; left: 100px; right: 140px; top: 400px; text-align: center; font: 700 330px/1 "Inter"; letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums; color: var(--nuit); transform-origin: 50% 50%; }
+.ondes { position: absolute; left: 0; right: 40px; top: 430px; height: 300px; }
+.ondes i { position: absolute; top: 40px; width: 90px; height: 220px; border: 10px solid var(--vif); border-radius: 50%; opacity: .5; }
+.ondes i:first-child { left: 60px; border-right-color: transparent; border-top-color: transparent; border-bottom-color: transparent; }
+.ondes i:last-child { right: 80px; border-left-color: transparent; border-top-color: transparent; border-bottom-color: transparent; }
+.pile { top: 1000px; }
+#n-vol { opacity: 1; }
+#texte1 { top: 1150px; }
+.puces-sol .puce { opacity: 0; }
+.ecran { top: 300px; height: 760px; }
+.puces-sol { position: absolute; left: 100px; right: 140px; top: 1110px; display: flex; justify-content: center; gap: 20px; }
+.carte-prix { position: absolute; left: 110px; width: 820px; top: 1250px; height: 290px; border-radius: 44px; background: #fff; box-shadow: var(--ombre); padding: 34px 44px; box-sizing: border-box; opacity: 0; }
+.prix-titre { font: 700 46px/1.1 "Inter"; color: var(--nuit); letter-spacing: -0.02em; }
+.prix-lignes { display: flex; gap: 24px; margin-top: 26px; }
+.prix-lignes div { flex: 1; border-radius: 28px; background: var(--gris-clair); padding: 22px 26px; }
+.prix-lignes span { display: block; font: 600 30px/1.2 "Inter"; color: var(--gris); }
+.prix-lignes b { display: block; margin-top: 6px; font: 700 48px/1.1 "Inter"; color: var(--nuit); letter-spacing: -0.02em; white-space: nowrap; }

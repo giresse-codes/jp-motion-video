@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>JP Service — 4 h 30 et personne</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/personne.css" />
+    <script src="js/gsap.min.js"></script>
+    <script src="js/temps.js"></script>
+    <script src="js/main.js"></script>
+  </head>
+  <body>
+    <div id="racine" data-composition-id="main" data-start="0" data-duration="20" data-fps="30" data-width="1080" data-height="1920">
+      <section id="scene" class="clip" data-start="0" data-duration="20" data-track-index="0">
+        <div id="camera" class="couche">
+
+          <!-- HOOK : réveil 4:30 + notification du vol (lisible dès l'image 1) -->
+          <div id="hook" class="couche">
+            <div id="reveil" class="reveil"><span>4</span><span id="dp">:</span><span>30</span></div>
+            <div id="ondes" class="ondes"><i></i><i></i></div>
+          </div>
+
+          <!-- PROBLÈME : notifications qui s'empilent -->
+          <div id="pile" class="pile">
+            <div class="notif" id="n-vol"><i class="appli" style="background:#3D5BD9"><svg viewBox="0 0 24 24"><path d="M2 14l8-2 4-8h2l-1 7 6-1 2-3h1l-1 5 1 5h-1l-2-3-6-1 1 7h-2l-4-8-8-2Z" fill="#fff"/></svg></i><div><div class="ligne1"><span>Vol DLA → 06:00</span><em>04:30</em></div><div class="ligne2">Embarquement 05:15</div></div></div>
+            <div class="notif" id="n-appel"><i class="appli" style="background:#22C55E"><svg viewBox="0 0 24 24"><path d="M6 3h4l2 5-3 2a11 11 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 4 5a2 2 0 0 1 2-2Z" fill="#fff"/></svg></i><div><div class="ligne1"><span>Appel sortant</span><em>04:31</em></div><div class="ligne2"><b class="badge-rouge">Pas de réponse</b></div></div></div>
+            <div class="notif" id="n-taxi"><i class="appli" style="background:#F59E0B"><svg viewBox="0 0 24 24"><path d="M5 11l2-5h10l2 5v6h-2v2h-2v-2H9v2H7v-2H5Z" fill="#fff"/></svg></i><div><div class="ligne1"><span>Taxi</span><em>04:32</em></div><div class="ligne2"><b class="badge-rouge">Aucun véhicule disponible</b></div></div></div>
+          </div>
+          <div id="texte1" class="phrase" data-mots="4&nbsp;h&nbsp;30.|Et|*personne."></div>
+
+          <!-- BASCULE bleu nuit -->
+          <div id="nuit" class="couche nuit"></div>
+          <div id="texte2" class="phrase blanc centre" data-mots="Votre|chauffeur|est|*déjà|en|bas."></div>
+
+          <!-- SOLUTION : trajet, chauffeur arrivé, puces, prix -->
+          <div id="ecran" class="ecran">
+            <svg id="plan" viewBox="0 0 820 820" width="820" height="820"></svg>
+            <div id="arrive" class="badge-vert">Chauffeur arrivé <b>✓</b></div>
+          </div>
+          <div id="puces" class="puces-sol"><div class="puce">Valises chargées <b>✓</b></div><div class="puce">Arrivée 05:00 <b>✓</b></div></div>
+          <div id="prix" class="carte-prix">
+            <div class="prix-titre">Transfert aéroport</div>
+            <div class="prix-lignes"><div><span>Éco</span><b>8&nbsp;000 FCFA</b></div><div><span>Confort</span><b>10&nbsp;000 FCFA</b></div></div>
+          </div>
+          <div id="doigt" class="doigt"></div>
+
+          <!-- OUTRO commune -->
+          <div id="outro" class="couche nuit">
+            <div id="logo-boite" class="logo-boite"><img id="logo" src="assets/logo.png" alt="JP Service Express Urbaine" /><i id="reflet"></i></div>
+            <div id="slogan" class="phrase blanc slogan" data-mots="*Rapide.|Sûr.|Confortable."></div>
+            <div id="contact" class="contact">WhatsApp · +237 655 394 028</div>
+          </div>
+        </div>
+        <!-- hors caméra : même cadrage que l'image 1 -->
+        <div id="retour" class="couche blanc-plein">
+          <!-- Copie fixe du hook : la dernière image = l'image 1 (boucle) -->
+          <div class="reveil"><span>4</span><span>:</span><span>30</span></div>
+          <div class="ondes"><i></i><i></i></div>
+          <div class="pile"><div class="notif" style="opacity:1"><i class="appli" style="background:#3D5BD9"><svg viewBox="0 0 24 24"><path d="M2 14l8-2 4-8h2l-1 7 6-1 2-3h1l-1 5 1 5h-1l-2-3-6-1 1 7h-2l-4-8-8-2Z" fill="#fff"/></svg></i><div><div class="ligne1"><span>Vol DLA → 06:00</span><em>04:30</em></div><div class="ligne2">Embarquement 05:15</div></div></div></div>
+        </div>
+      </section>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="20" data-track-index="10" data-volume="1"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      window.CONSTRUIRE(tl);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
