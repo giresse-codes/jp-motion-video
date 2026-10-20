@@ -1,0 +1,3 @@
+// Repères (secondes) calés sur les pauses de la voix off (assets/audio/voix.mp3, ffmpeg silencedetect).
+// Partagés par l'animation (js/main.js) et le son (scripts/mixer.py) : garder une seule ligne window.T = {...};
+window.T = {"notifs":[0.12,1.0,1.85],"texte1":2.45,"scene2":4.6,"carte":4.75,"texte2":6.34,"bascule":8.45,"texte3":8.72,"etapes":12.3,"etape":[12.49,14.53,16.51],"frappe":[12.55,13.0],"envoi":13.05,"reponse":13.3,"trajet":[14.7,15.4],"arrive":15.42,"puces":[17.98,18.32,18.66],"telephone":19.3,"texte5":19.52,"badge5":20.2,"outro":21.1,"slogan":21.6,"contact":21.9,"retour":23.1,"voixFin":22.44,"duree":23.5};
