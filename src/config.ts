@@ -78,6 +78,7 @@ export const SONS = {
   prix: {fichier: 'sfx/prix.wav', volume: 0.4},
   bip: {fichier: 'sfx/bip.wav', volume: 0.35},
   notif: {fichier: 'sfx/notif.wav', volume: 0.5},
+  reveil: {fichier: 'sfx/reveil.wav', volume: 0.35},
 };
 
 export const LOGO = 'logo.png';
@@ -420,4 +421,35 @@ export const VIDEO_TARIFS = {
   enregistrez: ['Enregistrez cette vidéo', 'pour la prochaine fois'],
   whatsapp: 'WhatsApp',
   sons: {hook: 0.5, carte: 0.55, balayage: 0.45, compteur: 0.3, fin: 0.4},
+};
+
+// ── VideoQuiz : « Vol à 6 h. Vous faites quoi ? » (quiz A/B/C, calé sur la voix off) ──
+// Repères (s) issus des pauses de public/audio/quiz-voix.mp3 (ffmpeg silencedetect).
+// La voix dure 21,08 s : la vidéo fait 21,3 s pour ne pas la couper.
+export const VIDEO_QUIZ = {
+  dureeS: 21.3,
+  voix: 'audio/quiz-voix.mp3',
+  musique: {fichier: 'audio/quiz-groove.wav', boucleS: 4, volume: 0.13},
+  temps: {
+    reveil: 0, vol: 1.42, question: 3.44,
+    cartes: [4.75, 6.91, 9.84],
+    suspense: 12.32, barres: [12.5, 12.9], bonne: 13.51,
+    transfert: 15.47, prix: 17.1,
+    commentez: 18.84, boucle: 20.95,
+  },
+  heure: '4:30',
+  badge: 'QUESTION RAPIDE',
+  titre: ['VOL À 6\u00a0H.', 'VOUS FAITES QUOI\u00a0?'],
+  rappel: 'Vol à 6\u00a0h. Vous faites quoi\u00a0?',
+  cartes: [
+    {lettre: 'A', texte: 'Vous réveillez un ami'},
+    {lettre: 'B', texte: 'Vous cherchez un taxi dans le noir'},
+    {lettre: 'C', texte: 'Votre chauffeur vous attend déjà en bas'},
+  ],
+  bonneReponse: 2,
+  bonneLibelle: 'BONNE RÉPONSE',
+  transfert: ['TRANSFERT', 'AÉROPORT'],
+  prix: {prefixe: 'dès', montant: '8\u00a0000', unite: 'FCFA'},
+  commentez: ['Commentez', 'A, B ou C'],
+  sons: {reveil: 1, tick: 0.6, barre: 0.5, bonne: 0.5, avion: 0.4, prix: 0.45, fin: 0.4},
 };
