@@ -10,6 +10,8 @@ import numpy as np
 from scipy import signal
 
 ICI = Path(__file__).resolve().parent.parent
+# Musique de fond coupée à la demande : le son sera ajouté sur TikTok. Remettre True pour la retrouver.
+MUSIQUE = False
 SR = 48000
 rng = np.random.default_rng(20)
 db = lambda v: 10 ** (v / 20)
@@ -107,7 +109,7 @@ voix = norm(lire(ICI / "assets" / "audio" / "voix.mp3")[:N]); voix = np.pad(voix
 env = (np.abs(voix) > 0.02).astype(float)
 noyau = np.hanning(int(0.3 * SR)); env = np.clip(np.convolve(env, noyau / noyau.sum() * 3, "same"), 0, 1)
 musique *= db(-16) * (1 - 0.5 * env)
-mix = musique + effets * db(-6)
+mix = (musique if MUSIQUE else 0) + effets * db(-6)
 poser(mix, voix, 0, 0)
 mix[:, -int(0.03 * SR):] *= np.linspace(1, 0, int(0.03 * SR))
 
