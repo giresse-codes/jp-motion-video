@@ -403,3 +403,21 @@ export const VIDEO20 = {
   ],
   sons: {ligne: 0.3, chute: 0.3, coche: 0.45, passage: 0.35, logo: 0.4},
 };
+
+// ── VideoTarifs : « Combien coûte un chauffeur privé à Douala ? » (20 s) ──
+export const VIDEO_TARIFS = {
+  dureeS: 20,
+  // Débuts (s) : hook, 3 cartes toutes les 4 s, récap, fin, retour du hook (boucle).
+  temps: {hook: 0, cartes: [2, 6, 10], recap: 14, fin: 17, retour: 19.3},
+  hook: ['COMBIEN COÛTE', 'UN CHAUFFEUR', 'PRIVÉ', 'À DOUALA\u00a0?'],
+  hookFort: 2, // ligne mise en avant (grande, en rouge)
+  cartes: [
+    {nom: 'ÉCO', prefixe: '', montant: 3000, unite: 'FCFA/h', detail: 'Simple, propre, à l’heure.', icone: 'voiture', interruption: 'zoom'},
+    {nom: 'CONFORT', prefixe: '', montant: 4000, unite: 'FCFA/h', detail: 'Wi-Fi · Clim · Mini écran', icone: 'confort', interruption: 'balayage'},
+    {nom: 'AÉROPORT', prefixe: 'dès', montant: 8000, unite: 'FCFA', detail: 'Douala ⇄ aéroport, sans stress.', icone: 'avion', interruption: 'compteur'},
+  ],
+  recap: 'Récap',
+  enregistrez: ['Enregistrez cette vidéo', 'pour la prochaine fois'],
+  whatsapp: 'WhatsApp',
+  sons: {hook: 0.5, carte: 0.55, balayage: 0.45, compteur: 0.3, fin: 0.4},
+};
