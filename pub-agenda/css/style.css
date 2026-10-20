@@ -1,0 +1,77 @@
+/* « Pas une minute au volant » — style Pop Énergie : aplats vifs, typo énorme, stickers, marqueur.
+   Jamais de noir ; rouge du logo seulement en accent. Zone sûre : rien sous 1670 px ni à droite de 960 px. */
+@font-face { font-family: "Archivo Black"; src: url("../assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; src: url("../assets/fonts/inter-latin-600-normal.woff2") format("woff2"); font-weight: 600; }
+@font-face { font-family: "Inter"; src: url("../assets/fonts/inter-latin-700-normal.woff2") format("woff2"); font-weight: 700; }
+:root { --jaune: #FFD23F; --turquoise: #2EC4B6; --bleu: #3A86FF; --creme: #FFF8E7; --encre: #1A1A2E; --nuit: #0B1B4D; --vert: #22C55E; --rouge: #E10600; }
+html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: var(--jaune); color: var(--encre); font-family: "Inter", sans-serif; }
+#racine { position: relative; width: 1080px; height: 1920px; overflow: hidden; }
+.clip, .couche { position: absolute; inset: 0; }
+#fond { background: var(--jaune); }
+
+/* Cartes blanches */
+.carte { position: absolute; left: 100px; width: 840px; border-radius: 48px; background: #fff; box-shadow: 0 14px 0 rgba(26, 26, 46, .12), 0 30px 60px rgba(26, 26, 46, .14); }
+
+/* Agenda */
+.compteur { position: absolute; left: 100px; right: 140px; top: 240px; height: 96px; border-radius: 48px; background: var(--encre); color: #fff; display: flex; align-items: center;
+  justify-content: center; font: 700 42px/1 "Inter"; }
+.compteur b { font: 400 58px/1 "Archivo Black"; color: var(--jaune); margin: 0 6px; }
+.agenda { top: 380px; height: 690px; padding: 30px 44px; box-sizing: border-box; }
+.agenda-titre { font: 400 56px/1 "Archivo Black"; letter-spacing: -0.01em; margin-bottom: 18px; }
+.creneau { display: flex; align-items: center; gap: 28px; height: 140px; border-top: 3px dashed #eceae2; opacity: 0; }
+.creneau b { font: 400 66px/1 "Archivo Black"; width: 250px; }
+.creneau span { flex: 1; font: 700 54px/1 "Inter"; }
+.creneau i { width: 84px; height: 84px; border-radius: 42px; border: 6px solid #e2e0d8; box-sizing: border-box; display: flex; align-items: center; justify-content: center;
+  font: 400 44px/1 "Archivo Black"; font-style: normal; color: transparent; }
+.plan { top: 1110px; height: 430px; overflow: hidden; }
+.plan svg { position: absolute; inset: 0; }
+
+/* Stickers (emoji avec contour blanc façon autocollant) */
+.sticker { position: absolute; font-size: 170px; line-height: 1; filter: drop-shadow(0 0 0 #fff) drop-shadow(5px 0 0 #fff) drop-shadow(-5px 0 0 #fff) drop-shadow(0 5px 0 #fff) drop-shadow(0 -5px 0 #fff) drop-shadow(0 16px 18px rgba(26,26,46,.25)); opacity: 0; }
+.sticker.petit { font-size: 76px; left: 0; top: 0; opacity: 1; }
+.sticker.moyen { position: relative; display: inline-block; font-size: 130px; }
+
+/* Scènes de texte géant */
+.texte-scene { opacity: 0; }
+.mot { display: inline-block; position: relative; opacity: 0; white-space: nowrap; }
+.mot .marqueur { position: absolute; left: -14px; right: -14px; top: 18%; bottom: 6%; border-radius: 18px; background: var(--jaune); z-index: -1; transform: scaleX(0) skewX(-6deg); transform-origin: 0 50%; }
+.geant { position: absolute; left: 0; right: 140px; top: 330px; text-align: center; font: 400 760px/0.9 "Archivo Black"; color: var(--encre); display: block; }
+.ligne-rdv { position: absolute; left: 100px; right: 140px; top: 1080px; text-align: center; font: 400 116px/1 "Archivo Black"; letter-spacing: -0.03em; }
+.pile-mots { position: absolute; left: 100px; right: 140px; top: 330px; display: flex; flex-direction: column; align-items: center; font: 400 150px/1.02 "Archivo Black"; letter-spacing: -0.03em; }
+.pile-mots .ligne { white-space: nowrap; isolation: isolate; }
+.centre-v { top: 600px; font-size: 220px; }
+.centre-v .cle { font-size: 124px; margin-top: 20px; }
+.clair { color: #fff; }
+.clair .marqueur { background: var(--jaune); }
+.clair .cle { color: var(--encre); }
+.pastille-zero { position: absolute; left: 380px; top: 1380px; padding: 24px 44px; border-radius: 60px; background: #fff; color: var(--encre); font: 400 80px/1 "Archivo Black"; opacity: 0;
+  box-shadow: 0 12px 0 rgba(26, 26, 46, .15); }
+.pastille-zero::after { content: ""; position: absolute; left: 30px; right: 30px; top: 50%; height: 8px; background: var(--rouge); border-radius: 4px; transform: rotate(-8deg); }
+.nuit { background: var(--nuit); clip-path: circle(0% at 50% 50%); }
+
+/* Solution */
+#solution { opacity: 0; }
+.offre { top: 380px; height: 860px; padding: 40px 50px; box-sizing: border-box; text-align: center; }
+.offre-titre { margin-top: 10px; font: 400 92px/1.08 "Archivo Black"; letter-spacing: -0.03em; isolation: isolate; }
+.offre-titre .marqueur { background: var(--turquoise); }
+.puces { display: flex; flex-direction: column; align-items: center; gap: 22px; margin-top: 40px; }
+.puce { padding: 22px 40px; border-radius: 40px; background: #f2f0e8; color: #a19f97; font: 700 50px/1 "Inter"; opacity: 0; }
+.puce b { color: #cfcdc5; }
+.prix { position: absolute; left: 100px; right: 140px; top: 1290px; height: 130px; border-radius: 65px; background: var(--encre); color: #fff; display: flex; align-items: center;
+  justify-content: center; font: 700 46px/1 "Inter"; opacity: 0; box-shadow: 0 12px 0 rgba(26, 26, 46, .15); }
+.prix b { font: 400 52px/1 "Archivo Black"; color: var(--jaune); margin-left: 12px; }
+
+/* Final */
+#pile-final { top: 400px; font-size: 140px; }
+#pile-final .marqueur { background: var(--turquoise); }
+
+/* Outro */
+#outro { opacity: 0; }
+.logo { position: absolute; left: 170px; top: 640px; width: 740px; opacity: 0; filter: drop-shadow(0 10px 0 rgba(26, 26, 46, .25)); }
+.slogan { position: absolute; left: 100px; right: 140px; top: 920px; display: flex; justify-content: center; gap: 0 22px; flex-wrap: wrap; font: 400 82px/1.1 "Archivo Black"; color: #fff; letter-spacing: -0.02em; }
+.contact { position: absolute; left: 130px; right: 170px; top: 1140px; height: 130px; border-radius: 65px; background: var(--vert); color: #fff; display: flex; align-items: center;
+  justify-content: center; font: 700 46px/1 "Inter"; opacity: 0; box-shadow: 0 12px 0 #1a9a4b; }
+.confetti { position: absolute; left: 0; top: 0; width: 26px; height: 14px; border-radius: 4px; }
+
+/* Balayage */
+.balayage i { position: absolute; top: -300px; height: 2520px; width: 700px; left: -1300px; transform: skewX(-16deg); }

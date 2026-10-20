@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>JP Service — Pas une minute au volant</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/gsap.min.js"></script>
+    <script src="js/temps.js"></script>
+    <script src="js/main.js"></script>
+  </head>
+  <body>
+    <div id="racine" data-composition-id="main" data-start="0" data-duration="23" data-fps="30" data-width="1080" data-height="1920">
+      <section id="scene" class="clip" data-start="0" data-duration="23" data-track-index="0">
+        <div id="fond" class="couche"></div>
+        <div id="camera" class="couche">
+
+          <!-- HOOK : agenda du jour -->
+          <div id="agenda" class="couche">
+            <div id="compteur" class="compteur">Temps au volant&nbsp;: <b id="minutes">0</b>&nbsp;min</div>
+            <div class="carte agenda">
+              <div class="agenda-titre">AUJOURD'HUI</div>
+              <div class="creneau"><b>08:00</b><span>Bonanjo</span><i>✓</i></div>
+              <div class="creneau"><b>11:00</b><span>Bonapriso</span><i>✓</i></div>
+              <div class="creneau"><b>15:00</b><span>Banque</span><i>✓</i></div>
+              <div class="creneau"><b>19:00</b><span>Dîner</span><i>✓</i></div>
+            </div>
+            <div class="carte plan"><svg id="plan" viewBox="0 0 840 430" width="840" height="430"></svg><div id="auto" class="sticker petit">🚗</div></div>
+          </div>
+
+          <!-- 4 RENDEZ-VOUS -->
+          <div id="rdv" class="couche texte-scene">
+            <div class="mot geant" id="quatre">4</div>
+            <div class="mot ligne-rdv" id="rendezvous">RENDEZ-VOUS.</div>
+            <div class="sticker" id="s-montre" style="left:720px;top:430px">⌚</div>
+          </div>
+
+          <!-- ET PAS UNE SEULE MINUTE AU VOLANT -->
+          <div id="volant" class="couche texte-scene clair">
+            <div class="pile-mots">
+              <div class="ligne"><span class="mot">ET</span> <span class="mot">PAS</span></div>
+              <div class="ligne"><span class="mot">UNE</span> <span class="mot">SEULE</span></div>
+              <div class="ligne"><span class="mot">MINUTE</span></div>
+              <div class="ligne"><span class="mot">AU</span> <span class="mot cle"><i class="marqueur"></i>VOLANT.</span></div>
+            </div>
+            <div class="sticker" id="s-voiture" style="left:110px;top:1330px">🚗</div>
+            <div class="pastille-zero" id="zero">0&nbsp;min</div>
+          </div>
+
+          <!-- BASCULE bleu nuit -->
+          <div id="nuit" class="couche nuit"></div>
+          <div id="secret" class="couche texte-scene clair">
+            <div class="pile-mots centre-v">
+              <div class="ligne"><span class="mot">LE</span></div>
+              <div class="ligne"><span class="mot cle"><i class="marqueur"></i>SECRET&nbsp;?</span></div>
+            </div>
+          </div>
+
+          <!-- SOLUTION -->
+          <div id="solution" class="couche">
+            <div class="carte offre">
+              <div class="sticker moyen" id="s-chauffeur">🚘</div>
+              <div class="offre-titre"><span class="mot">Chauffeur</span> <span class="mot">privé</span> <span class="mot">à</span> <span class="mot">la</span> <span class="mot cle"><i class="marqueur"></i>journée</span></div>
+              <div class="puces"><div class="puce">Wi-Fi <b>✓</b></div><div class="puce">Clim <b>✓</b></div><div class="puce">Véhicule premium <b>✓</b></div></div>
+            </div>
+            <div id="prix" class="prix">Service Confort · <b>4&nbsp;000 FCFA/h</b></div>
+            <div class="sticker" id="s-valise" style="left:120px;top:250px">🧳</div>
+            <div class="sticker" id="s-billets" style="left:800px;top:1420px">💵</div>
+          </div>
+
+          <!-- TEXTE FINAL -->
+          <div id="final" class="couche texte-scene">
+            <div class="pile-mots" id="pile-final">
+              <div class="ligne"><span class="mot">VOTRE</span> <span class="mot">TEMPS</span></div>
+              <div class="ligne"><span class="mot">VAUT</span> <span class="mot">PLUS</span></div>
+              <div class="ligne"><span class="mot">QUE</span> <span class="mot">LES</span></div>
+              <div class="ligne"><span class="mot cle"><i class="marqueur"></i>EMBOUTEILLAGES.</span></div>
+            </div>
+          </div>
+
+          <!-- OUTRO -->
+          <div id="outro" class="couche">
+            <div id="confettis" class="couche"></div>
+            <img id="logo" class="logo" src="assets/logo.png" alt="JP Service Express Urbaine" />
+            <div id="slogan" class="slogan"><span class="mot">Rapide.</span> <span class="mot">Sûr.</span> <span class="mot">Confortable.</span></div>
+            <div id="contact" class="contact">WhatsApp · +237 655 394 028</div>
+          </div>
+        </div>
+        <!-- Transitions en balayage coloré -->
+        <div id="balayage" class="couche balayage"><i></i><i></i><i></i></div>
+      </section>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="23" data-track-index="10" data-volume="1"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      window.CONSTRUIRE(tl);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
