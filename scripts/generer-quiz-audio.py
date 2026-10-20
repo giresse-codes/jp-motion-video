@@ -1,6 +1,7 @@
 """Sons de VideoQuiz, synthétisés (aucun fichier téléchargé, aucun droit à gérer).
 - public/audio/quiz-groove.wav : boucle de 4 s (120 BPM) marimba + kick doux + shaker, à boucler.
 - public/sfx/reveil.wav : sonnerie de réveil douce (bips par trois), environ 1,4 s.
+- public/sfx/roulement.wav : roulement de caisse claire qui monte (1,1 s), pour le suspense.
 Usage : python3 scripts/generer-quiz-audio.py
 """
 import wave
@@ -61,4 +62,15 @@ for g in range(3):
         i = int((g * 0.45 + b * 0.11) * SR)
         y[i:i + len(bip)] += bip
 ecrire(Path("public/sfx/reveil.wav"), y)
-print("quiz-groove.wav et reveil.wav générés")
+
+# ── Roulement de tambour ──
+y = np.zeros(int(1.1 * SR))
+tc = np.arange(int(0.05 * SR)) / SR
+coup = rng.standard_normal(len(tc)) * np.exp(-tc * 60) + 0.6 * np.sin(2 * np.pi * 190 * tc) * np.exp(-tc * 40)
+t, k = 0.0, 0
+while t < 1.05:
+    i = int(t * SR); n = min(len(coup), len(y) - i)
+    y[i:i + n] += coup[:n] * (0.25 + 0.75 * (t / 1.05) ** 1.5) * (1 if k % 2 else 0.8)
+    t += 0.032; k += 1
+ecrire(Path("public/sfx/roulement.wav"), y)
+print("quiz-groove.wav, reveil.wav et roulement.wav générés")

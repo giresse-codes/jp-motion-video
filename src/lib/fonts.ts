@@ -26,6 +26,13 @@ export const chargerPolices = () => {
         weight: String(w),
       }),
     ),
+    ...[600, 700].map((w) =>
+      loadFont({
+        family: POLICES.arrondie,
+        url: staticFile(`fonts/fredoka-latin-${w}-normal.woff2`),
+        weight: String(w),
+      }),
+    ),
   ]);
   return charge;
 };

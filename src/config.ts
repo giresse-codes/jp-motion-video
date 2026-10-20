@@ -30,6 +30,8 @@ export const COULEURS = {
 export const POLICES = {
   titre: 'Montserrat',
   texte: 'Inter',
+  // Police arrondie (OFL) des vidéos lumineuses (VideoQuizSoleil).
+  arrondie: 'Fredoka',
 };
 
 export const MARQUE = {
@@ -79,6 +81,7 @@ export const SONS = {
   bip: {fichier: 'sfx/bip.wav', volume: 0.35},
   notif: {fichier: 'sfx/notif.wav', volume: 0.5},
   reveil: {fichier: 'sfx/reveil.wav', volume: 0.35},
+  roulement: {fichier: 'sfx/roulement.wav', volume: 0.4},
 };
 
 export const LOGO = 'logo.png';
@@ -452,4 +455,59 @@ export const VIDEO_QUIZ = {
   prix: {prefixe: 'dès', montant: '8\u00a0000', unite: 'FCFA'},
   commentez: ['Commentez', 'A, B ou C'],
   sons: {reveil: 1, tick: 0.6, barre: 0.5, bonne: 0.5, avion: 0.4, prix: 0.45, fin: 0.4},
+};
+
+// ── VideoQuizSoleil : même quiz, direction artistique « matin doré à Douala » ──
+// Lumineuse et joyeuse : fonds clairs et chauds, jamais de noir, rouge seulement en petits détails.
+// Repères (s) issus des pauses de public/audio/quiz-soleil-voix.mp3 (ffmpeg silencedetect, voix de 18,6 s).
+export const VIDEO_QUIZ_SOLEIL = {
+  dureeS: 20,
+  voix: 'audio/quiz-soleil-voix.mp3',
+  musique: {fichier: 'audio/quiz-groove.wav', boucleS: 4, volume: 0.14},
+  palette: {
+    creme: '#FFF4E3', sable: '#F6DDB6', ciel: '#8ED6FF', cielClair: '#D8F2FF',
+    peche: '#FFB38A', pecheClair: '#FFD9BC', dore: '#FFC94A', jaune: '#FFD23F',
+    turquoise: '#2EC4C9', menthe: '#5EDCA8', mentheFonce: '#1FA971', corail: '#FF7A3D',
+    encre: '#2B2D42', peau: '#8D5A3B', peauClaire: '#B07A55',
+  },
+  temps: {
+    chambre: 0, vol: 1.19, question: 3.13,
+    cartes: [4.07, 5.96, 8.33],
+    suspense: 10.63, sorties: [10.8, 11.1], bonne: 11.68,
+    transfert: 13.4, prix: 15.05,
+    commentez: 16.41, boucle: 19.6,
+  },
+  segments: [
+    {de: 0, a: 0.89, texte: 'Question rapide.'},
+    {de: 1.19, a: 2.67, texte: 'Votre vol est à 6 heures du matin.'},
+    {de: 3.13, a: 3.65, texte: 'Vous faites quoi ?'},
+    {de: 4.07, a: 4.29, texte: 'A'},
+    {de: 4.6, a: 5.58, texte: 'vous réveillez un ami.'},
+    {de: 5.96, a: 6.3, texte: 'B'},
+    {de: 6.59, a: 8.03, texte: 'vous cherchez un taxi dans le noir.'},
+    {de: 8.33, a: 8.71, texte: 'C'},
+    {de: 8.99, a: 10.63, texte: 'votre chauffeur vous attend déjà en bas.'},
+    {de: 11.68, a: 13.14, texte: 'La bonne réponse, c’est C.'},
+    {de: 13.4, a: 16.18, texte: 'Transfert aéroport JP Service, dès 8 000 francs.'},
+    {de: 16.41, a: 18.39, texte: 'Dites-moi en commentaire, vous auriez choisi quoi ?'},
+  ],
+  // Mots colorés dans les sous-titres (comparés sans ponctuation ni majuscules).
+  motsCles: ['6 heures', 'quoi', 'ami', 'taxi', 'noir', 'chauffeur', 'c', 'aéroport', '8 000', 'commentaire'],
+  // Fenêtres sans sous-titres (le grand titre dit déjà la phrase).
+  sansSousTitres: [[1.19, 4.07]] as [number, number][],
+  heure: '4:30',
+  titre: [['VOL', 'À', '6 H.'], ['VOUS', 'FAITES', 'QUOI ?']],
+  rappel: 'Vol à 6 h. Vous faites quoi ?',
+  cartes: [
+    {lettre: 'A', texte: 'Réveiller un ami', couleur: '#FFD23F', illustration: 'ami'},
+    {lettre: 'B', texte: 'Chercher un taxi dans le noir', couleur: '#2EC4C9', illustration: 'taxi'},
+    {lettre: 'C', texte: 'Votre chauffeur vous attend déjà', couleur: '#5EDCA8', illustration: 'chauffeur'},
+  ],
+  bonneReponse: 2,
+  bonneLibelle: 'BONNE RÉPONSE',
+  transfert: ['Transfert', 'aéroport'],
+  marque: 'JP SERVICE EXPRESS URBAINE',
+  prix: {prefixe: 'dès', montant: '8 000', unite: 'FCFA'},
+  commentez: ['Commentez', 'A, B ou C'],
+  sons: {reveil: 1, pop: 0.6, sortie: 0.4, roulement: 1, bonne: 0.5, prix: 0.45, fin: 0.45},
 };
