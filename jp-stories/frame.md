@@ -58,8 +58,8 @@ components:
     code: "JPStories.noteManuscrite(tl, { parent, x, y, titre, lignes, t })"
     description: "Papier manuscrit en Caveat posé de biais ; pour montrer un dossier, une liste, des chiffres."
   outro:
-    code: "JPStories.outroJP(tl, { parent: '#camera', de })"
-    description: "1,5 s : cercle moutarde tracé comme une signature autour de l'emblème JP, « JP Service Express Urbaine » (Urbaine en rouge logo), « Chauffeur privé · Douala », bouton moutarde « WhatsApp · +237 655 394 028 »."
+    code: "JPStories.outroJP(tl, { parent: '#camera', de, badge })"
+    description: "1,5 s : cercle moutarde tracé comme une signature autour de l'emblème JP, « JP Service Express Urbaine » (Urbaine en rouge logo), « Chauffeur privé · Douala », bouton moutarde « WhatsApp · +237 655 394 028 » ; badge d'offre facultatif au-dessus du cercle."
   cadre:
     css: ".jp-cadre (+ .jp-fond-flou, .jp-decoupe)"
     description: "Illustration fournie posée en cadre arrondi (40 px) avec ombre douce, dans la zone utile ; découpe nette devant un décor flouté."

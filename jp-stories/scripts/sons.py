@@ -2,7 +2,9 @@
 - assets/audio/nappe.wav : nappe musicale douce sur toute la durée (baissée sous la voix par le carve
   de /hyperframes-audio : `npm run carve`, qui écrit data-fx-chain / data-automation sur la piste « nappe »).
 - assets/audio/sfx.wav : effets feutrés placés selon window.T.sfx = [[temps, "nom", gain_dB], ...].
-Noms : tictac (une seconde de tic-tac), clic, portiere, klaxon, crayon, souffle, notif, succes, ouvrir.
+Noms : tictac (une seconde de tic-tac), clic, portiere, klaxon, crayon, souffle, ding (carillon de cabine),
+foule (rumeur de hall, 7 s), notif, succes, ouvrir.
+Niveau de la nappe : window.T.nappeNiveaux = [[temps, dB], ...] (rampes linéaires, ex. la musique qui s'adoucit).
 Tout est synthétisé ici sauf notif/succes/ouvrir (uisfx, CC0). Usage (depuis le projet) : python3 scripts/sons.py
 """
 import json, re, subprocess, wave
@@ -53,6 +55,8 @@ SONS = {
     "klaxon": lambda: norm(bande(sum(signal.sawtooth(2 * np.pi * f * tt(0.35), 0.5) for f in (415, 523)), 400, 2000) * np.clip(tt(0.35) / 0.02, 0, 1) * np.clip((0.35 - tt(0.35)) / 0.05, 0, 1)),
     "crayon": lambda: norm(bande(rng.standard_normal(int(0.3 * SR)), 2500, 7000) * (0.5 + 0.5 * np.sin(2 * np.pi * 18 * tt(0.3))) * np.sin(np.pi * tt(0.3) / 0.3)),
     "souffle": lambda: norm(bande(rng.standard_normal(int(0.6 * SR)), 200, 1600) * np.sin(np.pi * tt(0.6) / 0.6) ** 2),
+    "ding": lambda: norm(sum(np.sin(2 * np.pi * f * tt(1.6)) * np.exp(-tt(1.6) * 2.5) * (tt(1.6) >= d) for f, d in ((1046.5, 0), (784, 0.35)))),
+    "foule": lambda: norm(bande(rng.standard_normal(int(7 * SR)), 250, 1800) * (0.7 + 0.3 * np.sin(2 * np.pi * 0.6 * tt(7)) * np.sin(2 * np.pi * 2.3 * tt(7))) * np.clip(tt(7) / 0.8, 0, 1) * np.clip((7 - tt(7)) / 1.0, 0, 1)),
     "notif": lambda: lire(ICI / "assets" / "sfx" / "ui-press.wav"),
     "succes": lambda: lire(ICI / "assets" / "sfx" / "ui-success.wav"),
     "ouvrir": lambda: lire(ICI / "assets" / "sfx" / "ui-open.wav"),
@@ -67,6 +71,10 @@ for i in range(int(T["duree"] / 4) + 1):
     y *= (0.85 + 0.15 * np.sin(2 * np.pi * 0.25 * t)) * np.clip(t / 0.8, 0, 1) * np.clip((4.8 - t) / 0.8, 0, 1)
     poser(nappe, norm(y), i * 4.0, 0, -0.2 if i % 2 else 0.2)
 nappe[:, -int(0.5 * SR):] *= np.linspace(1, 0, int(0.5 * SR))
+if T.get("nappeNiveaux"):
+    pts = sorted(T["nappeNiveaux"])
+    temps_ = np.arange(N) / SR
+    nappe *= db(np.interp(temps_, [p[0] for p in pts], [p[1] for p in pts]))
 ecrire(ICI / "assets" / "audio" / "nappe.wav", nappe, 0.35)
 
 sfx = np.zeros((2, N))

@@ -70,7 +70,9 @@
         ligne.appendChild(s);
         if (w.start <= 0 && w.end <= 0.01) gsap.set(s, { opacity: 1 });
         else tl.fromTo(s, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.22, ease: "power2.out", immediateRender: false }, w.start);
-        if (w.cle) {
+        // Mot clé déjà affiché à l'image 1 : son trait est déjà tracé (sinon, sur fond brun ou noir, le mot reste invisible).
+        if (w.cle && w.start <= 0 && w.end <= 0.01) gsap.set(s.querySelector(".jp-trait"), { scaleX: 1, rotation: -1 });
+        else if (w.cle) {
           tl.fromTo(s.querySelector(".jp-trait"), { scaleX: 0, rotation: -1 }, { scaleX: 1, rotation: -1, duration: 0.45, ease: "power2.out", immediateRender: false },
             Math.max(w.start, 0.6));
         }
@@ -198,7 +200,7 @@
   }
 
   // ═══════════════ OutroJP (1,5 s) ═══════════════
-  function outroJP(tl, { parent = "#camera", de, embleme = "assets/images/embleme-jp.png", whatsapp = "+237 655 394 028" }) {
+  function outroJP(tl, { parent = "#camera", de, embleme = "assets/images/embleme-jp.png", whatsapp = "+237 655 394 028", badge = null }) {
     const el = div($(parent), "jp-outro");
     div(el, "jp-papier");
     const sig = svg(el, "svg", { class: "jp-signature", viewBox: "-220 -220 440 440", width: 440, height: 440 });
@@ -209,6 +211,9 @@
     const marque = div(el, "jp-marque", "JP Service Express <span>Urbaine</span>");
     const ville = div(el, "jp-douala", "Chauffeur privé · Douala");
     const bouton = div(el, "jp-bouton", `WhatsApp · ${whatsapp}`);
+    // Badge d'offre facultatif (ex. « Transfert aéroport dès 8 000 FCFA »), posé au-dessus du cercle.
+    const offre = badge ? div(el, "jp-badge-offre", badge) : null;
+    if (offre) tl.fromTo(offre, { opacity: 0, scale: 0.6, rotation: -6 }, { opacity: 1, scale: 1, rotation: -3, duration: 0.4, ease: "back.out(2.4)", immediateRender: false }, de + 0.3);
     tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out", immediateRender: false }, de - 0.15);
     tl.fromTo(cercle, { attr: { "stroke-dashoffset": LS } }, { attr: { "stroke-dashoffset": 0 }, duration: 0.6, ease: "power2.inOut", immediateRender: false }, de);
     tl.fromTo(img, { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2)", immediateRender: false }, de + 0.2);

@@ -107,3 +107,5 @@ html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; backgro
 .jp-outro .jp-douala { position: absolute; left: 60px; right: 120px; top: 1160px; text-align: center; font: 600 44px/1 "Inter"; color: var(--jp-encre-2); }
 .jp-outro .jp-bouton { position: absolute; left: 120px; right: 180px; top: 1290px; height: 130px; border-radius: 65px; background: var(--jp-moutarde); color: var(--jp-encre); display: flex;
   align-items: center; justify-content: center; font: 700 46px/1 "Inter"; box-shadow: 0 16px 34px rgba(150, 110, 20, .3); }
+.jp-outro .jp-badge-offre { position: absolute; left: 110px; right: 170px; top: 400px; padding: 22px 24px; white-space: nowrap; border-radius: 24px; background: var(--jp-carte); border: 5px solid var(--jp-moutarde);
+  text-align: center; font: 700 40px/1.2 "Inter"; color: var(--jp-encre); box-shadow: 0 14px 30px rgba(40, 25, 15, .2); }
