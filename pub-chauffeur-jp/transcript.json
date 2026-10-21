@@ -1,0 +1,361 @@
+{
+ "words": [
+  {
+   "text": "tous",
+   "start": 0.293,
+   "end": 0.511
+  },
+  {
+   "text": "les",
+   "start": 0.511,
+   "end": 0.693
+  },
+  {
+   "text": "matins.",
+   "start": 0.693,
+   "end": 0.983
+  },
+  {
+   "text": "à",
+   "start": 1.327,
+   "end": 1.544
+  },
+  {
+   "text": "cinq",
+   "start": 1.544,
+   "end": 1.804
+  },
+  {
+   "text": "heures",
+   "start": 1.804,
+   "end": 2.151
+  },
+  {
+   "text": "et",
+   "start": 2.151,
+   "end": 2.367
+  },
+  {
+   "text": "demi.",
+   "start": 2.367,
+   "end": 2.627
+  },
+  {
+   "text": "Il",
+   "start": 3.0,
+   "end": 3.235
+  },
+  {
+   "text": "était",
+   "start": 3.235,
+   "end": 3.563
+  },
+  {
+   "text": "déjà",
+   "start": 3.563,
+   "end": 3.845
+  },
+  {
+   "text": "debout.",
+   "start": 3.845,
+   "end": 4.221
+  },
+  {
+   "text": "Il",
+   "start": 5.049,
+   "end": 5.353
+  },
+  {
+   "text": "vérifie",
+   "start": 5.353,
+   "end": 5.9
+  },
+  {
+   "text": "la",
+   "start": 5.9,
+   "end": 6.204
+  },
+  {
+   "text": "climat.",
+   "start": 6.204,
+   "end": 6.691
+  },
+  {
+   "text": "le",
+   "start": 7.106,
+   "end": 7.372
+  },
+  {
+   "text": "wifi",
+   "start": 7.372,
+   "end": 7.691
+  },
+  {
+   "text": "Il",
+   "start": 8.502,
+   "end": 8.699
+  },
+  {
+   "text": "essuie",
+   "start": 8.699,
+   "end": 9.015
+  },
+  {
+   "text": "la",
+   "start": 9.015,
+   "end": 9.212
+  },
+  {
+   "text": "siège",
+   "start": 9.212,
+   "end": 9.488
+  },
+  {
+   "text": "imparant.",
+   "start": 9.876,
+   "end": 10.654
+  },
+  {
+   "text": "Il",
+   "start": 11.846,
+   "end": 12.086
+  },
+  {
+   "text": "connaît",
+   "start": 12.086,
+   "end": 12.519
+  },
+  {
+   "text": "chaque",
+   "start": 12.519,
+   "end": 12.903
+  },
+  {
+   "text": "raccourci",
+   "start": 12.903,
+   "end": 13.431
+  },
+  {
+   "text": "de",
+   "start": 13.431,
+   "end": 13.671
+  },
+  {
+   "text": "D'Oala.",
+   "start": 13.671,
+   "end": 14.007
+  },
+  {
+   "text": "Il",
+   "start": 14.645,
+   "end": 14.867
+  },
+  {
+   "text": "arrive",
+   "start": 14.867,
+   "end": 15.223
+  },
+  {
+   "text": "toujours",
+   "start": 15.223,
+   "end": 15.669
+  },
+  {
+   "text": "en",
+   "start": 15.669,
+   "end": 15.891
+  },
+  {
+   "text": "avance.",
+   "start": 15.891,
+   "end": 16.247
+  },
+  {
+   "text": "Tu",
+   "start": 17.296,
+   "end": 17.481
+  },
+  {
+   "text": "ne",
+   "start": 17.481,
+   "end": 17.666
+  },
+  {
+   "text": "connais",
+   "start": 17.666,
+   "end": 17.999
+  },
+  {
+   "text": "peut-être",
+   "start": 17.999,
+   "end": 18.369
+  },
+  {
+   "text": "pas",
+   "start": 18.369,
+   "end": 18.554
+  },
+  {
+   "text": "son",
+   "start": 18.554,
+   "end": 18.739
+  },
+  {
+   "text": "nom.",
+   "start": 18.739,
+   "end": 18.924
+  },
+  {
+   "text": "Mais",
+   "start": 19.677,
+   "end": 19.895
+  },
+  {
+   "text": "c'est",
+   "start": 19.895,
+   "end": 20.113
+  },
+  {
+   "text": "grâce",
+   "start": 20.113,
+   "end": 20.366
+  },
+  {
+   "text": "à",
+   "start": 20.366,
+   "end": 20.548
+  },
+  {
+   "text": "lui",
+   "start": 20.548,
+   "end": 20.729
+  },
+  {
+   "text": "que",
+   "start": 21.127,
+   "end": 21.307
+  },
+  {
+   "text": "ta",
+   "start": 21.307,
+   "end": 21.487
+  },
+  {
+   "text": "journée",
+   "start": 21.487,
+   "end": 21.81
+  },
+  {
+   "text": "commence",
+   "start": 21.81,
+   "end": 22.17
+  },
+  {
+   "text": "bien.",
+   "start": 22.17,
+   "end": 22.386
+  },
+  {
+   "text": "lui.",
+   "start": 23.6,
+   "end": 23.824
+  },
+  {
+   "text": "C'est",
+   "start": 24.471,
+   "end": 24.734
+  },
+  {
+   "text": "ton",
+   "start": 24.734,
+   "end": 24.952
+  },
+  {
+   "text": "chauffeur",
+   "start": 24.952,
+   "end": 25.433
+  },
+  {
+   "text": "J'y",
+   "start": 25.869,
+   "end": 26.308
+  }
+ ],
+ "phrases": [
+  {
+   "start": 0.29,
+   "end": 0.98,
+   "text": "tous les matins."
+  },
+  {
+   "start": 1.33,
+   "end": 2.63,
+   "text": "à cinq heures et demi."
+  },
+  {
+   "start": 3.0,
+   "end": 4.22,
+   "text": "Il était déjà debout."
+  },
+  {
+   "start": 5.05,
+   "end": 6.69,
+   "text": "Il vérifie la climat."
+  },
+  {
+   "start": 7.11,
+   "end": 7.69,
+   "text": "le wifi"
+  },
+  {
+   "start": 8.5,
+   "end": 9.49,
+   "text": "Il essuie la siège"
+  },
+  {
+   "start": 9.88,
+   "end": 10.65,
+   "text": "imparant."
+  },
+  {
+   "start": 11.85,
+   "end": 14.01,
+   "text": "Il connaît chaque raccourci de D'Oala."
+  },
+  {
+   "start": 14.64,
+   "end": 16.25,
+   "text": "Il arrive toujours en avance."
+  },
+  {
+   "start": 17.3,
+   "end": 18.92,
+   "text": "Tu ne connais peut-être pas son nom."
+  },
+  {
+   "start": 19.68,
+   "end": 20.73,
+   "text": "Mais c'est grâce à lui"
+  },
+  {
+   "start": 21.13,
+   "end": 22.39,
+   "text": "que ta journée commence bien."
+  },
+  {
+   "start": 23.6,
+   "end": 23.82,
+   "text": "lui."
+  },
+  {
+   "start": 24.47,
+   "end": 25.43,
+   "text": "C'est ton chauffeur"
+  },
+  {
+   "start": 25.87,
+   "end": 26.31,
+   "text": "J'y"
+  }
+ ]
+}
