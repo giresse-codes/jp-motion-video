@@ -1,7 +1,7 @@
 // JP Stories — composants réutilisables de la série (voir frame.md).
 // Chaque composant crée son DOM et ajoute ses tweens à la timeline GSAP passée en premier argument :
 // tout reste déterministe et sûr en recherche avant/arrière (aucun setTimeout, aucun Math.random).
-// Composants : texteSurligne, depuisTranscription, montre, horloge, telephone, notification, pancarte,
+// Composants : texteSurligne, depuisTranscription, montre, horloge, telephone, notification, conversation, pancarte,
 // noteManuscrite, outroJP. Aides de plan : fondu, zoomLent, respiration, clignement, flouAvant.
 
 (function () {
@@ -153,6 +153,31 @@
     return tel;
   }
 
+  // ═══════════════ Conversation (gros plan téléphone, messagerie générique) ═══════════════
+  // messages : [{ t, texte, moi }] ; ecrit : [[debut, fin]] = trois points qui clignotent (l'autre écrit).
+  function conversation(tl, { parent, x = 250, y = 520, largeur = 580, de, contact = "JP Service", messages = [], ecrit = [] }) {
+    const tel = div($(parent), "jp-telephone");
+    Object.assign(tel.style, { left: x + "px", top: y + "px", width: largeur + "px", height: Math.round(largeur * 2.0) + "px" });
+    const ecran = div(tel, "jp-ecran jp-chat",
+      `<div class="jp-encoche"></div><div class="jp-chat-tete"><i>${contact.slice(0, 2).toUpperCase()}</i><div><b>${contact}</b><span>en ligne</span></div></div>`);
+    const fil = div(ecran, "jp-fil");
+    if (de != null) tl.fromTo(tel, { opacity: 0, y: 160, rotation: 4 }, { opacity: 1, y: 0, rotation: 0, duration: 0.7, ease: "back.out(1.4)", immediateRender: de <= 0 }, de);
+    const evts = [...messages.map((m) => ({ t: m.t, m })), ...ecrit.map(([a, b]) => ({ t: a, points: [a, b] }))].sort((a, b) => a.t - b.t);
+    evts.forEach((e) => {
+      if (e.m) {
+        const b = div(fil, "jp-bulle " + (e.m.moi ? "moi" : "lui"), e.m.texte);
+        tl.fromTo(b, { opacity: 0, y: 30, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(2)", transformOrigin: e.m.moi ? "100% 100%" : "0% 100%", immediateRender: e.t <= 0 }, e.t);
+      } else {
+        const b = div(fil, "jp-bulle lui jp-points", "<i></i><i></i><i></i>");
+        const [a, z] = e.points;
+        tl.fromTo(b, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.25, immediateRender: a <= 0 }, a);
+        Array.from(b.children).forEach((p, i) => tl.fromTo(p, { opacity: 0.25 }, { opacity: 1, duration: 0.3, repeat: Math.max(1, Math.floor((z - a) / 0.3) - 1), yoyo: true, ease: "sine.inOut", immediateRender: false }, a + i * 0.15));
+        tl.set(b, { display: "none" }, z);
+      }
+    });
+    return tel;
+  }
+
   // ═══════════════ Pancarte (chauffeur qui attend) ═══════════════
   function pancarte(tl, { parent, x = 240, y = 760, largeur = 600, texte = "M. Serge", sousTexte = "JP Service", de, a }) {
     const el = div($(parent), "jp-pancarte", `<div class="jp-planche"><b>${texte}</b><span>${sousTexte}</span></div><div class="jp-mains"><i></i><i></i></div>`);
@@ -228,6 +253,6 @@
     return e;
   }
 
-  window.JPStories = { C, svg, repartir, depuisTranscription, texteSurligne, montre, horloge, notification, telephone, pancarte, noteManuscrite, outroJP,
+  window.JPStories = { C, svg, repartir, depuisTranscription, texteSurligne, montre, horloge, notification, telephone, conversation, pancarte, noteManuscrite, outroJP,
     fondu, zoomLent, respiration, clignement, flouAvant };
 })();

@@ -48,6 +48,9 @@ components:
   telephone:
     code: "JPStories.telephone(tl, { parent, de, heure, date, notifications: [{ t, appli, couleur, titre, texte }] })"
     description: "Téléphone posé, écran verrouillé ; les notifications arrivent en haut, poussent les précédentes, le téléphone vibre. JPStories.notification(...) pour une bannière seule."
+  conversation:
+    code: "JPStories.conversation(tl, { parent, de, contact, messages: [{ t, texte, moi }], ecrit: [[debut, fin]] })"
+    description: "Gros plan téléphone sur une messagerie générique (aucun logo) : bulles moutarde (moi) et carte (lui), trois points qui clignotent pendant que l'autre écrit."
   pancarte:
     code: "JPStories.pancarte(tl, { parent, texte: 'M. Serge', sousTexte, de, a })"
     description: "Pancarte tenue à deux mains (chauffeur qui attend), texte en Caveat, souligné moutarde, léger balancement."
@@ -109,7 +112,7 @@ Interdits : noir pur en aplat de fond, autres accents vifs, dégradés colorés.
 ## Components
 
 Tous dans `js/jp-stories.js` (+ `css/jp-stories.css`), déterministes, ajoutés à la timeline GSAP :
-`texteSurligne` (+ `depuisTranscription`), `montre`, `horloge`, `telephone` / `notification`, `pancarte`,
+`texteSurligne` (+ `depuisTranscription`), `montre`, `horloge`, `telephone` / `notification`, `conversation`, `pancarte`,
 `noteManuscrite`, `outroJP`. Aides : `fondu`, `zoomLent`, `respiration`, `clignement`, `flouAvant`.
 La démo `index.html` / `js/demo.js` montre chacun en situation.
 
