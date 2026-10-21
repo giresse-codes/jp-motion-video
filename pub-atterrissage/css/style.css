@@ -1,0 +1,13 @@
+/* « POV : tu atterris à 23 h » : compléments propres à cette vidéo (style de la série : jp-stories.css). */
+.hall { opacity: 0; overflow: hidden; }
+.hall img { position: absolute; left: 0; top: -10px; width: 1080px; height: 1940px; object-fit: cover; transform-origin: 50% 70%; }
+.hall-flou { filter: blur(5px) brightness(.92); }
+.hall-net { -webkit-mask-image: linear-gradient(180deg, transparent 0%, transparent 62%, #000 74%); }
+.voile-haut { position: absolute; left: 0; right: 0; top: 0; height: 640px; background: linear-gradient(180deg, rgba(233, 226, 211, .92) 0%, rgba(233, 226, 211, .7) 55%, rgba(233, 226, 211, 0) 100%); }
+.bulle-taxi { position: absolute; padding: 18px 30px 22px; border-radius: 34px; background: var(--jp-carte); font: 700 54px/1 "Inter"; color: var(--jp-encre); box-shadow: 0 16px 34px rgba(30, 20, 10, .35); opacity: 0; }
+.bulle-taxi::after { content: ""; position: absolute; left: 36px; bottom: -18px; border: 14px solid transparent; border-top: 18px solid var(--jp-carte); border-bottom: 0; }
+.chauffeur-plein { position: absolute; left: 290px; top: 700px; width: 500px; height: 750px; transform-origin: 50% 100%; }
+.chauffeur-proche { position: absolute; left: 140px; top: 560px; width: 800px; height: 1200px; transform-origin: 50% 40%; }
+.poignee { position: absolute; left: 330px; top: 1450px; }
+.nuit { position: absolute; inset: 0; }
+.noir { position: absolute; inset: 0; background: #0E0B09; }

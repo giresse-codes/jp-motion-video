@@ -1,0 +1,261 @@
+{
+ "words": [
+  {
+   "text": "23",
+   "start": 0.559,
+   "end": 0.903
+  },
+  {
+   "text": "heures.",
+   "start": 0.903,
+   "end": 1.452
+  },
+  {
+   "text": "Ton",
+   "start": 2.506,
+   "end": 2.713
+  },
+  {
+   "text": "avion",
+   "start": 2.713,
+   "end": 3.003
+  },
+  {
+   "text": "vient",
+   "start": 3.003,
+   "end": 3.293
+  },
+  {
+   "text": "d'atterrir",
+   "start": 3.293,
+   "end": 3.748
+  },
+  {
+   "text": "à",
+   "start": 3.748,
+   "end": 3.955
+  },
+  {
+   "text": "Doi",
+   "start": 3.955,
+   "end": 4.162
+  },
+  {
+   "text": "il",
+   "start": 5.523,
+   "end": 5.695
+  },
+  {
+   "text": "fait",
+   "start": 5.695,
+   "end": 5.902
+  },
+  {
+   "text": "chaud.",
+   "start": 5.902,
+   "end": 6.143
+  },
+  {
+   "text": "tu",
+   "start": 6.789,
+   "end": 7.036
+  },
+  {
+   "text": "es",
+   "start": 7.036,
+   "end": 7.282
+  },
+  {
+   "text": "épuisé.",
+   "start": 7.282,
+   "end": 7.677
+  },
+  {
+   "text": "Tout",
+   "start": 8.603,
+   "end": 8.883
+  },
+  {
+   "text": "le",
+   "start": 8.883,
+   "end": 9.117
+  },
+  {
+   "text": "monde",
+   "start": 9.117,
+   "end": 9.444
+  },
+  {
+   "text": "te",
+   "start": 9.444,
+   "end": 9.677
+  },
+  {
+   "text": "crie",
+   "start": 9.677,
+   "end": 9.957
+  },
+  {
+   "text": "taxi,",
+   "start": 9.957,
+   "end": 10.237
+  },
+  {
+   "text": "taxi.",
+   "start": 10.237,
+   "end": 10.517
+  },
+  {
+   "text": "*R",
+   "start": 11.463,
+   "end": 11.66
+  },
+  {
+   "text": "Et",
+   "start": 12.145,
+   "end": 12.31
+  },
+  {
+   "text": "puis...",
+   "start": 12.31,
+   "end": 12.509
+  },
+  {
+   "text": "Tu",
+   "start": 13.389,
+   "end": 13.51
+  },
+  {
+   "text": "vois",
+   "start": 13.51,
+   "end": 13.655
+  },
+  {
+   "text": "ton",
+   "start": 13.655,
+   "end": 13.776
+  },
+  {
+   "text": "nom",
+   "start": 13.776,
+   "end": 13.897
+  },
+  {
+   "text": "sur",
+   "start": 14.822,
+   "end": 15.007
+  },
+  {
+   "text": "une",
+   "start": 15.007,
+   "end": 15.192
+  },
+  {
+   "text": "pancarte",
+   "start": 15.192,
+   "end": 15.561
+  },
+  {
+   "text": "Ton",
+   "start": 17.299,
+   "end": 17.46
+  },
+  {
+   "text": "chauffeur",
+   "start": 17.46,
+   "end": 17.817
+  },
+  {
+   "text": "t'attend",
+   "start": 17.817,
+   "end": 18.108
+  },
+  {
+   "text": "C'est",
+   "start": 19.372,
+   "end": 19.73
+  },
+  {
+   "text": "rentrer",
+   "start": 20.635,
+   "end": 20.877
+  },
+  {
+   "text": "à",
+   "start": 20.877,
+   "end": 21.011
+  },
+  {
+   "text": "la",
+   "start": 21.011,
+   "end": 21.145
+  },
+  {
+   "text": "maison",
+   "start": 21.145,
+   "end": 21.36
+  }
+ ],
+ "phrases": [
+  {
+   "start": 0.56,
+   "end": 1.45,
+   "text": "23 heures."
+  },
+  {
+   "start": 2.51,
+   "end": 4.16,
+   "text": "Ton avion vient d'atterrir à Doi"
+  },
+  {
+   "start": 5.52,
+   "end": 6.14,
+   "text": "il fait chaud."
+  },
+  {
+   "start": 6.79,
+   "end": 7.68,
+   "text": "tu es épuisé."
+  },
+  {
+   "start": 8.6,
+   "end": 10.52,
+   "text": "Tout le monde te crie taxi, taxi."
+  },
+  {
+   "start": 11.46,
+   "end": 11.66,
+   "text": "*R"
+  },
+  {
+   "start": 12.14,
+   "end": 12.51,
+   "text": "Et puis..."
+  },
+  {
+   "start": 13.39,
+   "end": 13.9,
+   "text": "Tu vois ton nom"
+  },
+  {
+   "start": 14.82,
+   "end": 15.56,
+   "text": "sur une pancarte"
+  },
+  {
+   "start": 17.3,
+   "end": 18.11,
+   "text": "Ton chauffeur t'attend"
+  },
+  {
+   "start": 19.37,
+   "end": 19.73,
+   "text": "C'est"
+  },
+  {
+   "start": 20.63,
+   "end": 21.36,
+   "text": "rentrer à la maison"
+  }
+ ]
+}
