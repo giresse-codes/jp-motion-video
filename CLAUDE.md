@@ -85,6 +85,16 @@ explicite. HyperFrames est un autre moteur (compositions HTML + GSAP).
 Point d'entrée pour un nouveau projet : `hyperframes` (routeur), puis `hyperframes-animation`,
 `hyperframes-keyframes`, `hyperframes-audio`, `hyperframes-core`, `hyperframes-cli`, `media-use`.
 
+## Série « JP Stories » (HyperFrames)
+
+`jp-stories/` est le modèle de la série : `frame.md` (design system, à lire avant toute vidéo de la
+série), `js/jp-stories.js` + `css/jp-stories.css` (composants `texteSurligne`, `montre`, `horloge`,
+`telephone`/`notification`, `pancarte`, `noteManuscrite`, `outroJP`, aides `fondu`, `zoomLent`,
+`respiration`, `clignement`, `flouAvant`), une démo (`index.html`, `js/demo.js`).
+Nouvelle vidéo : `jp-stories/scripts/nouvelle-video.sh pub-<nom>`, puis suivre le « Workflow » de frame.md
+(transcription, `scripts/sons.py`, `npm run carve`, lint + 5 snapshots avant tout rendu).
+Transcription de secours si Hugging Face est bloqué : `python3 scripts/transcrire.py` (Whisper small via GitHub).
+
 ## Skills Three.js
 
 `.claude/skills/threejs-*` (10 skills : fundamentals, geometry, materials, lighting, textures,
