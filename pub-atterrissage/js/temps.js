@@ -1,3 +1,3 @@
-// « POV : tu atterris à 23 h » (JP Stories). Repères (s) tirés de la transcription de la voix (transcript.json, relue).
+// « POV : tu atterris à 23 h » (JP Papier). Repères (s) tirés de la transcription de la voix (transcript.json, relue).
 // Partagés par js/main.js et scripts/sons.py : garder une seule ligne window.T = {...};
 window.T = {"plans":[0,4.6,12.0,17.0,19.2,22.0],"taxis":[5.1,5.9,6.7,7.5,8.6,9.0,9.35,9.7,10.05,10.4,10.8,11.2],"nom":[13.55,14.6],"valise":18.2,"retour":23.5,"duree":23.9,"nappeNiveaux":[[0,-40],[4.2,-40],[5.2,-4],[16.8,-4],[17.6,-13],[23.9,-13]],"sfx":[[0.1,"ding",-10],[4.6,"foule",-12],[8.7,"klaxon",-26],[9.9,"klaxon",-28],[11.0,"klaxon",-30],[12.0,"souffle",-22],[13.6,"crayon",-18],[18.2,"ouvrir",-16],[19.2,"souffle",-22],[20.3,"klaxon",-32],[21.9,"souffle",-20],[22.6,"succes",-14],[23.5,"ding",-16]]};

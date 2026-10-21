@@ -85,15 +85,18 @@ explicite. HyperFrames est un autre moteur (compositions HTML + GSAP).
 Point d'entrée pour un nouveau projet : `hyperframes` (routeur), puis `hyperframes-animation`,
 `hyperframes-keyframes`, `hyperframes-audio`, `hyperframes-core`, `hyperframes-cli`, `media-use`.
 
-## Série « JP Stories » (HyperFrames)
+## Design system vidéo (`frame.md`, HyperFrames)
 
-`jp-stories/` est le modèle de la série : `frame.md` (design system, à lire avant toute vidéo de la
-série), `js/jp-stories.js` + `css/jp-stories.css` (composants `texteSurligne`, `montre`, `horloge`,
-`telephone`/`notification`, `pancarte`, `noteManuscrite`, `outroJP`, aides `fondu`, `zoomLent`,
-`respiration`, `clignement`, `flouAvant`), une démo (`index.html`, `js/demo.js`).
-Nouvelle vidéo : `jp-stories/scripts/nouvelle-video.sh pub-<nom>`, puis suivre le « Workflow » de frame.md
-(transcription, `scripts/sons.py`, `npm run carve`, lint + 5 snapshots avant tout rendu).
+`frame.md` (racine) est le design system de toutes les vidéos HyperFrames : section COMMUN + styles
+JP UI, JP PAPIER, JP STORIES et JP PREMIUM. Chaque prompt dit « Utilise frame.md, style JP ___ ».
+
+Style **JP PAPIER** (fond papier beige, illustrations, texte en haut à gauche surligné moutarde) :
+kit dans `jp-papier/` (`js/jp-papier.js` + `css/jp-papier.css`, objet global `JPPapier` ; référence des
+composants dans `jp-papier/README.md` ; démo `index.html`). Nouvelle vidéo :
+`jp-papier/scripts/nouvelle-video.sh pub-<nom>`, puis le workflow du README (transcription,
+`scripts/sons.py`, `npm run carve`, lint + 5 snapshots avant tout rendu).
 Transcription de secours si Hugging Face est bloqué : `python3 scripts/transcrire.py` (Whisper small via GitHub).
+Vidéos JP PAPIER : `pub-clarisse/`, `pub-atterrissage/`, `pub-3-moments/`, `pub-chauffeur-jp/`.
 
 ## Skills Three.js
 

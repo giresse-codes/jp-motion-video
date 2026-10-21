@@ -1,8 +1,8 @@
-// « 3 moments où tu vas regretter de conduire » — JP Stories (32,3 s, 9:16, liste numérotée). Voir frame.md.
+// « 3 moments où tu vas regretter de conduire » — JP Papier (32,3 s, 9:16, liste numérotée). Voir frame.md.
 // Hook : grand « 3 » tracé au marqueur ; trois moments (mariage, rendez-vous, Kribi) avec numéro jaune et
 // progression ●○○ → ●●○ → ●●● ; phrase finale ; outro ; retour à l'image 1.
 (function () {
-  const J = window.JPStories;
+  const J = window.JPPapier;
   const MOUTARDE = "#F2C230", ENCRE = "#1A1A1A";
 
   window.CONSTRUIRE = function (tl) {

@@ -1,3 +1,3 @@
-// « Clarisse — 3 000 FCFA » (JP Stories). Repères (s) tirés de la transcription de la voix (transcript.json,
+// « Clarisse — 3 000 FCFA » (JP Papier). Repères (s) tirés de la transcription de la voix (transcript.json,
 // scripts/transcrire.py, texte relu à la main). Partagés par js/main.js et scripts/sons.py : garder une seule ligne window.T = {...};
 window.T = {"plans":[0,5.0,9.1,14.5,20.9,24.5],"envoi":5.75,"ecrit":[6.9,9.27],"reponse":9.27,"arrets":[16.2,17.4,18.6],"retour":26.0,"duree":26.4,"sfx":[[5.75,"clic",-14],[9.27,"succes",-12],[9.3,"souffle",-20],[14.4,"souffle",-24],[16.2,"notif",-16],[17.4,"notif",-16],[18.6,"notif",-16],[20.8,"souffle",-24],[22.9,"clic",-18],[24.4,"souffle",-20],[25.2,"succes",-14]]};

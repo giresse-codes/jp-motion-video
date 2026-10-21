@@ -1,4 +1,4 @@
-// JP Stories — composants réutilisables de la série (voir frame.md).
+// JP Papier — composants réutilisables de la série (voir frame.md).
 // Chaque composant crée son DOM et ajoute ses tweens à la timeline GSAP passée en premier argument :
 // tout reste déterministe et sûr en recherche avant/arrière (aucun setTimeout, aucun Math.random).
 // Composants : texteSurligne, depuisTranscription, montre, horloge, telephone, notification, conversation, pancarte,
@@ -115,10 +115,10 @@
   }
 
   // ═══════════════ Horloge murale ═══════════════
-  function horloge(tl, { parent, x = 720, y = 580, taille = 190, heure = [10, 12], de, fond = C.carte }) {
+  function horloge(tl, { parent, x = 720, y = 580, taille = 190, heure = [10, 12], de }) {
     const el = svg($(parent), "svg", { class: "jp-horloge", viewBox: "-60 -60 120 120", width: taille, height: taille });
     el.style.left = x + "px"; el.style.top = y + "px";
-    svg(el, "circle", { r: 54, fill: fond, stroke: C.encre, "stroke-width": 6 }); // fond : teinte du cadran (ex. rouge pâle = retard)
+    svg(el, "circle", { r: 54, fill: C.carte, stroke: C.encre, "stroke-width": 6 });
     for (let i = 0; i < 12; i++) svg(el, "rect", { x: -2, y: -48, width: 4, height: i % 3 ? 7 : 12, fill: C.encre, transform: `rotate(${i * 30})` });
     svg(el, "rect", { x: -3, y: -26, width: 6, height: 30, rx: 3, fill: C.encre, transform: `rotate(${(heure[0] + heure[1] / 60) * 30})` });
     svg(el, "rect", { x: -2, y: -40, width: 4, height: 44, rx: 2, fill: C.encre, transform: `rotate(${heure[1] * 6})` });
@@ -191,51 +191,6 @@
     return el;
   }
 
-  // ═══════════════ Chauffeur JP dessiné (en attendant ses illustrations) ═══════════════
-  // Illustration plate 400×600 : casquette, costume sombre, sourire. dos: true = vu de dos (visage caché).
-  // brasLibre: true = bras droit le long du corps (pour prendre une valise, ouvrir une portière).
-  // Renvoie { svg, tete, paupieres, brasD } pour animer (clignement, petits gestes).
-  function chauffeurJP(parent, { dos = false, brasLibre = false, peau = "#6B4430", costume = "#232A3F" } = {}) {
-    const s = svg($(parent), "svg", { viewBox: "0 0 400 600", width: "100%", height: "100%", overflow: "visible" });
-    const corps = svg(s, "g", {});
-    svg(corps, "path", { d: "M60 600 L70 330 Q80 260 150 248 L250 248 Q320 260 330 330 L340 600Z", fill: costume });
-    if (!dos) {
-      svg(corps, "path", { d: "M170 250 L200 330 L230 250Z", fill: "#F4EFE6" });
-      svg(corps, "path", { d: "M193 262 L207 262 L212 330 L200 350 L188 330Z", fill: "#1b1f2c" });
-      svg(corps, "path", { d: "M150 250 L200 360 L175 600 M250 250 L200 360", stroke: "#1a2030", "stroke-width": 4, fill: "none" });
-    } else {
-      svg(corps, "path", { d: "M200 260 L200 600", stroke: "#1a2030", "stroke-width": 4 });
-    }
-    svg(corps, "rect", { x: 182, y: 205, width: 36, height: 50, rx: 14, fill: peau });
-    const tete = svg(s, "g", {});
-    svg(tete, "ellipse", { cx: 200, cy: 150, rx: 66, ry: 76, fill: dos ? "#1d1513" : peau });
-    svg(tete, "ellipse", { cx: 134, cy: 158, rx: 11, ry: 17, fill: peau });
-    svg(tete, "ellipse", { cx: 266, cy: 158, rx: 11, ry: 17, fill: peau });
-    if (!dos) svg(tete, "path", { d: "M136 120 Q140 70 200 66 Q260 70 264 120 L264 104 Q250 50 200 48 Q150 50 136 104Z", fill: "#1d1513" });
-    svg(tete, "path", { d: "M128 104 Q130 52 200 46 Q270 52 272 104Z", fill: costume });
-    svg(tete, "rect", { x: 122, y: 98, width: 156, height: 16, rx: 8, fill: "#151a28" });
-    if (!dos) svg(tete, "circle", { cx: 200, cy: 78, r: 9, fill: C.moutarde });
-    let paupieres = [];
-    if (!dos) {
-      [172, 228].forEach((x) => {
-        svg(tete, "ellipse", { cx: x, cy: 150, rx: 9, ry: 10, fill: "#fff" });
-        svg(tete, "circle", { cx: x + 1, cy: 151, r: 5.5, fill: C.encre });
-        svg(tete, "path", { d: `M${x - 16} 130 Q${x} 122 ${x + 16} 130`, stroke: "#1d1513", "stroke-width": 6, fill: "none", "stroke-linecap": "round" });
-      });
-      paupieres = [172, 228].map((x) => svg(tete, "ellipse", { cx: x, cy: 146, rx: 11, ry: 12, fill: peau, style: "transform-box: fill-box; transform-origin: 50% 0%; transform: scaleY(0)" }));
-      svg(tete, "path", { d: "M196 160 Q200 178 192 182", stroke: "#4a2c1e", "stroke-width": 4, fill: "none", "stroke-linecap": "round" });
-      svg(tete, "path", { d: "M164 192 Q200 222 236 192 Q200 206 164 192Z", fill: "#fff", stroke: "#3a2016", "stroke-width": 4, "stroke-linejoin": "round" });
-      svg(tete, "path", { d: "M150 196 Q200 250 250 196 Q246 222 200 228 Q154 222 150 196Z", fill: "#1d1513", opacity: 0.55 });
-    }
-    const brasG = svg(s, "g", {});
-    svg(brasG, "path", { d: brasLibre || dos ? "M90 300 Q60 420 100 560" : "M90 300 Q40 380 120 430", stroke: costume, "stroke-width": 52, fill: "none", "stroke-linecap": "round" });
-    svg(brasG, "circle", brasLibre || dos ? { cx: 102, cy: 572, r: 26, fill: peau } : { cx: 128, cy: 432, r: 26, fill: peau });
-    const brasD = svg(s, "g", { style: "transform-box: view-box; transform-origin: 310px 300px" });
-    svg(brasD, "path", { d: brasLibre || dos ? "M310 300 Q350 420 300 560" : "M310 300 Q360 380 280 430", stroke: costume, "stroke-width": 52, fill: "none", "stroke-linecap": "round" });
-    svg(brasD, "circle", brasLibre || dos ? { cx: 298, cy: 572, r: 28, fill: peau } : { cx: 272, cy: 432, r: 26, fill: peau });
-    return { svg: s, tete, paupieres, brasD };
-  }
-
   // ═══════════════ Note manuscrite (Caveat) ═══════════════
   function noteManuscrite(tl, { parent, x, y, largeur = 400, titre, lignes = [], t }) {
     const el = div($(parent), "jp-note", (titre ? `<div class="jp-note-titre">${titre}</div>` : "") + lignes.map((l) => `<div>${l}</div>`).join(""));
@@ -303,6 +258,6 @@
     return e;
   }
 
-  window.JPStories = { C, svg, repartir, depuisTranscription, texteSurligne, montre, horloge, notification, telephone, conversation, pancarte, chauffeurJP, noteManuscrite, outroJP,
+  window.JPPapier = { C, svg, repartir, depuisTranscription, texteSurligne, montre, horloge, notification, telephone, conversation, pancarte, noteManuscrite, outroJP,
     fondu, zoomLent, respiration, clignement, flouAvant };
 })();

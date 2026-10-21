@@ -1,6 +1,6 @@
-// Démo des composants JP Stories : sert de modèle de départ pour chaque nouvelle vidéo de la série.
+// Démo des composants JP Papier : sert de modèle de départ pour chaque nouvelle vidéo de la série.
 (function () {
-  const J = window.JPStories;
+  const J = window.JPPapier;
   window.CONSTRUIRE = function (tl) {
     const T = window.T, P = T.plans;
     const fin = (i) => P[i + 1] ?? T.duree;

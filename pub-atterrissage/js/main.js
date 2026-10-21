@@ -1,8 +1,8 @@
-// « POV : tu atterris à 23 h » — JP Stories (23,9 s, 9:16, vue subjective). Voir frame.md.
+// « POV : tu atterris à 23 h » — JP Papier (23,9 s, 9:16, vue subjective). Voir frame.md.
 // Écran noir + ding, hall d'arrivée (photo fournie) qui avance en POV avec des « Taxi ? » de tous côtés,
 // rack focus sur le chauffeur JP et sa pancarte, gros plan (il prend la valise), départ de nuit, outro + badge.
 (function () {
-  const J = window.JPStories;
+  const J = window.JPPapier;
   const ENCRE = "#1A1A1A", MOUTARDE = "#F2C230", PEAU = "#6B4430", COSTUME = "#232A3F";
 
   // Chauffeur JP en illustration plate (400×600) : casquette, costume sombre, sourire.

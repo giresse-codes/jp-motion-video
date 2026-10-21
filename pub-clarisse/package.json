@@ -1,7 +1,7 @@
 {
-  "name": "jp-stories",
+  "name": "jp-papier",
   "private": true,
-  "description": "Modèle et composants de la série JP Stories (HyperFrames). Voir frame.md.",
+  "description": "Modèle et composants de la série JP Papier (HyperFrames). Voir frame.md.",
   "scripts": {
     "sons": "python3 scripts/sons.py",
     "carve": "node ../.claude/skills/hyperframes-audio/scripts/carve.mjs --comp index.html --bed nappe --voice voix",

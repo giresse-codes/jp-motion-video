@@ -1,9 +1,9 @@
-// « Chauffeur JP » — JP Stories (28,8 s, 9:16). Voir frame.md.
+// « Chauffeur JP » — JP Papier (28,8 s, 9:16). Voir frame.md.
 // On ne voit pas le visage du chauffeur avant la fin : réveil 05:30 à l'aube, gros plans de mains (clim,
 // Wi-Fi, siège, rétroviseur), raccourci sur le plan de Douala, 07:50 au parking, silhouette de dos,
 // puis la caméra remonte lentement jusqu'à son sourire. Outro, retour à l'image 1.
 (function () {
-  const J = window.JPStories;
+  const J = window.JPPapier;
   const ENCRE = "#1A1A1A", MOUTARDE = "#F2C230", PEAU = "#6B4430", COSTUME = "#232A3F";
 
   // Main plate (paume + doigts + manchette), dessinée vers le haut ; renvoie le groupe à positionner.

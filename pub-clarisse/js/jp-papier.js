@@ -1,4 +1,4 @@
-// JP Stories — composants réutilisables de la série (voir frame.md).
+// JP Papier — composants réutilisables de la série (voir frame.md).
 // Chaque composant crée son DOM et ajoute ses tweens à la timeline GSAP passée en premier argument :
 // tout reste déterministe et sûr en recherche avant/arrière (aucun setTimeout, aucun Math.random).
 // Composants : texteSurligne, depuisTranscription, montre, horloge, telephone, notification, conversation, pancarte,
@@ -70,9 +70,7 @@
         ligne.appendChild(s);
         if (w.start <= 0 && w.end <= 0.01) gsap.set(s, { opacity: 1 });
         else tl.fromTo(s, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.22, ease: "power2.out", immediateRender: false }, w.start);
-        // Mot clé déjà affiché à l'image 1 : son trait est déjà tracé (sinon, sur fond brun ou noir, le mot reste invisible).
-        if (w.cle && w.start <= 0 && w.end <= 0.01) gsap.set(s.querySelector(".jp-trait"), { scaleX: 1, rotation: -1 });
-        else if (w.cle) {
+        if (w.cle) {
           tl.fromTo(s.querySelector(".jp-trait"), { scaleX: 0, rotation: -1 }, { scaleX: 1, rotation: -1, duration: 0.45, ease: "power2.out", immediateRender: false },
             Math.max(w.start, 0.6));
         }
@@ -115,10 +113,10 @@
   }
 
   // ═══════════════ Horloge murale ═══════════════
-  function horloge(tl, { parent, x = 720, y = 580, taille = 190, heure = [10, 12], de, fond = C.carte }) {
+  function horloge(tl, { parent, x = 720, y = 580, taille = 190, heure = [10, 12], de }) {
     const el = svg($(parent), "svg", { class: "jp-horloge", viewBox: "-60 -60 120 120", width: taille, height: taille });
     el.style.left = x + "px"; el.style.top = y + "px";
-    svg(el, "circle", { r: 54, fill: fond, stroke: C.encre, "stroke-width": 6 }); // fond : teinte du cadran (ex. rouge pâle = retard)
+    svg(el, "circle", { r: 54, fill: C.carte, stroke: C.encre, "stroke-width": 6 });
     for (let i = 0; i < 12; i++) svg(el, "rect", { x: -2, y: -48, width: 4, height: i % 3 ? 7 : 12, fill: C.encre, transform: `rotate(${i * 30})` });
     svg(el, "rect", { x: -3, y: -26, width: 6, height: 30, rx: 3, fill: C.encre, transform: `rotate(${(heure[0] + heure[1] / 60) * 30})` });
     svg(el, "rect", { x: -2, y: -40, width: 4, height: 44, rx: 2, fill: C.encre, transform: `rotate(${heure[1] * 6})` });
@@ -200,7 +198,7 @@
   }
 
   // ═══════════════ OutroJP (1,5 s) ═══════════════
-  function outroJP(tl, { parent = "#camera", de, embleme = "assets/images/embleme-jp.png", whatsapp = "+237 655 394 028", badge = null }) {
+  function outroJP(tl, { parent = "#camera", de, embleme = "assets/images/embleme-jp.png", whatsapp = "+237 655 394 028" }) {
     const el = div($(parent), "jp-outro");
     div(el, "jp-papier");
     const sig = svg(el, "svg", { class: "jp-signature", viewBox: "-220 -220 440 440", width: 440, height: 440 });
@@ -211,9 +209,6 @@
     const marque = div(el, "jp-marque", "JP Service Express <span>Urbaine</span>");
     const ville = div(el, "jp-douala", "Chauffeur privé · Douala");
     const bouton = div(el, "jp-bouton", `WhatsApp · ${whatsapp}`);
-    // Badge d'offre facultatif (ex. « Transfert aéroport dès 8 000 FCFA »), posé au-dessus du cercle.
-    const offre = badge ? div(el, "jp-badge-offre", badge) : null;
-    if (offre) tl.fromTo(offre, { opacity: 0, scale: 0.6, rotation: -6 }, { opacity: 1, scale: 1, rotation: -3, duration: 0.4, ease: "back.out(2.4)", immediateRender: false }, de + 0.3);
     tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out", immediateRender: false }, de - 0.15);
     tl.fromTo(cercle, { attr: { "stroke-dashoffset": LS } }, { attr: { "stroke-dashoffset": 0 }, duration: 0.6, ease: "power2.inOut", immediateRender: false }, de);
     tl.fromTo(img, { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2)", immediateRender: false }, de + 0.2);
@@ -258,6 +253,6 @@
     return e;
   }
 
-  window.JPStories = { C, svg, repartir, depuisTranscription, texteSurligne, montre, horloge, notification, telephone, conversation, pancarte, noteManuscrite, outroJP,
+  window.JPPapier = { C, svg, repartir, depuisTranscription, texteSurligne, montre, horloge, notification, telephone, conversation, pancarte, noteManuscrite, outroJP,
     fondu, zoomLent, respiration, clignement, flouAvant };
 })();

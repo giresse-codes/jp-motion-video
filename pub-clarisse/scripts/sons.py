@@ -1,4 +1,4 @@
-"""Sons d'une vidéo JP Stories, en pistes séparées (la voix reste sa propre piste) :
+"""Sons d'une vidéo JP Papier, en pistes séparées (la voix reste sa propre piste) :
 - assets/audio/nappe.wav : nappe musicale douce sur toute la durée (baissée sous la voix par le carve
   de /hyperframes-audio : `npm run carve`, qui écrit data-fx-chain / data-automation sur la piste « nappe »).
 - assets/audio/sfx.wav : effets feutrés placés selon window.T.sfx = [[temps, "nom", gain_dB], ...].

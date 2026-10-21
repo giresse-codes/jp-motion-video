@@ -1,4 +1,4 @@
-/* « 3 moments » : compléments propres à cette vidéo (style de la série : jp-stories.css). */
+/* « 3 moments » : compléments propres à cette vidéo (style de la série : jp-papier.css). */
 .trois { position: absolute; left: 230px; top: 640px; overflow: visible; }
 /* Pendant les moments, le texte descend sous le numéro jaune. */
 .jp-legendes.sous-numero { top: 360px; }

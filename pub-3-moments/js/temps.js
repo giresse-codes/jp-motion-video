@@ -1,3 +1,3 @@
-// « 3 moments où tu vas regretter de conduire » (JP Stories, liste numérotée). Repères (s) tirés de la
+// « 3 moments où tu vas regretter de conduire » (JP Papier, liste numérotée). Repères (s) tirés de la
 // transcription de la voix (transcript.json, relue). Partagés par js/main.js et scripts/sons.py : garder une seule ligne window.T = {...};
 window.T = {"plans":[0,4.3,12.6,20.4,27.2,30.4],"montre":9.4,"horloge":13.9,"compteur":[23.4,24.6],"plage":24.9,"retour":31.9,"duree":32.3,"nappeNiveaux":[[0,-6],[27.0,-6],[27.6,-10],[32.3,-10]],"sfx":[[0.0,"crayon",-18],[0.35,"crayon",-20],[4.34,"clic",-12],[9.4,"tictac",-20],[10.4,"tictac",-20],[12.7,"clic",-12],[13.9,"tictac",-22],[16.6,"souffle",-24],[20.6,"clic",-12],[21.0,"souffle",-24],[23.4,"tictac",-22],[24.9,"souffle",-22],[27.2,"souffle",-22],[30.4,"souffle",-20],[31.1,"succes",-14]]};

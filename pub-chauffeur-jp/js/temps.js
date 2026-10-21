@@ -1,3 +1,3 @@
-// « Chauffeur JP » (JP Stories). Repères (s) tirés de la transcription de la voix (transcript.json, relue).
+// « Chauffeur JP » (JP Papier). Repères (s) tirés de la transcription de la voix (transcript.json, relue).
 // Partagés par js/main.js et scripts/sons.py : garder une seule ligne window.T = {...};
 window.T = {"plans":[0,4.6,6.9,8.4,9.8,11.4,14.4,17.0,23.3,26.9],"flocon":5.6,"wifi":[7.11,7.3,7.5],"trace":[11.9,14.0],"revele":[23.4,25.9],"retour":28.4,"duree":28.8,"nappeNiveaux":[[0,-14],[4.4,-10],[23.0,-10],[24.6,-1],[28.8,-1]],"sfx":[[0.15,"clic",-14],[0.4,"clic",-14],[0.65,"clic",-14],[5.35,"clic",-14],[5.6,"souffle",-22],[7.11,"notif",-14],[8.6,"souffle",-26],[9.1,"souffle",-26],[10.0,"clic",-16],[11.4,"souffle",-22],[11.9,"crayon",-20],[12.6,"crayon",-22],[14.7,"portiere",-16],[15.0,"tictac",-22],[23.3,"souffle",-20],[26.9,"souffle",-22],[27.6,"succes",-14],[28.4,"clic",-18]]};

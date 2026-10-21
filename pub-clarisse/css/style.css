@@ -1,4 +1,4 @@
-/* « Clarisse — 3 000 FCFA » : compléments propres à cette vidéo (le style de la série est dans jp-stories.css). */
+/* « Clarisse — 3 000 FCFA » : compléments propres à cette vidéo (le style de la série est dans jp-papier.css). */
 .pensee { position: absolute; left: 90px; top: 500px; overflow: visible; }
 .reve { position: absolute; left: 40px; top: 1080px; width: 560px; -webkit-mask-image: radial-gradient(70% 70% at 50% 45%, #000 60%, transparent 100%); transform-origin: 50% 100%; }
 .surprise { position: absolute; left: 280px; top: 930px; width: 420px; transform-origin: 50% 30%; }

@@ -1,4 +1,4 @@
-/* « POV : tu atterris à 23 h » : compléments propres à cette vidéo (style de la série : jp-stories.css). */
+/* « POV : tu atterris à 23 h » : compléments propres à cette vidéo (style de la série : jp-papier.css). */
 .hall { opacity: 0; overflow: hidden; }
 .hall img { position: absolute; left: 0; top: -10px; width: 1080px; height: 1940px; object-fit: cover; transform-origin: 50% 70%; }
 .hall-flou { filter: blur(5px) brightness(.92); }

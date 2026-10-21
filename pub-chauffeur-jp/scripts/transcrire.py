@@ -4,14 +4,14 @@ Whisper small multilingue (sherpa-onnx, hébergé sur GitHub), phrase par phrase
 (ffmpeg silencedetect), mots répartis dans chaque phrase au prorata de leur longueur.
 Sortie : transcript.json au format de `hyperframes transcribe` ({"words": [{"text","start","end"}]}),
 plus "phrases" pour relire et corriger le texte à la main avant de l'utiliser.
-Prérequis : pip install sherpa-onnx ; le modèle (~640 Mo) est téléchargé une fois dans ~/.cache/jp-stories.
+Prérequis : pip install sherpa-onnx ; le modèle (~640 Mo) est téléchargé une fois dans ~/.cache/jp-papier.
 Usage : python3 scripts/transcrire.py assets/audio/voix.mp3 [transcript.json]
 """
 import json, re, subprocess, sys, tarfile, urllib.request, wave
 from pathlib import Path
 import numpy as np
 
-MODELE = Path.home() / ".cache" / "jp-stories" / "sherpa-onnx-whisper-small"
+MODELE = Path.home() / ".cache" / "jp-papier" / "sherpa-onnx-whisper-small"
 URL = "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-whisper-small.tar.bz2"
 
 def modele():

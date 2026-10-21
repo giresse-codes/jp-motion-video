@@ -1,4 +1,4 @@
-/* « Chauffeur JP » : compléments propres à cette vidéo (style de la série : jp-stories.css). */
+/* « Chauffeur JP » : compléments propres à cette vidéo (style de la série : jp-papier.css). */
 .aube { position: absolute; inset: 0; background: radial-gradient(90% 45% at 50% 105%, rgba(242, 170, 90, .55) 0%, rgba(242, 170, 90, 0) 70%); opacity: 0; }
 .reveil { position: absolute; left: 110px; top: 760px; width: 820px; height: 380px; border-radius: 60px; background: #17110D; box-shadow: 0 30px 80px rgba(0, 0, 0, .5), inset 0 2px 0 rgba(255,255,255,.06);
   display: flex; align-items: center; justify-content: center; font: 700 250px/1 "Inter"; letter-spacing: -0.03em; color: var(--jp-moutarde); text-shadow: 0 0 40px rgba(242, 194, 48, .55); font-variant-numeric: tabular-nums; }

@@ -1,8 +1,8 @@
-// « Clarisse — 3 000 FCFA » — JP Stories (26,4 s, 9:16). Voir frame.md.
+// « Clarisse — 3 000 FCFA » — JP Papier (26,4 s, 9:16). Voir frame.md.
 // Hook : Clarisse imagine un convoi officiel ; téléphone « Combien pour un chauffeur ? » ; la réponse pop
 // (3 000 FCFA/h) ; sa journée de courses cochée sur un mini plan ; question finale ; outro ; retour à l'image 1.
 (function () {
-  const J = window.JPStories;
+  const J = window.JPPapier;
   const ENCRE = "#1A1A1A", MOUTARDE = "#F2C230", CARTE = "#FBF7EE";
 
   // Bulle de pensée : nuage + petites bulles vers la tête de Clarisse, convoi officiel dedans.
