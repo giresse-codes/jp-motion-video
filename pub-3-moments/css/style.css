@@ -1,0 +1,17 @@
+/* « 3 moments » : compléments propres à cette vidéo (style de la série : jp-stories.css). */
+.trois { position: absolute; left: 230px; top: 640px; overflow: visible; }
+/* Pendant les moments, le texte descend sous le numéro jaune. */
+.jp-legendes.sous-numero { top: 360px; }
+.cadre-moment { top: 600px; height: 1060px; }
+.route-fond { background: #E8DCC4; }
+.route-fond svg { position: absolute; inset: 0; }
+.numero { position: absolute; left: 60px; top: 200px; width: 130px; height: 130px; border-radius: 65px; background: var(--jp-moutarde); opacity: 0;
+  box-shadow: 0 10px 0 rgba(150, 110, 20, .25); }
+.numero span { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font: 700 86px/1 "Inter"; color: var(--jp-encre); opacity: 0; }
+.progression { position: absolute; left: 760px; top: 248px; display: flex; gap: 18px; opacity: 0; }
+.progression i { width: 34px; height: 34px; border-radius: 17px; border: 5px solid var(--jp-encre); box-sizing: border-box; background: transparent; }
+.etincelle { position: absolute; width: 14px; height: 14px; border-radius: 50%; background: #FFF1C2; box-shadow: 0 0 18px 6px rgba(255, 214, 120, .75); }
+.goutte { position: absolute; width: 18px; height: 26px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; background: #9fd0ff; box-shadow: inset -3px -3px 0 rgba(255,255,255,.6); }
+.compteur { position: absolute; left: 700px; top: 640px; width: 220px; height: 220px; opacity: 0; }
+.compteur svg { position: absolute; inset: 0; }
+.compteur b { position: absolute; left: 0; right: 0; top: 78px; text-align: center; font: 700 62px/1 "Inter"; color: var(--jp-encre); }

@@ -1,0 +1,111 @@
+/* JP Stories — feuille commune de la série (jetons de frame.md + styles des composants).
+   Ne pas modifier par vidéo : surcharger dans le css/style.css du projet. */
+@font-face { font-family: "Inter"; src: url("../assets/fonts/inter-latin-600-normal.woff2") format("woff2"); font-weight: 600; }
+@font-face { font-family: "Inter"; src: url("../assets/fonts/inter-latin-700-normal.woff2") format("woff2"); font-weight: 700; }
+@font-face { font-family: "Caveat"; src: url("../assets/fonts/caveat-latin-700-normal.woff2") format("woff2"); font-weight: 700; }
+
+:root {
+  --jp-papier-1: #E9E2D3; --jp-papier-2: #D9CFBC; --jp-brun: #3B2E25;
+  --jp-encre: #1A1A1A; --jp-encre-2: #5B5246; --jp-creme: #F6EEDF; --jp-carte: #FBF7EE;
+  --jp-moutarde: #F2C230; --jp-rouge-logo: #E10600;
+  --jp-marge: 60px; --jp-sure-bas: 250px; --jp-sure-droite: 120px;
+  --jp-ombre: 0 30px 70px rgba(70, 50, 30, .25), 0 4px 12px rgba(70, 50, 30, .12);
+}
+html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: var(--jp-papier-1); color: var(--jp-encre); font-family: "Inter", sans-serif; }
+#racine { position: relative; width: 1080px; height: 1920px; overflow: hidden; }
+.clip, .couche, .plan { position: absolute; inset: 0; }
+.plan { opacity: 0; }
+
+/* ── Fonds ── */
+.jp-papier { position: absolute; inset: 0; background: radial-gradient(120% 80% at 40% 30%, var(--jp-papier-1) 0%, var(--jp-papier-2) 100%); }
+.jp-brun { position: absolute; inset: 0; background: radial-gradient(110% 70% at 50% 45%, #4A3A2E 0%, var(--jp-brun) 70%, #2A2019 100%); opacity: 0; }
+.jp-grain { position: absolute; inset: 0; opacity: .10; pointer-events: none; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.75' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 .4  0 0 0 0 .33  0 0 0 0 .25  0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.jp-vignette { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(85% 65% at 50% 48%, transparent 60%, rgba(70, 50, 30, .28) 100%); }
+.jp-flou-avant { position: absolute; border-radius: 50%; filter: blur(40px); opacity: .55; pointer-events: none; }
+
+/* ── Cadre d'illustration (zone utile sous le texte) ── */
+.jp-cadre { position: absolute; left: 60px; top: 520px; width: 900px; height: 1140px; border-radius: 40px; overflow: hidden; background: #cfc4ae; box-shadow: var(--jp-ombre); }
+.jp-cadre img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform-origin: 50% 40%; }
+.jp-cadre .jp-fond-flou { filter: blur(7px) saturate(.9); transform: scale(1.08); }
+.jp-cadre .jp-decoupe { inset: auto; left: 50%; bottom: 0; width: 900px; height: auto; transform: translateX(-50%); object-fit: contain; transform-origin: 50% 100%; }
+
+/* ── TexteSurligne ── */
+.jp-legendes { position: absolute; left: 60px; top: 220px; width: 840px; }
+.jp-bloc { position: absolute; left: 0; top: 0; width: 840px; opacity: 0; }
+.jp-phrase { display: flex; flex-wrap: wrap; gap: 0 16px; font: 700 58px/1.22 "Inter"; letter-spacing: -0.02em; color: var(--jp-encre); }
+.jp-bloc.clair .jp-phrase { color: var(--jp-creme); }
+.jp-bloc.clair .jp-cle { color: var(--jp-encre); }
+.jp-bloc.seul { top: 560px; }
+.jp-bloc.seul .jp-phrase { font-size: 80px; }
+.jp-bloc.centre { top: 560px; }
+.jp-bloc.centre .jp-phrase { justify-content: center; font-size: 92px; line-height: 1.1; }
+.jp-mot { display: inline-block; position: relative; opacity: 0; white-space: nowrap; isolation: isolate; }
+/* Le trait ne porte QUE scaleX(0) : une rotation dans la même règle casse la lecture de la matrice par GSAP
+   (le trait reste invisible). La rotation est donnée dans le tween. */
+.jp-trait { position: absolute; left: -8px; right: -8px; bottom: 6%; height: 42%; border-radius: 10px 14px 12px 16px; background: var(--jp-moutarde); z-index: -1;
+  transform: scaleX(0); transform-origin: 0 50%; }
+
+/* ── Montre / Horloge ── */
+.jp-montre, .jp-horloge { position: absolute; transform-origin: 50% 50%; }
+.jp-horloge { filter: drop-shadow(0 10px 18px rgba(40, 25, 15, .3)); }
+
+/* ── Téléphone / Notification ── */
+.jp-telephone { position: absolute; border-radius: 76px; background: #1d1a18; padding: 18px; box-sizing: border-box; box-shadow: 0 40px 90px rgba(40, 25, 15, .35); }
+.jp-telephone .jp-ecran { position: relative; width: 100%; height: 100%; border-radius: 60px; overflow: hidden; background: linear-gradient(180deg, #F3EDE1, #E4DAC6); }
+.jp-telephone .jp-heure { position: absolute; left: 0; right: 0; top: 90px; text-align: center; font: 700 120px/1 "Inter"; letter-spacing: -0.04em; color: var(--jp-encre); }
+.jp-telephone .jp-date { position: absolute; left: 0; right: 0; top: 220px; text-align: center; font: 600 30px/1 "Inter"; color: var(--jp-encre-2); }
+.jp-telephone .jp-encoche { position: absolute; left: 50%; top: 22px; width: 150px; height: 40px; margin-left: -75px; border-radius: 20px; background: #1d1a18; }
+.jp-notif { position: absolute; left: 22px; right: 22px; display: flex; align-items: center; gap: 18px; padding: 20px 22px; border-radius: 30px; background: rgba(251, 247, 238, .96);
+  box-shadow: 0 12px 28px rgba(40, 25, 15, .18); box-sizing: border-box; opacity: 0; }
+.jp-notif.libre { position: absolute; left: auto; right: auto; }
+.jp-notif i { flex: none; width: 64px; height: 64px; border-radius: 18px; display: flex; align-items: center; justify-content: center; font: 700 30px/1 "Inter"; font-style: normal; color: #fff; }
+.jp-notif b { display: block; font: 700 28px/1.2 "Inter"; color: var(--jp-encre); }
+.jp-notif span { display: block; font: 600 26px/1.3 "Inter"; color: var(--jp-encre-2); }
+.jp-telephone .jp-notif { padding: 16px 18px; gap: 14px; }
+.jp-telephone .jp-notif span { font-size: 24px; white-space: nowrap; }
+.jp-telephone .jp-notif em { display: none; }
+.jp-notif em { margin-left: auto; align-self: flex-start; font: 600 22px/1 "Inter"; font-style: normal; color: #8a7f6f; }
+
+/* ── Conversation (messagerie générique, aucun logo) ── */
+.jp-chat-tete { position: absolute; left: 0; right: 0; top: 70px; height: 110px; display: flex; align-items: center; gap: 18px; padding: 0 28px; border-bottom: 2px solid rgba(26,26,26,.08); }
+.jp-chat-tete i { width: 70px; height: 70px; border-radius: 35px; background: var(--jp-encre); color: var(--jp-carte); display: flex; align-items: center; justify-content: center; font: 700 26px/1 "Inter"; font-style: normal; }
+.jp-chat-tete b { display: block; font: 700 32px/1.2 "Inter"; color: var(--jp-encre); }
+.jp-chat-tete span { font: 600 24px/1.2 "Inter"; color: var(--jp-encre-2); }
+.jp-fil { position: absolute; left: 24px; right: 24px; top: 210px; display: flex; flex-direction: column; gap: 18px; }
+.jp-bulle { max-width: 78%; padding: 20px 26px; border-radius: 30px; font: 600 34px/1.3 "Inter"; color: var(--jp-encre); box-shadow: 0 6px 16px rgba(40, 25, 15, .08); opacity: 0; }
+.jp-bulle.moi { align-self: flex-end; background: var(--jp-moutarde); border-bottom-right-radius: 10px; }
+.jp-bulle.lui { align-self: flex-start; background: var(--jp-carte); border-bottom-left-radius: 10px; }
+.jp-bulle.jp-points { display: flex; gap: 10px; padding: 26px 28px; }
+.jp-bulle.jp-points i { width: 16px; height: 16px; border-radius: 8px; background: #8a7f6f; }
+
+/* ── Pancarte ── */
+.jp-pancarte { position: absolute; transform-origin: 50% 0%; }
+.jp-pancarte .jp-planche { position: relative; padding: 34px 50px 40px; background: var(--jp-carte); border-radius: 14px; box-shadow: 0 24px 50px rgba(40, 25, 15, .3);
+  border: 6px solid #e8dcc4; text-align: center; }
+.jp-pancarte .jp-planche b { display: block; font: 700 104px/1 "Caveat"; color: var(--jp-encre); }
+.jp-pancarte .jp-planche span { display: block; margin-top: 8px; font: 700 30px/1 "Inter"; letter-spacing: .12em; text-transform: uppercase; color: var(--jp-encre-2); }
+.jp-pancarte .jp-planche::after { content: ""; position: absolute; left: 50px; right: 50px; bottom: 26px; height: 8px; border-radius: 4px; background: var(--jp-moutarde); }
+.jp-pancarte .jp-mains { position: absolute; left: 0; right: 0; bottom: -30px; display: flex; justify-content: space-between; padding: 0 40px; }
+.jp-pancarte .jp-mains i { width: 70px; height: 60px; border-radius: 30px 30px 26px 26px; background: #6b4430; }
+
+/* ── Note manuscrite ── */
+.jp-note { position: absolute; padding: 28px 34px; background: var(--jp-carte); border-radius: 10px; box-shadow: 0 20px 40px rgba(40, 25, 15, .35);
+  font: 700 46px/1.25 "Caveat"; color: #2a2a2a; transform: rotate(-4deg); }
+.jp-note .jp-note-titre { font-size: 40px; color: #6b5d4a; border-bottom: 3px solid var(--jp-moutarde); margin-bottom: 8px; }
+
+/* ── Paupières (clignement) ── */
+.jp-paupiere { position: absolute; border-radius: 50%; transform: scaleY(0); transform-origin: 50% 0%; pointer-events: none; }
+
+/* ── OutroJP ── */
+.jp-outro { position: absolute; inset: 0; opacity: 0; isolation: isolate; }
+.jp-outro .jp-papier { z-index: -1; }
+.jp-outro .jp-signature { position: absolute; left: 290px; top: 560px; }
+.jp-outro .jp-embleme { position: absolute; left: 390px; top: 668px; width: 240px; }
+.jp-outro .jp-marque { position: absolute; left: 60px; right: 120px; top: 1060px; text-align: center; font: 700 64px/1.1 "Inter"; letter-spacing: -0.02em; color: var(--jp-encre); }
+.jp-outro .jp-marque span { color: var(--jp-rouge-logo); }
+.jp-outro .jp-douala { position: absolute; left: 60px; right: 120px; top: 1160px; text-align: center; font: 600 44px/1 "Inter"; color: var(--jp-encre-2); }
+.jp-outro .jp-bouton { position: absolute; left: 120px; right: 180px; top: 1290px; height: 130px; border-radius: 65px; background: var(--jp-moutarde); color: var(--jp-encre); display: flex;
+  align-items: center; justify-content: center; font: 700 46px/1 "Inter"; box-shadow: 0 16px 34px rgba(150, 110, 20, .3); }
+.jp-outro .jp-badge-offre { position: absolute; left: 110px; right: 170px; top: 400px; padding: 22px 24px; white-space: nowrap; border-radius: 24px; background: var(--jp-carte); border: 5px solid var(--jp-moutarde);
+  text-align: center; font: 700 40px/1.2 "Inter"; color: var(--jp-encre); box-shadow: 0 14px 30px rgba(40, 25, 15, .2); }
