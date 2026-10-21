@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>JP Service — L'histoire de Serge</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/gsap.min.js"></script>
+    <script src="js/temps.js"></script>
+    <script src="js/main.js"></script>
+  </head>
+  <body>
+    <div id="racine" data-composition-id="main" data-start="0" data-duration="57" data-fps="30" data-width="1080" data-height="1920">
+      <section id="scene" class="clip" data-start="0" data-duration="57" data-track-index="0">
+        <div id="papier" class="couche papier"></div>
+        <div id="brun" class="couche brun"></div>
+        <div id="camera" class="couche">
+
+          <!-- 1. HOOK : montre, anneau jaune -->
+          <div class="plan" id="p1">
+            <svg id="montre" class="montre" viewBox="-400 -400 800 800" width="800" height="800"></svg>
+            <div class="flou-avant" style="left:-160px;top:1380px;width:520px;height:520px;background:#5a4636"></div>
+          </div>
+
+          <!-- 2. Serge la nuit -->
+          <div class="plan" id="p2">
+            <div class="cadre"><img src="assets/images/serge-nuit.jpg" style="object-position:50% 62%" /></div>
+            <div class="lueur" id="lampe"></div>
+            <div class="note" id="note-dossier"><div class="note-titre">Dossier investisseur</div><div>✓ Business plan</div><div>✓ Chiffres 2027</div><div>→ RDV 10&nbsp;h</div></div>
+          </div>
+
+          <!-- 3. Pont du Wouri -->
+          <div class="plan" id="p3">
+            <div class="cadre"><img id="img-pont" src="assets/images/decor-pont-wouri.jpg" style="object-position:50% 78%" /></div>
+            <div class="encart" id="encart-volant"><img src="assets/images/serge-volant.jpg" /><div id="gouttes"></div></div>
+          </div>
+
+          <!-- 4. Vue de dessus : 20 minutes pour une place -->
+          <div class="plan" id="p4">
+            <div class="cadre clair-fond"><svg id="dessus" viewBox="0 0 900 1180" width="900" height="1180"></svg></div>
+            <div class="chrono" id="chrono"><svg viewBox="0 0 200 200" width="200" height="200"><circle cx="100" cy="100" r="84" fill="#fff" stroke="#E6DDCB" stroke-width="16"/><circle id="anneau-chrono" cx="100" cy="100" r="84" fill="none" stroke="#F2C230" stroke-width="16" stroke-linecap="round" transform="rotate(-90 100 100)"/></svg><b id="minutes">0</b><span>min</span></div>
+          </div>
+
+          <!-- 5. Serge arrive en retard -->
+          <div class="plan" id="p5">
+            <div class="cadre"><img id="img-retard" src="assets/images/serge-retard.jpg" style="object-position:50% 45%" /></div>
+            <svg class="horloge" id="horloge1" viewBox="-60 -60 120 120" width="190" height="190"></svg>
+          </div>
+
+          <!-- 6. L'investisseuse regarde sa montre -->
+          <div class="plan" id="p6">
+            <div class="cadre"><img class="fond-flou" src="assets/images/decor-bureau.jpg" style="object-position:70% 50%" /><img id="inv-montre" class="decoupe" src="assets/images/investisseuse-montre.png" /></div>
+            <div class="flou-avant" style="left:-120px;top:1330px;width:460px;height:420px;background:#7a4a32;border-radius:40% 50% 0 0"></div>
+          </div>
+
+          <!-- 7. Le mois suivant : papier vierge -->
+          <div class="plan" id="p7"></div>
+
+          <!-- 8. Intérieur de voiture -->
+          <div class="plan" id="p8">
+            <div class="cadre carre"><img id="img-voiture" src="assets/images/serge-voiture.jpg" /><i class="lumiere-rue" id="lumiere-rue"></i></div>
+            <div class="etiquettes"><span class="etiquette">Clim</span><span class="etiquette">Wi-Fi</span><span class="etiquette">Calme</span></div>
+            <div class="flou-avant" style="left:820px;top:1250px;width:420px;height:560px;background:#1e1611;border-radius:50% 50% 0 0"></div>
+          </div>
+
+          <!-- 9. Devant l'immeuble, la portière -->
+          <div class="plan" id="p9">
+            <div class="cadre"><img src="assets/images/decor-immeuble.jpg" style="object-position:30% 60%" /></div>
+            <div class="encart grand" id="encart-portiere"><img src="assets/images/serge-portiere.jpg" /></div>
+            <div class="badge-heure" id="badge-heure"><svg viewBox="-60 -60 120 120" width="64" height="64" id="horloge2"></svg>09:55</div>
+          </div>
+
+          <!-- 10. L'investisseuse se lève -->
+          <div class="plan" id="p10">
+            <div class="cadre"><img class="fond-flou" src="assets/images/decor-bureau.jpg" style="object-position:40% 55%" /><img id="inv-debout" class="decoupe debout" src="assets/images/investisseuse-debout.png" /></div>
+          </div>
+
+          <!-- 11. La leçon : fiche à deux colonnes -->
+          <div class="plan" id="p11">
+            <div class="fiche">
+              <div class="colonne" id="col-avant"><div class="col-titre">Avant</div><div class="manuscrit">10:12<i class="barre"></i></div><div class="manuscrit">stressé<i class="barre"></i></div><div class="manuscrit">froissé<i class="barre"></i></div></div>
+              <div class="colonne" id="col-apres"><div class="col-titre">Avec chauffeur</div><div class="manuscrit">09:55<i class="coche">✓</i></div><div class="manuscrit">prêt<i class="coche">✓</i></div><div class="manuscrit">serein<i class="coche">✓</i></div></div>
+            </div>
+          </div>
+
+          <!-- 12. Phrase clé : décor vide, juste le texte -->
+          <div class="plan" id="p12"></div>
+
+          <!-- 13. Outro -->
+          <div class="plan" id="p13">
+            <svg class="signature" viewBox="-220 -220 440 440" width="440" height="440"><circle cx="0" cy="0" r="180" fill="#121212"/><circle id="cercle-jaune" cx="0" cy="0" r="200" fill="none" stroke="#F2C230" stroke-width="18" stroke-linecap="round" transform="rotate(-100)"/></svg>
+            <img id="embleme" class="embleme" src="assets/images/embleme-jp.png" />
+            <div class="marque" id="marque">JP Service Express <span>Urbaine</span></div>
+            <div class="douala" id="douala">Chauffeur privé · Douala</div>
+            <div class="bouton" id="bouton">WhatsApp · +237 655 394 028</div>
+          </div>
+        </div>
+        <!-- Texte en haut à gauche, mot par mot -->
+        <div id="legendes" class="legendes"></div>
+        <div class="grain"></div>
+        <div class="vignette"></div>
+      </section>
+      <audio id="mix" src="assets/audio/mix.wav" data-start="0" data-duration="57" data-track-index="10" data-volume="1"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      window.CONSTRUIRE(tl);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
