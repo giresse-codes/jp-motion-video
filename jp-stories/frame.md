@@ -54,6 +54,9 @@ components:
   pancarte:
     code: "JPStories.pancarte(tl, { parent, texte: 'M. Serge', sousTexte, de, a })"
     description: "Pancarte tenue à deux mains (chauffeur qui attend), texte en Caveat, souligné moutarde, léger balancement."
+  chauffeur:
+    code: "JPStories.chauffeurJP(parent, { dos, brasLibre })"
+    description: "Chauffeur JP dessiné en code (casquette, costume sombre, sourire), de face ou de dos ; renvoie tête, paupières et bras pour les petits gestes. Provisoire : à remplacer par ses illustrations quand elles existent."
   note:
     code: "JPStories.noteManuscrite(tl, { parent, x, y, titre, lignes, t })"
     description: "Papier manuscrit en Caveat posé de biais ; pour montrer un dossier, une liste, des chiffres."
