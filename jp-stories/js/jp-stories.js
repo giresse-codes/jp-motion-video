@@ -115,10 +115,10 @@
   }
 
   // ═══════════════ Horloge murale ═══════════════
-  function horloge(tl, { parent, x = 720, y = 580, taille = 190, heure = [10, 12], de }) {
+  function horloge(tl, { parent, x = 720, y = 580, taille = 190, heure = [10, 12], de, fond = C.carte }) {
     const el = svg($(parent), "svg", { class: "jp-horloge", viewBox: "-60 -60 120 120", width: taille, height: taille });
     el.style.left = x + "px"; el.style.top = y + "px";
-    svg(el, "circle", { r: 54, fill: C.carte, stroke: C.encre, "stroke-width": 6 });
+    svg(el, "circle", { r: 54, fill: fond, stroke: C.encre, "stroke-width": 6 }); // fond : teinte du cadran (ex. rouge pâle = retard)
     for (let i = 0; i < 12; i++) svg(el, "rect", { x: -2, y: -48, width: 4, height: i % 3 ? 7 : 12, fill: C.encre, transform: `rotate(${i * 30})` });
     svg(el, "rect", { x: -3, y: -26, width: 6, height: 30, rx: 3, fill: C.encre, transform: `rotate(${(heure[0] + heure[1] / 60) * 30})` });
     svg(el, "rect", { x: -2, y: -40, width: 4, height: 44, rx: 2, fill: C.encre, transform: `rotate(${heure[1] * 6})` });

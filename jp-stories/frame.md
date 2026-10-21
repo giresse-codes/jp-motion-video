@@ -43,7 +43,7 @@ components:
     code: "JPStories.montre(tl, { parent, de, a, depart: [9,50], arrivee: [9,59.7] })"
     description: "Gros plan de montre dessinée en SVG ; aiguilles qui avancent, anneau moutarde qui se remplit. Hook typique."
   horloge:
-    code: "JPStories.horloge(tl, { parent, x, y, taille, heure: [10,12], de })"
+    code: "JPStories.horloge(tl, { parent, x, y, taille, heure: [10,12], de, fond })"
     description: "Horloge murale qui apparaît avec un rebond ; affiche une heure fixe (retard, avance)."
   telephone:
     code: "JPStories.telephone(tl, { parent, de, heure, date, notifications: [{ t, appli, couleur, titre, texte }] })"
