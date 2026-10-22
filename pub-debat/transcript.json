@@ -1,0 +1,531 @@
+{
+ "words": [
+  {
+   "text": "*Rire",
+   "start": 0.0,
+   "end": 0.419
+  },
+  {
+   "text": "chauffeur",
+   "start": 1.127,
+   "end": 1.76
+  },
+  {
+   "text": "privé",
+   "start": 1.76,
+   "end": 2.163
+  },
+  {
+   "text": "à",
+   "start": 2.754,
+   "end": 2.964
+  },
+  {
+   "text": "2000",
+   "start": 2.964,
+   "end": 3.216
+  },
+  {
+   "text": "franleurs",
+   "start": 3.216,
+   "end": 3.678
+  },
+  {
+   "text": "Allez,",
+   "start": 4.161,
+   "end": 4.488
+  },
+  {
+   "text": "tu",
+   "start": 4.488,
+   "end": 4.721
+  },
+  {
+   "text": "n'as",
+   "start": 4.721,
+   "end": 4.954
+  },
+  {
+   "text": "rien",
+   "start": 4.954,
+   "end": 5.234
+  },
+  {
+   "text": "*B",
+   "start": 6.046,
+   "end": 6.231
+  },
+  {
+   "text": "Une",
+   "start": 6.782,
+   "end": 7.019
+  },
+  {
+   "text": "arnaque?",
+   "start": 7.019,
+   "end": 7.445
+  },
+  {
+   "text": "Prend",
+   "start": 8.137,
+   "end": 8.393
+  },
+  {
+   "text": "ta",
+   "start": 8.393,
+   "end": 8.576
+  },
+  {
+   "text": "calculatrice",
+   "start": 8.576,
+   "end": 9.087
+  },
+  {
+   "text": "Vas-",
+   "start": 10.477,
+   "end": 10.769
+  },
+  {
+   "text": "Tachiku.",
+   "start": 11.693,
+   "end": 12.204
+  },
+  {
+   "text": "4",
+   "start": 12.772,
+   "end": 12.95
+  },
+  {
+   "text": "heures.",
+   "start": 12.95,
+   "end": 13.235
+  },
+  {
+   "text": "2500",
+   "start": 13.952,
+   "end": 14.321
+  },
+  {
+   "text": "heures.",
+   "start": 14.321,
+   "end": 14.813
+  },
+  {
+   "text": "Ça",
+   "start": 15.714,
+   "end": 15.827
+  },
+  {
+   "text": "fait",
+   "start": 15.827,
+   "end": 15.961
+  },
+  {
+   "text": "combien",
+   "start": 15.961,
+   "end": 16.163
+  },
+  {
+   "text": "?",
+   "start": 16.163,
+   "end": 16.275
+  },
+  {
+   "text": "2000",
+   "start": 17.064,
+   "end": 19.095
+  },
+  {
+   "text": "Bien.",
+   "start": 19.692,
+   "end": 19.948
+  },
+  {
+   "text": "Maintenant,",
+   "start": 20.686,
+   "end": 21.165
+  },
+  {
+   "text": "cinq",
+   "start": 21.165,
+   "end": 21.404
+  },
+  {
+   "text": "heures.",
+   "start": 21.404,
+   "end": 21.722
+  },
+  {
+   "text": "À",
+   "start": 22.208,
+   "end": 22.425
+  },
+  {
+   "text": "partir",
+   "start": 22.425,
+   "end": 22.772
+  },
+  {
+   "text": "de",
+   "start": 22.772,
+   "end": 22.989
+  },
+  {
+   "text": "5h,",
+   "start": 22.989,
+   "end": 23.207
+  },
+  {
+   "text": "c'est",
+   "start": 23.207,
+   "end": 23.467
+  },
+  {
+   "text": "2000",
+   "start": 23.467,
+   "end": 23.728
+  },
+  {
+   "text": "l",
+   "start": 23.728,
+   "end": 23.945
+  },
+  {
+   "text": "5",
+   "start": 24.75,
+   "end": 25.26
+  },
+  {
+   "text": "fois",
+   "start": 25.26,
+   "end": 25.872
+  },
+  {
+   "text": "de",
+   "start": 25.872,
+   "end": 26.381
+  },
+  {
+   "text": "mille",
+   "start": 26.381,
+   "end": 27.095
+  },
+  {
+   "text": "Dimil.",
+   "start": 28.369,
+   "end": 28.818
+  },
+  {
+   "text": "*s",
+   "start": 29.242,
+   "end": 29.469
+  },
+  {
+   "text": "Attends.",
+   "start": 29.879,
+   "end": 30.31
+  },
+  {
+   "text": "C'est",
+   "start": 30.947,
+   "end": 31.287
+  },
+  {
+   "text": "le",
+   "start": 31.287,
+   "end": 31.57
+  },
+  {
+   "text": "Le",
+   "start": 32.242,
+   "end": 32.564
+  },
+  {
+   "text": "5e",
+   "start": 32.564,
+   "end": 32.886
+  },
+  {
+   "text": "heure",
+   "start": 32.886,
+   "end": 33.337
+  },
+  {
+   "text": "est",
+   "start": 33.337,
+   "end": 33.658
+  },
+  {
+   "text": "cadeau.",
+   "start": 33.658,
+   "end": 34.174
+  },
+  {
+   "text": "et",
+   "start": 34.706,
+   "end": 34.951
+  },
+  {
+   "text": "le",
+   "start": 34.951,
+   "end": 35.197
+  },
+  {
+   "text": "confort",
+   "start": 35.197,
+   "end": 35.639
+  },
+  {
+   "text": "avec",
+   "start": 35.639,
+   "end": 35.933
+  },
+  {
+   "text": "la",
+   "start": 35.933,
+   "end": 36.179
+  },
+  {
+   "text": "clim",
+   "start": 36.179,
+   "end": 36.473
+  },
+  {
+   "text": "et",
+   "start": 36.473,
+   "end": 36.719
+  },
+  {
+   "text": "le",
+   "start": 36.719,
+   "end": 36.964
+  },
+  {
+   "text": "wifi.",
+   "start": 36.964,
+   "end": 37.259
+  },
+  {
+   "text": "3500.",
+   "start": 37.796,
+   "end": 38.641
+  },
+  {
+   "text": "et",
+   "start": 39.087,
+   "end": 39.431
+  },
+  {
+   "text": "3000",
+   "start": 39.431,
+   "end": 39.844
+  },
+  {
+   "text": "dessins-coeurs.",
+   "start": 39.844,
+   "end": 40.875
+  },
+  {
+   "text": "*B",
+   "start": 41.355,
+   "end": 41.511
+  },
+  {
+   "text": "T'as",
+   "start": 42.275,
+   "end": 42.487
+  },
+  {
+   "text": "le",
+   "start": 42.487,
+   "end": 42.699
+  },
+  {
+   "text": "m",
+   "start": 42.699,
+   "end": 42.911
+  },
+  {
+   "text": "What's",
+   "start": 43.564,
+   "end": 43.794
+  },
+  {
+   "text": "up",
+   "start": 43.794,
+   "end": 43.959
+  },
+  {
+   "text": "?",
+   "start": 43.959,
+   "end": 44.124
+  },
+  {
+   "text": "+",
+   "start": 44.465,
+   "end": 45.273
+  },
+  {
+   "text": "655",
+   "start": 45.273,
+   "end": 46.081
+  },
+  {
+   "text": "394.028.",
+   "start": 46.346,
+   "end": 49.0
+  }
+ ],
+ "phrases": [
+  {
+   "start": 0.0,
+   "end": 0.42,
+   "text": "*Rire"
+  },
+  {
+   "start": 1.13,
+   "end": 2.16,
+   "text": "chauffeur privé"
+  },
+  {
+   "start": 2.75,
+   "end": 3.68,
+   "text": "à 2000 franleurs"
+  },
+  {
+   "start": 4.16,
+   "end": 5.23,
+   "text": "Allez, tu n'as rien"
+  },
+  {
+   "start": 6.05,
+   "end": 6.23,
+   "text": "*B"
+  },
+  {
+   "start": 6.78,
+   "end": 7.44,
+   "text": "Une arnaque?"
+  },
+  {
+   "start": 8.14,
+   "end": 9.09,
+   "text": "Prend ta calculatrice"
+  },
+  {
+   "start": 10.48,
+   "end": 10.77,
+   "text": "Vas-"
+  },
+  {
+   "start": 11.69,
+   "end": 12.2,
+   "text": "Tachiku."
+  },
+  {
+   "start": 12.77,
+   "end": 13.23,
+   "text": "4 heures."
+  },
+  {
+   "start": 13.95,
+   "end": 14.81,
+   "text": "2500 heures."
+  },
+  {
+   "start": 15.71,
+   "end": 16.28,
+   "text": "Ça fait combien ?"
+  },
+  {
+   "start": 17.06,
+   "end": 19.1,
+   "text": "2000"
+  },
+  {
+   "start": 19.69,
+   "end": 19.95,
+   "text": "Bien."
+  },
+  {
+   "start": 20.69,
+   "end": 21.72,
+   "text": "Maintenant, cinq heures."
+  },
+  {
+   "start": 22.21,
+   "end": 23.94,
+   "text": "À partir de 5h, c'est 2000 l"
+  },
+  {
+   "start": 24.75,
+   "end": 27.1,
+   "text": "5 fois de mille"
+  },
+  {
+   "start": 28.37,
+   "end": 28.82,
+   "text": "Dimil."
+  },
+  {
+   "start": 29.24,
+   "end": 29.47,
+   "text": "*s"
+  },
+  {
+   "start": 29.88,
+   "end": 30.31,
+   "text": "Attends."
+  },
+  {
+   "start": 30.95,
+   "end": 31.57,
+   "text": "C'est le"
+  },
+  {
+   "start": 32.24,
+   "end": 34.17,
+   "text": "Le 5e heure est cadeau."
+  },
+  {
+   "start": 34.71,
+   "end": 37.26,
+   "text": "et le confort avec la clim et le wifi."
+  },
+  {
+   "start": 37.8,
+   "end": 38.64,
+   "text": "3500."
+  },
+  {
+   "start": 39.09,
+   "end": 40.87,
+   "text": "et 3000 dessins-coeurs."
+  },
+  {
+   "start": 41.36,
+   "end": 41.51,
+   "text": "*B"
+  },
+  {
+   "start": 42.27,
+   "end": 42.91,
+   "text": "T'as le m"
+  },
+  {
+   "start": 43.56,
+   "end": 44.12,
+   "text": "What's up ?"
+  },
+  {
+   "start": 44.46,
+   "end": 46.08,
+   "text": "+ 655"
+  },
+  {
+   "start": 46.35,
+   "end": 49.0,
+   "text": "394.028."
+  }
+ ]
+}

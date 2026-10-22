@@ -97,6 +97,7 @@ composants dans `jp-papier/README.md` ; démo `index.html`). Nouvelle vidéo :
 `scripts/sons.py`, `npm run carve`, lint + 5 snapshots avant tout rendu).
 Transcription de secours si Hugging Face est bloqué : `python3 scripts/transcrire.py` (Whisper small via GitHub).
 Vidéos JP PAPIER : `pub-clarisse/`, `pub-atterrissage/`, `pub-3-moments/`, `pub-chauffeur-jp/`.
+Vidéo JP STORIES : `pub-debat/` (dialogue Rodrigue / Nadège, personnages dessinés en SVG dans `js/main.js`).
 
 ## Skills Three.js
 
