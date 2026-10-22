@@ -1,0 +1,16 @@
+{
+  "name": "jp-papier",
+  "private": true,
+  "description": "Modèle et composants de la série JP Papier (HyperFrames). Voir frame.md.",
+  "scripts": {
+    "sons": "python3 scripts/sons.py",
+    "carve": "node ../.claude/skills/hyperframes-audio/scripts/carve.mjs --comp index.html --bed nappe --voice voix",
+    "lint": "npx hyperframes lint",
+    "snapshots": "npx hyperframes snapshot --frames 5",
+    "apercu": "npx hyperframes render -q draft -f 30 -o renders/apercu.mp4",
+    "rendu": "npx hyperframes render -q delivery -f 30 --video-bitrate 12M -o renders/final.mp4"
+  },
+  "devDependencies": {
+    "@hyperframes/core": "0.8.181"
+  }
+}

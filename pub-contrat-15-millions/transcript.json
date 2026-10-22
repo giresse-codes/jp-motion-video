@@ -1,0 +1,1566 @@
+{
+ "words": [
+  {
+   "text": "ce",
+   "start": 0.0,
+   "end": 0.269
+  },
+  {
+   "text": "contrat",
+   "start": 0.269,
+   "end": 0.752
+  },
+  {
+   "text": "valait",
+   "start": 0.752,
+   "end": 1.182
+  },
+  {
+   "text": "15",
+   "start": 1.182,
+   "end": 1.451
+  },
+  {
+   "text": "millions",
+   "start": 1.451,
+   "end": 1.988
+  },
+  {
+   "text": "de",
+   "start": 1.988,
+   "end": 2.257
+  },
+  {
+   "text": "francs.",
+   "start": 2.257,
+   "end": 2.687
+  },
+  {
+   "text": "Serge",
+   "start": 3.545,
+   "end": 3.855
+  },
+  {
+   "text": "l'a",
+   "start": 3.855,
+   "end": 4.077
+  },
+  {
+   "text": "perdu.",
+   "start": 4.077,
+   "end": 4.388
+  },
+  {
+   "text": "avant",
+   "start": 5.198,
+   "end": 5.489
+  },
+  {
+   "text": "même",
+   "start": 5.489,
+   "end": 5.739
+  },
+  {
+   "text": "d'ouvrir",
+   "start": 5.739,
+   "end": 6.114
+  },
+  {
+   "text": "la",
+   "start": 6.114,
+   "end": 6.323
+  },
+  {
+   "text": "bouche",
+   "start": 6.323,
+   "end": 6.656
+  },
+  {
+   "text": "et",
+   "start": 7.581,
+   "end": 7.728
+  },
+  {
+   "text": "le",
+   "start": 7.728,
+   "end": 7.874
+  },
+  {
+   "text": "p",
+   "start": 7.874,
+   "end": 8.021
+  },
+  {
+   "text": "ce",
+   "start": 8.761,
+   "end": 8.945
+  },
+  {
+   "text": "n'était",
+   "start": 8.945,
+   "end": 9.239
+  },
+  {
+   "text": "pas",
+   "start": 9.239,
+   "end": 9.423
+  },
+  {
+   "text": "à",
+   "start": 9.423,
+   "end": 9.607
+  },
+  {
+   "text": "cause",
+   "start": 9.607,
+   "end": 9.864
+  },
+  {
+   "text": "de",
+   "start": 9.864,
+   "end": 10.048
+  },
+  {
+   "text": "3",
+   "start": 11.325,
+   "end": 11.553
+  },
+  {
+   "text": "mois",
+   "start": 11.553,
+   "end": 11.827
+  },
+  {
+   "text": "de",
+   "start": 11.827,
+   "end": 12.056
+  },
+  {
+   "text": "travail.",
+   "start": 12.056,
+   "end": 12.467
+  },
+  {
+   "text": "des",
+   "start": 13.175,
+   "end": 13.365
+  },
+  {
+   "text": "nuits",
+   "start": 13.365,
+   "end": 13.631
+  },
+  {
+   "text": "blanches",
+   "start": 13.631,
+   "end": 14.012
+  },
+  {
+   "text": "un",
+   "start": 14.812,
+   "end": 15.034
+  },
+  {
+   "text": "dossier",
+   "start": 15.034,
+   "end": 15.434
+  },
+  {
+   "text": "parfait.",
+   "start": 15.434,
+   "end": 15.834
+  },
+  {
+   "text": "Rendez-vous",
+   "start": 17.009,
+   "end": 17.614
+  },
+  {
+   "text": "à",
+   "start": 17.614,
+   "end": 17.866
+  },
+  {
+   "text": "10h",
+   "start": 17.866,
+   "end": 18.118
+  },
+  {
+   "text": "à",
+   "start": 18.118,
+   "end": 18.37
+  },
+  {
+   "text": "Aqwa",
+   "start": 18.37,
+   "end": 18.672
+  },
+  {
+   "text": "avec",
+   "start": 19.024,
+   "end": 19.251
+  },
+  {
+   "text": "Madame",
+   "start": 19.251,
+   "end": 19.554
+  },
+  {
+   "text": "Go.",
+   "start": 19.554,
+   "end": 19.743
+  },
+  {
+   "text": "celle",
+   "start": 20.393,
+   "end": 20.687
+  },
+  {
+   "text": "qui",
+   "start": 20.687,
+   "end": 20.897
+  },
+  {
+   "text": "peut",
+   "start": 20.897,
+   "end": 21.149
+  },
+  {
+   "text": "tout",
+   "start": 21.149,
+   "end": 21.401
+  },
+  {
+   "text": "changer.",
+   "start": 21.401,
+   "end": 21.779
+  },
+  {
+   "text": "8h40.",
+   "start": 22.737,
+   "end": 23.453
+  },
+  {
+   "text": "Serge",
+   "start": 24.128,
+   "end": 24.383
+  },
+  {
+   "text": "prend",
+   "start": 24.383,
+   "end": 24.638
+  },
+  {
+   "text": "sa",
+   "start": 24.638,
+   "end": 24.82
+  },
+  {
+   "text": "voiture.",
+   "start": 24.82,
+   "end": 25.148
+  },
+  {
+   "text": "Pondu",
+   "start": 26.105,
+   "end": 26.462
+  },
+  {
+   "text": "W",
+   "start": 26.462,
+   "end": 26.716
+  },
+  {
+   "text": "Bouché",
+   "start": 27.35,
+   "end": 27.772
+  },
+  {
+   "text": "9h30",
+   "start": 28.71,
+   "end": 29.271
+  },
+  {
+   "text": "Il",
+   "start": 30.052,
+   "end": 30.28
+  },
+  {
+   "text": "n'a",
+   "start": 30.28,
+   "end": 30.507
+  },
+  {
+   "text": "pas",
+   "start": 30.507,
+   "end": 30.734
+  },
+  {
+   "text": "9h52",
+   "start": 31.723,
+   "end": 32.517
+  },
+  {
+   "text": "Ils",
+   "start": 33.218,
+   "end": 33.392
+  },
+  {
+   "text": "tournent",
+   "start": 33.392,
+   "end": 33.739
+  },
+  {
+   "text": "pour",
+   "start": 33.739,
+   "end": 33.948
+  },
+  {
+   "text": "trouver",
+   "start": 33.948,
+   "end": 34.261
+  },
+  {
+   "text": "une",
+   "start": 34.261,
+   "end": 34.434
+  },
+  {
+   "text": "place.",
+   "start": 34.434,
+   "end": 34.678
+  },
+  {
+   "text": "une",
+   "start": 35.366,
+   "end": 35.538
+  },
+  {
+   "text": "fois.",
+   "start": 35.538,
+   "end": 35.743
+  },
+  {
+   "text": "deux",
+   "start": 36.413,
+   "end": 36.626
+  },
+  {
+   "text": "fois.",
+   "start": 36.626,
+   "end": 36.839
+  },
+  {
+   "text": "Trois",
+   "start": 37.635,
+   "end": 37.881
+  },
+  {
+   "text": "fois",
+   "start": 37.881,
+   "end": 38.092
+  },
+  {
+   "text": "10h12",
+   "start": 38.931,
+   "end": 39.697
+  },
+  {
+   "text": "il",
+   "start": 40.466,
+   "end": 40.647
+  },
+  {
+   "text": "entre.",
+   "start": 40.647,
+   "end": 40.901
+  },
+  {
+   "text": "chemise",
+   "start": 41.493,
+   "end": 41.928
+  },
+  {
+   "text": "trempée.",
+   "start": 41.928,
+   "end": 42.362
+  },
+  {
+   "text": "souffle",
+   "start": 43.017,
+   "end": 43.428
+  },
+  {
+   "text": "court.",
+   "start": 43.428,
+   "end": 43.748
+  },
+  {
+   "text": "Madame",
+   "start": 44.47,
+   "end": 44.764
+  },
+  {
+   "text": "Go",
+   "start": 44.764,
+   "end": 44.947
+  },
+  {
+   "text": "regarde",
+   "start": 44.947,
+   "end": 45.277
+  },
+  {
+   "text": "sa",
+   "start": 45.277,
+   "end": 45.461
+  },
+  {
+   "text": "montre.",
+   "start": 45.461,
+   "end": 45.754
+  },
+  {
+   "text": "Vous",
+   "start": 46.458,
+   "end": 46.627
+  },
+  {
+   "text": "avez",
+   "start": 46.627,
+   "end": 46.795
+  },
+  {
+   "text": "cinq",
+   "start": 46.795,
+   "end": 46.963
+  },
+  {
+   "text": "minutes,",
+   "start": 46.963,
+   "end": 47.216
+  },
+  {
+   "text": "monsieur.",
+   "start": 47.216,
+   "end": 47.497
+  },
+  {
+   "text": "Trois",
+   "start": 48.37,
+   "end": 48.558
+  },
+  {
+   "text": "jours",
+   "start": 48.558,
+   "end": 48.745
+  },
+  {
+   "text": "plus",
+   "start": 48.745,
+   "end": 48.905
+  },
+  {
+   "text": "tard",
+   "start": 48.905,
+   "end": 49.066
+  },
+  {
+   "text": "animel.",
+   "start": 49.517,
+   "end": 49.947
+  },
+  {
+   "text": "nous",
+   "start": 50.554,
+   "end": 50.76
+  },
+  {
+   "text": "ne",
+   "start": 50.76,
+   "end": 50.931
+  },
+  {
+   "text": "donnerons",
+   "start": 50.931,
+   "end": 51.309
+  },
+  {
+   "text": "pas",
+   "start": 51.309,
+   "end": 51.481
+  },
+  {
+   "text": "suite.",
+   "start": 51.481,
+   "end": 51.721
+  },
+  {
+   "text": "Serge",
+   "start": 52.495,
+   "end": 52.741
+  },
+  {
+   "text": "a",
+   "start": 52.741,
+   "end": 52.916
+  },
+  {
+   "text": "cru",
+   "start": 52.916,
+   "end": 53.091
+  },
+  {
+   "text": "que",
+   "start": 53.091,
+   "end": 53.266
+  },
+  {
+   "text": "le",
+   "start": 53.266,
+   "end": 53.442
+  },
+  {
+   "text": "problème,",
+   "start": 53.442,
+   "end": 53.792
+  },
+  {
+   "text": "c'était",
+   "start": 53.792,
+   "end": 54.072
+  },
+  {
+   "text": "son",
+   "start": 54.072,
+   "end": 54.248
+  },
+  {
+   "text": "dossier",
+   "start": 54.248,
+   "end": 54.563
+  },
+  {
+   "text": "Il",
+   "start": 55.293,
+   "end": 55.508
+  },
+  {
+   "text": "l'a",
+   "start": 55.508,
+   "end": 55.723
+  },
+  {
+   "text": "ref",
+   "start": 55.723,
+   "end": 55.938
+  },
+  {
+   "text": "Trois",
+   "start": 56.6,
+   "end": 56.848
+  },
+  {
+   "text": "fois",
+   "start": 56.848,
+   "end": 57.061
+  },
+  {
+   "text": "jusqu'au",
+   "start": 57.856,
+   "end": 58.147
+  },
+  {
+   "text": "jour",
+   "start": 58.147,
+   "end": 58.341
+  },
+  {
+   "text": "où",
+   "start": 58.341,
+   "end": 58.502
+  },
+  {
+   "text": "un",
+   "start": 58.502,
+   "end": 58.664
+  },
+  {
+   "text": "ami",
+   "start": 58.664,
+   "end": 58.825
+  },
+  {
+   "text": "lui",
+   "start": 58.825,
+   "end": 58.987
+  },
+  {
+   "text": "a",
+   "start": 58.987,
+   "end": 59.149
+  },
+  {
+   "text": "dit",
+   "start": 59.149,
+   "end": 59.31
+  },
+  {
+   "text": "une",
+   "start": 59.31,
+   "end": 59.472
+  },
+  {
+   "text": "phrase",
+   "start": 59.472,
+   "end": 59.73
+  },
+  {
+   "text": "qui",
+   "start": 60.491,
+   "end": 60.619
+  },
+  {
+   "text": "a",
+   "start": 60.619,
+   "end": 60.748
+  },
+  {
+   "text": "tout",
+   "start": 60.748,
+   "end": 60.902
+  },
+  {
+   "text": "chang",
+   "start": 60.902,
+   "end": 61.083
+  },
+  {
+   "text": "Ton",
+   "start": 61.926,
+   "end": 62.128
+  },
+  {
+   "text": "dossier",
+   "start": 62.128,
+   "end": 62.493
+  },
+  {
+   "text": "est",
+   "start": 62.493,
+   "end": 62.696
+  },
+  {
+   "text": "bon,",
+   "start": 62.696,
+   "end": 62.899
+  },
+  {
+   "text": "Serge.",
+   "start": 62.899,
+   "end": 63.182
+  },
+  {
+   "text": "C'est",
+   "start": 63.913,
+   "end": 64.135
+  },
+  {
+   "text": "ton",
+   "start": 64.135,
+   "end": 64.32
+  },
+  {
+   "text": "arrivée",
+   "start": 64.32,
+   "end": 64.653
+  },
+  {
+   "text": "qui",
+   "start": 64.653,
+   "end": 64.839
+  },
+  {
+   "text": "est",
+   "start": 64.839,
+   "end": 65.024
+  },
+  {
+   "text": "mau",
+   "start": 65.024,
+   "end": 65.209
+  },
+  {
+   "text": "6",
+   "start": 65.998,
+   "end": 66.154
+  },
+  {
+   "text": "mois",
+   "start": 66.154,
+   "end": 66.34
+  },
+  {
+   "text": "plus",
+   "start": 66.34,
+   "end": 66.526
+  },
+  {
+   "text": "tard.",
+   "start": 66.526,
+   "end": 66.713
+  },
+  {
+   "text": "Une",
+   "start": 67.362,
+   "end": 67.561
+  },
+  {
+   "text": "seconde",
+   "start": 67.561,
+   "end": 67.92
+  },
+  {
+   "text": "chance.",
+   "start": 67.92,
+   "end": 68.239
+  },
+  {
+   "text": "même",
+   "start": 68.942,
+   "end": 69.174
+  },
+  {
+   "text": "bureau.",
+   "start": 69.174,
+   "end": 69.483
+  },
+  {
+   "text": "Mme",
+   "start": 70.273,
+   "end": 70.498
+  },
+  {
+   "text": "Madame",
+   "start": 70.498,
+   "end": 70.857
+  },
+  {
+   "text": "Goh.",
+   "start": 70.857,
+   "end": 71.081
+  },
+  {
+   "text": "Mais",
+   "start": 71.87,
+   "end": 72.084
+  },
+  {
+   "text": "cette",
+   "start": 72.084,
+   "end": 72.333
+  },
+  {
+   "text": "fois,",
+   "start": 72.333,
+   "end": 72.546
+  },
+  {
+   "text": "Serge",
+   "start": 72.546,
+   "end": 72.796
+  },
+  {
+   "text": "ne",
+   "start": 72.796,
+   "end": 72.973
+  },
+  {
+   "text": "conduit",
+   "start": 72.973,
+   "end": 73.294
+  },
+  {
+   "text": "pas.",
+   "start": 73.294,
+   "end": 73.472
+  },
+  {
+   "text": "L'aveuille",
+   "start": 74.456,
+   "end": 74.962
+  },
+  {
+   "text": "un",
+   "start": 74.962,
+   "end": 75.192
+  },
+  {
+   "text": "seul",
+   "start": 75.192,
+   "end": 75.467
+  },
+  {
+   "text": "message.",
+   "start": 75.467,
+   "end": 75.881
+  },
+  {
+   "text": "le",
+   "start": 76.676,
+   "end": 76.88
+  },
+  {
+   "text": "matin,",
+   "start": 76.88,
+   "end": 77.165
+  },
+  {
+   "text": "son",
+   "start": 77.486,
+   "end": 77.659
+  },
+  {
+   "text": "chauffeur",
+   "start": 77.659,
+   "end": 78.041
+  },
+  {
+   "text": "l'attend",
+   "start": 78.041,
+   "end": 78.353
+  },
+  {
+   "text": "devant",
+   "start": 78.353,
+   "end": 78.63
+  },
+  {
+   "text": "la",
+   "start": 78.63,
+   "end": 78.804
+  },
+  {
+   "text": "porte.",
+   "start": 78.804,
+   "end": 79.047
+  },
+  {
+   "text": "dans",
+   "start": 80.089,
+   "end": 80.288
+  },
+  {
+   "text": "la",
+   "start": 80.288,
+   "end": 80.454
+  },
+  {
+   "text": "voiture.",
+   "start": 80.454,
+   "end": 80.752
+  },
+  {
+   "text": "la",
+   "start": 81.124,
+   "end": 81.336
+  },
+  {
+   "text": "climat,",
+   "start": 81.336,
+   "end": 81.676
+  },
+  {
+   "text": "le",
+   "start": 82.168,
+   "end": 82.402
+  },
+  {
+   "text": "wifi.",
+   "start": 82.402,
+   "end": 82.682
+  },
+  {
+   "text": "il",
+   "start": 83.432,
+   "end": 83.597
+  },
+  {
+   "text": "relit",
+   "start": 83.597,
+   "end": 83.828
+  },
+  {
+   "text": "ses",
+   "start": 83.828,
+   "end": 83.993
+  },
+  {
+   "text": "chiffres",
+   "start": 83.993,
+   "end": 84.323
+  },
+  {
+   "text": "calmement.",
+   "start": 84.756,
+   "end": 85.166
+  },
+  {
+   "text": "9h50",
+   "start": 86.429,
+   "end": 87.175
+  },
+  {
+   "text": "La",
+   "start": 87.671,
+   "end": 87.852
+  },
+  {
+   "text": "portière",
+   "start": 87.852,
+   "end": 88.214
+  },
+  {
+   "text": "s'",
+   "start": 88.214,
+   "end": 88.396
+  },
+  {
+   "text": "Là-h",
+   "start": 89.495,
+   "end": 89.879
+  },
+  {
+   "text": "derrière",
+   "start": 90.232,
+   "end": 90.541
+  },
+  {
+   "text": "la",
+   "start": 90.541,
+   "end": 90.696
+  },
+  {
+   "text": "fenêtre,",
+   "start": 90.696,
+   "end": 90.974
+  },
+  {
+   "text": "Madame",
+   "start": 91.664,
+   "end": 92.043
+  },
+  {
+   "text": "Engoo",
+   "start": 92.043,
+   "end": 92.375
+  },
+  {
+   "text": "Le",
+   "start": 92.625,
+   "end": 92.821
+  },
+  {
+   "text": "regard",
+   "start": 92.821,
+   "end": 93.134
+  },
+  {
+   "text": "d'arriv",
+   "start": 93.134,
+   "end": 93.448
+  },
+  {
+   "text": "Ce",
+   "start": 94.422,
+   "end": 94.654
+  },
+  {
+   "text": "jour-là",
+   "start": 94.654,
+   "end": 95.026
+  },
+  {
+   "text": "elle",
+   "start": 95.374,
+   "end": 95.544
+  },
+  {
+   "text": "ne",
+   "start": 95.544,
+   "end": 95.686
+  },
+  {
+   "text": "lui",
+   "start": 95.686,
+   "end": 95.828
+  },
+  {
+   "text": "a",
+   "start": 95.828,
+   "end": 95.969
+  },
+  {
+   "text": "pas",
+   "start": 95.969,
+   "end": 96.111
+  },
+  {
+   "text": "donné",
+   "start": 96.111,
+   "end": 96.31
+  },
+  {
+   "text": "cinq",
+   "start": 96.31,
+   "end": 96.48
+  },
+  {
+   "text": "minutes.",
+   "start": 96.48,
+   "end": 96.735
+  },
+  {
+   "text": "Elle",
+   "start": 97.549,
+   "end": 97.72
+  },
+  {
+   "text": "lui",
+   "start": 97.72,
+   "end": 97.862
+  },
+  {
+   "text": "a",
+   "start": 97.862,
+   "end": 98.004
+  },
+  {
+   "text": "donné",
+   "start": 98.004,
+   "end": 98.203
+  },
+  {
+   "text": "une",
+   "start": 98.203,
+   "end": 98.345
+  },
+  {
+   "text": "heure.",
+   "start": 98.345,
+   "end": 98.544
+  },
+  {
+   "text": "et",
+   "start": 99.43,
+   "end": 99.566
+  },
+  {
+   "text": "à",
+   "start": 99.566,
+   "end": 99.702
+  },
+  {
+   "text": "la",
+   "start": 99.702,
+   "end": 99.837
+  },
+  {
+   "text": "sign",
+   "start": 99.837,
+   "end": 100.0
+  },
+  {
+   "text": "le",
+   "start": 101.309,
+   "end": 101.468
+  },
+  {
+   "text": "même",
+   "start": 101.468,
+   "end": 101.66
+  },
+  {
+   "text": "homme.",
+   "start": 101.66,
+   "end": 101.883
+  },
+  {
+   "text": "Le",
+   "start": 102.478,
+   "end": 102.642
+  },
+  {
+   "text": "même",
+   "start": 102.642,
+   "end": 102.838
+  },
+  {
+   "text": "dossier.",
+   "start": 102.838,
+   "end": 103.133
+  },
+  {
+   "text": "15",
+   "start": 104.094,
+   "end": 104.319
+  },
+  {
+   "text": "millions",
+   "start": 104.319,
+   "end": 104.769
+  },
+  {
+   "text": "de",
+   "start": 104.769,
+   "end": 104.995
+  },
+  {
+   "text": "différences.",
+   "start": 104.995,
+   "end": 105.58
+  },
+  {
+   "text": "*R",
+   "start": 106.396,
+   "end": 106.582
+  },
+  {
+   "text": "parce",
+   "start": 106.933,
+   "end": 107.162
+  },
+  {
+   "text": "qu'un",
+   "start": 107.162,
+   "end": 107.359
+  },
+  {
+   "text": "rendez-vous",
+   "start": 107.359,
+   "end": 107.752
+  },
+  {
+   "text": "ne",
+   "start": 107.752,
+   "end": 107.916
+  },
+  {
+   "text": "commence",
+   "start": 107.916,
+   "end": 108.244
+  },
+  {
+   "text": "pas",
+   "start": 108.244,
+   "end": 108.407
+  },
+  {
+   "text": "dans",
+   "start": 108.407,
+   "end": 108.604
+  },
+  {
+   "text": "il",
+   "start": 109.394,
+   "end": 109.535
+  },
+  {
+   "text": "commence",
+   "start": 109.535,
+   "end": 109.818
+  },
+  {
+   "text": "dans",
+   "start": 109.818,
+   "end": 109.987
+  },
+  {
+   "text": "la",
+   "start": 109.987,
+   "end": 110.129
+  },
+  {
+   "text": "voiture.",
+   "start": 110.129,
+   "end": 110.383
+  },
+  {
+   "text": "et",
+   "start": 111.528,
+   "end": 111.712
+  },
+  {
+   "text": "toi.",
+   "start": 111.712,
+   "end": 111.896
+  },
+  {
+   "text": "Combien",
+   "start": 112.423,
+   "end": 112.897
+  },
+  {
+   "text": "t'as",
+   "start": 112.897,
+   "end": 113.16
+  },
+  {
+   "text": "déjà",
+   "start": 113.16,
+   "end": 113.476
+  },
+  {
+   "text": "coûté",
+   "start": 113.476,
+   "end": 113.845
+  }
+ ],
+ "phrases": [
+  {
+   "start": 0.0,
+   "end": 2.69,
+   "text": "ce contrat valait 15 millions de francs."
+  },
+  {
+   "start": 3.54,
+   "end": 4.39,
+   "text": "Serge l'a perdu."
+  },
+  {
+   "start": 5.2,
+   "end": 6.66,
+   "text": "avant même d'ouvrir la bouche"
+  },
+  {
+   "start": 7.58,
+   "end": 8.02,
+   "text": "et le p"
+  },
+  {
+   "start": 8.76,
+   "end": 10.05,
+   "text": "ce n'était pas à cause de"
+  },
+  {
+   "start": 11.32,
+   "end": 12.47,
+   "text": "3 mois de travail."
+  },
+  {
+   "start": 13.18,
+   "end": 14.01,
+   "text": "des nuits blanches"
+  },
+  {
+   "start": 14.81,
+   "end": 15.83,
+   "text": "un dossier parfait."
+  },
+  {
+   "start": 17.01,
+   "end": 18.67,
+   "text": "Rendez-vous à 10h à Aqwa"
+  },
+  {
+   "start": 19.02,
+   "end": 19.74,
+   "text": "avec Madame Go."
+  },
+  {
+   "start": 20.39,
+   "end": 21.78,
+   "text": "celle qui peut tout changer."
+  },
+  {
+   "start": 22.74,
+   "end": 23.45,
+   "text": "8h40."
+  },
+  {
+   "start": 24.13,
+   "end": 25.15,
+   "text": "Serge prend sa voiture."
+  },
+  {
+   "start": 26.11,
+   "end": 26.72,
+   "text": "Pondu W"
+  },
+  {
+   "start": 27.35,
+   "end": 27.77,
+   "text": "Bouché"
+  },
+  {
+   "start": 28.71,
+   "end": 29.27,
+   "text": "9h30"
+  },
+  {
+   "start": 30.05,
+   "end": 30.73,
+   "text": "Il n'a pas"
+  },
+  {
+   "start": 31.72,
+   "end": 32.52,
+   "text": "9h52"
+  },
+  {
+   "start": 33.22,
+   "end": 34.68,
+   "text": "Ils tournent pour trouver une place."
+  },
+  {
+   "start": 35.37,
+   "end": 35.74,
+   "text": "une fois."
+  },
+  {
+   "start": 36.41,
+   "end": 36.84,
+   "text": "deux fois."
+  },
+  {
+   "start": 37.64,
+   "end": 38.09,
+   "text": "Trois fois"
+  },
+  {
+   "start": 38.93,
+   "end": 39.7,
+   "text": "10h12"
+  },
+  {
+   "start": 40.47,
+   "end": 40.9,
+   "text": "il entre."
+  },
+  {
+   "start": 41.49,
+   "end": 42.36,
+   "text": "chemise trempée."
+  },
+  {
+   "start": 43.02,
+   "end": 43.75,
+   "text": "souffle court."
+  },
+  {
+   "start": 44.47,
+   "end": 45.75,
+   "text": "Madame Go regarde sa montre."
+  },
+  {
+   "start": 46.46,
+   "end": 47.5,
+   "text": "Vous avez cinq minutes, monsieur."
+  },
+  {
+   "start": 48.37,
+   "end": 49.07,
+   "text": "Trois jours plus tard"
+  },
+  {
+   "start": 49.52,
+   "end": 49.95,
+   "text": "animel."
+  },
+  {
+   "start": 50.55,
+   "end": 51.72,
+   "text": "nous ne donnerons pas suite."
+  },
+  {
+   "start": 52.5,
+   "end": 54.56,
+   "text": "Serge a cru que le problème, c'était son dossier"
+  },
+  {
+   "start": 55.29,
+   "end": 55.94,
+   "text": "Il l'a ref"
+  },
+  {
+   "start": 56.6,
+   "end": 57.06,
+   "text": "Trois fois"
+  },
+  {
+   "start": 57.86,
+   "end": 59.73,
+   "text": "jusqu'au jour où un ami lui a dit une phrase"
+  },
+  {
+   "start": 60.49,
+   "end": 61.08,
+   "text": "qui a tout chang"
+  },
+  {
+   "start": 61.93,
+   "end": 63.18,
+   "text": "Ton dossier est bon, Serge."
+  },
+  {
+   "start": 63.91,
+   "end": 65.21,
+   "text": "C'est ton arrivée qui est mau"
+  },
+  {
+   "start": 66.0,
+   "end": 66.71,
+   "text": "6 mois plus tard."
+  },
+  {
+   "start": 67.36,
+   "end": 68.24,
+   "text": "Une seconde chance."
+  },
+  {
+   "start": 68.94,
+   "end": 69.48,
+   "text": "même bureau."
+  },
+  {
+   "start": 70.27,
+   "end": 71.08,
+   "text": "Mme Madame Goh."
+  },
+  {
+   "start": 71.87,
+   "end": 73.47,
+   "text": "Mais cette fois, Serge ne conduit pas."
+  },
+  {
+   "start": 74.46,
+   "end": 75.88,
+   "text": "L'aveuille un seul message."
+  },
+  {
+   "start": 76.68,
+   "end": 77.17,
+   "text": "le matin,"
+  },
+  {
+   "start": 77.49,
+   "end": 79.05,
+   "text": "son chauffeur l'attend devant la porte."
+  },
+  {
+   "start": 80.09,
+   "end": 80.75,
+   "text": "dans la voiture."
+  },
+  {
+   "start": 81.12,
+   "end": 81.68,
+   "text": "la climat,"
+  },
+  {
+   "start": 82.17,
+   "end": 82.68,
+   "text": "le wifi."
+  },
+  {
+   "start": 83.43,
+   "end": 84.32,
+   "text": "il relit ses chiffres"
+  },
+  {
+   "start": 84.76,
+   "end": 85.17,
+   "text": "calmement."
+  },
+  {
+   "start": 86.43,
+   "end": 87.17,
+   "text": "9h50"
+  },
+  {
+   "start": 87.67,
+   "end": 88.4,
+   "text": "La portière s'"
+  },
+  {
+   "start": 89.49,
+   "end": 89.88,
+   "text": "Là-h"
+  },
+  {
+   "start": 90.23,
+   "end": 90.97,
+   "text": "derrière la fenêtre,"
+  },
+  {
+   "start": 91.66,
+   "end": 92.38,
+   "text": "Madame Engoo"
+  },
+  {
+   "start": 92.63,
+   "end": 93.45,
+   "text": "Le regard d'arriv"
+  },
+  {
+   "start": 94.42,
+   "end": 95.03,
+   "text": "Ce jour-là"
+  },
+  {
+   "start": 95.37,
+   "end": 96.73,
+   "text": "elle ne lui a pas donné cinq minutes."
+  },
+  {
+   "start": 97.55,
+   "end": 98.54,
+   "text": "Elle lui a donné une heure."
+  },
+  {
+   "start": 99.43,
+   "end": 100.0,
+   "text": "et à la sign"
+  },
+  {
+   "start": 101.31,
+   "end": 101.88,
+   "text": "le même homme."
+  },
+  {
+   "start": 102.48,
+   "end": 103.13,
+   "text": "Le même dossier."
+  },
+  {
+   "start": 104.09,
+   "end": 105.58,
+   "text": "15 millions de différences."
+  },
+  {
+   "start": 106.4,
+   "end": 106.58,
+   "text": "*R"
+  },
+  {
+   "start": 106.93,
+   "end": 108.6,
+   "text": "parce qu'un rendez-vous ne commence pas dans"
+  },
+  {
+   "start": 109.39,
+   "end": 110.38,
+   "text": "il commence dans la voiture."
+  },
+  {
+   "start": 111.53,
+   "end": 111.9,
+   "text": "et toi."
+  },
+  {
+   "start": 112.42,
+   "end": 113.84,
+   "text": "Combien t'as déjà coûté"
+  }
+ ]
+}
