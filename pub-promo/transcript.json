@@ -1,0 +1,521 @@
+{
+ "words": [
+  {
+   "text": "Attends.",
+   "start": 0.0,
+   "end": 0.462
+  },
+  {
+   "text": "Ne",
+   "start": 0.724,
+   "end": 0.891
+  },
+  {
+   "text": "réserve",
+   "start": 0.891,
+   "end": 1.191
+  },
+  {
+   "text": "pas",
+   "start": 1.191,
+   "end": 1.358
+  },
+  {
+   "text": "ton",
+   "start": 1.358,
+   "end": 1.525
+  },
+  {
+   "text": "chauffeur",
+   "start": 1.525,
+   "end": 1.892
+  },
+  {
+   "text": "avant",
+   "start": 1.892,
+   "end": 2.125
+  },
+  {
+   "text": "d'avoir",
+   "start": 2.125,
+   "end": 2.392
+  },
+  {
+   "text": "vu",
+   "start": 2.392,
+   "end": 2.559
+  },
+  {
+   "text": "ça",
+   "start": 2.559,
+   "end": 2.726
+  },
+  {
+   "text": "Chez",
+   "start": 3.024,
+   "end": 3.37
+  },
+  {
+   "text": "GP",
+   "start": 3.37,
+   "end": 3.658
+  },
+  {
+   "text": "Service,",
+   "start": 3.658,
+   "end": 4.176
+  },
+  {
+   "text": "c'est",
+   "start": 4.176,
+   "end": 4.522
+  },
+  {
+   "text": "la",
+   "start": 4.522,
+   "end": 4.81
+  },
+  {
+   "text": "grande",
+   "start": 4.81,
+   "end": 5.271
+  },
+  {
+   "text": "promo.",
+   "start": 5.271,
+   "end": 5.674
+  },
+  {
+   "text": "Plus",
+   "start": 6.066,
+   "end": 6.315
+  },
+  {
+   "text": "tu",
+   "start": 6.315,
+   "end": 6.523
+  },
+  {
+   "text": "roules,",
+   "start": 6.523,
+   "end": 6.855
+  },
+  {
+   "text": "moins",
+   "start": 6.855,
+   "end": 7.145
+  },
+  {
+   "text": "tu",
+   "start": 7.145,
+   "end": 7.353
+  },
+  {
+   "text": "paies.",
+   "start": 7.353,
+   "end": 7.644
+  },
+  {
+   "text": "Paqueko",
+   "start": 8.114,
+   "end": 8.913
+  },
+  {
+   "text": "4",
+   "start": 9.21,
+   "end": 9.447
+  },
+  {
+   "text": "heures",
+   "start": 9.447,
+   "end": 9.825
+  },
+  {
+   "text": "2500",
+   "start": 9.825,
+   "end": 10.109
+  },
+  {
+   "text": "francs",
+   "start": 10.109,
+   "end": 10.487
+  },
+  {
+   "text": "l'heure",
+   "start": 10.487,
+   "end": 10.865
+  },
+  {
+   "text": "au",
+   "start": 10.865,
+   "end": 11.102
+  },
+  {
+   "text": "lieu",
+   "start": 11.102,
+   "end": 11.386
+  },
+  {
+   "text": "de",
+   "start": 11.386,
+   "end": 11.622
+  },
+  {
+   "text": "3000,",
+   "start": 11.622,
+   "end": 11.906
+  },
+  {
+   "text": "soit",
+   "start": 11.906,
+   "end": 12.189
+  },
+  {
+   "text": "10",
+   "start": 12.189,
+   "end": 12.426
+  },
+  {
+   "text": "000",
+   "start": 12.426,
+   "end": 12.662
+  },
+  {
+   "text": "francs.",
+   "start": 12.662,
+   "end": 13.041
+  },
+  {
+   "text": "Maintenant,",
+   "start": 13.5,
+   "end": 13.914
+  },
+  {
+   "text": "regarde",
+   "start": 13.914,
+   "end": 14.225
+  },
+  {
+   "text": "bien.",
+   "start": 14.225,
+   "end": 14.432
+  },
+  {
+   "text": "à",
+   "start": 14.825,
+   "end": 14.983
+  },
+  {
+   "text": "partir",
+   "start": 14.983,
+   "end": 15.237
+  },
+  {
+   "text": "de",
+   "start": 15.237,
+   "end": 15.395
+  },
+  {
+   "text": "5",
+   "start": 15.395,
+   "end": 15.553
+  },
+  {
+   "text": "heures,",
+   "start": 15.553,
+   "end": 15.807
+  },
+  {
+   "text": "2000",
+   "start": 16.154,
+   "end": 16.509
+  },
+  {
+   "text": "francs",
+   "start": 16.509,
+   "end": 16.982
+  },
+  {
+   "text": "l'heure.",
+   "start": 16.982,
+   "end": 17.455
+  },
+  {
+   "text": "Cinq",
+   "start": 17.455,
+   "end": 17.81
+  },
+  {
+   "text": "heures?",
+   "start": 17.81,
+   "end": 18.284
+  },
+  {
+   "text": "10",
+   "start": 18.77,
+   "end": 19.078
+  },
+  {
+   "text": "000",
+   "start": 19.078,
+   "end": 19.385
+  },
+  {
+   "text": "francs",
+   "start": 19.385,
+   "end": 19.878
+  },
+  {
+   "text": "Oui,",
+   "start": 20.149,
+   "end": 20.359
+  },
+  {
+   "text": "le",
+   "start": 20.359,
+   "end": 20.568
+  },
+  {
+   "text": "même",
+   "start": 20.568,
+   "end": 20.819
+  },
+  {
+   "text": "prix",
+   "start": 20.819,
+   "end": 21.071
+  },
+  {
+   "text": "!",
+   "start": 21.071,
+   "end": 21.28
+  },
+  {
+   "text": "La",
+   "start": 21.549,
+   "end": 21.771
+  },
+  {
+   "text": "cinquième",
+   "start": 21.771,
+   "end": 22.261
+  },
+  {
+   "text": "heure,",
+   "start": 22.261,
+   "end": 22.573
+  },
+  {
+   "text": "c'",
+   "start": 22.573,
+   "end": 22.796
+  },
+  {
+   "text": "Tu",
+   "start": 23.185,
+   "end": 23.37
+  },
+  {
+   "text": "préfères",
+   "start": 23.37,
+   "end": 23.741
+  },
+  {
+   "text": "le",
+   "start": 23.741,
+   "end": 23.926
+  },
+  {
+   "text": "confort",
+   "start": 23.926,
+   "end": 24.26
+  },
+  {
+   "text": "?",
+   "start": 24.26,
+   "end": 24.445
+  },
+  {
+   "text": "3500",
+   "start": 24.744,
+   "end": 25.249
+  },
+  {
+   "text": "heures.",
+   "start": 25.249,
+   "end": 25.922
+  },
+  {
+   "text": "et",
+   "start": 26.184,
+   "end": 26.502
+  },
+  {
+   "text": "3000",
+   "start": 26.502,
+   "end": 26.883
+  },
+  {
+   "text": "des",
+   "start": 26.883,
+   "end": 27.2
+  },
+  {
+   "text": "cinq",
+   "start": 27.2,
+   "end": 27.581
+  },
+  {
+   "text": "heures.",
+   "start": 27.581,
+   "end": 28.089
+  },
+  {
+   "text": "Wifi",
+   "start": 28.416,
+   "end": 28.903
+  },
+  {
+   "text": "Clim",
+   "start": 28.903,
+   "end": 29.39
+  },
+  {
+   "text": "Vécule",
+   "start": 29.39,
+   "end": 30.039
+  },
+  {
+   "text": "Premium",
+   "start": 30.039,
+   "end": 30.77
+  },
+  {
+   "text": "Voilà",
+   "start": 31.132,
+   "end": 31.464
+  },
+  {
+   "text": "et",
+   "start": 31.464,
+   "end": 31.7
+  },
+  {
+   "text": "environ.",
+   "start": 31.7,
+   "end": 32.127
+  },
+  {
+   "text": "Réserve",
+   "start": 32.528,
+   "end": 32.858
+  },
+  {
+   "text": "vite",
+   "start": 32.858,
+   "end": 33.078
+  },
+  {
+   "text": "sur",
+   "start": 33.078,
+   "end": 33.262
+  },
+  {
+   "text": "WhatsApp.",
+   "start": 33.262,
+   "end": 33.629
+  }
+ ],
+ "phrases": [
+  {
+   "start": 0.0,
+   "end": 0.46,
+   "text": "Attends."
+  },
+  {
+   "start": 0.72,
+   "end": 2.73,
+   "text": "Ne réserve pas ton chauffeur avant d'avoir vu ça"
+  },
+  {
+   "start": 3.02,
+   "end": 5.67,
+   "text": "Chez GP Service, c'est la grande promo."
+  },
+  {
+   "start": 6.07,
+   "end": 7.64,
+   "text": "Plus tu roules, moins tu paies."
+  },
+  {
+   "start": 8.11,
+   "end": 8.91,
+   "text": "Paqueko"
+  },
+  {
+   "start": 9.21,
+   "end": 13.04,
+   "text": "4 heures 2500 francs l'heure au lieu de 3000, soit 10 000 francs."
+  },
+  {
+   "start": 13.5,
+   "end": 14.43,
+   "text": "Maintenant, regarde bien."
+  },
+  {
+   "start": 14.82,
+   "end": 15.81,
+   "text": "à partir de 5 heures,"
+  },
+  {
+   "start": 16.15,
+   "end": 18.28,
+   "text": "2000 francs l'heure. Cinq heures?"
+  },
+  {
+   "start": 18.77,
+   "end": 19.88,
+   "text": "10 000 francs"
+  },
+  {
+   "start": 20.15,
+   "end": 21.28,
+   "text": "Oui, le même prix !"
+  },
+  {
+   "start": 21.55,
+   "end": 22.8,
+   "text": "La cinquième heure, c'"
+  },
+  {
+   "start": 23.19,
+   "end": 24.45,
+   "text": "Tu préfères le confort ?"
+  },
+  {
+   "start": 24.74,
+   "end": 25.92,
+   "text": "3500 heures."
+  },
+  {
+   "start": 26.18,
+   "end": 28.09,
+   "text": "et 3000 des cinq heures."
+  },
+  {
+   "start": 28.42,
+   "end": 30.77,
+   "text": "Wifi Clim Vécule Premium"
+  },
+  {
+   "start": 31.13,
+   "end": 32.13,
+   "text": "Voilà et environ."
+  },
+  {
+   "start": 32.53,
+   "end": 33.63,
+   "text": "Réserve vite sur WhatsApp."
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+/* « Promo JP Service » — style JP PREMIUM : ambiances ÉNERGIE (dorée) et LUXE (bleu nuit) qui alternent,
+   cartes 3D brillantes, Poppins ExtraBold. Exception promo : rouge JP plus présent (badges, prix barrés, tampon). */
+@font-face { font-family: "Poppins"; src: url("../assets/fonts/poppins-latin-800-normal.woff2") format("woff2"); font-weight: 800; }
+@font-face { font-family: "Inter"; src: url("../assets/fonts/inter-latin-600-normal.woff2") format("woff2"); font-weight: 600; }
+@font-face { font-family: "Inter"; src: url("../assets/fonts/inter-latin-700-normal.woff2") format("woff2"); font-weight: 700; }
+:root { --or: #F5B82E; --orange: #F08A24; --creme: #FFF4DE; --nuit: #070D1F; --marine: #0B1B4D; --rouge: #E10600; --vert: #22C55E; }
+html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: var(--nuit); font-family: "Inter", sans-serif; }
+#racine { position: relative; width: 1080px; height: 1920px; overflow: hidden; }
+.clip, .couche, .plan { position: absolute; inset: 0; }
+.plan { opacity: 0; }
+
+/* ÉNERGIE */
+.energie { background: radial-gradient(circle at 50% 45%, var(--creme) 0%, var(--or) 38%, var(--orange) 80%, #D9701A 100%); overflow: hidden; }
+.cercles { position: absolute; left: 50%; top: 45%; width: 3000px; height: 3000px; margin: -1500px 0 0 -1500px; border-radius: 50%;
+  background: repeating-radial-gradient(circle, rgba(255,255,255,.18) 0 60px, rgba(255,255,255,0) 60px 140px); }
+.rayons { position: absolute; left: 50%; top: 45%; width: 3000px; height: 3000px; margin: -1500px 0 0 -1500px; border-radius: 50%;
+  background: repeating-conic-gradient(rgba(255,255,255,.16) 0deg 7deg, rgba(255,255,255,0) 7deg 20deg); }
+.mot-geant { position: absolute; left: -200px; right: -200px; top: 640px; text-align: center; font: 800 760px/1 "Poppins"; letter-spacing: -0.05em; color: rgba(60, 30, 10, .10); white-space: nowrap; }
+/* LUXE */
+.luxe { background: var(--nuit); opacity: 0; overflow: hidden; }
+.luxe .halo { position: absolute; left: 50%; top: 62%; width: 1400px; height: 1400px; margin: -700px 0 0 -700px; border-radius: 50%; background: radial-gradient(circle, rgba(120, 10, 30, .55), rgba(120, 10, 30, 0) 65%); }
+.projecteur { position: absolute; left: 50%; top: -200px; width: 900px; height: 1700px; margin-left: -450px; background: radial-gradient(50% 60% at 50% 0%, rgba(255,255,255,.28), rgba(255,255,255,0) 70%); clip-path: polygon(40% 0, 60% 0, 100% 100%, 0 100%); }
+.flash { background: #fff; opacity: 0; pointer-events: none; }
+.grain { position: absolute; inset: 0; opacity: .06; pointer-events: none; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+/* Textes (Poppins ExtraBold, mots en rotation + échelle) */
+.textes { position: absolute; left: 70px; right: 130px; top: 250px; }
+.bloc { position: absolute; left: 0; right: 0; top: 0; text-align: center; opacity: 0; }
+.phrase { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 20px; font: 800 78px/1.08 "Poppins"; letter-spacing: -0.02em; color: var(--marine); }
+.bloc.geant .phrase { font-size: 190px; color: var(--rouge); text-shadow: 0 10px 0 rgba(90, 20, 0, .25); }
+.bloc.luxe .phrase { font: 600 64px/1.15 "Inter"; color: #fff; letter-spacing: -0.01em; }
+.mot { display: inline-block; position: relative; opacity: 0; white-space: nowrap; isolation: isolate; }
+.mot.cle { color: var(--rouge); }
+.bloc.luxe .mot.cle { color: var(--or); }
+
+/* Hook */
+.bouton-reserver { position: absolute; left: 260px; top: 1180px; width: 480px; height: 150px; border-radius: 75px; background: var(--marine); color: #fff; display: flex; align-items: center; justify-content: center;
+  font: 800 64px/1 "Poppins"; box-shadow: 0 20px 0 #050b24, 0 40px 80px rgba(60, 20, 0, .4); }
+.main { position: absolute; left: 600px; top: 1250px; overflow: visible; }
+.stop { position: absolute; left: 330px; top: 520px; width: 420px; transform-origin: 50% 100%; filter: drop-shadow(0 30px 30px rgba(60, 10, 0, .45)); }
+.stop .poteau { position: absolute; left: 196px; top: 400px; width: 28px; height: 260px; background: linear-gradient(90deg, #8a8f99, #e6e8ee, #8a8f99); border-radius: 6px; z-index: -1; }
+/* Tampon */
+.tampon { position: absolute; left: 110px; top: 760px; width: 820px; padding: 40px 0; border: 18px solid var(--rouge); border-radius: 40px; text-align: center; color: var(--rouge);
+  font: 800 70px/1 "Poppins"; transform: rotate(-12deg); background: rgba(255, 244, 222, .55); mix-blend-mode: multiply; }
+.tampon b { display: block; font-size: 128px; letter-spacing: -0.03em; }
+.onde { position: absolute; left: 540px; top: 920px; width: 40px; height: 40px; margin: -20px 0 0 -20px; border-radius: 50%; border: 14px solid rgba(225, 6, 0, .55); opacity: 0; }
+/* Cartes 3D */
+.scene3d { position: absolute; left: 0; right: 0; top: 640px; height: 560px; perspective: 1600px; }
+.carte { position: absolute; left: 150px; width: 780px; height: 490px; border-radius: 44px; overflow: hidden; transform-style: preserve-3d; box-shadow: 0 40px 90px rgba(40, 10, 0, .45); }
+.carte.eco { background: linear-gradient(135deg, #FFF6DD 0%, #F7D27A 45%, #E9A93B 100%); color: var(--marine); }
+.carte.confort { background: linear-gradient(135deg, #1B2550 0%, #0B1230 60%, #1d2a5e 100%); color: #fff; border: 2px solid rgba(255,255,255,.18); }
+.carte-nom { position: absolute; left: 50px; top: 44px; font: 800 52px/1 "Poppins"; letter-spacing: .04em; }
+.puce-carte { position: absolute; right: 56px; top: 40px; width: 96px; height: 72px; border-radius: 14px; background: linear-gradient(135deg, #f3d48a, #b98a2c); }
+.prix-ancien { position: absolute; left: 50px; top: 150px; font: 800 70px/1 "Poppins"; opacity: .7; }
+.prix-ancien small, .prix-neuf small { font-size: .42em; }
+.prix-ancien i { position: absolute; left: -10px; right: -10px; top: 48%; height: 12px; background: var(--rouge); border-radius: 6px; transform: scaleX(0); transform-origin: 0 50%; }
+.prix-neuf { position: absolute; left: 50px; top: 250px; font: 800 150px/1 "Poppins"; letter-spacing: -0.04em; }
+.carte.confort .prix-neuf { color: var(--or); }
+.pack { position: absolute; left: 50px; bottom: 40px; font: 700 36px/1 "Inter"; opacity: .85; }
+.reflet { position: absolute; top: -100px; left: -400px; width: 200px; height: 800px; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.55), rgba(255,255,255,0)); transform: rotate(20deg); }
+.calc { position: absolute; left: 110px; right: 170px; top: 1290px; height: 190px; border-radius: 40px; background: rgba(255, 255, 255, .28); backdrop-filter: blur(16px); border: 2px solid rgba(255,255,255,.6);
+  display: flex; align-items: center; justify-content: center; gap: 16px; font: 800 66px/1 "Poppins"; color: var(--marine); box-shadow: 0 30px 60px rgba(80, 30, 0, .25); opacity: 0; font-variant-numeric: tabular-nums; }
+.calc small { font-size: 34px; }
+.calc b { color: var(--rouge); }
+/* Révélation */
+.duo { position: absolute; left: 70px; right: 130px; top: 620px; display: flex; align-items: center; justify-content: center; gap: 30px; }
+.resultat { width: 320px; padding: 34px 0; border-radius: 36px; background: rgba(255,255,255,.35); backdrop-filter: blur(14px); border: 2px solid rgba(255,255,255,.7); text-align: center; font: 800 58px/1.2 "Poppins"; color: var(--marine); }
+.resultat b { font-size: 84px; color: var(--rouge); }
+.egal { font: 800 200px/1 "Poppins"; color: var(--marine); }
+.cadeau { position: absolute; left: 330px; top: 1060px; width: 420px; height: 420px; }
+.boite { position: absolute; left: 0; right: 0; top: 90px; bottom: 0; border-radius: 30px; background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 30px 60px rgba(80, 30, 0, .3); }
+.cadeau-txt { font: 800 54px/1 "Poppins"; color: var(--marine); margin-top: 6px; }
+.couvercle { position: absolute; left: -20px; right: -20px; top: 40px; height: 110px; border-radius: 24px; background: var(--rouge); transform-origin: 0 100%; }
+.couvercle i { position: absolute; left: 50%; top: -60px; width: 120px; height: 70px; margin-left: -60px; border: 18px solid var(--rouge); border-bottom: 0; border-radius: 60px 60px 0 0; box-sizing: border-box; }
+.confetti { position: absolute; width: 22px; height: 12px; border-radius: 3px; }
+/* Confort (LUXE) */
+.voiture { position: absolute; left: 60px; top: 1180px; width: 960px; filter: drop-shadow(0 30px 40px rgba(0,0,0,.6)); }
+.phares { position: absolute; left: 110px; top: 1360px; width: 360px; height: 140px; border-radius: 50%; background: radial-gradient(closest-side, rgba(255, 244, 210, .85), rgba(255, 230, 170, 0)); opacity: 0; mix-blend-mode: screen; }
+.badge5h { position: absolute; left: 200px; right: 260px; top: 1120px; padding: 22px 0; border-radius: 50px; background: var(--rouge); text-align: center; font: 700 44px/1 "Inter"; color: #fff; box-shadow: 0 20px 50px rgba(225, 6, 0, .4); opacity: 0; }
+.badge5h b { font-family: "Poppins"; font-weight: 800; }
+.pastilles { position: absolute; left: 60px; right: 120px; top: 1560px; display: flex; justify-content: center; gap: 18px; }
+.pastille { padding: 18px 26px; border-radius: 40px; background: rgba(255,255,255,.12); border: 2px solid rgba(255,255,255,.3); backdrop-filter: blur(10px); font: 700 36px/1 "Inter"; color: rgba(255,255,255,.45); }
+/* Récap */
+.eventail { position: absolute; left: 0; right: 0; top: 640px; height: 700px; }
+.carte.mini { width: 600px; height: 380px; left: 240px; top: 80px; }
+.carte.mini .prix-neuf { top: 140px; font-size: 120px; }
+.etoile { position: absolute; left: 650px; top: 1180px; width: 330px; height: 330px; }
+.etoile svg { position: absolute; inset: 0; filter: drop-shadow(0 16px 30px rgba(225, 6, 0, .45)); }
+.etoile-txt { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; font: 800 30px/1.05 "Poppins"; color: #fff; }
+.etoile-txt b { font-size: 70px; }
+.zone { position: absolute; left: 70px; top: 1300px; font: 800 52px/1.1 "Poppins"; color: var(--marine); width: 520px; }
+/* Outro */
+.socle { position: absolute; left: 240px; top: 1060px; width: 600px; height: 70px; border-radius: 50%; background: radial-gradient(ellipse at 50% 30%, #ffffff, #b9bfcc 70%); box-shadow: 0 30px 60px rgba(0,0,0,.6); }
+.logo { position: absolute; left: 120px; top: 800px; width: 840px; filter: drop-shadow(0 0 40px rgba(255, 255, 255, .25)); }
+.slogan { position: absolute; left: 70px; right: 130px; top: 1200px; text-align: center; font: 600 54px/1.2 "Inter"; color: #fff; opacity: 0; }
+.whatsapp { position: absolute; left: 120px; right: 180px; top: 1330px; height: 140px; border-radius: 70px; background: var(--vert); color: #fff; display: flex; align-items: center; justify-content: center;
+  font: 800 50px/1 "Poppins"; box-shadow: 0 0 0 0 rgba(34, 197, 94, .5); opacity: 0; }
