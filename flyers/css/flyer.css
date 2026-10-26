@@ -104,3 +104,7 @@ html, body { width: 1080px; height: 1350px; overflow: hidden; background: var(--
 .medaille .l2 { font: 600 22px "Inter"; opacity: .9; margin-top: 8px; }
 .calcul { font: 700 30px "Inter"; color: var(--encre); background: #fff; border-radius: 22px; padding: 14px 22px; box-shadow: 0 14px 30px rgba(13,13,16,.12); border: 2px solid var(--ligne); white-space: nowrap; }
 .calcul b { color: var(--rouge); }
+.offre .ligne-prix { display: flex; justify-content: space-between; align-items: baseline; margin-top: 8px; }
+.offre .ligne-prix span { font: 700 28px "Inter"; color: var(--gris); }
+.offre .ligne-prix b { font: 400 54px/1.05 "Archivo Black"; white-space: nowrap; }
+.offre .ligne-prix b small { font: 700 24px "Inter"; margin-left: 6px; }
