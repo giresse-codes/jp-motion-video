@@ -99,6 +99,8 @@ Transcription de secours si Hugging Face est bloqué : `python3 scripts/transcri
 Vidéos JP PAPIER : `pub-clarisse/`, `pub-atterrissage/`, `pub-3-moments/`, `pub-chauffeur-jp/`.
 Vidéo JP STORIES : `pub-debat/` (dialogue Rodrigue / Nadège, personnages dessinés en SVG dans `js/main.js`).
 
+Flyers (images fixes 1080×1350) : `flyers/` (HTML + `css/flyer.css`), rendus PNG avec `flyers/scripts/rendre.sh` dans `flyers/rendus/`.
+
 ## Skills Three.js
 
 `.claude/skills/threejs-*` (10 skills : fundamentals, geometry, materials, lighting, textures,

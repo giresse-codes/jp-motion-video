@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Flyer services — JP Service Express Urbaine</title>
+<link rel="stylesheet" href="css/flyer.css">
+</head>
+<body>
+<div class="flyer">
+  <div class="abs points-deco"></div>
+
+  <!-- Ville, vague rouge et route -->
+  <svg class="abs ville" id="ville" viewBox="0 0 1080 240" preserveAspectRatio="none"></svg>
+  <svg class="abs vague" viewBox="0 0 560 560"><path d="M560 40 C 420 120 300 300 330 560 L 560 560 Z" fill="#E10600" opacity=".92"/><path d="M560 0 C 380 90 250 280 250 560 L 300 560 C 290 320 400 140 560 70 Z" fill="#E10600" opacity=".18"/></svg>
+  <div class="abs route" id="route"></div>
+
+  <!-- Téléphone avec une carte et un trajet (interface générique) -->
+  <div class="abs tel" style="left:690px; top:150px; width:340px; height:680px;">
+    <div class="ecran">
+      <div class="ilot"></div>
+      <svg class="carte-map" viewBox="0 0 312 652">
+        <rect width="312" height="652" fill="#EEF0F2"/>
+        <g stroke="#FFFFFF" stroke-width="10" fill="none">
+          <path d="M-10 210 L330 170"/><path d="M-10 360 L330 400"/><path d="M-10 520 L330 470"/>
+          <path d="M70 120 L40 660"/><path d="M190 120 L230 660"/><path d="M280 120 L300 660"/>
+        </g>
+        <g stroke="#E2E4E8" stroke-width="4" fill="none">
+          <path d="M-10 280 L330 270"/><path d="M-10 440 L330 430"/><path d="M-10 600 L330 590"/><path d="M130 120 L120 660"/>
+        </g>
+        <rect x="200" y="420" width="70" height="40" rx="8" fill="#DCEBD9"/>
+        <rect x="80" y="225" width="44" height="34" rx="6" fill="#DCEBD9"/>
+        <path d="M110 600 C 110 540 70 520 75 470 C 80 420 190 420 195 360 C 200 300 150 290 160 230 C 168 190 220 190 225 175" stroke="#E10600" stroke-width="7" fill="none" stroke-linecap="round" stroke-dasharray="1 0"/>
+        <circle cx="110" cy="600" r="11" fill="#fff" stroke="#E10600" stroke-width="6"/>
+        <g transform="translate(225 175)"><path d="M0 0 C -22 -26 -22 -52 0 -52 C 22 -52 22 -26 0 0 Z" fill="#E10600"/><circle cx="0" cy="-36" r="8" fill="#fff"/></g>
+      </svg>
+      <div class="entete"><b>JP <span>Express</span></b><i></i></div>
+    </div>
+  </div>
+  <div class="abs notif" style="left:560px; top:470px;">
+    <img src="assets/images/embleme-jp.png" alt="">
+    <p>Ton chauffeur<br>arrive<b>dans 4 min</b></p>
+  </div>
+
+  <!-- Logo -->
+  <div class="abs logo"><img src="assets/images/logo-jp.png" alt="JP Service Express Urbaine"></div>
+  <div class="abs logo-slogan">Chauffeur privé · <b>Douala</b></div>
+
+  <!-- Titre -->
+  <h1 class="abs titre" style="font-size:80px;">Rapide. Sûr.<br><span class="r">Confortable.</span></h1>
+  <div class="abs filet" style="top:452px;"></div>
+  <p class="abs chapo" style="top:482px;">Des chauffeurs professionnels.<br><b>À l'heure,</b> à chaque trajet.</p>
+
+  <!-- Atouts -->
+  <div class="abs atouts" style="top:612px;">
+    <div class="atout">
+      <div class="ico"><svg viewBox="0 0 48 48"><path d="M24 4 L40 10 V22 C40 33 33 41 24 44 C15 41 8 33 8 22 V10 Z" fill="#E10600"/><path d="M16 24 L22 30 L33 18" stroke="#fff" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <p>Chauffeurs<span>pros</span></p>
+    </div>
+    <div class="atout">
+      <div class="ico"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="18" stroke="#E10600" stroke-width="4.5" fill="none"/><path d="M24 13 V24 L31 29" stroke="#E10600" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <p>Toujours<span>à l'heure</span></p>
+    </div>
+    <div class="atout">
+      <div class="ico"><svg viewBox="0 0 48 48"><g stroke="#E10600" stroke-width="4.5" fill="none" stroke-linecap="round"><path d="M6 19 C 16 9 32 9 42 19"/><path d="M12 26 C 19 19 29 19 36 26"/><path d="M18 33 C 21 30 27 30 30 33"/></g><circle cx="24" cy="39" r="3.5" fill="#E10600"/></svg></div>
+      <p>Wi-Fi<span>&amp; clim</span></p>
+    </div>
+  </div>
+
+  <!-- Voiture -->
+  <img class="abs voiture" src="assets/images/voiture-jp.png" alt="" style="left:300px; top:790px; width:680px;">
+
+  <!-- Bandeau + barre du bas -->
+  <div class="abs bandeau">
+    <div class="rond"><svg viewBox="0 0 24 24"><path d="M6.6 10.8 C8 13.6 10.4 16 13.2 17.4 L15.4 15.2 C15.7 14.9 16.1 14.8 16.5 14.9 C17.6 15.3 18.8 15.5 20 15.5 C20.6 15.5 21 15.9 21 16.5 V20 C21 20.6 20.6 21 20 21 C10.6 21 3 13.4 3 4 C3 3.4 3.4 3 4 3 H7.5 C8.1 3 8.5 3.4 8.5 4 C8.5 5.2 8.7 6.4 9.1 7.5 C9.2 7.9 9.1 8.3 8.8 8.6 Z" fill="#fff"/></svg></div>
+    <div class="txt">Réserve <b>ton chauffeur</b> !</div>
+    <div class="sep"></div>
+    <div class="txt2">Dès <b>3 000 FCFA</b> l'heure</div>
+  </div>
+  <div class="abs barre">
+    <div class="rond"><svg viewBox="0 0 24 24"><path d="M6.6 10.8 C8 13.6 10.4 16 13.2 17.4 L15.4 15.2 C15.7 14.9 16.1 14.8 16.5 14.9 C17.6 15.3 18.8 15.5 20 15.5 C20.6 15.5 21 15.9 21 16.5 V20 C21 20.6 20.6 21 20 21 C10.6 21 3 13.4 3 4 C3 3.4 3.4 3 4 3 H7.5 C8.1 3 8.5 3.4 8.5 4 C8.5 5.2 8.7 6.4 9.1 7.5 C9.2 7.9 9.1 8.3 8.8 8.6 Z" fill="#E10600"/></svg></div>
+    <div class="num">+237 655 394 028<small>WhatsApp</small></div>
+    <div class="sep"></div>
+    <div class="lieu"><svg viewBox="0 0 24 24"><path d="M12 22 C 7 16 5 13 5 9.5 C 5 5.4 8.1 2.5 12 2.5 C 15.9 2.5 19 5.4 19 9.5 C 19 13 17 16 12 22 Z" fill="#fff"/><circle cx="12" cy="9.5" r="2.8" fill="#E10600"/></svg>Douala</div>
+  </div>
+</div>
+<script src="js/decor.js"></script>
+</body>
+</html>

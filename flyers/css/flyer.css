@@ -1,0 +1,106 @@
+/* Flyers JP Service Express Urbaine — format 1080×1350 (4:5), inspiré du flyer « DriverGo ». */
+@font-face { font-family: "Inter"; font-weight: 400; src: url("../assets/fonts/inter-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 600; src: url("../assets/fonts/inter-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 700; src: url("../assets/fonts/inter-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Archivo Black"; src: url("../assets/fonts/archivo-black-latin-400-normal.woff2") format("woff2"); }
+
+:root { --rouge: #E10600; --rouge-vif: #FF2D1F; --noir: #0D0D10; --encre: #16161A; --gris: #5B5E66; --fond: #FAFAF8; --ligne: #E6E6E9; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1350px; overflow: hidden; background: var(--fond); }
+.flyer { position: relative; width: 1080px; height: 1350px; overflow: hidden; font-family: "Inter", sans-serif; color: var(--encre);
+  background: radial-gradient(900px 700px at 85% 10%, #FFFFFF 0%, rgba(255,255,255,0) 70%), linear-gradient(180deg, #FFFFFF 0%, #F4F4F2 100%); }
+.abs { position: absolute; }
+
+/* Points décoratifs en haut à droite */
+.points-deco { right: 40px; top: 30px; width: 240px; height: 160px; background-image: radial-gradient(rgba(225,6,0,.18) 2.5px, transparent 3px); background-size: 20px 20px;
+  -webkit-mask-image: linear-gradient(225deg, #000 20%, transparent 80%); mask-image: linear-gradient(225deg, #000 20%, transparent 80%); }
+
+/* Logo : le logo est blanc et rouge, il vit sur un fond noir */
+.logo { left: 60px; top: 56px; height: 132px; padding: 0 30px 0 22px; border-radius: 70px; background: #000; overflow: hidden; display: flex; align-items: center; gap: 4px;
+  box-shadow: 0 14px 30px rgba(13,13,16,.22); }
+.logo img { height: 118px; }
+.logo-slogan { left: 76px; top: 200px; font: 600 24px "Inter"; color: var(--gris); letter-spacing: .01em; }
+.logo-slogan b { color: var(--rouge); font-weight: 700; }
+
+/* Titre */
+.titre { left: 60px; top: 262px; font: 400 92px/1.02 "Archivo Black", sans-serif; letter-spacing: -.01em; color: var(--encre); }
+.titre .r { color: var(--rouge); }
+.filet { left: 64px; width: 96px; height: 7px; border-radius: 4px; background: var(--rouge); }
+.chapo { left: 60px; font: 400 34px/1.35 "Inter"; color: var(--encre); }
+.chapo b { color: var(--rouge); font-weight: 700; }
+
+/* Atouts (3 icônes séparées par des filets) */
+.atouts { left: 44px; display: flex; }
+.atout { width: 186px; text-align: center; position: relative; }
+.atout + .atout::before { content: ""; position: absolute; left: 0; top: 10px; width: 2px; height: 150px; background: var(--ligne); }
+.atout .ico { width: 92px; height: 92px; margin: 0 auto 14px; border-radius: 50%; border: 4px solid var(--rouge); display: flex; align-items: center; justify-content: center; background: #fff; }
+.atout .ico svg { width: 48px; height: 48px; }
+.atout p { font: 700 25px/1.2 "Inter"; color: var(--encre); }
+.atout p span { color: var(--rouge); display: block; }
+
+/* Ville + route */
+.ville { left: 0; bottom: 330px; width: 1080px; height: 240px; }
+.route { left: 0; bottom: 230px; width: 1080px; height: 220px; background: linear-gradient(180deg, #8C8F96 0%, #6A6D74 40%, #55585E 100%); }
+.route::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 14px; background: linear-gradient(180deg, #C9CBD0, #A3A6AC); }
+.route .ligne { position: absolute; top: 120px; height: 10px; width: 120px; background: rgba(255,255,255,.85); border-radius: 3px; transform: skewX(-30deg); }
+.vague { right: -60px; bottom: 300px; width: 560px; height: 560px; }
+.voiture { filter: drop-shadow(0 34px 26px rgba(0,0,0,.38)); }
+
+/* Bandeau blanc + barre rouge du bas */
+.bandeau { left: 50px; right: 50px; bottom: 112px; height: 104px; background: #fff; border-radius: 30px; border: 2px solid var(--ligne);
+  box-shadow: 0 16px 36px rgba(13,13,16,.10); display: flex; align-items: center; padding: 0 30px; gap: 22px; }
+.bandeau .rond { flex: none; width: 64px; height: 64px; border-radius: 50%; background: var(--rouge); display: flex; align-items: center; justify-content: center; }
+.bandeau .rond svg { width: 34px; height: 34px; }
+.bandeau .txt { font: 700 33px "Inter"; white-space: nowrap; }
+.bandeau .txt b, .bandeau .txt2 b { color: var(--rouge); }
+.bandeau .sep { width: 2px; height: 56px; background: var(--ligne); margin: 0 6px; }
+.bandeau .txt2 { font: 700 31px "Inter"; white-space: nowrap; }
+.barre { left: 50px; right: 50px; bottom: 26px; height: 74px; border-radius: 40px; background: var(--rouge); color: #fff; display: flex; align-items: center; padding: 0 30px; gap: 18px;
+  box-shadow: 0 12px 26px rgba(225,6,0,.30); }
+.barre .rond { width: 50px; height: 50px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; flex: none; }
+.barre .rond svg { width: 28px; height: 28px; }
+.barre .num { font: 700 36px "Inter"; letter-spacing: .02em; white-space: nowrap; }
+.barre .num small { font: 600 22px "Inter"; opacity: .85; margin-left: 8px; letter-spacing: 0; }
+.barre .sep { width: 2px; height: 40px; background: rgba(255,255,255,.45); margin-left: auto; }
+.barre .lieu { font: 600 28px "Inter"; display: flex; align-items: center; gap: 12px; white-space: nowrap; }
+.barre .lieu svg { width: 30px; height: 30px; }
+
+/* Téléphone (interface générique, aucune marque tierce) */
+.tel { width: 400px; height: 790px; border-radius: 64px; background: #111; padding: 14px; box-shadow: 0 40px 70px rgba(13,13,16,.30), inset 0 0 0 3px #2A2A2E; transform: rotate(6deg); }
+.tel .ecran { position: relative; width: 100%; height: 100%; border-radius: 52px; overflow: hidden; background: #EEF0F2; }
+.tel .ilot { position: absolute; top: 14px; left: 50%; margin-left: -62px; width: 124px; height: 34px; border-radius: 20px; background: #111; z-index: 3; }
+.tel .entete { position: absolute; top: 0; left: 0; right: 0; height: 120px; background: #fff; display: flex; align-items: flex-end; padding: 0 30px 18px; justify-content: space-between; z-index: 2;
+  box-shadow: 0 4px 12px rgba(0,0,0,.06); }
+.tel .entete b { font: 400 30px "Archivo Black"; color: var(--encre); }
+.tel .entete b span { color: var(--rouge); }
+.tel .entete i { width: 30px; height: 18px; border-top: 3px solid #333; border-bottom: 3px solid #333; position: relative; margin-bottom: 8px; }
+.tel .entete i::after { content: ""; position: absolute; left: 0; right: 0; top: 4.5px; height: 3px; background: #333; }
+.tel .carte-map { position: absolute; inset: 0; }
+.notif { left: 0; width: 290px; padding: 16px 18px; border-radius: 22px; background: #fff; box-shadow: 0 16px 34px rgba(13,13,16,.22); display: flex; gap: 14px; align-items: center; }
+.notif img { width: 64px; height: 64px; border-radius: 50%; background: #000; object-fit: contain; flex: none; }
+.notif p { font: 600 22px/1.25 "Inter"; color: var(--encre); }
+.notif p b { color: var(--rouge); display: block; font-size: 20px; }
+
+/* ---------- Flyer promo ---------- */
+.sticker-promo { right: 56px; top: 64px; padding: 18px 30px; border-radius: 22px; background: var(--rouge); color: #fff; font: 400 40px "Archivo Black"; letter-spacing: .02em;
+  transform: rotate(4deg); box-shadow: 0 14px 30px rgba(225,6,0,.35); }
+.offre { width: 470px; border-radius: 34px; background: #fff; border: 2px solid var(--ligne); box-shadow: 0 22px 44px rgba(13,13,16,.12); padding: 26px 30px 24px; }
+.offre.sombre { background: var(--noir); border-color: var(--noir); color: #fff; }
+.offre .etiq { display: inline-block; padding: 6px 16px; border-radius: 20px; background: var(--rouge); color: #fff; font: 700 22px "Inter"; letter-spacing: .14em; }
+.offre .avant { margin-top: 14px; font: 600 26px "Inter"; color: #6E7078; }
+.offre .avant s { text-decoration-color: var(--rouge); text-decoration-thickness: 3px; }
+.offre .prix { font: 400 70px/1 "Archivo Black"; margin-top: 4px; letter-spacing: -.01em; white-space: nowrap; }
+.offre .prix small { font: 700 28px "Inter"; margin-left: 6px; }
+.offre .detail { margin-top: 16px; padding-top: 16px; border-top: 2px dashed var(--ligne); font: 600 27px/1.45 "Inter"; }
+.offre.sombre .detail { border-top-color: #34343A; }
+.offre .detail b { color: var(--rouge); }
+.offre.sombre .detail b { color: var(--rouge-vif); }
+.offre .options { margin-top: 10px; font: 600 22px "Inter"; color: #B9BBC2; }
+.medaille { width: 300px; height: 300px; border-radius: 50%; background: var(--rouge); border: 10px solid #fff; color: #fff; text-align: center; display: flex; flex-direction: column; justify-content: center; align-items: center;
+  box-shadow: 0 26px 50px rgba(225,6,0,.38); transform: rotate(-8deg); }
+.medaille .h { font: 400 98px/0.95 "Archivo Black"; }
+.medaille .h sup { font-size: 44px; vertical-align: 38px; }
+.medaille .l1 { font: 700 25px "Inter"; letter-spacing: .08em; margin-top: 4px; }
+.medaille .l2 { font: 600 22px "Inter"; opacity: .9; margin-top: 8px; }
+.calcul { font: 700 30px "Inter"; color: var(--encre); background: #fff; border-radius: 22px; padding: 14px 22px; box-shadow: 0 14px 30px rgba(13,13,16,.12); border: 2px solid var(--ligne); white-space: nowrap; }
+.calcul b { color: var(--rouge); }
