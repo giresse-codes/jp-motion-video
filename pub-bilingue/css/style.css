@@ -1,0 +1,89 @@
+/* « Bienvenue à Douala / Welcome to Douala » — style JP UI bilingue (voir frame.md) : fond blanc, ombres douces.
+   Français en bleu nuit, en gros ; anglais juste en dessous, gris, plus petit, en italique. Rien sous 1670 px ni à droite de 960 px. */
+@font-face { font-family: "Inter"; src: url("../assets/fonts/inter-latin-600-normal.woff2") format("woff2"); font-weight: 600; }
+@font-face { font-family: "Inter"; src: url("../assets/fonts/inter-latin-700-normal.woff2") format("woff2"); font-weight: 700; }
+:root { --nuit: #0B1B4D; --vif: #3D5BD9; --vif-clair: #8EA2FF; --gris: #6B7280; --gris-clair: #F2F4F8; --vert: #22C55E;
+  --ombre: 0 18px 50px rgba(11, 27, 77, .10), 0 4px 12px rgba(11, 27, 77, .06); }
+html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #fff; color: var(--nuit); font-family: "Inter", sans-serif; }
+#racine { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #fff; }
+.clip, .couche { position: absolute; inset: 0; }
+#camera { transform-origin: 50% 45%; }
+em { font-style: italic; }
+
+/* Texte bilingue : FR mot par mot, EN en dessous */
+.bi { position: absolute; left: 100px; right: 140px; top: 250px; text-align: center; }
+.bi .fr { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 22px; font: 700 84px/1.1 "Inter"; letter-spacing: -0.035em; color: var(--nuit); }
+.bi .en { margin-top: 14px; font: 600 44px/1.2 "Inter"; font-style: italic; color: #8A909C; letter-spacing: -0.01em; }
+.bi.blanc .fr { color: #fff; }
+.bi.blanc .en { color: #A9B4D6; }
+.bi.centre { top: 700px; }
+.bi.centre .fr { font-size: 92px; }
+.mot { display: inline-block; white-space: nowrap; }
+.mot.cle { color: var(--vif); }
+.blanc .mot.cle { color: var(--vif-clair); }
+
+/* 1. Carte d'embarquement */
+.billet { position: absolute; left: 120px; width: 800px; top: 640px; height: 640px; border-radius: 44px; background: #fff; box-shadow: var(--ombre), 0 40px 80px rgba(11,27,77,.12); overflow: visible; }
+.billet-haut { height: 110px; border-radius: 44px 44px 0 0; background: var(--nuit); color: #fff; display: flex; align-items: center; justify-content: space-between; padding: 0 44px; }
+.billet-haut span { font: 700 30px/1 "Inter"; letter-spacing: .14em; }
+.billet-haut em { font: 600 28px/1 "Inter"; color: #A9B4D6; }
+.billet-milieu { display: flex; align-items: center; justify-content: space-between; padding: 44px 50px 30px; }
+.billet-milieu small, .billet-bas span { font: 600 26px/1 "Inter"; color: var(--gris); }
+.billet-milieu b { display: block; font: 700 150px/1 "Inter"; letter-spacing: -0.04em; margin: 10px 0 6px; }
+.billet-milieu span { font: 700 40px/1 "Inter"; color: var(--vif); }
+.billet-milieu .droite { text-align: right; }
+.billet-milieu .droite b { color: var(--vif); }
+.billet-milieu .droite span { color: var(--vert); }
+.perfo { margin: 10px 40px; border-top: 5px dashed #D5DAE5; }
+.billet-bas { display: flex; align-items: center; justify-content: space-between; padding: 30px 50px; }
+.code-barres { width: 380px; height: 90px; background: repeating-linear-gradient(90deg, var(--nuit) 0 6px, #fff 6px 10px, var(--nuit) 10px 12px, #fff 12px 18px, var(--nuit) 18px 26px, #fff 26px 30px); }
+.tampon-bi { position: absolute; right: -10px; top: 330px; width: 280px; height: 280px; border-radius: 50%; border: 10px solid var(--vif); color: var(--vif); display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: rgba(255,255,255,.75); transform: rotate(-14deg); opacity: 0; }
+.tampon-bi b { font: 700 46px/1 "Inter"; letter-spacing: .02em; }
+.tampon-bi em { font: 600 38px/1.2 "Inter"; margin-top: 6px; }
+
+/* 2. Cartes de séjour */
+.pile { position: absolute; left: 100px; width: 840px; top: 560px; height: 860px; }
+.sejour { position: absolute; left: 0; right: 0; height: 172px; border-radius: 40px; background: #fff; box-shadow: var(--ombre); display: flex; align-items: center; gap: 28px; padding: 0 36px; box-sizing: border-box; opacity: 0; }
+.sejour .ico { flex: none; width: 96px; height: 96px; border-radius: 28px; background: var(--vif); display: flex; align-items: center; justify-content: center; }
+.sejour .ico svg { width: 58px; height: 58px; }
+.sejour .noms { flex: 1; }
+.sejour .noms b { display: block; font: 700 50px/1.1 "Inter"; letter-spacing: -0.02em; }
+.sejour .noms em { font: 600 34px/1.2 "Inter"; color: #8A909C; }
+.sejour .prix { text-align: right; font: 700 46px/1.1 "Inter"; white-space: nowrap; }
+.sejour .prix em { display: block; font: 600 28px/1.2 "Inter"; color: #8A909C; }
+
+/* 3. Carte de trajet */
+.carte { position: absolute; left: 110px; width: 820px; top: 560px; height: 1000px; border-radius: 48px; background: #fff; box-shadow: var(--ombre); overflow: hidden; opacity: 0; }
+.carte svg { position: absolute; left: 0; top: 0; }
+.legende-carte { position: absolute; left: 40px; right: 40px; bottom: 50px; height: 160px; display: flex; flex-direction: column; justify-content: center; gap: 10px; }
+.legende-carte b { font: 700 40px/1.15 "Inter"; }
+.legende-carte em { font: 600 30px/1.2 "Inter"; color: #8A909C; }
+
+/* Bascule et retour */
+.nuit { background: var(--nuit); }
+#nuit { clip-path: circle(0% at 50% 100%); }
+.blanc-plein { background: #fff; clip-path: circle(0% at 50% 50%); }
+
+/* 5. Téléphone */
+.telephone { position: absolute; left: 260px; width: 560px; top: 340px; height: 1120px; border-radius: 80px; background: #0f1220; padding: 18px; box-sizing: border-box; box-shadow: 0 50px 100px rgba(11, 27, 77, .28); }
+.vitre-tel { position: relative; width: 100%; height: 100%; border-radius: 64px; background: #fff; overflow: hidden; }
+.barre { position: absolute; left: 0; right: 0; top: 50px; height: 120px; display: flex; align-items: center; gap: 18px; padding: 0 30px; border-bottom: 2px solid var(--gris-clair); }
+.barre b { display: block; font: 700 34px/1.2 "Inter"; }
+.barre span { font: 600 24px/1.2 "Inter"; color: var(--vert); }
+.avatar { width: 72px; height: 72px; border-radius: 36px; background: var(--nuit); color: #fff; display: flex; align-items: center; justify-content: center; font: 700 28px/1 "Inter"; font-style: normal; }
+.fil { position: absolute; left: 26px; right: 26px; top: 210px; display: flex; flex-direction: column; gap: 22px; }
+.bulle { max-width: 82%; padding: 22px 26px; border-radius: 30px; font: 600 34px/1.3 "Inter"; box-shadow: 0 6px 16px rgba(11, 27, 77, .06); opacity: 0; }
+.bulle.moi { align-self: flex-end; background: #DCF8D2; border-bottom-right-radius: 10px; }
+.bulle.lui { align-self: flex-start; background: var(--gris-clair); border-bottom-left-radius: 10px; }
+.bulle .ok { color: var(--vert); font-size: 40px; }
+.points { display: flex; gap: 10px; padding: 26px 30px; }
+.points i { width: 16px; height: 16px; border-radius: 8px; background: #a3a9b6; }
+
+/* Outro */
+#outro { opacity: 0; }
+.logo-outro { position: absolute; left: 140px; top: 560px; width: 760px; }
+.outro-texte { top: 880px; }
+.outro-texte .fr { font-size: 76px; }
+.contact { position: absolute; left: 130px; right: 170px; top: 1150px; height: 120px; border-radius: 60px; background: #fff; color: var(--nuit); display: flex; align-items: center; justify-content: center; gap: 18px;
+  font: 700 44px/1 "Inter"; opacity: 0; white-space: nowrap; }
