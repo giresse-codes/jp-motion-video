@@ -19,9 +19,9 @@ DUREE=$(ffprobe -v error -select_streams a:0 -show_entries stream=duration -of c
 python3 scripts/calques.py $L $H $RAYON > /dev/null
 mkdir -p renders
 
-# Son : bruit de fond réduit en douceur (afftdn), bande de la voix relevée de ~0,45 dB (≈ +5 %),
-# niveau TikTok (-14 LUFS, crête -1,5 dB), stéréo 44,1 kHz.
-AUDIO="highpass=f=70,afftdn=nr=8:nf=-42:tn=1,equalizer=f=1800:t=q:w=0.8:g=0.45,loudnorm=I=-14:TP=-1.5:LRA=11,aresample=44100,pan=stereo|c0=c0|c1=c0"
+# Son : celui de l'enregistrement d'écran, tel quel (aucune réduction de bruit, aucun réglage de la voix
+# ni du volume) ; la piste mono est seulement dupliquée sur les deux canaux.
+AUDIO="pan=stereo|c0=c0|c1=c0"
 
 FILTRE="[0:v]fps=30,drawbox=x=0:y=338:w=1080:h=96:color=black:t=fill,tpad=stop_mode=clone:stop_duration=2,pad=1080:1920:0:${DECALE}:black[fond];
 [1:v]fps=30,crop=${CROP},scale=${L}:${H}:flags=lanczos,eq=contrast=1.06:saturation=1.08,format=rgba,tpad=stop_mode=clone:stop_duration=2[p];
