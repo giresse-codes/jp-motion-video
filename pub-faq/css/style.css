@@ -1,0 +1,74 @@
+/* « FAQ express » — style JP PREMIUM (voir frame.md) : hook ÉNERGIE (doré, rayons, « ? » géant), puis ambiance LUXE
+   (bleu nuit, halo bordeaux, projecteur) pour les cartes vitrées qui se retournent. Poppins ExtraBold. */
+@font-face { font-family: "Poppins"; src: url("../assets/fonts/poppins-latin-800-normal.woff2") format("woff2"); font-weight: 800; }
+@font-face { font-family: "Inter"; src: url("../assets/fonts/inter-latin-600-normal.woff2") format("woff2"); font-weight: 600; }
+@font-face { font-family: "Inter"; src: url("../assets/fonts/inter-latin-700-normal.woff2") format("woff2"); font-weight: 700; }
+:root { --or: #F5B82E; --orange: #F08A24; --creme: #FFF4DE; --nuit: #070D1F; --marine: #0B1B4D; --vert: #22C55E; }
+html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: var(--nuit); font-family: "Inter", sans-serif; }
+#racine { position: relative; width: 1080px; height: 1920px; overflow: hidden; }
+.clip, .couche { position: absolute; inset: 0; }
+#camera { transform-origin: 50% 45%; }
+
+/* ÉNERGIE */
+.energie { isolation: isolate; z-index: 0; background: radial-gradient(circle at 50% 45%, var(--creme) 0%, var(--or) 38%, var(--orange) 80%, #D9701A 100%); overflow: hidden; }
+.cercles { position: absolute; left: 50%; top: 45%; width: 3000px; height: 3000px; margin: -1500px 0 0 -1500px; border-radius: 50%;
+  background: repeating-radial-gradient(circle, rgba(255,255,255,.18) 0 60px, rgba(255,255,255,0) 60px 140px); }
+.rayons { position: absolute; left: 50%; top: 45%; width: 3000px; height: 3000px; margin: -1500px 0 0 -1500px; border-radius: 50%;
+  background: repeating-conic-gradient(rgba(255,255,255,.16) 0deg 7deg, rgba(255,255,255,0) 7deg 20deg); }
+.geant { position: absolute; left: 0; right: 0; top: 360px; text-align: center; font: 800 1500px/1 "Poppins"; color: rgba(60, 30, 10, .10); }
+.bulle-q { position: absolute; left: 0; top: 0; width: 150px; height: 130px; }
+.bulle-q svg { width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 18px 20px rgba(90, 40, 0, .3)); }
+
+/* LUXE */
+.luxe { background: var(--nuit); opacity: 0; overflow: hidden; }
+.luxe .halo { position: absolute; left: 50%; top: 62%; width: 1400px; height: 1400px; margin: -700px 0 0 -700px; border-radius: 50%; background: radial-gradient(circle, rgba(120, 10, 30, .55), rgba(120, 10, 30, 0) 65%); }
+.projecteur { position: absolute; left: 50%; top: -200px; width: 900px; height: 1700px; margin-left: -450px; background: radial-gradient(50% 60% at 50% 0%, rgba(255,255,255,.28), rgba(255,255,255,0) 70%); clip-path: polygon(40% 0, 60% 0, 100% 100%, 0 100%); }
+.grain { position: absolute; inset: 0; opacity: .06; pointer-events: none; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+/* Titre du hook */
+.titre { position: absolute; left: 70px; right: 130px; top: 300px; display: flex; flex-wrap: wrap; justify-content: center; gap: 0 22px; font: 800 112px/1.04 "Poppins"; letter-spacing: -0.03em; color: var(--marine); text-align: center; }
+.mot { display: inline-block; white-space: nowrap; }
+.mot.cle { color: #fff; text-shadow: 0 8px 0 rgba(120, 50, 0, .35); }
+
+/* Compteur 1/5 */
+.compteur { position: absolute; left: 50%; top: 250px; transform: translateX(-50%); padding: 14px 36px; border-radius: 40px; background: rgba(255,255,255,.1); border: 2px solid rgba(255,255,255,.3);
+  font: 800 44px/1 "Poppins"; color: rgba(255,255,255,.7); opacity: 0; white-space: nowrap; }
+.compteur b { color: var(--or); font-weight: 800; }
+
+/* Cartes vitrées qui se retournent */
+.carte3d { position: absolute; left: 150px; top: 430px; width: 780px; height: 1040px; perspective: 1800px; opacity: 0; }
+.tourne { position: absolute; inset: 0; transform-style: preserve-3d; }
+.face { position: absolute; inset: 0; border-radius: 64px; backface-visibility: hidden; -webkit-backface-visibility: hidden; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 0 60px; box-sizing: border-box; border: 3px solid rgba(255,255,255,.35); box-shadow: 0 60px 120px rgba(0,0,0,.55), inset 0 2px 0 rgba(255,255,255,.4); }
+.recto { background: linear-gradient(150deg, rgba(255,255,255,.20), rgba(255,255,255,.05)); color: #fff; }
+.verso { background: linear-gradient(150deg, #FFF8E8, #F3E2BE); color: var(--marine); transform: rotateY(180deg); }
+.face .etiquette { position: absolute; top: 56px; left: 0; right: 0; font: 800 30px/1 "Poppins"; letter-spacing: .25em; opacity: .7; }
+.recto .grand-q { position: absolute; right: -60px; bottom: -200px; font: 800 760px/1 "Poppins"; color: rgba(255,255,255,.06); }
+.recto .question { position: relative; font: 800 104px/1.05 "Poppins"; letter-spacing: -0.03em; }
+.verso .reponse { font: 800 84px/1.05 "Poppins"; letter-spacing: -0.03em; margin-top: 34px; }
+.verso .detail { font: 700 44px/1.2 "Inter"; color: #5B5246; margin-top: 22px; }
+.reflet { position: absolute; top: -30%; left: -70%; width: 45%; height: 160%; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.35), rgba(255,255,255,0)); transform: rotate(18deg); }
+.tampon { width: 250px; height: 250px; border-radius: 50%; border: 12px solid var(--vert); color: var(--vert); display: flex; align-items: center; justify-content: center; font: 800 96px/1 "Poppins"; transform: rotate(-12deg);
+  box-shadow: inset 0 0 0 6px rgba(34,197,94,.25); }
+.icones { display: flex; gap: 30px; align-items: center; justify-content: center; }
+.icones svg { width: 190px; height: 190px; }
+.bouton-wa { padding: 34px 54px; border-radius: 80px; background: var(--vert); color: #fff; display: flex; gap: 22px; align-items: center; font: 800 60px/1 "Poppins"; box-shadow: 0 24px 50px rgba(34,197,94,.45); white-space: nowrap; }
+.bouton-wa svg { width: 70px; height: 70px; }
+
+/* Éventail final */
+.mini { position: absolute; left: 400px; top: 760px; width: 280px; height: 380px; border-radius: 34px; background: linear-gradient(150deg, rgba(255,255,255,.22), rgba(255,255,255,.07)); border: 2px solid rgba(255,255,255,.35);
+  box-shadow: 0 30px 60px rgba(0,0,0,.5); display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 26px; box-sizing: border-box; font: 800 170px/1 "Poppins"; color: var(--or); transform-origin: 50% 210%; opacity: 0; }
+.mini i { position: absolute; bottom: 26px; left: 0; right: 0; font: 800 30px/1.1 "Poppins"; font-style: normal; color: #fff; }
+.texte-fin { position: absolute; left: 70px; right: 120px; top: 1330px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0 16px; font: 800 64px/1.1 "Poppins"; color: #fff; letter-spacing: -0.02em; }
+.texte-fin .mot.cle { color: var(--or); text-shadow: none; }
+.texte-fin svg { width: 60px; height: 60px; }
+
+/* Outro JP PREMIUM : logo sous le projecteur, socle, slogan, WhatsApp */
+#outro { opacity: 0; }
+.socle { position: absolute; left: 50%; top: 960px; width: 760px; height: 110px; margin-left: -380px; border-radius: 50%; background: radial-gradient(closest-side, rgba(255,255,255,.9), rgba(255,255,255,.15) 70%, rgba(255,255,255,0)); }
+.logo-outro { position: absolute; left: 150px; top: 700px; width: 780px; }
+.slogan { position: absolute; left: 70px; right: 130px; top: 1130px; margin: 0; text-align: center; font: 800 70px/1.1 "Poppins"; color: #fff; letter-spacing: -0.02em; opacity: 0; }
+.slogan b { color: var(--or); }
+.contact { position: absolute; left: 130px; right: 170px; top: 1290px; height: 116px; border-radius: 58px; background: #fff; color: var(--marine); display: flex; align-items: center; justify-content: center; gap: 18px;
+  font: 700 44px/1 "Inter"; opacity: 0; white-space: nowrap; }

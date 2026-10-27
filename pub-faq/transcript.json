@@ -1,0 +1,336 @@
+{
+ "words": [
+  {
+   "text": "Vous",
+   "start": 0.0,
+   "end": 0.302
+  },
+  {
+   "text": "nous",
+   "start": 0.302,
+   "end": 0.604
+  },
+  {
+   "text": "posez",
+   "start": 0.604,
+   "end": 0.957
+  },
+  {
+   "text": "toujours",
+   "start": 0.957,
+   "end": 1.46
+  },
+  {
+   "text": "les",
+   "start": 1.46,
+   "end": 1.712
+  },
+  {
+   "text": "mêmes",
+   "start": 1.712,
+   "end": 2.065
+  },
+  {
+   "text": "questions.",
+   "start": 2.065,
+   "end": 2.618
+  },
+  {
+   "text": "Réponse",
+   "start": 2.618,
+   "end": 3.072
+  },
+  {
+   "text": "express.",
+   "start": 3.072,
+   "end": 3.525
+  },
+  {
+   "text": "Je",
+   "start": 4.325,
+   "end": 4.454
+  },
+  {
+   "text": "peux",
+   "start": 4.454,
+   "end": 4.608
+  },
+  {
+   "text": "réserver",
+   "start": 4.608,
+   "end": 4.866
+  },
+  {
+   "text": "pour",
+   "start": 4.866,
+   "end": 5.02
+  },
+  {
+   "text": "toute",
+   "start": 5.02,
+   "end": 5.2
+  },
+  {
+   "text": "la",
+   "start": 5.2,
+   "end": 5.329
+  },
+  {
+   "text": "journée",
+   "start": 5.329,
+   "end": 5.56
+  },
+  {
+   "text": "?",
+   "start": 5.56,
+   "end": 5.689
+  },
+  {
+   "text": "Oui.",
+   "start": 6.146,
+   "end": 6.334
+  },
+  {
+   "text": "pour",
+   "start": 6.987,
+   "end": 7.291
+  },
+  {
+   "text": "cribber",
+   "start": 7.291,
+   "end": 7.746
+  },
+  {
+   "text": "ou",
+   "start": 7.746,
+   "end": 7.999
+  },
+  {
+   "text": "yonder.",
+   "start": 7.999,
+   "end": 8.403
+  },
+  {
+   "text": "Oui.",
+   "start": 8.794,
+   "end": 8.975
+  },
+  {
+   "text": "50",
+   "start": 9.256,
+   "end": 9.446
+  },
+  {
+   "text": "000",
+   "start": 9.446,
+   "end": 9.636
+  },
+  {
+   "text": "la",
+   "start": 9.636,
+   "end": 9.826
+  },
+  {
+   "text": "journée.",
+   "start": 9.826,
+   "end": 10.168
+  },
+  {
+   "text": "et",
+   "start": 10.638,
+   "end": 10.831
+  },
+  {
+   "text": "le",
+   "start": 10.831,
+   "end": 11.024
+  },
+  {
+   "text": "carburant.",
+   "start": 11.024,
+   "end": 11.448
+  },
+  {
+   "text": "Pour",
+   "start": 11.891,
+   "end": 12.086
+  },
+  {
+   "text": "les",
+   "start": 12.086,
+   "end": 12.248
+  },
+  {
+   "text": "voyages,",
+   "start": 12.248,
+   "end": 12.539
+  },
+  {
+   "text": "il",
+   "start": 12.539,
+   "end": 12.701
+  },
+  {
+   "text": "est",
+   "start": 12.701,
+   "end": 12.863
+  },
+  {
+   "text": "à",
+   "start": 12.863,
+   "end": 13.025
+  },
+  {
+   "text": "votre",
+   "start": 13.025,
+   "end": 13.252
+  },
+  {
+   "text": "charge",
+   "start": 13.252,
+   "end": 13.511
+  },
+  {
+   "text": "Il",
+   "start": 14.014,
+   "end": 14.169
+  },
+  {
+   "text": "y",
+   "start": 14.169,
+   "end": 14.324
+  },
+  {
+   "text": "a",
+   "start": 14.324,
+   "end": 14.479
+  },
+  {
+   "text": "le",
+   "start": 14.479,
+   "end": 14.634
+  },
+  {
+   "text": "Oui.",
+   "start": 15.035,
+   "end": 15.231
+  },
+  {
+   "text": "en",
+   "start": 15.495,
+   "end": 15.664
+  },
+  {
+   "text": "confort.",
+   "start": 15.664,
+   "end": 15.967
+  },
+  {
+   "text": "Je",
+   "start": 16.463,
+   "end": 16.631
+  },
+  {
+   "text": "réserve",
+   "start": 16.631,
+   "end": 16.934
+  },
+  {
+   "text": "comment.",
+   "start": 16.934,
+   "end": 17.237
+  },
+  {
+   "text": "Un",
+   "start": 17.596,
+   "end": 17.935
+  },
+  {
+   "text": "message",
+   "start": 17.935,
+   "end": 18.544
+  },
+  {
+   "text": "WhatsApp.",
+   "start": 18.544,
+   "end": 19.221
+  },
+  {
+   "text": "C'est",
+   "start": 19.514,
+   "end": 20.036
+  }
+ ],
+ "phrases": [
+  {
+   "start": 0.0,
+   "end": 3.52,
+   "text": "Vous nous posez toujours les mêmes questions. Réponse express."
+  },
+  {
+   "start": 4.33,
+   "end": 5.69,
+   "text": "Je peux réserver pour toute la journée ?"
+  },
+  {
+   "start": 6.15,
+   "end": 6.33,
+   "text": "Oui."
+  },
+  {
+   "start": 6.99,
+   "end": 8.4,
+   "text": "pour cribber ou yonder."
+  },
+  {
+   "start": 8.79,
+   "end": 8.97,
+   "text": "Oui."
+  },
+  {
+   "start": 9.26,
+   "end": 10.17,
+   "text": "50 000 la journée."
+  },
+  {
+   "start": 10.64,
+   "end": 11.45,
+   "text": "et le carburant."
+  },
+  {
+   "start": 11.89,
+   "end": 13.51,
+   "text": "Pour les voyages, il est à votre charge"
+  },
+  {
+   "start": 14.01,
+   "end": 14.63,
+   "text": "Il y a le"
+  },
+  {
+   "start": 15.03,
+   "end": 15.23,
+   "text": "Oui."
+  },
+  {
+   "start": 15.5,
+   "end": 15.97,
+   "text": "en confort."
+  },
+  {
+   "start": 16.46,
+   "end": 17.24,
+   "text": "Je réserve comment."
+  },
+  {
+   "start": 17.6,
+   "end": 19.22,
+   "text": "Un message WhatsApp."
+  },
+  {
+   "start": 19.51,
+   "end": 20.04,
+   "text": "C'est"
+  }
+ ]
+}

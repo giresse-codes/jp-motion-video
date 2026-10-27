@@ -99,6 +99,7 @@ Transcription de secours si Hugging Face est bloqué : `python3 scripts/transcri
 Vidéos JP PAPIER : `pub-clarisse/`, `pub-atterrissage/`, `pub-3-moments/`, `pub-chauffeur-jp/`, `pub-5-sens/` (photo fournie recadrée par chapitre).
 Vidéos JP UI : `pub-calcul/` (« Fais le calcul ») et `pub-bureau/` (« Ton bureau roule ») : écrans pilotés par une horloge dans `js/main.js`.
 Vidéo JP STORIES : `pub-debat/` (dialogue Rodrigue / Nadège, personnages dessinés en SVG dans `js/main.js`).
+Vidéo JP PREMIUM « FAQ express » : `pub-faq/` (hook ÉNERGIE, 5 cartes vitrées qui se retournent en LUXE).
 Vidéo JP PREMIUM (ambiance LUXE seule) : `pub-luxe/` (« Le vrai luxe », voix espacée dans `assets/audio/voix.wav`, sons ASMR synthétisés par `scripts/sons.py`).
 
 Flyers (images fixes 1080×1350) : `flyers/` (HTML + `css/flyer.css`), rendus PNG avec `flyers/scripts/rendre.sh` dans `flyers/rendus/`.
