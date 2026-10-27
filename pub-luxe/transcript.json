@@ -1,0 +1,116 @@
+{
+ "words": [
+  {
+   "text": "Le",
+   "start": 0.0,
+   "end": 0.39
+  },
+  {
+   "text": "Frédux",
+   "start": 0.39,
+   "end": 1.014
+  },
+  {
+   "text": "Voilà.",
+   "start": 1.339,
+   "end": 1.893
+  },
+  {
+   "text": "C'est",
+   "start": 3.272,
+   "end": 3.531
+  },
+  {
+   "text": "de",
+   "start": 3.531,
+   "end": 3.747
+  },
+  {
+   "text": "ne",
+   "start": 3.747,
+   "end": 3.963
+  },
+  {
+   "text": "rien",
+   "start": 3.963,
+   "end": 4.222
+  },
+  {
+   "text": "On",
+   "start": 5.059,
+   "end": 5.265
+  },
+  {
+   "text": "conduit.",
+   "start": 5.265,
+   "end": 5.634
+  },
+  {
+   "text": "vous",
+   "start": 6.282,
+   "end": 6.723
+  },
+  {
+   "text": "profitez.",
+   "start": 6.723,
+   "end": 7.458
+  },
+  {
+   "text": "GP",
+   "start": 8.274,
+   "end": 8.588
+  },
+  {
+   "text": "Service.",
+   "start": 8.588,
+   "end": 9.155
+  },
+  {
+   "text": "chauffeur",
+   "start": 9.554,
+   "end": 9.952
+  },
+  {
+   "text": "privé",
+   "start": 9.952,
+   "end": 10.205
+  }
+ ],
+ "phrases": [
+  {
+   "start": 0.0,
+   "end": 1.01,
+   "text": "Le Frédux"
+  },
+  {
+   "start": 1.34,
+   "end": 1.89,
+   "text": "Voilà."
+  },
+  {
+   "start": 3.27,
+   "end": 4.22,
+   "text": "C'est de ne rien"
+  },
+  {
+   "start": 5.06,
+   "end": 5.63,
+   "text": "On conduit."
+  },
+  {
+   "start": 6.28,
+   "end": 7.46,
+   "text": "vous profitez."
+  },
+  {
+   "start": 8.27,
+   "end": 9.15,
+   "text": "GP Service."
+  },
+  {
+   "start": 9.55,
+   "end": 10.2,
+   "text": "chauffeur privé"
+  }
+ ]
+}

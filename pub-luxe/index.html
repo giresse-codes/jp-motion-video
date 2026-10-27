@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>JP Premium — Le vrai luxe</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/gsap.min.js"></script>
+    <script src="js/temps.js"></script>
+    <script src="js/main.js"></script>
+  </head>
+  <body>
+    <div id="racine" data-composition-id="main" data-start="0" data-duration="16.5" data-fps="30" data-width="1080" data-height="1920">
+      <section id="scene" class="clip" data-start="0" data-duration="16.5" data-track-index="0">
+        <!-- 1. Poignée de portière chromée dans la pénombre -->
+        <div class="plan" id="p1" style="opacity:1">
+          <div class="couche" id="cam1"><svg id="poignee-svg" viewBox="0 0 1080 1920" width="1080" height="1920"></svg></div>
+          <p class="texte" id="texte1" style="top:1330px"></p>
+        </div>
+        <!-- 2. Main sur le siège en cuir -->
+        <div class="plan" id="p2"><div class="couche" id="cam2"><svg id="cuir-svg" viewBox="0 0 1080 1920" width="1080" height="1920"></svg></div></div>
+        <!-- 3. Clim : flocon et souffle de particules -->
+        <div class="plan" id="p3">
+          <div class="fond"></div><div class="projecteur"></div>
+          <div class="scene3d"><div class="verre" id="verre-clim"><svg id="clim-svg" viewBox="0 0 560 560" width="560" height="560"></svg><i class="reflet"></i></div></div>
+          <svg id="particules" class="couche" viewBox="0 0 1080 1920" width="1080" height="1920"></svg>
+        </div>
+        <!-- 4. Wi-Fi qui s'allume -->
+        <div class="plan" id="p4">
+          <div class="fond"></div><div class="couche" id="bokeh-wifi"></div><div class="projecteur"></div>
+          <div class="scene3d"><div class="verre" id="verre-wifi"><svg id="wifi-svg" viewBox="0 0 560 560" width="560" height="560"></svg><i class="reflet"></i></div></div>
+        </div>
+        <!-- 5. Pluie sur la vitre, ville floue derrière -->
+        <div class="plan" id="p5"><div class="couche" id="cam5"><div class="couche" id="ville-floue"></div><svg id="vitre-svg" class="couche" viewBox="0 0 1080 1920" width="1080" height="1920"></svg></div></div>
+        <!-- 6. « … c'est de ne rien faire. » -->
+        <div class="plan" id="p6"><div class="fond"></div><div class="projecteur" style="opacity:.5"></div><p class="texte" id="texte2" style="top:860px"></p></div>
+        <!-- 7. La voiture glisse sous le projecteur -->
+        <div class="plan" id="p7">
+          <div class="fond"></div><div class="halo"></div><div class="sol"></div><div class="projecteur" id="proj7"></div><div class="flaque"></div>
+          <div class="auto" id="auto">
+            <img class="reflet-sol" src="assets/images/voiture-jp.png" alt="">
+            <img src="assets/images/voiture-jp.png" alt="">
+            <i class="faisceau" id="faisceau"></i><i class="phare" id="phare"></i>
+          </div>
+          <p class="texte" id="mot1" style="top:430px; opacity:0">On conduit.</p>
+          <p class="texte" id="mot2" style="top:560px; opacity:0">Vous <em>profitez.</em></p>
+        </div>
+        <!-- 8. Outro sobre -->
+        <div class="plan" id="p8">
+          <div class="fond"></div><div class="halo"></div><div class="projecteur" id="proj8"></div><div class="socle"></div>
+          <img class="logo-jp" id="logo" src="assets/images/logo-transparent.png" alt="JP Service Express Urbaine">
+          <p class="petit" id="ligne" style="top:1170px; opacity:0">Chauffeur privé · Douala</p>
+          <div class="wa" id="wa" style="opacity:0"><svg viewBox="0 0 24 24"><path d="M12 3 C 7 3 3 6.6 3 11 C 3 13.3 4.1 15.3 5.9 16.8 L 5 21 L 9.2 18.6 C 10.1 18.9 11 19 12 19 C 17 19 21 15.4 21 11 C 21 6.6 17 3 12 3 Z" fill="none" stroke="#F3EDE4" stroke-width="1.4" stroke-linejoin="round"/></svg>WhatsApp · +237 655 394 028</div>
+        </div>
+        <svg class="grain" viewBox="0 0 1160 2000" width="1160" height="2000"><filter id="f-grain"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="3"/><feColorMatrix values="0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 1.4 -.2"/></filter><rect width="1160" height="2000" filter="url(#f-grain)"/></svg>
+        <div class="vignette"></div>
+      </section>
+      <audio id="voix" data-audio-group="voix" src="assets/audio/voix.wav" data-start="0" data-duration="16.5" data-track-index="10" data-volume="1"></audio>
+      <audio id="nappe" data-audio-group="musique" src="assets/audio/nappe.wav" data-start="0" data-duration="16.5" data-track-index="11" data-volume="0.35"></audio>
+      <audio id="sfx" data-audio-group="sfx" src="assets/audio/sfx.wav" data-start="0" data-duration="16.5" data-track-index="12" data-volume="1"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      window.CONSTRUIRE(tl);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

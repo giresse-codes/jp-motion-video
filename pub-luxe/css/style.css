@@ -1,0 +1,56 @@
+/* « Le vrai luxe » — JP PREMIUM, ambiance LUXE uniquement (voir frame.md) :
+   bleu nuit très profond, halo bordeaux venu du logo, projecteur, verre dépoli, reflets. Montage lent, façon pub de parfum. */
+@font-face { font-family: "Cormorant"; font-weight: 300; src: url("../assets/fonts/cormorant-garamond-latin-300-normal.woff2") format("woff2"); }
+@font-face { font-family: "Cormorant"; font-weight: 500; src: url("../assets/fonts/cormorant-garamond-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Cormorant"; font-weight: 400; font-style: italic; src: url("../assets/fonts/cormorant-garamond-latin-400-italic.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 300; src: url("../assets/fonts/inter-latin-300-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 400; src: url("../assets/fonts/inter-latin-400-normal.woff2") format("woff2"); }
+
+:root { --nuit: #070D1F; --nuit2: #0D1733; --bordeaux: rgba(120, 10, 30, .55); --creme: #F3EDE4; --glace: #CFE6FF; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--nuit); }
+#racine, #scene { position: absolute; inset: 0; width: 1080px; height: 1920px; overflow: hidden; background: var(--nuit); color: #fff; }
+.couche, .plan { position: absolute; inset: 0; }
+.plan { opacity: 0; overflow: hidden; }
+.fond { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 30%, var(--nuit2) 0%, var(--nuit) 60%); }
+.halo { position: absolute; left: 50%; top: 78%; width: 1500px; height: 1500px; margin: -750px 0 0 -750px; border-radius: 50%; background: radial-gradient(circle, var(--bordeaux), rgba(120, 10, 30, 0) 62%); }
+.projecteur { position: absolute; left: 50%; top: -260px; width: 1000px; height: 1900px; margin-left: -500px;
+  background: radial-gradient(50% 62% at 50% 0%, rgba(255,255,255,.30), rgba(255,255,255,0) 72%); clip-path: polygon(41% 0, 59% 0, 100% 100%, 0 100%); }
+.vignette { position: absolute; inset: 0; background: radial-gradient(110% 75% at 50% 50%, rgba(0,0,0,0) 55%, rgba(0,0,0,.65) 100%); pointer-events: none; }
+.grain { position: absolute; inset: -40px; opacity: .07; mix-blend-mode: overlay; pointer-events: none; }
+
+/* Textes fins, jamais « claqués » */
+.texte { position: absolute; left: 90px; right: 90px; text-align: center; font: 300 86px/1.15 "Cormorant", serif; letter-spacing: .01em; color: var(--creme); }
+.texte .m { display: inline-block; opacity: .28; }
+.texte em { font-style: italic; font-weight: 400; color: #fff; text-shadow: 0 0 30px rgba(255, 220, 200, .45); }
+.petit { position: absolute; left: 0; right: 0; text-align: center; font: 300 34px "Inter"; letter-spacing: .32em; text-transform: uppercase; color: rgba(243, 237, 228, .8); }
+
+/* 1. Poignée de portière */
+.carrosserie { position: absolute; inset: 0; }
+#poignee-svg { position: absolute; left: 0; top: 0; }
+
+/* 2. Macros : scènes 3D en verre */
+.scene3d { position: absolute; inset: 0; perspective: 1400px; }
+.verre { position: absolute; left: 50%; top: 50%; width: 560px; height: 560px; margin: -330px 0 0 -280px; border-radius: 80px;
+  background: linear-gradient(140deg, rgba(255,255,255,.16), rgba(255,255,255,.04)); border: 2px solid rgba(255,255,255,.22);
+  box-shadow: 0 60px 120px rgba(0,0,0,.55), inset 0 2px 0 rgba(255,255,255,.35); backdrop-filter: blur(18px); overflow: hidden; transform-style: preserve-3d; }
+.verre svg { position: absolute; inset: 0; }
+.reflet { position: absolute; top: -40%; left: -80%; width: 50%; height: 180%; background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.35), rgba(255,255,255,0)); transform: rotate(20deg); }
+.legende { position: absolute; left: 0; right: 0; top: 1330px; text-align: center; font: 300 30px "Inter"; letter-spacing: .4em; text-transform: uppercase; color: rgba(243, 237, 228, .65); }
+.bokeh { position: absolute; border-radius: 50%; }
+
+/* 4. Voiture sous le projecteur */
+.sol { position: absolute; left: 0; right: 0; top: 1240px; bottom: 0; background: linear-gradient(180deg, rgba(20, 30, 60, .9), rgba(7, 13, 31, 1) 70%); }
+.flaque { position: absolute; left: 50%; top: 1170px; width: 1100px; height: 260px; margin-left: -550px; border-radius: 50%; background: radial-gradient(closest-side, rgba(255,255,255,.22), rgba(255,255,255,0)); }
+.auto { position: absolute; left: 140px; top: 900px; width: 800px; height: 385px; }
+.auto img { position: absolute; left: 0; top: 0; width: 800px; }
+.auto .reflet-sol { top: 385px; transform: scaleY(-1); opacity: .22; -webkit-mask-image: linear-gradient(0deg, rgba(0,0,0,.9), transparent 55%); mask-image: linear-gradient(0deg, rgba(0,0,0,.9), transparent 55%); }
+.phare { position: absolute; left: 150px; top: 168px; width: 150px; height: 70px; margin: -35px 0 0 -75px; border-radius: 50%; background: radial-gradient(closest-side, #fff, rgba(220,235,255,.8) 35%, rgba(200,220,255,0)); mix-blend-mode: screen; opacity: 0; }
+.faisceau { position: absolute; left: -700px; top: 120px; width: 900px; height: 260px; background: radial-gradient(70% 50% at 100% 30%, rgba(220,235,255,.45), rgba(220,235,255,0) 70%); clip-path: polygon(100% 18%, 100% 40%, 0 100%, 0 0); mix-blend-mode: screen; opacity: 0; }
+
+/* 6. Outro */
+.logo-jp { position: absolute; left: 140px; top: 760px; width: 800px; }
+.socle { position: absolute; left: 50%; top: 1050px; width: 820px; height: 120px; margin-left: -410px; border-radius: 50%; background: radial-gradient(closest-side, rgba(255,255,255,.28), rgba(255,255,255,0)); }
+.wa { position: absolute; left: 50%; top: 1330px; transform: translateX(-50%); display: flex; align-items: center; gap: 22px; padding: 22px 44px; border-radius: 60px; border: 1.5px solid rgba(243,237,228,.55);
+  font: 400 40px "Inter"; letter-spacing: .04em; color: var(--creme); white-space: nowrap; background: rgba(255,255,255,.05); }
+.wa svg { width: 40px; height: 40px; }
