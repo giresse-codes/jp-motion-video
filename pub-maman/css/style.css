@@ -1,0 +1,31 @@
+/* « Chut, Maman ne sait rien » — compléments au kit JP PAPIER : ambiance de soirée (fond brun chaud, lumières dorées). */
+.chut { position: absolute; left: 110px; top: 560px; overflow: visible; }
+.calque { position: absolute; inset: 0; overflow: visible; pointer-events: none; }
+.lumiere { position: absolute; border-radius: 50%; background: radial-gradient(circle, rgba(255, 214, 120, .9) 0%, rgba(242, 194, 48, .35) 40%, rgba(242, 194, 48, 0) 70%); }
+
+/* Photo recadrée dans le cadre (coordonnées de la photo source 1696 × 2528, trois panneaux) */
+.photo { position: absolute; left: 0; top: 0; width: 1696px; height: 2528px; transform-origin: 0 0; }
+.jp-cadre .photo img { position: absolute; inset: auto; left: 0; top: 0; width: 1696px; height: 2528px; object-fit: fill; }
+.jp-cadre { perspective: 1600px; }
+
+/* Porte de la maison qui s'ouvre sur Maman */
+.porte-maison { position: absolute; inset: 0; background: linear-gradient(90deg, #6B4430, #5A3826); transform-origin: 0 50%; box-shadow: inset 0 0 0 26px #4A2D1E;
+  background-image: linear-gradient(#4A2D1E, #4A2D1E), linear-gradient(#4A2D1E, #4A2D1E), linear-gradient(90deg, #7A5038, #5A3826);
+  background-size: 640px 8px, 640px 8px, 100% 100%; background-position: 130px 380px, 130px 760px, 0 0; background-repeat: no-repeat; }
+.porte-maison .poignee { position: absolute; right: 90px; top: 560px; width: 36px; height: 36px; border-radius: 50%; background: var(--jp-moutarde); box-shadow: 0 6px 10px rgba(0,0,0,.4); }
+.porte-maison .judas { position: absolute; left: 50%; top: 240px; width: 22px; height: 22px; margin-left: -11px; border-radius: 50%; background: #1d1513; border: 5px solid var(--jp-moutarde); }
+.sonnette { position: absolute; left: 820px; top: 1180px; width: 120px; height: 170px; border-radius: 22px; background: var(--jp-carte); box-shadow: var(--jp-ombre); opacity: 0; }
+.sonnette i { position: absolute; left: 30px; top: 40px; width: 60px; height: 60px; border-radius: 50%; background: var(--jp-moutarde); border: 6px solid var(--jp-encre); box-sizing: border-box; }
+.sonnette span { position: absolute; left: -150px; top: -70px; font: 700 64px/1 "Caveat"; color: var(--jp-moutarde); transform: rotate(-10deg); white-space: nowrap; }
+
+/* Phrase du chauffeur, écrite à la main */
+.bonsoir { position: absolute; left: 120px; top: 1330px; width: 760px; padding: 26px 40px; border-radius: 14px; background: var(--jp-carte); box-shadow: 0 20px 40px rgba(20, 10, 5, .45); transform: rotate(-3deg); opacity: 0; }
+.ligne-b { font: 700 68px/1.15 "Caveat"; color: var(--jp-encre); clip-path: inset(0 100% 0 0); white-space: nowrap; }
+#b2 { color: #6b4a1e; }
+
+/* Lumières de la ville qui glissent sur son visage */
+.reflets { position: absolute; inset: 0; mix-blend-mode: screen; pointer-events: none; }
+.reflets i { position: absolute; border-radius: 50%; filter: blur(28px); }
+
+/* Sur fond brun, le trait moutarde couvre tout le mot clé pour qu'il reste lisible */
+.jp-bloc.clair .jp-trait { height: 86%; bottom: 2%; }

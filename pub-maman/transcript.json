@@ -1,0 +1,381 @@
+{
+ "words": [
+  {
+   "text": "Shit",
+   "start": 0.0,
+   "end": 0.313
+  },
+  {
+   "text": "!",
+   "start": 0.313,
+   "end": 0.574
+  },
+  {
+   "text": "Maman",
+   "start": 1.01,
+   "end": 1.259
+  },
+  {
+   "text": "ne",
+   "start": 1.259,
+   "end": 1.437
+  },
+  {
+   "text": "sait",
+   "start": 1.437,
+   "end": 1.651
+  },
+  {
+   "text": "rien.",
+   "start": 1.651,
+   "end": 1.865
+  },
+  {
+   "text": "Ce",
+   "start": 2.563,
+   "end": 2.799
+  },
+  {
+   "text": "soir,",
+   "start": 2.799,
+   "end": 3.081
+  },
+  {
+   "text": "c'est",
+   "start": 3.081,
+   "end": 3.363
+  },
+  {
+   "text": "son",
+   "start": 3.363,
+   "end": 3.599
+  },
+  {
+   "text": "anniversaire.",
+   "start": 3.599,
+   "end": 4.257
+  },
+  {
+   "text": "Ces",
+   "start": 4.689,
+   "end": 4.883
+  },
+  {
+   "text": "enfants",
+   "start": 4.883,
+   "end": 5.233
+  },
+  {
+   "text": "ont",
+   "start": 5.233,
+   "end": 5.427
+  },
+  {
+   "text": "réservé",
+   "start": 5.427,
+   "end": 5.776
+  },
+  {
+   "text": "une",
+   "start": 5.776,
+   "end": 5.97
+  },
+  {
+   "text": "table.",
+   "start": 5.97,
+   "end": 6.242
+  },
+  {
+   "text": "et",
+   "start": 6.7,
+   "end": 6.851
+  },
+  {
+   "text": "un",
+   "start": 6.851,
+   "end": 7.001
+  },
+  {
+   "text": "chauffeur",
+   "start": 7.001,
+   "end": 7.332
+  },
+  {
+   "text": "19",
+   "start": 8.057,
+   "end": 8.324
+  },
+  {
+   "text": "heures",
+   "start": 8.324,
+   "end": 8.75
+  },
+  {
+   "text": "On",
+   "start": 9.177,
+   "end": 9.369
+  },
+  {
+   "text": "sonne",
+   "start": 9.369,
+   "end": 9.637
+  },
+  {
+   "text": "Un",
+   "start": 10.178,
+   "end": 10.353
+  },
+  {
+   "text": "homme",
+   "start": 10.353,
+   "end": 10.597
+  },
+  {
+   "text": "en",
+   "start": 10.597,
+   "end": 10.772
+  },
+  {
+   "text": "costume",
+   "start": 10.772,
+   "end": 11.087
+  },
+  {
+   "text": "lui",
+   "start": 11.087,
+   "end": 11.262
+  },
+  {
+   "text": "ouvre",
+   "start": 11.262,
+   "end": 11.506
+  },
+  {
+   "text": "la",
+   "start": 11.506,
+   "end": 11.681
+  },
+  {
+   "text": "portière.",
+   "start": 11.681,
+   "end": 12.031
+  },
+  {
+   "text": "Bonsoir",
+   "start": 12.534,
+   "end": 12.898
+  },
+  {
+   "text": "madame",
+   "start": 12.898,
+   "end": 13.222
+  },
+  {
+   "text": "Vos",
+   "start": 13.526,
+   "end": 13.681
+  },
+  {
+   "text": "enfants",
+   "start": 13.681,
+   "end": 13.959
+  },
+  {
+   "text": "vous",
+   "start": 13.959,
+   "end": 14.145
+  },
+  {
+   "text": "attendent",
+   "start": 14.145,
+   "end": 14.485
+  },
+  {
+   "text": "Elle",
+   "start": 15.052,
+   "end": 15.272
+  },
+  {
+   "text": "n'a",
+   "start": 15.272,
+   "end": 15.456
+  },
+  {
+   "text": "pas",
+   "start": 15.456,
+   "end": 15.64
+  },
+  {
+   "text": "dit",
+   "start": 15.64,
+   "end": 15.823
+  },
+  {
+   "text": "un",
+   "start": 15.823,
+   "end": 16.007
+  },
+  {
+   "text": "mot",
+   "start": 16.007,
+   "end": 16.191
+  },
+  {
+   "text": "pendant",
+   "start": 16.191,
+   "end": 16.522
+  },
+  {
+   "text": "tout",
+   "start": 16.522,
+   "end": 16.742
+  },
+  {
+   "text": "le",
+   "start": 16.742,
+   "end": 16.926
+  },
+  {
+   "text": "trajet.",
+   "start": 16.926,
+   "end": 17.22
+  },
+  {
+   "text": "Elle",
+   "start": 17.71,
+   "end": 17.935
+  },
+  {
+   "text": "souriait",
+   "start": 17.935,
+   "end": 18.309
+  },
+  {
+   "text": "trop",
+   "start": 18.309,
+   "end": 18.534
+  },
+  {
+   "text": "pour",
+   "start": 18.534,
+   "end": 18.758
+  },
+  {
+   "text": "parler.",
+   "start": 18.758,
+   "end": 19.058
+  },
+  {
+   "text": "Il",
+   "start": 19.5,
+   "end": 19.753
+  },
+  {
+   "text": "y",
+   "start": 19.753,
+   "end": 20.005
+  },
+  {
+   "text": "a",
+   "start": 20.005,
+   "end": 20.258
+  },
+  {
+   "text": "des",
+   "start": 20.258,
+   "end": 20.51
+  },
+  {
+   "text": "soirs",
+   "start": 20.51,
+   "end": 20.864
+  },
+  {
+   "text": "où",
+   "start": 20.864,
+   "end": 21.116
+  },
+  {
+   "text": "l'on",
+   "start": 21.116,
+   "end": 21.368
+  },
+  {
+   "text": "mérite",
+   "start": 21.368,
+   "end": 21.772
+  },
+  {
+   "text": "d'être",
+   "start": 21.772,
+   "end": 22.126
+  }
+ ],
+ "phrases": [
+  {
+   "start": 0.0,
+   "end": 0.57,
+   "text": "Shit !"
+  },
+  {
+   "start": 1.01,
+   "end": 1.86,
+   "text": "Maman ne sait rien."
+  },
+  {
+   "start": 2.56,
+   "end": 4.26,
+   "text": "Ce soir, c'est son anniversaire."
+  },
+  {
+   "start": 4.69,
+   "end": 6.24,
+   "text": "Ces enfants ont réservé une table."
+  },
+  {
+   "start": 6.7,
+   "end": 7.33,
+   "text": "et un chauffeur"
+  },
+  {
+   "start": 8.06,
+   "end": 8.75,
+   "text": "19 heures"
+  },
+  {
+   "start": 9.18,
+   "end": 9.64,
+   "text": "On sonne"
+  },
+  {
+   "start": 10.18,
+   "end": 12.03,
+   "text": "Un homme en costume lui ouvre la portière."
+  },
+  {
+   "start": 12.53,
+   "end": 13.22,
+   "text": "Bonsoir madame"
+  },
+  {
+   "start": 13.53,
+   "end": 14.49,
+   "text": "Vos enfants vous attendent"
+  },
+  {
+   "start": 15.05,
+   "end": 17.22,
+   "text": "Elle n'a pas dit un mot pendant tout le trajet."
+  },
+  {
+   "start": 17.71,
+   "end": 19.06,
+   "text": "Elle souriait trop pour parler."
+  },
+  {
+   "start": 19.5,
+   "end": 22.13,
+   "text": "Il y a des soirs où l'on mérite d'être"
+  }
+ ]
+}
