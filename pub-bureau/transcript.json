@@ -1,0 +1,236 @@
+{
+ "words": [
+  {
+   "text": "8h",
+   "start": 0.0,
+   "end": 0.609
+  },
+  {
+   "text": "Tu",
+   "start": 1.005,
+   "end": 1.152
+  },
+  {
+   "text": "montes",
+   "start": 1.152,
+   "end": 1.387
+  },
+  {
+   "text": "en",
+   "start": 1.387,
+   "end": 1.534
+  },
+  {
+   "text": "voiture",
+   "start": 1.534,
+   "end": 1.799
+  },
+  {
+   "text": "8h05",
+   "start": 2.403,
+   "end": 3.087
+  },
+  {
+   "text": "Premier",
+   "start": 3.434,
+   "end": 3.759
+  },
+  {
+   "text": "appel",
+   "start": 3.759,
+   "end": 4.012
+  },
+  {
+   "text": "client.",
+   "start": 4.012,
+   "end": 4.301
+  },
+  {
+   "text": "8h15",
+   "start": 4.898,
+   "end": 5.591
+  },
+  {
+   "text": "Trois",
+   "start": 5.9,
+   "end": 6.34
+  },
+  {
+   "text": "e-mails",
+   "start": 6.34,
+   "end": 6.843
+  },
+  {
+   "text": "8h25",
+   "start": 7.391,
+   "end": 8.233
+  },
+  {
+   "text": "Ta",
+   "start": 8.601,
+   "end": 8.867
+  },
+  {
+   "text": "présentation",
+   "start": 8.867,
+   "end": 9.613
+  },
+  {
+   "text": "relue.",
+   "start": 9.613,
+   "end": 9.986
+  },
+  {
+   "text": "8h35",
+   "start": 10.501,
+   "end": 11.326
+  },
+  {
+   "text": "Tu",
+   "start": 11.72,
+   "end": 11.894
+  },
+  {
+   "text": "arrives.",
+   "start": 11.894,
+   "end": 12.209
+  },
+  {
+   "text": "Prêt",
+   "start": 12.716,
+   "end": 12.938
+  },
+  {
+   "text": "Avec",
+   "start": 13.584,
+   "end": 13.908
+  },
+  {
+   "text": "le",
+   "start": 13.908,
+   "end": 14.177
+  },
+  {
+   "text": "service",
+   "start": 14.177,
+   "end": 14.663
+  },
+  {
+   "text": "confort",
+   "start": 14.663,
+   "end": 15.148
+  },
+  {
+   "text": "et",
+   "start": 15.148,
+   "end": 15.418
+  },
+  {
+   "text": "son",
+   "start": 15.418,
+   "end": 15.687
+  },
+  {
+   "text": "wifi,",
+   "start": 15.687,
+   "end": 16.011
+  },
+  {
+   "text": "ton",
+   "start": 16.011,
+   "end": 16.281
+  },
+  {
+   "text": "bureau",
+   "start": 16.281,
+   "end": 16.712
+  },
+  {
+   "text": "roule.",
+   "start": 16.712,
+   "end": 17.09
+  },
+  {
+   "text": "3500",
+   "start": 17.513,
+   "end": 17.874
+  },
+  {
+   "text": "francs",
+   "start": 17.874,
+   "end": 18.354
+  },
+  {
+   "text": "l'heure.",
+   "start": 18.354,
+   "end": 18.834
+  }
+ ],
+ "phrases": [
+  {
+   "start": 0.0,
+   "end": 0.61,
+   "text": "8h"
+  },
+  {
+   "start": 1.0,
+   "end": 1.8,
+   "text": "Tu montes en voiture"
+  },
+  {
+   "start": 2.4,
+   "end": 3.09,
+   "text": "8h05"
+  },
+  {
+   "start": 3.43,
+   "end": 4.3,
+   "text": "Premier appel client."
+  },
+  {
+   "start": 4.9,
+   "end": 5.59,
+   "text": "8h15"
+  },
+  {
+   "start": 5.9,
+   "end": 6.84,
+   "text": "Trois e-mails"
+  },
+  {
+   "start": 7.39,
+   "end": 8.23,
+   "text": "8h25"
+  },
+  {
+   "start": 8.6,
+   "end": 9.99,
+   "text": "Ta présentation relue."
+  },
+  {
+   "start": 10.5,
+   "end": 11.33,
+   "text": "8h35"
+  },
+  {
+   "start": 11.72,
+   "end": 12.21,
+   "text": "Tu arrives."
+  },
+  {
+   "start": 12.72,
+   "end": 12.94,
+   "text": "Prêt"
+  },
+  {
+   "start": 13.58,
+   "end": 17.09,
+   "text": "Avec le service confort et son wifi, ton bureau roule."
+  },
+  {
+   "start": 17.51,
+   "end": 18.83,
+   "text": "3500 francs l'heure."
+  }
+ ]
+}
