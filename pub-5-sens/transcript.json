@@ -1,0 +1,286 @@
+{
+ "words": [
+  {
+   "text": "L'avion",
+   "start": 0.0,
+   "end": 0.622
+  },
+  {
+   "text": "Voilà",
+   "start": 1.207,
+   "end": 1.504
+  },
+  {
+   "text": "qui",
+   "start": 1.504,
+   "end": 1.716
+  },
+  {
+   "text": "définit.",
+   "start": 1.716,
+   "end": 2.098
+  },
+  {
+   "text": "sans",
+   "start": 2.489,
+   "end": 2.756
+  },
+  {
+   "text": "stress.",
+   "start": 2.756,
+   "end": 3.111
+  },
+  {
+   "text": "Louis.",
+   "start": 3.761,
+   "end": 4.076
+  },
+  {
+   "text": "Ta",
+   "start": 4.642,
+   "end": 4.846
+  },
+  {
+   "text": "musique.",
+   "start": 4.846,
+   "end": 5.213
+  },
+  {
+   "text": "Body",
+   "start": 5.519,
+   "end": 5.735
+  },
+  {
+   "text": "collection.",
+   "start": 5.735,
+   "end": 6.167
+  },
+  {
+   "text": "le",
+   "start": 6.722,
+   "end": 6.922
+  },
+  {
+   "text": "toucher.",
+   "start": 6.922,
+   "end": 7.283
+  },
+  {
+   "text": "Un",
+   "start": 7.746,
+   "end": 7.973
+  },
+  {
+   "text": "siège",
+   "start": 7.973,
+   "end": 8.291
+  },
+  {
+   "text": "propre,",
+   "start": 8.291,
+   "end": 8.654
+  },
+  {
+   "text": "la",
+   "start": 8.654,
+   "end": 8.881
+  },
+  {
+   "text": "clim",
+   "start": 8.881,
+   "end": 9.153
+  },
+  {
+   "text": "sur",
+   "start": 9.153,
+   "end": 9.38
+  },
+  {
+   "text": "la",
+   "start": 9.38,
+   "end": 9.607
+  },
+  {
+   "text": "peau.",
+   "start": 9.607,
+   "end": 9.879
+  },
+  {
+   "text": "L'odorat",
+   "start": 10.404,
+   "end": 10.954
+  },
+  {
+   "text": "Une",
+   "start": 11.365,
+   "end": 11.564
+  },
+  {
+   "text": "voiture",
+   "start": 11.564,
+   "end": 11.923
+  },
+  {
+   "text": "qui",
+   "start": 11.923,
+   "end": 12.122
+  },
+  {
+   "text": "sent",
+   "start": 12.122,
+   "end": 12.361
+  },
+  {
+   "text": "le",
+   "start": 12.361,
+   "end": 12.56
+  },
+  {
+   "text": "propre.",
+   "start": 12.56,
+   "end": 12.879
+  },
+  {
+   "text": "Et",
+   "start": 13.362,
+   "end": 13.621
+  },
+  {
+   "text": "le",
+   "start": 13.621,
+   "end": 13.881
+  },
+  {
+   "text": "goût...",
+   "start": 13.881,
+   "end": 14.192
+  },
+  {
+   "text": "Le",
+   "start": 14.637,
+   "end": 14.856
+  },
+  {
+   "text": "goût",
+   "start": 14.856,
+   "end": 15.119
+  },
+  {
+   "text": "d'arriver",
+   "start": 15.119,
+   "end": 15.557
+  },
+  {
+   "text": "à",
+   "start": 15.557,
+   "end": 15.776
+  },
+  {
+   "text": "l",
+   "start": 15.776,
+   "end": 15.995
+  },
+  {
+   "text": "JPService.",
+   "start": 16.516,
+   "end": 17.386
+  },
+  {
+   "text": "rapide,",
+   "start": 17.662,
+   "end": 18.223
+  },
+  {
+   "text": "sur",
+   "start": 18.483,
+   "end": 18.923
+  },
+  {
+   "text": "confortable.",
+   "start": 19.289,
+   "end": 20.114
+  }
+ ],
+ "phrases": [
+  {
+   "start": 0.0,
+   "end": 0.62,
+   "text": "L'avion"
+  },
+  {
+   "start": 1.21,
+   "end": 2.1,
+   "text": "Voilà qui définit."
+  },
+  {
+   "start": 2.49,
+   "end": 3.11,
+   "text": "sans stress."
+  },
+  {
+   "start": 3.76,
+   "end": 4.08,
+   "text": "Louis."
+  },
+  {
+   "start": 4.64,
+   "end": 5.21,
+   "text": "Ta musique."
+  },
+  {
+   "start": 5.52,
+   "end": 6.17,
+   "text": "Body collection."
+  },
+  {
+   "start": 6.72,
+   "end": 7.28,
+   "text": "le toucher."
+  },
+  {
+   "start": 7.75,
+   "end": 9.88,
+   "text": "Un siège propre, la clim sur la peau."
+  },
+  {
+   "start": 10.4,
+   "end": 10.95,
+   "text": "L'odorat"
+  },
+  {
+   "start": 11.36,
+   "end": 12.88,
+   "text": "Une voiture qui sent le propre."
+  },
+  {
+   "start": 13.36,
+   "end": 14.19,
+   "text": "Et le goût..."
+  },
+  {
+   "start": 14.64,
+   "end": 15.99,
+   "text": "Le goût d'arriver à l"
+  },
+  {
+   "start": 16.52,
+   "end": 17.39,
+   "text": "JPService."
+  },
+  {
+   "start": 17.66,
+   "end": 18.22,
+   "text": "rapide,"
+  },
+  {
+   "start": 18.48,
+   "end": 18.92,
+   "text": "sur"
+  },
+  {
+   "start": 19.29,
+   "end": 20.11,
+   "text": "confortable."
+  }
+ ]
+}

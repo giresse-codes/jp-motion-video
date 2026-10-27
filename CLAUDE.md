@@ -96,7 +96,8 @@ composants dans `jp-papier/README.md` ; démo `index.html`). Nouvelle vidéo :
 `jp-papier/scripts/nouvelle-video.sh pub-<nom>`, puis le workflow du README (transcription,
 `scripts/sons.py`, `npm run carve`, lint + 5 snapshots avant tout rendu).
 Transcription de secours si Hugging Face est bloqué : `python3 scripts/transcrire.py` (Whisper small via GitHub).
-Vidéos JP PAPIER : `pub-clarisse/`, `pub-atterrissage/`, `pub-3-moments/`, `pub-chauffeur-jp/`.
+Vidéos JP PAPIER : `pub-clarisse/`, `pub-atterrissage/`, `pub-3-moments/`, `pub-chauffeur-jp/`, `pub-5-sens/` (photo fournie recadrée par chapitre).
+Vidéo JP UI : `pub-calcul/` (« Fais le calcul », écrans pilotés par une horloge dans `js/main.js`).
 Vidéo JP STORIES : `pub-debat/` (dialogue Rodrigue / Nadège, personnages dessinés en SVG dans `js/main.js`).
 Vidéo JP PREMIUM (ambiance LUXE seule) : `pub-luxe/` (« Le vrai luxe », voix espacée dans `assets/audio/voix.wav`, sons ASMR synthétisés par `scripts/sons.py`).
 

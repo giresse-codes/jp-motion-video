@@ -1,0 +1,34 @@
+/* « Les 5 sens du trajet parfait » — compléments au kit JP PAPIER (css/jp-papier.css). */
+
+/* Rangée des 5 pictogrammes manuscrits (hook et récapitulatif) */
+.rang { position: absolute; left: 60px; width: 900px; top: 880px; display: flex; justify-content: space-between; }
+.picto { position: relative; width: 168px; text-align: center; }
+.picto svg { width: 168px; height: 168px; overflow: visible; }
+.picto b { display: block; margin-top: 6px; font: 700 54px/1 "Caveat"; color: var(--jp-encre); }
+.picto .num { display: block; font: 700 64px/1 "Caveat"; color: var(--jp-moutarde); -webkit-text-stroke: 2px var(--jp-encre); margin-bottom: 4px; }
+
+/* Ouverture de chapitre : grand chiffre au marqueur + pictogramme */
+.ouverture { position: absolute; left: 160px; top: 720px; width: 760px; height: 460px; transform-origin: 50% 50%; opacity: 0; }
+.ouverture .fond { position: absolute; inset: -20px -40px; border-radius: 60px; background: var(--jp-carte); box-shadow: var(--jp-ombre); opacity: 0; }
+.ouverture svg { position: absolute; top: 0; overflow: visible; }
+.ouverture .chiffre { left: 0; }
+.ouverture .picto-grand { left: 400px; top: 70px; }
+
+/* Photo recadrée dans un cadre (coordonnées de la photo source 2000 × 1116) */
+.photo { position: absolute; left: 0; top: 0; width: 2000px; height: 1116px; transform-origin: 0 0; }
+.jp-cadre .photo img { position: absolute; inset: auto; left: 0; top: 0; width: 2000px; height: 1116px; object-fit: fill; }
+.calque { position: absolute; inset: 0; overflow: visible; pointer-events: none; }
+
+/* Vitre : la ville dessinée défile derrière (parallax) */
+.vitre { position: absolute; left: 0; top: 0; width: 2000px; height: 1116px; clip-path: polygon(1040px 206px, 1490px 226px, 1490px 476px, 1040px 504px); overflow: hidden; }
+.vitre .ville { position: absolute; left: 1000px; top: 190px; }
+#ville-loin { filter: blur(2.5px); }
+#ville-pres { filter: blur(1.2px); }
+.reflet-vitre { position: absolute; left: 1000px; top: 180px; width: 560px; height: 360px; background: linear-gradient(115deg, rgba(255,255,255,0) 30%, rgba(255,255,255,.28) 45%, rgba(255,255,255,0) 60%); }
+
+/* « à l'heure ✓ » */
+.a-l-heure { position: absolute; left: 290px; top: 1500px; padding: 14px 34px; border-radius: 28px; background: var(--jp-moutarde); font: 700 72px/1 "Caveat"; color: var(--jp-encre); box-shadow: var(--jp-ombre); opacity: 0; transform: rotate(-4deg); }
+
+/* Titre du hook, plus grand */
+.jp-bloc.hook { top: 120px; }
+.jp-bloc.hook .jp-phrase { font-size: 92px; line-height: 1.1; }
