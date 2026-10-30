@@ -1,0 +1,641 @@
+{
+ "words": [
+  {
+   "text": "Les",
+   "start": 0.0,
+   "end": 0.207
+  },
+  {
+   "text": "filles",
+   "start": 0.207,
+   "end": 0.538
+  },
+  {
+   "text": "!",
+   "start": 0.538,
+   "end": 0.746
+  },
+  {
+   "text": "samedi",
+   "start": 1.032,
+   "end": 1.621
+  },
+  {
+   "text": "À",
+   "start": 1.938,
+   "end": 2.136
+  },
+  {
+   "text": "quoi,",
+   "start": 2.136,
+   "end": 2.374
+  },
+  {
+   "text": "bon",
+   "start": 2.374,
+   "end": 2.573
+  },
+  {
+   "text": "appriso,",
+   "start": 2.573,
+   "end": 2.929
+  },
+  {
+   "text": "le",
+   "start": 2.929,
+   "end": 3.128
+  },
+  {
+   "text": "marché",
+   "start": 3.128,
+   "end": 3.445
+  },
+  {
+   "text": "des",
+   "start": 3.445,
+   "end": 3.643
+  },
+  {
+   "text": "fleurs",
+   "start": 3.643,
+   "end": 3.961
+  },
+  {
+   "text": "et",
+   "start": 3.961,
+   "end": 4.159
+  },
+  {
+   "text": "on",
+   "start": 4.159,
+   "end": 4.357
+  },
+  {
+   "text": "finit",
+   "start": 4.357,
+   "end": 4.635
+  },
+  {
+   "text": "au",
+   "start": 4.635,
+   "end": 4.833
+  },
+  {
+   "text": "starant",
+   "start": 4.833,
+   "end": 5.19
+  },
+  {
+   "text": "de",
+   "start": 5.19,
+   "end": 5.388
+  },
+  {
+   "text": "coiffure",
+   "start": 5.388,
+   "end": 5.785
+  },
+  {
+   "text": "Et",
+   "start": 6.046,
+   "end": 6.264
+  },
+  {
+   "text": "qui",
+   "start": 6.264,
+   "end": 6.483
+  },
+  {
+   "text": "porte",
+   "start": 6.483,
+   "end": 6.789
+  },
+  {
+   "text": "les",
+   "start": 6.789,
+   "end": 7.007
+  },
+  {
+   "text": "sacs",
+   "start": 7.007,
+   "end": 7.269
+  },
+  {
+   "text": "?",
+   "start": 7.269,
+   "end": 7.487
+  },
+  {
+   "text": "Parce",
+   "start": 7.487,
+   "end": 7.793
+  },
+  {
+   "text": "que",
+   "start": 7.793,
+   "end": 8.012
+  },
+  {
+   "text": "moi",
+   "start": 8.012,
+   "end": 8.23
+  },
+  {
+   "text": "je",
+   "start": 8.23,
+   "end": 8.448
+  },
+  {
+   "text": "vais",
+   "start": 8.448,
+   "end": 8.71
+  },
+  {
+   "text": "acheter",
+   "start": 8.71,
+   "end": 9.103
+  },
+  {
+   "text": "beaucoup",
+   "start": 9.103,
+   "end": 9.54
+  },
+  {
+   "text": "!",
+   "start": 9.54,
+   "end": 9.759
+  },
+  {
+   "text": "*soup",
+   "start": 10.045,
+   "end": 10.347
+  },
+  {
+   "text": "et",
+   "start": 10.86,
+   "end": 11.026
+  },
+  {
+   "text": "on",
+   "start": 11.026,
+   "end": 11.192
+  },
+  {
+   "text": "se",
+   "start": 11.192,
+   "end": 11.359
+  },
+  {
+   "text": "déplace",
+   "start": 11.359,
+   "end": 11.658
+  },
+  {
+   "text": "comment?",
+   "start": 11.658,
+   "end": 11.957
+  },
+  {
+   "text": "4",
+   "start": 12.458,
+   "end": 12.798
+  },
+  {
+   "text": "taxis",
+   "start": 12.798,
+   "end": 13.273
+  },
+  {
+   "text": "Tâtre",
+   "start": 13.568,
+   "end": 13.93
+  },
+  {
+   "text": "négociation",
+   "start": 13.93,
+   "end": 14.603
+  },
+  {
+   "text": "4",
+   "start": 14.937,
+   "end": 15.114
+  },
+  {
+   "text": "fois",
+   "start": 15.114,
+   "end": 15.327
+  },
+  {
+   "text": "à",
+   "start": 15.327,
+   "end": 15.504
+  },
+  {
+   "text": "tomber",
+   "start": 15.504,
+   "end": 15.788
+  },
+  {
+   "text": "au",
+   "start": 15.788,
+   "end": 15.965
+  },
+  {
+   "text": "soleil",
+   "start": 15.965,
+   "end": 16.249
+  },
+  {
+   "text": "Non.",
+   "start": 16.628,
+   "end": 16.994
+  },
+  {
+   "text": "Un",
+   "start": 17.537,
+   "end": 17.728
+  },
+  {
+   "text": "seul",
+   "start": 17.728,
+   "end": 17.957
+  },
+  {
+   "text": "chauffeur.",
+   "start": 17.957,
+   "end": 18.377
+  },
+  {
+   "text": "5",
+   "start": 18.911,
+   "end": 19.399
+  },
+  {
+   "text": "et",
+   "start": 19.983,
+   "end": 20.134
+  },
+  {
+   "text": "nous",
+   "start": 20.134,
+   "end": 20.314
+  },
+  {
+   "text": "attend",
+   "start": 20.314,
+   "end": 20.556
+  },
+  {
+   "text": "à",
+   "start": 20.556,
+   "end": 20.706
+  },
+  {
+   "text": "chaque",
+   "start": 20.706,
+   "end": 20.948
+  },
+  {
+   "text": "arrêt.",
+   "start": 20.948,
+   "end": 21.159
+  },
+  {
+   "text": "5",
+   "start": 21.578,
+   "end": 21.787
+  },
+  {
+   "text": "heures",
+   "start": 21.787,
+   "end": 22.121
+  },
+  {
+   "text": "de",
+   "start": 22.121,
+   "end": 22.33
+  },
+  {
+   "text": "chauffeur",
+   "start": 22.33,
+   "end": 22.79
+  },
+  {
+   "text": "privé",
+   "start": 22.79,
+   "end": 23.082
+  },
+  {
+   "text": "Sandrine,",
+   "start": 23.582,
+   "end": 24.002
+  },
+  {
+   "text": "on",
+   "start": 24.002,
+   "end": 24.212
+  },
+  {
+   "text": "n'est",
+   "start": 24.212,
+   "end": 24.463
+  },
+  {
+   "text": "pas",
+   "start": 24.463,
+   "end": 24.673
+  },
+  {
+   "text": "des",
+   "start": 24.673,
+   "end": 24.883
+  },
+  {
+   "text": "ministres",
+   "start": 24.883,
+   "end": 25.345
+  },
+  {
+   "text": "Paqueko",
+   "start": 25.718,
+   "end": 26.115
+  },
+  {
+   "text": "en",
+   "start": 26.115,
+   "end": 26.336
+  },
+  {
+   "text": "promo.",
+   "start": 26.336,
+   "end": 26.646
+  },
+  {
+   "text": "2000h",
+   "start": 27.009,
+   "end": 27.59
+  },
+  {
+   "text": "des",
+   "start": 27.59,
+   "end": 28.005
+  },
+  {
+   "text": "5h",
+   "start": 28.005,
+   "end": 28.42
+  },
+  {
+   "text": "10",
+   "start": 28.816,
+   "end": 28.987
+  },
+  {
+   "text": "000",
+   "start": 28.987,
+   "end": 29.157
+  },
+  {
+   "text": "francs",
+   "start": 29.157,
+   "end": 29.43
+  },
+  {
+   "text": "10",
+   "start": 29.709,
+   "end": 30.189
+  },
+  {
+   "text": "000",
+   "start": 30.189,
+   "end": 30.669
+  },
+  {
+   "text": "divisé",
+   "start": 30.669,
+   "end": 31.438
+  },
+  {
+   "text": "par",
+   "start": 31.438,
+   "end": 31.918
+  },
+  {
+   "text": "3",
+   "start": 31.918,
+   "end": 32.398
+  },
+  {
+   "text": "-3",
+   "start": 32.657,
+   "end": 33.039
+  },
+  {
+   "text": "500",
+   "start": 33.039,
+   "end": 33.42
+  },
+  {
+   "text": "chacune",
+   "start": 33.42,
+   "end": 34.106
+  },
+  {
+   "text": "!",
+   "start": 34.106,
+   "end": 34.488
+  },
+  {
+   "text": "et",
+   "start": 34.774,
+   "end": 35.059
+  },
+  {
+   "text": "les",
+   "start": 35.059,
+   "end": 35.343
+  },
+  {
+   "text": "sacs",
+   "start": 35.343,
+   "end": 35.684
+  },
+  {
+   "text": "restent",
+   "start": 35.684,
+   "end": 36.196
+  },
+  {
+   "text": "dans",
+   "start": 36.196,
+   "end": 36.537
+  },
+  {
+   "text": "le",
+   "start": 36.537,
+   "end": 36.821
+  },
+  {
+   "text": "coffre.",
+   "start": 36.821,
+   "end": 37.276
+  },
+  {
+   "text": "Alors",
+   "start": 37.276,
+   "end": 37.674
+  },
+  {
+   "text": "je",
+   "start": 37.674,
+   "end": 37.959
+  },
+  {
+   "text": "peux",
+   "start": 37.959,
+   "end": 38.3
+  },
+  {
+   "text": "acheter",
+   "start": 38.3,
+   "end": 38.812
+  },
+  {
+   "text": "encore",
+   "start": 38.812,
+   "end": 39.266
+  },
+  {
+   "text": "plus",
+   "start": 39.266,
+   "end": 39.608
+  },
+  {
+   "text": "!",
+   "start": 39.608,
+   "end": 39.892
+  },
+  {
+   "text": "Muriel,",
+   "start": 39.892,
+   "end": 40.347
+  },
+  {
+   "text": "non",
+   "start": 40.347,
+   "end": 40.631
+  },
+  {
+   "text": "!",
+   "start": 40.631,
+   "end": 40.915
+  }
+ ],
+ "phrases": [
+  {
+   "start": 0.0,
+   "end": 0.75,
+   "text": "Les filles !"
+  },
+  {
+   "start": 1.03,
+   "end": 1.62,
+   "text": "samedi"
+  },
+  {
+   "start": 1.94,
+   "end": 5.78,
+   "text": "À quoi, bon appriso, le marché des fleurs et on finit au starant de coiffure"
+  },
+  {
+   "start": 6.05,
+   "end": 9.76,
+   "text": "Et qui porte les sacs ? Parce que moi je vais acheter beaucoup !"
+  },
+  {
+   "start": 10.04,
+   "end": 10.35,
+   "text": "*soup"
+  },
+  {
+   "start": 10.86,
+   "end": 11.96,
+   "text": "et on se déplace comment?"
+  },
+  {
+   "start": 12.46,
+   "end": 13.27,
+   "text": "4 taxis"
+  },
+  {
+   "start": 13.57,
+   "end": 14.6,
+   "text": "Tâtre négociation"
+  },
+  {
+   "start": 14.94,
+   "end": 16.25,
+   "text": "4 fois à tomber au soleil"
+  },
+  {
+   "start": 16.63,
+   "end": 16.99,
+   "text": "Non."
+  },
+  {
+   "start": 17.54,
+   "end": 18.38,
+   "text": "Un seul chauffeur."
+  },
+  {
+   "start": 18.91,
+   "end": 19.4,
+   "text": "5"
+  },
+  {
+   "start": 19.98,
+   "end": 21.16,
+   "text": "et nous attend à chaque arrêt."
+  },
+  {
+   "start": 21.58,
+   "end": 23.08,
+   "text": "5 heures de chauffeur privé"
+  },
+  {
+   "start": 23.58,
+   "end": 25.34,
+   "text": "Sandrine, on n'est pas des ministres"
+  },
+  {
+   "start": 25.72,
+   "end": 26.65,
+   "text": "Paqueko en promo."
+  },
+  {
+   "start": 27.01,
+   "end": 28.42,
+   "text": "2000h des 5h"
+  },
+  {
+   "start": 28.82,
+   "end": 29.43,
+   "text": "10 000 francs"
+  },
+  {
+   "start": 29.71,
+   "end": 32.4,
+   "text": "10 000 divisé par 3"
+  },
+  {
+   "start": 32.66,
+   "end": 34.49,
+   "text": "-3 500 chacune !"
+  },
+  {
+   "start": 34.77,
+   "end": 40.92,
+   "text": "et les sacs restent dans le coffre. Alors je peux acheter encore plus ! Muriel, non !"
+  }
+ ]
+}
