@@ -67,6 +67,13 @@ trouvés : ajuste le découpage ou `SEUIL_DB` / `PAUSE_MIN_S`.
   Ne pas les publier sans l'accord de leurs auteurs.
 - `fonts/` : Montserrat et Inter (licence OFL), chargées hors ligne.
 
+## Composition « PubPromo » (Remotion)
+
+Pub promo 63,5 s calée sur `public/voixoff-promo.mp3` : `src/pubpromo/` (une scène par fichier dans `scenes/`,
+briques communes ressorts / squash & stretch / verre / compteurs dans `ui.tsx`). Tous les repères (secondes absolues
+de la voix) et les sons sont dans `PUB_PROMO` (`src/config.ts`) : recaler ici. Rendu :
+`npx remotion render PubPromo out/pubpromo.mp4` (ajouter `--browser-executable=<chromium headless_shell>` si besoin).
+
 ## Voix off Piper (réutilisable)
 
 `scripts/voix.sh` transforme un fichier texte en MP3 (Piper TTS, hors ligne, normalisé -16 LUFS).

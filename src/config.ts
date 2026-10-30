@@ -511,3 +511,57 @@ export const VIDEO_QUIZ_SOLEIL = {
   commentez: ['Commentez', 'A, B ou C'],
   sons: {reveil: 1, pop: 0.6, sortie: 0.4, roulement: 1, bonne: 0.5, prix: 0.45, fin: 0.45},
 };
+
+// ════ « PubPromo » : pub promo 1080×1920 calée sur public/voixoff-promo.mp3 (src/pubpromo/) ════
+// Tous les repères sont en secondes ABSOLUES dans la voix off (mesurés : transcription Whisper + silencedetect).
+// Pour recaler : modifier ici, les scènes et les sons suivent.
+export const PUB_PROMO = {
+  voix: 'voixoff-promo.mp3',
+  dureeS: 63.5,
+  couleurs: {fond: '#0A0A0A', blanc: '#FFFFFF', gris: '#8E8E93', or: '#E8B04B', orClair: '#F8DC9B', orSombre: '#9A6A1C', rouge: '#E10600', vert: '#25D366'},
+  // Ressort de base (consigne : stiffness 180, damping 12).
+  ressort: {stiffness: 180, damping: 12, mass: 1},
+  // Début de chaque scène (une <Sequence> par scène, jusqu'au début de la suivante).
+  scenes: {ville: 0, cartes: 2.9, logo: 9.5, services: 13.2, slogan: 31.1, pause: 34.6, promo: 36.35, cta: 55.65},
+  ville: {titre: 0.05, vousNonPlus: 1.96},
+  cartes: {
+    items: [
+      {texte: 'Rendez-vous d’affaires', icone: 'mallette', a: 3.02},
+      {texte: 'Vol à prendre', icone: 'avion', a: 4.45},
+      {texte: 'Week-end à Kribi', icone: 'palmier', a: 6.02},
+    ],
+    meriter: 7.3,
+    morphe: 9.0,
+  },
+  logo: {chute: 9.74, nom: 10.4, chauffeur: 11.55},
+  services: {
+    onglets: ['ÉCO', 'CONFORT', 'AÉROPORT', 'VOYAGE'],
+    debuts: [13.39, 17.14, 21.09, 23.56],
+    eco: [{texte: 'Véhicule confortable', a: 14.42}, {texte: 'Chauffeur professionnel', a: 15.72}, {texte: 'Ponctualité', a: 16.35}],
+    confort: [{texte: 'Wi-Fi', a: 18.32}, {texte: 'Climatisation', a: 18.95}, {texte: 'Écran à bord', a: 20.05}, {texte: 'Véhicule premium', a: 20.45}],
+    aeroport: {montant: 8000, compteur: 22.0},
+    voyage: {villes: [{nom: 'Yaoundé', a: 24.7}, {nom: 'Buea', a: 25.5}, {nom: 'Kribi', a: 26.3}, {nom: 'Limbé', a: 27.0}], montant: 50000, prix: 29.3},
+  },
+  slogan: [{mot: 'Rapide.', a: 31.33}, {mot: 'Sûr.', a: 32.39}, {mot: 'Confortable.', a: 33.32}],
+  pause: {texte: 'Et tenez-vous prêts…', a: 34.88},
+  promo: {
+    explosion: 37.75,
+    enHaut: 38.75,
+    eco: {entree: 38.85, nouveau: 39.6, badge: 43.2, sortie: 44.9, ancien: 3000, prix: 2500, badgeTexte: 'Dès 5 h : 2 000 FCFA/h'},
+    heures: {entree: 45.0, horloges: [45.9, 46.15, 46.4, 46.65], cinquieme: 47.5, offerte: 48.61, sortie: 49.45},
+    confort: {entree: 49.6, nouveau: 51.0, badge: 54.3, sortie: 55.5, ancien: 4000, prix: 3500, badgeTexte: 'Dès 5 h : 3 000 FCFA/h'},
+  },
+  cta: {bouton: 55.82, groupes: [{texte: '655', a: 57.6}, {texte: '394', a: 59.11}, {texte: '028', a: 60.76}], logo: 61.4, fondu: 62.6},
+  // Effets sonores discrets [temps (s), nom dans SONS, volume relatif].
+  sons: [
+    [0.0, 'whoosh', 0.6], [3.02, 'pop', 0.9], [4.45, 'pop', 0.9], [6.02, 'pop', 0.9], [7.3, 'whooshCourt', 0.8], [9.0, 'whooshCourt', 0.7],
+    [9.74, 'impact', 0.45], [13.2, 'whoosh', 0.6], [14.42, 'tic', 0.7], [15.72, 'tic', 0.7], [16.35, 'tic', 0.7],
+    [17.14, 'whooshCourt', 0.7], [18.32, 'tic', 0.7], [18.95, 'tic', 0.7], [20.05, 'tic', 0.7], [20.45, 'tic', 0.7],
+    [21.09, 'whooshCourt', 0.7], [22.0, 'prix', 0.8], [23.56, 'whooshCourt', 0.7], [24.7, 'bip', 0.6], [25.5, 'bip', 0.6],
+    [26.3, 'bip', 0.6], [27.0, 'bip', 0.6], [29.3, 'prix', 0.8], [31.33, 'pop', 0.8], [32.39, 'pop', 0.8], [33.32, 'pop', 0.9],
+    [34.6, 'montee', 0.7], [37.75, 'boom', 0.5], [37.8, 'scintillement', 0.9], [39.6, 'prix', 0.8], [43.2, 'tic', 0.7],
+    [44.9, 'whooshCourt', 0.7], [45.9, 'tic', 0.5], [46.15, 'tic', 0.5], [46.4, 'tic', 0.5], [46.65, 'tic', 0.5], [47.5, 'pop', 1],
+    [48.61, 'scintillement', 1], [49.5, 'whooshCourt', 0.7], [51.0, 'prix', 0.8], [54.3, 'tic', 0.7], [55.82, 'notif', 0.8],
+    [57.6, 'tic', 0.6], [59.11, 'tic', 0.6], [60.76, 'tic', 0.6], [62.6, 'whoosh', 0.5],
+  ] as [number, 'whoosh' | 'whooshCourt' | 'impact' | 'boom' | 'montee' | 'scintillement' | 'tic' | 'pop' | 'prix' | 'bip' | 'notif', number][],
+};
