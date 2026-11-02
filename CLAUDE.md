@@ -107,6 +107,7 @@ Vidéos JP PAPIER : `pub-clarisse/`, `pub-atterrissage/`, `pub-3-moments/`, `pub
 Vidéos JP UI : `pub-calcul/` (« Fais le calcul »), `pub-bureau/` (« Ton bureau roule ») et `pub-bilingue/` (« Bienvenue à Douala », FR + EN) : écrans pilotés par une horloge dans `js/main.js`.
 Vidéos JP STORIES : `pub-debat/` (dialogue Rodrigue / Nadège, personnages dessinés en SVG dans `js/main.js`) , `pub-concours/` (« Le jour J », Ryan / Maman Odette) , `pub-shopping/` (« Samedi shopping », trois personnages : Murielle / Sandrine / Joëlle) et `pub-match/` (« Soir de match », Hervé / Patrick, décor de stade tiré de la photo fournie), même mise en page et mêmes composants.
 Vidéo JP PREMIUM « FAQ express » : `pub-faq/` (hook ÉNERGIE, 5 cartes vitrées qui se retournent en LUXE).
+Vidéo JP PREMIUM « Un seul message » : `pub-message/` (20 s, noir bleuté et lueurs bleues, téléphone 3D, compteur de prix, explosion de rayons sur le logo ; voix ElevenLabs fournie, pause allongée de 3 s dans `assets/audio/voix.wav`).
 Vidéo JP PREMIUM (ambiance LUXE seule) : `pub-luxe/` (« Le vrai luxe », voix espacée dans `assets/audio/voix.wav`, sons ASMR synthétisés par `scripts/sons.py`).
 
 Montage « cover lyrics » (TikTok) : `cover-lyrics/scripts/monter.sh [apercu|final]` incruste l'enregistrement des paroles dans l'espace noir de l'enregistrement d'écran ; médias et rendus ignorés par git (droits).

@@ -1,0 +1,186 @@
+{
+ "words": [
+  {
+   "text": "Une",
+   "start": 0.0,
+   "end": 0.182
+  },
+  {
+   "text": "grosse",
+   "start": 0.182,
+   "end": 0.472
+  },
+  {
+   "text": "journée.",
+   "start": 0.472,
+   "end": 0.8
+  },
+  {
+   "text": "Un",
+   "start": 1.581,
+   "end": 1.763
+  },
+  {
+   "text": "seul",
+   "start": 1.763,
+   "end": 1.981
+  },
+  {
+   "text": "message.",
+   "start": 1.981,
+   "end": 2.308
+  },
+  {
+   "text": "Réserve.",
+   "start": 2.751,
+   "end": 3.24
+  },
+  {
+   "text": "Confirme",
+   "start": 3.614,
+   "end": 4.07
+  },
+  {
+   "text": "et",
+   "start": 4.542,
+   "end": 4.719
+  },
+  {
+   "text": "votre",
+   "start": 4.719,
+   "end": 4.968
+  },
+  {
+   "text": "chauffeur",
+   "start": 4.968,
+   "end": 5.359
+  },
+  {
+   "text": "arrive.",
+   "start": 5.359,
+   "end": 5.644
+  },
+  {
+   "text": "et",
+   "start": 6.145,
+   "end": 6.295
+  },
+  {
+   "text": "coup.",
+   "start": 6.295,
+   "end": 6.475
+  },
+  {
+   "text": "confort.",
+   "start": 6.879,
+   "end": 7.344
+  },
+  {
+   "text": "D'aide",
+   "start": 7.786,
+   "end": 8.12
+  },
+  {
+   "text": "2500",
+   "start": 8.12,
+   "end": 8.406
+  },
+  {
+   "text": "francs",
+   "start": 8.406,
+   "end": 8.788
+  },
+  {
+   "text": "l'heure",
+   "start": 8.788,
+   "end": 9.169
+  },
+  {
+   "text": "JPService",
+   "start": 10.685,
+   "end": 11.525
+  },
+  {
+   "text": "Expressurben",
+   "start": 11.525,
+   "end": 12.594
+  },
+  {
+   "text": "rapide",
+   "start": 12.951,
+   "end": 13.572
+  },
+  {
+   "text": "sur",
+   "start": 13.854,
+   "end": 14.374
+  },
+  {
+   "text": "confortable.",
+   "start": 14.813,
+   "end": 15.726
+  }
+ ],
+ "phrases": [
+  {
+   "start": 0.0,
+   "end": 0.8,
+   "text": "Une grosse journée."
+  },
+  {
+   "start": 1.58,
+   "end": 2.31,
+   "text": "Un seul message."
+  },
+  {
+   "start": 2.75,
+   "end": 3.24,
+   "text": "Réserve."
+  },
+  {
+   "start": 3.61,
+   "end": 4.07,
+   "text": "Confirme"
+  },
+  {
+   "start": 4.54,
+   "end": 5.64,
+   "text": "et votre chauffeur arrive."
+  },
+  {
+   "start": 6.15,
+   "end": 6.47,
+   "text": "et coup."
+  },
+  {
+   "start": 6.88,
+   "end": 7.34,
+   "text": "confort."
+  },
+  {
+   "start": 7.79,
+   "end": 9.17,
+   "text": "D'aide 2500 francs l'heure"
+  },
+  {
+   "start": 10.69,
+   "end": 12.59,
+   "text": "JPService Expressurben"
+  },
+  {
+   "start": 12.95,
+   "end": 13.57,
+   "text": "rapide"
+  },
+  {
+   "start": 13.85,
+   "end": 14.37,
+   "text": "sur"
+  },
+  {
+   "start": 14.81,
+   "end": 15.73,
+   "text": "confortable."
+  }
+ ]
+}

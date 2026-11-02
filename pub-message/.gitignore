@@ -1,0 +1,6 @@
+renders/
+snapshots/
+.hyperframes/
+node_modules/
+assets/photos/
+assets/audio/musique.mp3
