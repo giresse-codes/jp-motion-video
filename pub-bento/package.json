@@ -1,0 +1,15 @@
+{
+  "name": "pub-bento",
+  "private": true,
+  "description": "« Bento » JP Service Express Urbaine (HyperFrames, sans voix) : mur de widgets 3D. Voir js/temps.js.",
+  "scripts": {
+    "images": "python3 scripts/images.py",
+    "sons": "python3 scripts/sons.py",
+    "lint": "npx hyperframes lint",
+    "apercu": "npx hyperframes render -q draft -f 30 -o renders/apercu.mp4",
+    "rendu": "npx hyperframes render -q delivery -f 30 --video-bitrate 12M -o renders/final.mp4"
+  },
+  "devDependencies": {
+    "@hyperframes/core": "0.8.181"
+  }
+}

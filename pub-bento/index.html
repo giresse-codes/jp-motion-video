@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>JP Service — Bento</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/gsap.min.js"></script>
+    <script src="js/temps.js"></script>
+    <script src="js/main.js"></script>
+  </head>
+  <body>
+    <div id="racine" data-composition-id="main" data-start="0" data-duration="20" data-fps="30" data-width="1080" data-height="1920">
+      <section id="scene" class="clip" data-start="0" data-duration="20" data-track-index="0">
+        <!-- Fond studio : dégradé radial gris + vignettage -->
+        <div class="studio"></div>
+        <!-- Une seule grande scène 3D : le mur de tuiles (2 600 × 4 600 px), filmé par une caméra virtuelle -->
+        <div id="objectif" class="objectif">
+          <div id="mur" class="mur"></div>
+        </div>
+        <div class="vignettage"></div>
+        <!-- Final sur fond noir -->
+        <div id="noir" class="noir"></div>
+        <div id="fin" class="fin">
+          <img id="logo" class="logo" src="assets/images/logo-jp.png" alt="JP Service Express Urbaine" />
+          <div id="slogan" class="slogan">Rapide. Sûr. Confortable.</div>
+          <div id="contact" class="contact">WhatsApp +237 655 394 028</div>
+        </div>
+      </section>
+      <audio id="bande" data-audio-group="musique" src="assets/audio/bande.wav" data-start="0" data-duration="20" data-track-index="10" data-volume="1"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      window.CONSTRUIRE(tl);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
