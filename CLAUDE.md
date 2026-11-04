@@ -74,6 +74,13 @@ briques communes ressorts / squash & stretch / verre / compteurs dans `ui.tsx`).
 de la voix) et les sons sont dans `PUB_PROMO` (`src/config.ts`) : recaler ici. Rendu :
 `npx remotion render PubPromo out/pubpromo.mp4` (ajouter `--browser-executable=<chromium headless_shell>` si besoin).
 
+## Composition « PubSetup » (Remotion, sans voix)
+
+POV bureau dans le noir, 14 s : `src/pubsetup/` (`PubSetup.tsx` caméra + habillage, `Timeline.tsx` fausse timeline
+After Effects, `Clips.tsx` les 14 clips de l'écran du haut, `geo.ts` corner-pin). Photo fournie `public/pubsetup/setup.jpg`.
+Repères en temps de musique (140 BPM) dans `PUB_SETUP` (`src/config.ts`) ; bande-son `python3 scripts/pubsetup-sons.py`
+(-> `public/pubsetup/bande.wav`, -14 LUFS, mêmes repères à garder synchronisés).
+
 ## Voix off Piper (réutilisable)
 
 `scripts/voix.sh` transforme un fichier texte en MP3 (Piper TTS, hors ligne, normalisé -16 LUFS).

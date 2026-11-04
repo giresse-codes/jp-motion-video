@@ -565,3 +565,41 @@ export const PUB_PROMO = {
     [57.6, 'tic', 0.6], [59.11, 'tic', 0.6], [60.76, 'tic', 0.6], [62.6, 'whoosh', 0.5],
   ] as [number, 'whoosh' | 'whooshCourt' | 'impact' | 'boom' | 'montee' | 'scintillement' | 'tic' | 'pop' | 'prix' | 'bip' | 'notif', number][],
 };
+
+// ════ « PubSetup » : POV bureau dans le noir, 14 s, sans voix (src/pubsetup/) ════
+// Musique synthétisée à 140 BPM (scripts/pubsetup-sons.py -> public/pubsetup/bande.wav) : un temps = 0,4286 s.
+// Toutes les coupes et tous les mouvements sont en TEMPS de musique (entiers) ; recaler ici.
+const TEMPS_SETUP = 60 / 140;
+export const PUB_SETUP = {
+  dureeS: 14,
+  tempo: 140,
+  temps: TEMPS_SETUP,
+  photo: 'pubsetup/setup.jpg', // 1536 × 2752, fournie
+  bande: 'pubsetup/bande.wav',
+  logo: 'logo.png',
+  couleurs: {noir: '#07070A', violet: '#8B3DFF', gris: '#2A2B30', vert: '#3DDC84', jaune: '#E6D23A', rose: '#FF4FA3', violetCalque: '#9B6BFF', bleu: '#3DA5FF'},
+  legende: 'POV : tu fais la pub d’un chauffeur privé à Douala',
+  // Coins des écrans dans la photo (pixels de la photo) : HG, HD, BD, BG
+  ecranHaut: [[229, 935], [1312, 935], [1311, 1572], [226, 1572]],
+  ecranPortable: [[455, 1552], [1085, 1552], [1092, 1972], [449, 1972]],
+  // Scènes (en temps de musique)
+  macroDefilement: [0, 1], macroCalques: [1, 4], macroProprietes: [4, 6], recul: [6, 7], montage: [7, 28], fin: [28, 32.67],
+  // Les 14 clips du montage : durée en temps (somme = 21 temps = 9 s), luminosité et couleur pour la lueur LED / le reflet
+  clips: [
+    {id: 'carte', temps: 2, lum: 0.25, coul: '#9B6BFF'},
+    {id: 'nuages', temps: 1, lum: 0.9, coul: '#3DA5FF'},
+    {id: 'visite', temps: 2, lum: 0.2, coul: '#8B3DFF'},
+    {id: 'eventail', temps: 1, lum: 0.45, coul: '#9B6BFF'},
+    {id: 'whatsapp', temps: 2, lum: 0.6, coul: '#8B3DFF'},
+    {id: 'ticket', temps: 1, lum: 0.7, coul: '#FFFFFF'},
+    {id: 'recu', temps: 2, lum: 0.55, coul: '#8B3DFF'},
+    {id: 'message', temps: 2, lum: 0.1, coul: '#9B6BFF'},
+    {id: 'telephone', temps: 1, lum: 0.35, coul: '#3DDC84'},
+    {id: 'portiere', temps: 1, lum: 0.6, coul: '#8B3DFF'},
+    {id: 'avion', temps: 1, lum: 0.3, coul: '#3DA5FF'},
+    {id: 'route', temps: 1, lum: 0.5, coul: '#3DA5FF'},
+    {id: 'conduire', temps: 2, lum: 0.95, coul: '#E9E2FF'},
+    {id: 'prix', temps: 2, lum: 0.4, coul: '#9B6BFF'},
+  ],
+  finRepere: {noir: 28, logo: 28.7, slogan: 29.6, contact: 30.4},
+};

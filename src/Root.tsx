@@ -10,6 +10,7 @@ import {VideoTarifs} from './videotarifs/VideoTarifs';
 import {VideoQuiz} from './videoquiz/VideoQuiz';
 import {VideoQuizSoleil} from './videoquizsoleil/VideoQuizSoleil';
 import {dureePubPromo, PubPromo} from './pubpromo/PubPromo';
+import {dureePubSetup, PubSetup} from './pubsetup/PubSetup';
 import {VIDEO15, VIDEO20, VIDEO_QUIZ, VIDEO_QUIZ_SOLEIL, VIDEO_TARIFS} from './config';
 
 chargerPolices();
@@ -72,6 +73,14 @@ export const Root: React.FC = () => (
       id="VideoQuizSoleil"
       component={VideoQuizSoleil}
       durationInFrames={Math.round(VIDEO_QUIZ_SOLEIL.dureeS * VIDEO.fps)}
+      fps={VIDEO.fps}
+      width={VIDEO.width}
+      height={VIDEO.height}
+    />
+    <Composition
+      id="PubSetup"
+      component={PubSetup}
+      durationInFrames={dureePubSetup}
       fps={VIDEO.fps}
       width={VIDEO.width}
       height={VIDEO.height}
