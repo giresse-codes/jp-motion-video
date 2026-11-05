@@ -12,6 +12,7 @@ import {VideoQuizSoleil} from './videoquizsoleil/VideoQuizSoleil';
 import {dureePubPromo, PubPromo} from './pubpromo/PubPromo';
 import {dureePubSetup, PubSetup} from './pubsetup/PubSetup';
 import {dureePubSetupEcran, PubSetupEcran} from './pubsetup/EcranPC';
+import {dureePubSetupYoutube, PubSetupYoutube, YOUTUBE} from './pubsetup/Youtube';
 import {VIDEO15, VIDEO20, VIDEO_QUIZ, VIDEO_QUIZ_SOLEIL, VIDEO_TARIFS} from './config';
 
 chargerPolices();
@@ -77,6 +78,14 @@ export const Root: React.FC = () => (
       fps={VIDEO.fps}
       width={VIDEO.width}
       height={VIDEO.height}
+    />
+    <Composition
+      id="PubSetupYoutube"
+      component={PubSetupYoutube}
+      durationInFrames={dureePubSetupYoutube}
+      fps={VIDEO.fps}
+      width={YOUTUBE.l}
+      height={YOUTUBE.h}
     />
     <Composition
       id="PubSetupEcran"

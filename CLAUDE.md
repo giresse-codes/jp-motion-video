@@ -77,7 +77,7 @@ de la voix) et les sons sont dans `PUB_PROMO` (`src/config.ts`) : recaler ici. R
 ## Composition « PubSetup » (Remotion, sans voix)
 
 POV bureau dans le noir, 14 s : `src/pubsetup/` (`PubSetup.tsx` caméra + habillage, `Timeline.tsx` fausse timeline
-After Effects, `Clips.tsx` les 14 clips de l'écran du haut, `geo.ts` corner-pin ; aucune légende à l'écran). Version finale « dans l'ordinateur » : composition `PubSetupEcran` (`EcranPC.tsx`, interface de montage en plein cadre, sans le bureau). Photo fournie `public/pubsetup/setup.jpg`.
+After Effects, `Clips.tsx` les 14 clips de l'écran du haut, `geo.ts` corner-pin ; aucune légende à l'écran). Version finale « dans l'ordinateur » : composition `PubSetupEcran` (`EcranPC.tsx`, interface de montage en plein cadre, sans le bureau) ; pub seule au format YouTube 1920 × 1080 : composition `PubSetupYoutube` (`Youtube.tsx`, les 14 clips + logo, sans interface). Photo fournie `public/pubsetup/setup.jpg`.
 Repères en temps de musique (140 BPM) dans `PUB_SETUP` (`src/config.ts`) ; bande-son `python3 scripts/pubsetup-sons.py`
 (-> `public/pubsetup/bande.wav`, -14 LUFS, mêmes repères à garder synchronisés).
 
