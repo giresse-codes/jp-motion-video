@@ -8,7 +8,8 @@ const C = PUB_SETUP.couleurs;
 const COULEURS = [C.vert, C.jaune, C.rose, C.violetCalque, C.bleu];
 const NOMS = ['Voiture_noire', 'Carte_Douala', 'Trace_lumineuse', 'Pin_Douala', 'Nuages', 'Carte_visite', 'Cartes_Eco', 'Cartes_Confort', 'Cartes_Aeroport', 'Bulle_WhatsApp',
   'Ticket', 'Imprimante', 'Recu_2500', 'Texte_message', 'Telephone', 'Portiere', 'Main', 'Avion', 'Route_Kribi', 'Mer', 'Titre_conduire', 'Carte_prix', 'Logo_JP', 'Slogan', 'Fond', 'Lueur_LED', 'Camera', 'Null_1', 'Ajustement'];
-const N = 72;
+const N = 110;
+const DEPLIE = 54; // calque déplié (propriétés) : visible là où la liste se pose après le défilement du hook
 const B = PUB_SETUP.temps;
 const POLICE = POLICES.texte;
 const D = PUB_SETUP.macroProprietes[0] * B; // début de la macro sur les propriétés
@@ -28,7 +29,7 @@ const PROPRIETES = (t: number) => {
   ];
 };
 
-export const Timeline: React.FC<{t: number}> = ({t}) => {
+export const Timeline: React.FC<{t: number; h?: number}> = ({t, h = TL.h}) => {
   // Défilement : très rapide pendant le hook, puis la liste se pose
   const defil = interpolate(t, [0, PUB_SETUP.macroDefilement[1] * B], [0, 1180], {extrapolateRight: 'clamp', easing: Easing.out(Easing.cubic)});
   const tete = TL.gauche + 40 + ((t * 70) % (TL.l - TL.gauche - 60));
@@ -36,8 +37,8 @@ export const Timeline: React.FC<{t: number}> = ({t}) => {
   const props = PROPRIETES(t);
   const rangs = [] as React.ReactNode[];
   for (let i = 0; i < N; i++) {
-    const y = TL.haut + i * TL.rang - defil + (i > 6 ? props.length * TL.rang : 0);
-    if (y < TL.haut - TL.rang || y > TL.h) continue;
+    const y = TL.haut + i * TL.rang - defil + (i > DEPLIE ? props.length * TL.rang : 0);
+    if (y < TL.haut - TL.rang || y > h) continue;
     const c = calque(i), x = TL.gauche + 20 + c.debut, actif = tete >= x && tete <= x + c.long;
     rangs.push(
       <div key={i} style={{position: 'absolute', left: 0, top: y, width: TL.l, height: TL.rang - 2}}>
@@ -49,7 +50,7 @@ export const Timeline: React.FC<{t: number}> = ({t}) => {
         <div style={{position: 'absolute', left: x, top: 2, width: c.long, height: TL.rang - 6, borderRadius: 3, background: c.coul, opacity: actif ? 1 : 0.62, boxShadow: actif ? `0 0 14px ${c.coul}` : 'none'}} />
       </div>,
     );
-    if (i === 6) {
+    if (i === DEPLIE) {
       // Calque déplié : ses propriétés de transformation, avec valeurs qui changent et images-clés qui apparaissent
       props.forEach(([nom, val], j) => {
         const yy = y + (j + 1) * TL.rang;
@@ -67,20 +68,20 @@ export const Timeline: React.FC<{t: number}> = ({t}) => {
     }
   }
   return (
-    <div style={{position: 'absolute', left: 0, top: 0, width: TL.l, height: TL.h, background: '#1C1D21', overflow: 'hidden'}}>
+    <div style={{position: 'absolute', left: 0, top: 0, width: TL.l, height: h, background: '#1C1D21', overflow: 'hidden'}}>
       <div style={{position: 'absolute', left: 0, top: 0, width: TL.l, height: 40, background: '#26272C', borderBottom: '1px solid #33343A'}}>
         <div style={{position: 'absolute', left: 14, top: 10, fontFamily: POLICE, fontWeight: 600, fontSize: 15, color: '#E8E9EE'}}>JP_Pub_Douala ×</div>
         <div style={{position: 'absolute', left: 200, top: 10, fontFamily: POLICE, fontWeight: 600, fontSize: 15, color: '#8E9099'}}>Montage_14_clips</div>
         <div style={{position: 'absolute', right: 20, top: 8, fontFamily: POLICE, fontWeight: 700, fontSize: 18, color: C.bleu, fontVariantNumeric: 'tabular-nums'}}>{code}</div>
       </div>
-      <div style={{position: 'absolute', left: 0, top: 40, width: TL.gauche, height: TL.h - 40, background: PUB_SETUP.couleurs.gris}} />
+      <div style={{position: 'absolute', left: 0, top: 40, width: TL.gauche, height: h - 40, background: PUB_SETUP.couleurs.gris}} />
       <div style={{position: 'absolute', left: TL.gauche, top: 40, right: 0, height: 36, background: '#232429'}}>
         {new Array(14).fill(0).map((_, i) => (
           <div key={i} style={{position: 'absolute', left: 40 + i * 56, top: 6, fontFamily: POLICE, fontWeight: 600, fontSize: 12, color: '#7D7F88'}}>{String(i).padStart(2, '0')}s</div>
         ))}
       </div>
       {rangs}
-      <div style={{position: 'absolute', left: tete, top: 40, width: 2, height: TL.h, background: C.bleu, boxShadow: `0 0 8px ${C.bleu}`}} />
+      <div style={{position: 'absolute', left: tete, top: 40, width: 2, height: h, background: C.bleu, boxShadow: `0 0 8px ${C.bleu}`}} />
       <div style={{position: 'absolute', left: tete - 7, top: 62, width: 16, height: 14, background: C.bleu, borderRadius: 3}} />
     </div>
   );

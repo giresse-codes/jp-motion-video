@@ -13,11 +13,11 @@ const lerp = (a: number, b: number, p: number) => a + (b - a) * p;
 const doux = (t: number, a: number, b: number) => interpolate(t, [a, b], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.inOut(Easing.cubic)});
 
 // Calendrier du montage (secondes) : [début, fin, clip]
-const MONTAGE = (() => {
+export const MONTAGE = (() => {
   let t = S.montage[0] * B;
   return S.clips.map((c) => { const a = t; t += c.temps * B; return {...c, a, z: t}; });
 })();
-const clipA = (t: number) => MONTAGE.find((c) => t >= c.a && t < c.z) ?? null;
+export const clipA = (t: number) => MONTAGE.find((c) => t >= c.a && t < c.z) ?? null;
 
 // ── Caméra virtuelle (fonction pure du temps) ──
 type Cam = {fx: number; fy: number; z: number; ax: number; ay: number; az: number};
@@ -29,7 +29,7 @@ const plan = (t: number): Cam => {
     const p = doux(t, S.macroCalques[0] * B, S.macroCalques[1] * B), [fx, fy] = vise(lerp(560, 1120, p), lerp(330, 560, p));
     return {fx, fy, z: 7.5, ax: 32, ay: -12, az: -7};
   }
-  const p3 = doux(t, S.macroProprietes[0] * B, S.macroProprietes[1] * B), [fx, fy] = vise(lerp(260, 330, p3), 300);
+  const p3 = doux(t, S.macroProprietes[0] * B, S.macroProprietes[1] * B), [fx, fy] = vise(lerp(260, 330, p3), 262);
   return {fx, fy, z: lerp(9, 10.2, p3), ax: 18, ay: 6, az: 5};
 };
 export const camera = (t: number, fps: number): Cam => {
