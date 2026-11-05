@@ -1,6 +1,6 @@
 import {CameraMotionBlur} from '@remotion/motion-blur';
 import {AbsoluteFill, Audio, Easing, Img, interpolate, Sequence, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
-import {POLICES, PUB_SETUP, VIDEO} from '../config';
+import {PUB_SETUP, VIDEO} from '../config';
 import {CLIPS, ECRAN, Fin} from './Clips';
 import {matrice, projeter, QUAD_HAUT, QUAD_PORTABLE} from './geo';
 import {Timeline, TL} from './Timeline';
@@ -97,7 +97,7 @@ const Monde: React.FC<{decalage: number}> = ({decalage}) => {
   );
 };
 
-// Habillage « filmé au téléphone » : profondeur de champ en macro, grain, vignettage, légende POV
+// Habillage « filmé au téléphone » : profondeur de champ en macro, grain, vignettage (aucune légende)
 const Habillage: React.FC = () => {
   const frame = useCurrentFrame(), {fps} = useVideoConfig(), t = frame / fps;
   const macro = t < S.recul[0] * B + 0.15;
@@ -111,9 +111,6 @@ const Habillage: React.FC = () => {
       )}
       <div style={{position: 'absolute', inset: -64, backgroundImage: `url(${staticFile('pubsetup/grain.png')})`, opacity: 0.1, mixBlendMode: 'overlay', transform: `translate(${((frame * 37) % 64) - 32}px, ${((frame * 53) % 64) - 32}px)`}} />
       <div style={{position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 80% 70% at 50% 50%, transparent 55%, rgba(0,0,0,.55) 100%)'}} />
-      <div style={{position: 'absolute', left: 90, right: 90, top: 160, display: 'flex', justifyContent: 'center'}}>
-        <div style={{maxWidth: 860, textAlign: 'center', background: 'rgba(0,0,0,.82)', borderRadius: 24, padding: '18px 30px', fontFamily: POLICES.texte, fontWeight: 600, fontSize: 44, lineHeight: 1.25, color: '#fff', letterSpacing: '-0.01em'}}>{S.legende}</div>
-      </div>
     </AbsoluteFill>
   );
 };

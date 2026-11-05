@@ -578,7 +578,6 @@ export const PUB_SETUP = {
   bande: 'pubsetup/bande.wav',
   logo: 'logo.png',
   couleurs: {noir: '#07070A', violet: '#8B3DFF', gris: '#2A2B30', vert: '#3DDC84', jaune: '#E6D23A', rose: '#FF4FA3', violetCalque: '#9B6BFF', bleu: '#3DA5FF'},
-  legende: 'POV : tu fais la pub d’un chauffeur privé à Douala',
   // Coins des écrans dans la photo (pixels de la photo) : HG, HD, BD, BG
   ecranHaut: [[229, 935], [1312, 935], [1311, 1572], [226, 1572]],
   ecranPortable: [[455, 1552], [1085, 1552], [1092, 1972], [449, 1972]],
