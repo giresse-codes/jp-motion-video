@@ -10,6 +10,7 @@ import {Pub15Meteo} from './Pub15Meteo';
 import {Pub16Terminal} from './Pub16Terminal';
 import {Pub17Miniature} from './Pub17Miniature';
 import {Pub18Sablier} from './Pub18Sablier';
+import {Pub19Ascenseur} from './Pub19Ascenseur';
 
 chargerPolicesMotion();
 
@@ -22,6 +23,7 @@ const COMPOSANTS: Partial<Record<number, React.FC>> = {
   16: Pub16Terminal,
   17: Pub17Miniature,
   18: Pub18Sablier,
+  19: Pub19Ascenseur,
 };
 
 export const CompositionsMotion: React.FC = () => (
