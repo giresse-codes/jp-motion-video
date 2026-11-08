@@ -13,6 +13,7 @@ import {dureePubPromo, PubPromo} from './pubpromo/PubPromo';
 import {dureePubSetup, PubSetup} from './pubsetup/PubSetup';
 import {dureePubSetupEcran, PubSetupEcran} from './pubsetup/EcranPC';
 import {dureePubSetupYoutube, PubSetupYoutube, YOUTUBE} from './pubsetup/Youtube';
+import {CompositionsMotion} from './motion';
 import {VIDEO15, VIDEO20, VIDEO_QUIZ, VIDEO_QUIZ_SOLEIL, VIDEO_TARIFS} from './config';
 
 chargerPolices();
@@ -31,6 +32,7 @@ const apercu = (i: number) => {
 
 export const Root: React.FC = () => (
   <>
+    <CompositionsMotion />
     <Composition
       id="JPVideo"
       component={Video}
