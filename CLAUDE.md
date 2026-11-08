@@ -81,6 +81,21 @@ After Effects, `Clips.tsx` les 14 clips de l'écran du haut, `geo.ts` corner-pin
 Repères en temps de musique (140 BPM) dans `PUB_SETUP` (`src/config.ts`) ; bande-son `python3 scripts/pubsetup-sons.py`
 (-> `public/pubsetup/bande.wav`, -14 LUFS, mêmes repères à garder synchronisés).
 
+## Série « motion design » n° 11 à 20 (Remotion, sans voix, sans personnage)
+
+Dix pubs de 10 à 15 s dans `src/motion/` (une par fichier `PubNN*.tsx`, compositions `Motion11-GameOver` …
+`Motion20-Cartes`), enregistrées par `src/motion/index.tsx`. Briques communes dans `commun.tsx` (temps, courbes,
+`FinJP` : « Écris « JP » sur WhatsApp », numéro en très gros, flèche animée, logo en petit) ; textes, prix, durées
+et images à capturer dans `src/motion/config.ts` ; polices hors ligne dans `public/fonts/motion/`.
+Chaque pub est une fonction pure du temps ; sa dernière image rappelle la première (boucle). Rouge : seulement le logo.
+- Sons : `python3 scripts/motion-sons.py [11 …]` synthétise `public/motion/pubNN.wav` (musique + effets, -14 LUFS,
+  crête -1 dBFS) sur les mêmes secondes que les scènes : changer un repère des deux côtés. Une musique fournie
+  `public/motion/musique.mp3` remplace la musique synthétisée des pubs 12 à 18 et 20.
+- Captures et rendus : `node scripts/motion-rendu.mjs [--video] [--frames 0,100] 11 12 …`
+  (-> `out/motion/pubNN-fXXX.png`, `pubNN-planche.jpg`, `pubNN.mp4` en H.264). Navigateur local :
+  `REMOTION_CHROME=/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell`.
+- Voiture : `public/motion/voiture.png` (copie de `assets/voiture-jp.png`).
+
 ## Voix off Piper (réutilisable)
 
 `scripts/voix.sh` transforme un fichier texte en MP3 (Piper TTS, hors ligne, normalisé -16 LUFS).
