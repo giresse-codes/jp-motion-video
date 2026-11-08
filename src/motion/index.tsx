@@ -4,12 +4,16 @@ import {PUBS_MOTION} from './config';
 import {chargerPolicesMotion} from './polices';
 import {Pub11GameOver} from './Pub11GameOver';
 import {Pub12Polaroids} from './Pub12Polaroids';
+import {Pub13Vinyle} from './Pub13Vinyle';
+import {Pub14Puzzle} from './Pub14Puzzle';
 
 chargerPolicesMotion();
 
 const COMPOSANTS: Partial<Record<number, React.FC>> = {
   11: Pub11GameOver,
   12: Pub12Polaroids,
+  13: Pub13Vinyle,
+  14: Pub14Puzzle,
 };
 
 export const CompositionsMotion: React.FC = () => (
