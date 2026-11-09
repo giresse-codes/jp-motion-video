@@ -1,8 +1,8 @@
-# Style « PARDON — DESSIN ANIMÉ » — série « Le pardon de Jésus-Christ » (MIDIGRAD)
+# Style « PARDON — DESSIN ANIMÉ » — série « Le pardon divin divin » (MIDIGRAD)
 
 Pour l'utiliser : « Utilise le style de la branche `style-pardon-dessin-anime` ».
 
-Série en 6 épisodes qui raconte le pardon de Dieu, d'Adam jusqu'à aujourd'hui, avec un narrateur, **Aurélien**, toujours présent.
+Série en 6 épisodes qui raconte le pardon de Dieu, d'Adam jusqu'à aujourd'hui, avec un narrateur, **Wilfried**, toujours présent.
 
 Images de référence (à regarder AVANT de commencer) : `reference/cartoon-1-intro.png`, `reference/cartoon-2-eden.png`, `reference/cartoon-3-autel.png`, `reference/planche-cartoon.png`. Le code qui les a dessinées est dans `reference/apercus-code-source.html` (Canvas 2D) : reprends ses formes, ses couleurs et sa façon de dessiner les personnages comme point de départ, puis fais mieux et anime tout.
 
@@ -24,7 +24,7 @@ Images de référence (à regarder AVANT de commencer) : `reference/cartoon-1-in
 ## Format
 - Vertical 9:16, 1080×1920, 30 fps, H.264 CRF 18, yuv420p, AAC 192 kb/s, +faststart.
 - Durée : 60 à 120 s par épisode (introduction : 30 à 60 s).
-- Voix : Google AI Studio (TTS), une seule voix, celle d'Aurélien. Volume final -14 LUFS, pic max -1 dB.
+- Voix : Google AI Studio (TTS), une seule voix, celle d'Wilfried. Volume final -14 LUFS, pic max -1 dB.
 
 ## Outils
 - HyperFrames (ou Remotion avec @remotion/three) + Three.js + GSAP. Scènes 3D toon, particules (Points ou sprites) pour le feu, la fumée et la poussière, post-traitement léger (bloom doux sur le feu, vignette). Textes et médaillon en 2D par-dessus.
@@ -42,15 +42,15 @@ Images de référence (à regarder AVANT de commencer) : `reference/cartoon-1-in
 - Réactions comiques ou émouvantes sur les visages (yeux qui s'agrandissent, goutte de sueur, larme), petits rebonds à l'apparition des objets.
 - Transitions de temps « Remontons à… » : effet de page qui tourne ou de volet coloré, puis titre d'époque dans une étiquette blanche arrondie (« AU COMMENCEMENT », « AU TEMPS DE MOÏSE », « AU TEMPS DU ROI DAVID »…).
 
-## Narrateur AURÉLIEN (le même dans tous les épisodes)
+## Narrateur WILFRIED (le même dans tous les épisodes)
 - Jeune homme camerounais souriant, peau brun foncé, cheveux courts crépus noirs, chemise blanche à boutons, pantalon bleu foncé, chaussures noires, petite Bible marron à tranche dorée dans la main gauche (voir `reference/cartoon-1-intro.png`).
 - Il apparaît **en entier** au début (il salue de la main, présente l'épisode) et à la fin (conclusion).
-- Pendant les scènes, il est **en bas à gauche dans un médaillon rond** (environ 340 px, double bord noir et jaune, étiquette jaune « AURÉLIEN » en bas), en buste, devant un petit décor de rue de Douala (voir `reference/cartoon-2-eden.png`). Il parle, cligne des yeux, hoche la tête, réagit à la scène.
-- Enregistre ses dessins et animations dans `aurelien/` pour les réutiliser à l'identique.
+- Pendant les scènes, il est **en bas à gauche dans un médaillon rond** (environ 340 px, double bord noir et jaune, étiquette jaune « WILFRIED » en bas), en buste, devant un petit décor de rue de Douala (voir `reference/cartoon-2-eden.png`). Il parle, cligne des yeux, hoche la tête, réagit à la scène.
+- Enregistre ses dessins et animations dans `narrateur/` pour les réutiliser à l'identique.
 
 ## Textes à l'écran
 - Étiquette d'épisode en haut : pilule blanche, contour noir, texte noir (« ÉPISODE 1 · AU COMMENCEMENT »).
-- Sous-titres : en haut de l'image, juste sous l'étiquette (vers 17 à 22 % de la hauteur), 2 lignes maximum, majuscules, police très grasse et arrondie, blanc avec gros contour noir, mot-clé en jaune. Le mot prononcé fait un petit rebond. Quand Aurélien est en entier, les sous-titres passent en bas (vers 88 %).
+- Sous-titres : en haut de l'image, juste sous l'étiquette (vers 17 à 22 % de la hauteur), 2 lignes maximum, majuscules, police très grasse et arrondie, blanc avec gros contour noir, mot-clé en jaune. Le mot prononcé fait un petit rebond. Quand Wilfried est en entier, les sous-titres passent en bas (vers 88 %).
 - Titre de série : « LE PARDON » en jaune avec gros contour noir.
 - Versets : carte en parchemin avec contour noir, référence en haut (ex. « GENÈSE 3:6 »), texte Louis Segond 1910 mot pour mot, mots-clés en jaune foncé.
 
