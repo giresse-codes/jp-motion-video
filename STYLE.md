@@ -70,3 +70,9 @@ Images de référence (à regarder AVANT de commencer) : `reference/cartoon-1-in
 6. **Aujourd'hui** — le pasteur Emmanuel prêche le pardon à tous (2 Corinthiens 5:19-20).
 
 Fin de chaque épisode : logo MIDIGRAD, carte « EUD — Consistoire MIDIGRAD », et « À suivre : épisode n+1 ».
+
+## Sons (bruitage) — obligatoire dans chaque épisode
+- Chaque scène a son ambiance (vent, oiseaux, eau, ville, feu…) et ses bruits ponctuels (animaux, pas, croquement, sifflement du serpent, whoosh des transitions, déroulement du parchemin des versets).
+- Les sons sont des fichiers fournis dans `audio/sons/` (Pixabay, Mixkit). Claude Code ne fabrique pas de faux sons : s'il manque un fichier, il le signale et laisse ce moment sans bruit.
+- Niveaux : ambiances -30 à -26 LUFS, bruits ponctuels vers -22 LUFS, toujours sous la voix. Baisse automatique des sons quand le narrateur parle (sidechain/ducking), remontée dans les silences. Fondus d'entrée et de sortie de 0,5 à 1 s pour les ambiances.
+- Effets sur la voix seulement quand le texte le demande (ex. écho sur « Où es-tu ? » avec aecho de FFmpeg).
