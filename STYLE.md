@@ -1,4 +1,4 @@
-# Style « PARDON — DESSIN ANIMÉ » — série « Le pardon divin divin » (MIDIGRAD)
+# Style « PARDON — DESSIN ANIMÉ » — série « Le pardon divin » (MIDIGRAD)
 
 Pour l'utiliser : « Utilise le style de la branche `style-pardon-dessin-anime` ».
 
