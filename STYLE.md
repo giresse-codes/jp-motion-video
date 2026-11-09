@@ -6,8 +6,17 @@ Série en 6 épisodes qui raconte le pardon de Dieu, d'Adam jusqu'à aujourd'hui
 
 Images de référence (à regarder AVANT de commencer) : `reference/cartoon-1-intro.png`, `reference/cartoon-2-eden.png`, `reference/cartoon-3-autel.png`, `reference/planche-cartoon.png`. Le code qui les a dessinées est dans `reference/apercus-code-source.html` (Canvas 2D) : reprends ses formes, ses couleurs et sa façon de dessiner les personnages comme point de départ, puis fais mieux et anime tout.
 
+## RENDU CHOISI : 3D « dessin animé » (toon 3D) avec de vrais effets
+- Les images 2D de `reference/cartoon-*.png` servent pour le DESSIN (personnages, couleurs, décors, mise en page). Le RENDU final est en **3D** : vraie profondeur, caméra qui bouge dans l'espace, lumière et effets animés.
+- Référence de rendu : `reference/apercu-anime-autel.mp4` et `reference/apercu-3d-toon.png`, code dans `reference/apercu-3d-toon-source.html` (WebGL fait main). Reprends cette recette avec Three.js et fais beaucoup mieux :
+  - **Toon shading** : 2 à 3 paliers de lumière nets (MeshToonMaterial ou shader), contour noir autour de chaque objet (coque inversée ou passe de contours), couleurs franches.
+  - **Lumière du jour naturelle** : soleil chaud, ciel bleu avec nuages qui bougent, ombres douces au sol, léger brouillard de profondeur. Jamais de fond noir.
+  - **Effets vivants** : feu en particules (cœur jaune-blanc, orange, rouge) qui lèche et vacille, fumée qui monte et se disperse, braises, lumière du feu qui vacille sur les visages, eau qui coule, feuilles et poussière dans le vent, cheveux et vêtements qui bougent.
+  - **Personnages vivants** : respiration, clignements, sourcils, bouche synchronisée sur la voix, gestes, marche.
+  - **Caméra de cinéma** : travellings, rapprochements, légère profondeur de champ sur le fond.
+
 ## L'esprit
-- **Dessin animé 2D propre et lumineux**, comme un dessin animé télé moderne : contours noirs épais et réguliers (5 à 7 px), couleurs franches et naturelles, une seule ombre plate par forme (cel shading), lumière du jour.
+- **Dessin animé propre et lumineux**, comme un dessin animé télé moderne : contours noirs épais et réguliers, couleurs franches et naturelles, ombres en paliers nets (cel shading), lumière du jour.
 - **Décors riches et dessinés « pour de vrai »** : immeubles avec fenêtres et balcons, palmiers, jardins, tentes, clôtures, ciel avec nuages. Le décor remplit tout l'écran. JAMAIS de fond noir ou vide, jamais d'effet « code ».
 - **Personnages originaux** (inventés pour la série, ne copie aucun personnage existant) : grosse tête ronde, grands yeux blancs avec pupilles noires et reflet, sourcils expressifs, petit nez en courbe, bouche qui change selon l'émotion, oreilles, cheveux en forme (crépus, longs, courts). Corps simples, mains rondes.
 - Personnages africains / camerounais par défaut pour les gens d'aujourd'hui (peaux brunes de plusieurs teintes), et personnages bibliques aux teintes chaudes.
@@ -18,7 +27,7 @@ Images de référence (à regarder AVANT de commencer) : `reference/cartoon-1-in
 - Voix : Google AI Studio (TTS), une seule voix, celle d'Aurélien. Volume final -14 LUFS, pic max -1 dB.
 
 ## Outils
-- HyperFrames (ou Remotion) + GSAP. Tout est dessiné en SVG ou Canvas 2D, en vectoriel net.
+- HyperFrames (ou Remotion avec @remotion/three) + Three.js + GSAP. Scènes 3D toon, particules (Points ou sprites) pour le feu, la fumée et la poussière, post-traitement léger (bloom doux sur le feu, vignette). Textes et médaillon en 2D par-dessus.
 - Chaque personnage est découpé en parties animables (tête, yeux, paupières, sourcils, bouche, bras, mains, jambes) pour bouger naturellement : clignements, respiration, gestes, marche.
 - Bouche : 5 formes (fermée, petite ouverte, grande ouverte, « o », sourire) synchronisées sur la voix (amplitude + syllabes de la transcription).
 
