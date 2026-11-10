@@ -81,10 +81,10 @@ After Effects, `Clips.tsx` les 14 clips de l'écran du haut, `geo.ts` corner-pin
 Repères en temps de musique (140 BPM) dans `PUB_SETUP` (`src/config.ts`) ; bande-son `python3 scripts/pubsetup-sons.py`
 (-> `public/pubsetup/bande.wav`, -14 LUFS, mêmes repères à garder synchronisés).
 
-## Série « motion design » n° 11 à 20 (Remotion, sans voix, sans personnage)
+## Série « motion design » n° 11 à 30 (Remotion, sans voix, sans personnage)
 
-Dix pubs de 10 à 15 s dans `src/motion/` (une par fichier `PubNN*.tsx`, compositions `Motion11-GameOver` …
-`Motion20-Cartes`), enregistrées par `src/motion/index.tsx`. Briques communes dans `commun.tsx` (temps, courbes,
+Vingt pubs de 10 à 22 s dans `src/motion/` (une par fichier `PubNN*.tsx`, compositions `Motion11-GameOver` …
+`Motion30-CameraEmbarquee`), enregistrées par `src/motion/index.tsx`. Briques communes dans `commun.tsx` (temps, courbes,
 `FinJP` : « Écris « JP » sur WhatsApp », numéro en très gros, flèche animée, logo en petit) ; textes, prix, durées
 et images à capturer dans `src/motion/config.ts` ; polices hors ligne dans `public/fonts/motion/`.
 Chaque pub est une fonction pure du temps ; sa dernière image rappelle la première (boucle). Rouge : seulement le logo.
@@ -95,6 +95,10 @@ Chaque pub est une fonction pure du temps ; sa dernière image rappelle la premi
   (-> `out/motion/pubNN-fXXX.png`, `pubNN-planche.jpg`, `pubNN.mp4` en H.264). Navigateur local :
   `REMOTION_CHROME=/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell`.
 - Voiture : `public/motion/voiture.png` (copie de `assets/voiture-jp.png`).
+- Pubs 21 à 30 : l'appel à l'action arrive vers 75 % et reste jusqu'à la fin (`visibleJusqua` de `commun.tsx`), puis
+  les dernières images rejoignent l'image 0. N° 26 = modèle de série `fabriquerEpisode` (`Pub26Episode.tsx`, données
+  `EPISODES`) : épisodes 1 à 4 = compositions `Motion26-…`, `Motion26bis-…`, `Motion26ter-…`, `Motion26quater-…`
+  (sons `pub26.wav`, `pub262.wav` …). N° 25 = 3D maison sur canevas (ruban de Möbius), boucle exacte image et son.
 
 ## Voix off Piper (réutilisable)
 
