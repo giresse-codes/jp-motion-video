@@ -23,6 +23,7 @@ import {Pub26Episode2} from './Pub26Episode';
 import {Pub26Episode3} from './Pub26Episode';
 import {Pub26Episode4} from './Pub26Episode';
 import {Pub27EcoOuConfort} from './Pub27EcoOuConfort';
+import {Pub28CompteARebours} from './Pub28CompteARebours';
 chargerPolicesMotion();
 
 const COMPOSANTS: Partial<Record<number, React.FC>> = {
@@ -46,6 +47,7 @@ const COMPOSANTS: Partial<Record<number, React.FC>> = {
   263: Pub26Episode3,
   264: Pub26Episode4,
   27: Pub27EcoOuConfort,
+  28: Pub28CompteARebours,
 };
 
 export const CompositionsMotion: React.FC = () => (
