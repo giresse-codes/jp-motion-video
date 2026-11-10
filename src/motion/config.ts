@@ -1,4 +1,4 @@
-// Série « motion design » n° 11 à 20 : textes, prix, polices, durées et captures.
+// Série « motion design » n° 11 à 30 : textes, prix, polices, durées et captures.
 // Les repères de son sont dans scripts/motion-sons.py (mêmes secondes que les scènes de chaque pub).
 
 export const MOTION = {
@@ -43,4 +43,17 @@ export const PUBS_MOTION = [
   {n: 18, id: 'Motion18-Sablier', duree: 10, captures: [5, 60, 130, 200, 280]},
   {n: 19, id: 'Motion19-Ascenseur', duree: 10, captures: [5, 40, 120, 200, 280]},
   {n: 20, id: 'Motion20-Cartes', duree: 12, captures: [5, 60, 160, 260, 330]},
+  {n: 21, id: 'Motion21-Rewind', duree: 18, captures: [5, 60, 180, 270, 330, 500]},
+  {n: 22, id: 'Motion22-PasPourLesRiches', duree: 16, captures: [5, 40, 100, 250, 380, 470]},
+  {n: 23, id: 'Motion23-QuatreServices', duree: 15, captures: [5, 60, 200, 280, 400]},
+  {n: 24, id: 'Motion24-TelephoneVoiture', duree: 16, captures: [5, 30, 120, 240, 400]},
+  {n: 25, id: 'Motion25-RouteInfinie', duree: 15, captures: [0, 90, 180, 330, 449]},
+  {n: 26, id: 'Motion26-Episode1-Aeroport', duree: 20, captures: [5, 100, 220, 380, 560]},
+  {n: 262, id: 'Motion26bis-Episode2-Voyage', duree: 20, captures: [5, 100, 220, 380, 560]},
+  {n: 263, id: 'Motion26ter-Episode3-Eco', duree: 20, captures: [5, 100, 220, 380, 560]},
+  {n: 264, id: 'Motion26quater-Episode4-Confort', duree: 20, captures: [5, 100, 220, 380, 560]},
+  {n: 27, id: 'Motion27-EcoOuConfort', duree: 15, captures: [5, 120, 220, 300, 400]},
+  {n: 28, id: 'Motion28-CompteARebours', duree: 15, captures: [5, 60, 140, 250, 400]},
+  {n: 29, id: 'Motion29-PoseTonVolant', duree: 15, captures: [5, 60, 150, 250, 400]},
+  {n: 30, id: 'Motion30-CameraEmbarquee', duree: 18, captures: [5, 120, 240, 330, 480]},
 ] as const;

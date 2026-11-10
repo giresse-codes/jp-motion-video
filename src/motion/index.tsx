@@ -1,4 +1,4 @@
-// Enregistre les compositions de la série motion design n° 11 à 20.
+// Enregistre les compositions de la série motion design n° 11 à 30.
 import {Composition} from 'remotion';
 import {PUBS_MOTION} from './config';
 import {chargerPolicesMotion} from './polices';
@@ -12,6 +12,7 @@ import {Pub17Miniature} from './Pub17Miniature';
 import {Pub18Sablier} from './Pub18Sablier';
 import {Pub19Ascenseur} from './Pub19Ascenseur';
 import {Pub20Cartes} from './Pub20Cartes';
+import {Pub21Rewind} from './Pub21Rewind';
 
 chargerPolicesMotion();
 
@@ -26,6 +27,7 @@ const COMPOSANTS: Partial<Record<number, React.FC>> = {
   18: Pub18Sablier,
   19: Pub19Ascenseur,
   20: Pub20Cartes,
+  21: Pub21Rewind,
 };
 
 export const CompositionsMotion: React.FC = () => (

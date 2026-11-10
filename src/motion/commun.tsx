@@ -90,6 +90,8 @@ export type StyleFin = {
   /** Flèche personnalisée ; reçoit le rebond (0 → 1). */
   fleche?: (rebond: number) => ReactNode;
   tailleNumero?: number;
+  /** Remplace la ligne « Écris « JP » sur WhatsApp ». */
+  ecris?: ReactNode;
 };
 
 /** Bloc final : « Écris « JP » sur WhatsApp », numéro en très gros, flèche animée, logo en petit.
@@ -131,9 +133,13 @@ export const FinJP: React.FC<{
       }}
     >
       <div style={{...txt, fontSize: tailleTexte, fontWeight: 700, ...entree(p(0), 0)}}>
-        {MOTION.ecris[0]}
-        <span style={{color: s.accent}}>{MOTION.ecris[1]}</span>
-        {MOTION.ecris[2]}
+        {s.ecris ?? (
+          <>
+            {MOTION.ecris[0]}
+            <span style={{color: s.accent}}>{MOTION.ecris[1]}</span>
+            {MOTION.ecris[2]}
+          </>
+        )}
       </div>
       <div style={{...entree(p(1), 1), display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
         <div style={{...txt, fontFamily: s.policeNumero ?? s.police, fontSize: tn * 0.5, fontWeight: s.poidsNumero ?? 800, color: s.couleurNumero, letterSpacing: 4}}>
@@ -166,6 +172,10 @@ export const FinJP: React.FC<{
     </div>
   );
 };
+
+/** Appel à l'action qui reste jusqu'à la fin : visible de `debut` à `fin`, puis s'efface pour rejoindre l'image 0. */
+export const visibleJusqua = (t: number, debut: number, fin: number, entree = 0.35, sortie = 0.25) =>
+  clamp((t - debut) / entree) * (1 - clamp((t - fin) / sortie));
 
 export const FlecheBas: React.FC<{couleur: string; rebond: number; taille?: number}> = ({couleur, rebond, taille = 110}) => (
   <svg width={taille} height={taille} viewBox="0 0 100 100" style={{transform: `translateY(${rebond * 22 - 11}px)`}}>
