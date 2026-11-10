@@ -17,6 +17,7 @@ import {Pub21Rewind} from './Pub21Rewind';
 import {Pub22PasPourLesRiches} from './Pub22PasPourLesRiches';
 import {Pub23QuatreServices} from './Pub23QuatreServices';
 import {Pub24TelephoneVoiture} from './Pub24TelephoneVoiture';
+import {Pub25RouteInfinie} from './Pub25RouteInfinie';
 chargerPolicesMotion();
 
 const COMPOSANTS: Partial<Record<number, React.FC>> = {
@@ -34,6 +35,7 @@ const COMPOSANTS: Partial<Record<number, React.FC>> = {
   22: Pub22PasPourLesRiches,
   23: Pub23QuatreServices,
   24: Pub24TelephoneVoiture,
+  25: Pub25RouteInfinie,
 };
 
 export const CompositionsMotion: React.FC = () => (
