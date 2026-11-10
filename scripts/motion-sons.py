@@ -1,4 +1,4 @@
-"""Bandes-son de la série motion design n° 11 à 20 (src/motion/), sans voix, entièrement synthétisées ici
+"""Bandes-son de la série motion design n° 11 à 30 (src/motion/), sans voix, entièrement synthétisées ici
 (libres de droits) -> public/motion/pubNN.wav, 48 kHz stéréo, -14 LUFS intégrés, crête limitée à -1 dBFS.
 
 Chaque pub a sa musique (chiptune, indie acoustique, hip-hop chill, piano minimal, « news », lo-fi, boîte à musique,
@@ -222,12 +222,14 @@ def musique_fournie(duree):
     return out / (np.abs(out).max() + 1e-9) * 0.5
 
 
-def finaliser(p, nom, musique=None, g_musique=-8.0, sourdine=()):
+def finaliser(p, nom, musique=None, g_musique=-8.0, sourdine=(), periodique=False):
     y = p.y.copy()
     if musique is not None:
         m = musique.copy()
         for (a, b) in sourdine: m[:, int(a * SR):int(b * SR)] = 0
         y += m * db(g_musique)
+    n0 = y.shape[1]
+    if periodique: y = np.tile(y, 3)  # boucle parfaite : on traite trois périodes et on garde celle du milieu
     y = np.vstack([ph(y[0], 25), ph(y[1], 25)])
     mesure = pyln.Meter(SR)
     for _ in range(3):
@@ -238,6 +240,7 @@ def finaliser(p, nom, musique=None, g_musique=-8.0, sourdine=()):
         k = math.exp(-1 / (0.06 * SR))
         gain = np.minimum(gain, 1 - signal.lfilter([1 - k], [1, -k], 1 - gain))
         y *= gain
+    if periodique: y = y[:, n0:2 * n0]
     for (a, b) in sourdine: y[:, int(a * SR):int(b * SR)] = 0
     y = np.clip(y, -1, 1)
     SORTIE.mkdir(parents=True, exist_ok=True)
@@ -517,6 +520,239 @@ def pub20():
 
 
 PUBS = {11: pub11, 12: pub12, 13: pub13, 14: pub14, 15: pub15, 16: pub16, 17: pub17, 18: pub18, 19: pub19, 20: pub20}
+# ═════════ Pubs 21 à 30 ═════════
+def sifflet(d=0.6, f0=2400, f1=500):
+    t = tt(d); f = f0 + (f1 - f0) * (t / d) ** 1.5
+    return np.sin(2 * np.pi * np.cumsum(f) / SR) * (t / d) ** 0.6 * 0.6
+def crissement(d=0.6, f=1400):
+    t = tt(d); return (np.sin(2 * np.pi * np.cumsum(f * (1 + 0.05 * np.sin(2 * np.pi * 23 * t))) / SR) * 0.4 + pbande(bruit(d), f * 0.8, f * 2.2) * 0.5) * np.sin(np.pi * t / d)
+def eclats(d=0.5):
+    y = np.zeros(int(d * SR))
+    for k in range(40):
+        i = int(rng.random() * 0.25 * SR); c = clic(1500 + rng.random() * 5000, 0.03) * rng.random()
+        y[i:i + len(c)] += c[: len(y) - i]
+    return y + pb(bruit(d), 900) * np.exp(-tt(d) * 12) * 0.6
+def tintement(n=30, d=1.0):
+    y = np.zeros(int(d * SR))
+    for k in range(n):
+        i = int((k / n) ** 1.6 * d * 0.8 * SR); c = cloche(2500 + rng.random() * 3500, 0.25, 0.3 + rng.random() * 0.4)
+        y[i:i + len(c)] += c[: len(y) - i]
+    return y
+def klaxon(d=0.35, f=420):
+    t = tt(d); y = signal.square(2 * np.pi * f * t, 0.5) + signal.square(2 * np.pi * f * 1.26 * t, 0.5)
+    return pb(y, 900) * 0.3 * np.minimum(1, (d - t) / 0.03) * np.minimum(1, t / 0.01)
+def electro(mus, bpm, debut, fin, prog_, g=-6.0, motif="k...k...k...k...", hats="..h...h...h...h."):
+    batterie(mus, bpm, debut, fin, motif, g)
+    batterie(mus, bpm, debut, fin, hats, g - 2)
+    pas = 60 / bpm / 4; i = 0
+    while debut + i * pas < fin:
+        acc = prog_[(i // 16) % len(prog_)]
+        if i % 2 == 0: mus.pose(basse(mtof(acc[0] - 12), pas * 1.8, 6), debut + i * pas, g - 2)
+        if i % 16 in (0, 6, 10): mus.pose(nappe([mtof(m) for m in acc], pas * 5, 2500), debut + i * pas, g - 4)
+        i += 1
+
+
+def pub21():
+    D = 18; p = Piste(D); mus = Piste(D + 1)
+    p.pose(impact(1.2, 50), 0, 0); p.pose(cloche(1568, 1.2), 0.02, -6); p.pose(cloche(2093, 1.2), 0.1, -9)
+    t = tt(7.4); f = 300 + 2200 * (t / 7.4) ** 0.7
+    rembob = np.sin(2 * np.pi * np.cumsum(f) / SR) * 0.15 + pbande(bruit(7.4), 1500, 7000) * 0.3
+    rembob *= np.minimum(1, t / 0.15) * np.minimum(1, (7.4 - t) / 0.05)
+    p.pose(rembob, 0.6, -6)
+    p.pose(clic(900, 0.05) * 1.6, 8.0, -2); p.pose(clic(1400, 0.05) * 1.6, 8.5, -2)
+    p.pose(pop(900), 12.3, -8); p.pose(cloche(1568, 1.0), 12.75, -8); p.pose(whoosh(0.4, 500, 4000), 13.45, -12)
+    electro(mus, 124, 9.0, D, [(57, 60, 64), (53, 57, 60), (55, 59, 62), (52, 55, 59)])
+    # pendant le rembobinage : la musique jouée à l'envers, accélérée et filtrée
+    rev = mus.y[:, int(9 * SR):int(15 * SR)][:, ::-2][:, : int(7.4 * SR)]
+    rev = np.vstack([pbande(rev[0], 400, 5000), pbande(rev[1], 400, 5000)])
+    out = mus.y[:, : int(D * SR)].copy(); out[:, int(0.6 * SR):int(0.6 * SR) + rev.shape[1]] += rev * 0.5
+    finaliser(p, "pub21.wav", out, -6)
+
+
+def pub22():
+    D = 16; p = Piste(D); mus = Piste(D)
+    p.pose(impact(1.4, 42), 0.3, -2)
+    t = tt(0.2); p.pose(pbande(bruit(0.2), 1500, 6000) * (0.5 + 0.5 * np.sin(2 * np.pi * 40 * t)), 1.18, -6)
+    p.pose(impact(1.6, 38) * 1.3, 1.3, 0)
+    p.pose(tintement(45, 1.4), 2.6, -6); p.pose(pb(bruit(0.8), 600) * np.exp(-tt(0.8) * 5), 2.7, -10)
+    for k in range(25): p.pose(clic(2600, 0.02), 4.2 + k * 0.048, -14)
+    for k in range(12): p.pose(clic(2400, 0.02), 7.2 + k * 0.058, -14)
+    p.pose(som(kick(0.4, 90, 40, 1.0), pb(bruit(0.15), 1200) * np.exp(-tt(0.15) * 30)), 8.2, 0)
+    p.pose(tintement(12, 0.8) * 0.6, 10.2, -10); p.pose(whoosh(0.5, 500, 3500), 9.6, -12)
+    p.pose(whoosh(0.4, 400, 3000), 11.5, -12)
+    musique = musique_fournie(D)
+    if musique is None:
+        bpm = 140; pas = 60 / bpm / 4
+        batterie(mus, bpm, 1.5, D, "k.........k.....", -5, sons={"k": lambda: kick(0.7, 70, 38)})
+        batterie(mus, bpm, 1.5, D, "........s.......", -6, sons={"s": clap})
+        batterie(mus, bpm, 1.5, D, "h.h.h.hhh.h.h.hh", -12, sons={"h": lambda: charley(0.03)})
+        accords(mus, lambda f, d: nappe([f, f * 1.5], d, 1800), [(57, 60, 64), (53, 57, 62), (55, 59, 64), (52, 57, 60)], bpm, 1.5, D, -12, 8, (0,))
+        musique = mus.y
+    finaliser(p, "pub22.wav", musique, -5)
+
+
+def pub23():
+    D = 15; p = Piste(D); mus = Piste(D)
+    T = 60 / 128
+    p.pose(sifflet(0.3, 1800, 600), 0.0, -12); p.pose(impact(1.3, 42) * 1.3, 0.3, 0)
+    for k in (3, 5, 7, 9): p.pose(flip(), k * T, -4)
+    p.pose(whoosh(0.7, 3000, 150), 6.0, -6); p.pose(impact(0.9, 45), 6.7, -2)
+    p.pose(pop(700, 0.12), 8.0, -4)
+    for k in range(3): p.pose(pop(1200, 0.07), 8.3 + k * 0.25, -8)
+    for k in range(12): p.pose(som(clic(3200, 0.03), bip(1760, 0.04) * 0.5), 10.6 + k * T / 2, -6)
+    p.pose(sifflet(0.3, 1800, 900), 14.7, -12)
+    musique = musique_fournie(D)
+    if musique is None:
+        electro(mus, 128, 0.3, 14.7, [(57, 60, 64), (57, 60, 64), (53, 57, 60), (55, 59, 62)], -5, "k...k...k...k...", "..h...h...h.hhh.")
+        musique = mus.y
+    finaliser(p, "pub23.wav", musique, -5)
+
+
+def pub24():
+    D = 16; p = Piste(D); mus = Piste(D)
+    p.pose(whoosh(0.35, 800, 4000), 0.15, -8); p.pose(pop(1400, 0.06), 0.45, -10)
+    def liquide(d):
+        t = tt(d); return pbande(bruit(d), 300, 1500) * (0.5 + 0.5 * np.sin(2 * np.pi * 9 * t)) * np.sin(np.pi * t / d) + np.sin(2 * np.pi * np.cumsum(400 + 300 * np.sin(2 * np.pi * 6 * t)) / SR) * 0.2 * np.sin(np.pi * t / d)
+    p.pose(liquide(1.0), 0.7, -6); p.pose(liquide(0.9), 9.9, -8)
+    t = tt(3.2); m = moteur(3.2, 45) * (0.3 + 0.7 * t / 3.2); p.pose(m, 1.4, -10)
+    p.pose(crissement(0.8, 1300), 4.5, -8)
+    p.pose(som(kick(0.3, 80, 45, 0.6), clic(1200, 0.04)), 5.8, -4)
+    for k in range(3): p.pose(pop(900 + k * 200, 0.08), 6.0 + k * 0.25, -6)
+    p.pose(whoosh(0.4, 600, 3000), 7.6, -12)
+    p.pose(impact(1.2, 46), 11.2, -2)
+    musique = musique_fournie(D)
+    if musique is None:
+        mus.pose(nappe([mtof(45), mtof(52), mtof(57)], 4.6, 900) * 2, 0, -6)
+        electro(mus, 110, 4.5, D, [(57, 60, 64), (53, 57, 60), (50, 53, 57), (52, 55, 59)], -7, "k.......k.k.....", "....h.......h...")
+        musique = mus.y
+    finaliser(p, "pub24.wav", musique, -6)
+
+
+def pub25():
+    D = 15; L = D + 4; p = Piste(L); mus = Piste(L)
+    vrel = lambda t: 1 + 0.7 * math.exp(-(((t - 10) / 1.3) ** 2))
+    # moteur continu dont la hauteur suit la vitesse (période exacte de 15 s)
+    t = tt(L); v = np.array([vrel(x % D) for x in t[::480]]); v = np.interp(t, t[::480], v)
+    moteur_ = pb(signal.square(2 * np.pi * np.cumsum(38 * v) / SR, 0.35), 900) * 0.3 + pb(bruit(L), 300) * 0.1 * v
+    p.pose(moteur_, 0, -10)
+    # retournements de la route (la normale passe à l'horizontale) et marquages peints (pschitt)
+    integ = np.cumsum([vrel((i + 0.5) / 100) for i in range(1500)]); integ /= integ[-1]
+    inst = lambda frac: float(np.searchsorted(integ, frac) / 100)
+    for frac in (0.25, 0.75): p.pose(whoosh(0.9, 200, 2500), inst(frac) - 0.45, -8)
+    for tm in (2.9, 5.5, 8.0, 10.3): p.pose(pbande(bruit(0.35), 2500, 9000) * np.exp(-tt(0.35) * 8), tm - 0.15, -10)
+    # nappe hypnotique à 128 BPM : 15 s = exactement 32 temps
+    pas = 60 / 128
+    for k in range(34):
+        acc = [(57, 64, 69), (53, 60, 65), (55, 62, 67), (52, 59, 64)][(k // 8) % 4]
+        if k % 8 == 0: mus.pose(nappe([mtof(m) for m in acc], pas * 8.5, 1600) * 2, k * pas, -6)
+        mus.pose(cloche(mtof(acc[(k % 3)] + 12), 0.9, 0.35), k * pas, -16, 0.3 * ((k % 2) * 2 - 1))
+        mus.pose(kick(0.3, 90, 50, 0.5), k * pas, -12)
+    mus.y = reverb(mus.y, 1.5, 0.2)
+    # repli de la fin sur le début : la boucle n'a aucune coupure
+    for tr in (p, mus):
+        n = int(D * SR); tr.y[:, : tr.y.shape[1] - n] += tr.y[:, n:]; tr.y = tr.y[:, :n]; tr.n = n
+    finaliser(p, "pub25.wav", mus.y if musique_fournie(D) is None else musique_fournie(D), -6, periodique=True)
+
+
+def pub26(n=26):
+    D = 20; p = Piste(D); mus = Piste(D)
+    melodie([(0, 72, 1), (1, 79, 1), (2, 84, 3)], lambda f, d: cuivre([f, f * 1.5], d), 0.14, 0.0, p, -4)
+    p.pose(impact(1.0, 50), 0.0, -4)
+    p.pose(som(cloche(1046.5, 1.6), retard(cloche(1318.5, 1.6), 0.35)), 1.55, -6)   # annonce d'aéroport
+    for k in range(3): p.pose(pop(800 + k * 150, 0.09), 1.8 + k, -8)
+    for k in range(2): p.pose(whoosh(0.6, 400, 3000), 5.1 + k * 0.6, -8)
+    for k in range(3): p.pose(som(clic(2800, 0.02), bip(1320, 0.05)), 9.5 + k * 0.5, -8)
+    p.pose(whoosh(0.4, 500, 3000), 12.0, -12)
+    for k in range(9): p.pose(bip(990, 0.05), 15.0 + k * 0.66, -18)
+    if n == 26:
+        r = pb(bruit(D), 500) * 0.25; p.pose(r * np.minimum(1, tt(D) / 2), 0, -14)   # réacteur lointain
+    musique = musique_fournie(D)
+    if musique is None:
+        mus.pose(nappe([mtof(50), mtof(57), mtof(62), mtof(66)], D, 1400) * 2.2, 0, -6)
+        electro(mus, 112, 1.5, D, [(62, 66, 69), (59, 62, 66), (55, 59, 62), (57, 61, 64)], -8, "k.......k.......", "....h.......h..h")
+        musique = reverb(mus.y, 1.4, 0.2)
+    finaliser(p, f"pub{n}.wav", musique, -6)
+
+
+def pub27():
+    D = 15; p = Piste(D); mus = Piste(D)
+    for pan in (-0.6, 0.6): p.pose(som(moteur(0.5, 70, True) * np.linspace(1, 0, int(0.5 * SR)), retard(kick(0.25, 110, 60, 0.6), 0.45)), 0.0, -8, pan)
+    for k in range(3): p.pose(kick(0.25, 70, 45, 0.7), 0.25 + k * 0.5, -6)
+    for tl in (1.7, 2.7, 3.7, 4.7):
+        p.pose(clic(2400, 0.03), tl, -6, -0.6); p.pose(clic(2400, 0.03), tl, -6, 0.6)
+    for k in range(6): p.pose(whoosh(0.5, 400, 1500), 6.0 + k * 0.5, -14, -0.7 if k % 2 else 0.7)
+    for tc in (9.2, 10.0):
+        p.pose(som(clic(1800, 0.04), kick(0.2, 120, 70, 0.4)), tc, -4, -0.5); p.pose(som(clic(1800, 0.04), kick(0.2, 120, 70, 0.4)), tc, -4, 0.5)
+    p.pose(whoosh(0.4, 500, 3000), 11.0, -12)
+    musique = musique_fournie(D)
+    if musique is None:
+        electro(mus, 120, 0.25, 14.7, [(57, 60, 64), (55, 59, 62), (53, 57, 60), (55, 59, 62)], -7, "k...k.s.k...k.s.", "h.h.h.h.h.h.h.h.")
+        musique = mus.y
+    finaliser(p, "pub27.wav", musique, -6)
+
+
+def pub28():
+    D = 15; p = Piste(D); mus = Piste(D)
+    for ti in (0.45, 1.9, 3.4):
+        p.pose(sifflet(0.55), ti - 0.55, -10); p.pose(impact(1.0, 45) * 1.2, ti, 0)
+    for ti in (1.9, 3.4): p.pose(eclats(0.6), ti, -4)
+    t = tt(0.8); p.pose(moteur(0.8, 55) * (0.4 + t / 0.8), 4.5, -6); p.pose(crissement(0.45, 1600), 5.0, -6)
+    for ti in (6.4, 7.2, 8.0, 8.8): p.pose(som(clic(1400, 0.04) * 1.5, kick(0.15, 160, 90, 0.5)), ti, -2)
+    p.pose(impact(1.0, 48), 10.5, -2)
+    p.pose(sifflet(0.3, 2400, 1500), 14.7, -12)
+    musique = musique_fournie(D)
+    if musique is None:
+        batterie(mus, 95, 0.45, 14.6, "k..k..s...kk..s.", -5, swing=0.12)
+        batterie(mus, 95, 0.45, 14.6, "h.hhh.hhh.hhh.hh", -10, swing=0.12)
+        accords(mus, rhodes, [(57, 60, 64), (55, 59, 62), (53, 57, 60), (52, 55, 59)], 95, 0.45, 14.6, -13, 4, (0, 2.5))
+        musique = mus.y
+    finaliser(p, "pub28.wav", musique, -6)
+
+
+def pub29():
+    D = 15; p = Piste(D); mus = Piste(D)
+    for a, b in ((0.0, 1.9), (14.7, 15.0)):
+        d = b - a; t = tt(d); creak = pbande(bruit(d), 400, 2500) * (np.abs(np.sin(2 * np.pi * 2.3 * t)) ** 4); p.pose(creak, a, -4)
+        for k, tk in enumerate(np.arange(0, d - 0.2, 0.55)): p.pose(klaxon(0.3, 380 + 60 * (k % 2)), a + tk, -9, -0.5 + k * 0.3)
+        p.pose(pb(bruit(d), 400) * 0.2, a, -16)   # ville étouffée
+    p.pose(whoosh(1.9, 150, 900) * 0.8, 2.0, -10)   # chute au ralenti
+    p.pose(som(kick(0.4, 70, 40, 0.6), pb(bruit(0.3), 500) * np.exp(-tt(0.3) * 10)), 3.9, -4)
+    for k in range(3): p.pose(som(clic(2200, 0.03), cloche(2637 + k * 300, 0.7, 0.3)), 6.2 + k * 0.7, -8)
+    p.pose(whoosh(0.4, 500, 3000), 11.0, -12)
+    musique = musique_fournie(D)
+    if musique is None:
+        mus.pose(nappe([mtof(50), mtof(57), mtof(62), mtof(65)], 10.6, 1200) * 2, 4.0, -6)
+        batterie(mus, 85, 4.0, 14.6, "k.......b...b.b.", -10, sons={"k": lambda: kick(0.3, 90, 50, 0.6), "b": balai})
+        accords(mus, rhodes, [(62, 65, 69, 72), (60, 64, 67, 71), (58, 62, 65, 69), (57, 60, 64, 67)], 85, 4.0, 14.6, -12, 4, (0, 1.5))
+        musique = reverb(mus.y, 1.6, 0.25)
+    finaliser(p, "pub29.wav", musique, -6, sourdine=((2.0, 2.15),))
+
+
+def pub30():
+    D = 18; p = Piste(D); mus = Piste(D)
+    v = lambda t: 14 if t < 8 else 14 * (1 - min(1, (t - 8) / 2.3)) if t < 10.3 else 0 if t < 13.5 else 14 * min(1, (t - 13.5) / 2)
+    t = tt(D); vv = np.interp(t, t[::480], np.array([v(x) for x in t[::480]])) / 14
+    p.pose(pb(signal.square(2 * np.pi * np.cumsum(28 + 22 * vv) / SR, 0.3), 300) * (0.15 + 0.25 * vv) + pb(bruit(D), 250) * (0.05 + 0.12 * vv), 0, -10)
+    p.pose(pbande(bruit(D), 300, 1500) * 0.03, 0, -12)   # ville lointaine
+    for k in range(8): p.pose(clic(1100 if k % 2 else 900, 0.03), 4.6 + k * 0.38, -12)   # clignotant
+    for ti in (1.8, 2.8, 3.8, 9.0): p.pose(som(bip(1480, 0.07), retard(bip(1975, 0.07), 0.08)), ti, -8)
+    g = pbande(bruit(0.45), 300, 8000) * signal.square(2 * np.pi * 25 * tt(0.45)); p.pose(g, 11.0, -6)
+    p.pose(pbande(bruit(0.7), 2000, 6000) * np.sin(np.pi * tt(0.7) / 0.7) * 0.4, 9.6, -14)
+    p.pose(whoosh(0.4, 500, 3000), 13.5, -14)
+    musique = musique_fournie(D)
+    if musique is None:
+        batterie(mus, 90, 0, D, "k.....h.s.....h.", -11, swing=0.2, sons={"k": lambda: kick(0.35, 100, 48, 0.7), "s": lambda: pb(clap(), 4000), "h": lambda: charley(0.05)})
+        accords(mus, rhodes, [(57, 60, 64, 67), (53, 57, 60, 64), (50, 53, 57, 60), (52, 55, 59, 62)], 90, 0, D, -12, 4, (0, 2.5))
+        t0 = 0
+        while t0 < D: mus.pose(basse(mtof(45), 0.6, 3), t0, -8); t0 += 60 / 90 * 2
+        musique = reverb(mus.y, 1.4, 0.25)
+    finaliser(p, "pub30.wav", musique, -6)
+
+
+PUBS.update({21: pub21, 22: pub22, 23: pub23, 24: pub24, 25: pub25, 26: pub26, 262: lambda: pub26(262), 263: lambda: pub26(263), 264: lambda: pub26(264),
+             27: pub27, 28: pub28, 29: pub29, 30: pub30})
+
+
 if __name__ == "__main__":
     for n in [int(a) for a in sys.argv[1:]] or PUBS:
         PUBS[n]()
