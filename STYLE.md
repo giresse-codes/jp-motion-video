@@ -1,75 +1,38 @@
-# Style « PARDON — DESSIN ANIMÉ » — série « Le pardon divin » (MIDIGRAD)
+# Style « PARDON — ILLUSTRÉ » — série « Le pardon divin » (MIDIGRAD)
 
-Pour l'utiliser : « Utilise le style de la branche `style-pardon-dessin-anime` ».
+Pour l'utiliser : « Utilise le style de la branche `style-pardon-illustre` ».
+Remplace les styles `style-pardon-dessin-anime` et `style-pardon-3d` (jugés trop « cartoon » par les pasteurs).
 
-Série en 6 épisodes qui raconte le pardon de Dieu, d'Adam jusqu'à aujourd'hui, avec un narrateur, **Wilfried**, toujours présent.
+## Le look (référence : vidéos TikTok de dessin animé africain semi-réaliste, ex. scène de bureau avec un jeune homme en chemise blanche et un vieil homme au chapeau)
+- Illustration numérique **semi-réaliste** : proportions humaines réelles, visages détaillés (yeux, sourcils, rides, lèvres, reflets), peau brune avec ombrage doux, contours noirs fins et nets.
+- Couleurs naturelles et lumineuses, ombrage léger en dégradé (pas d'aplats « jouet »), décors très détaillés et crédibles.
+- Animation « limitée » mais vivante : la caméra zoome et glisse lentement sur l'image, coupes entre plan large et gros plan, la bouche s'ouvre et se ferme sur la voix, les yeux clignent, les expressions changent (surprise, colère, sourire).
 
-Images de référence (à regarder AVANT de commencer) : `reference/cartoon-1-intro.png`, `reference/cartoon-2-eden.png`, `reference/cartoon-3-autel.png`, `reference/planche-cartoon.png`. Le code qui les a dessinées est dans `reference/apercus-code-source.html` (Canvas 2D) : reprends ses formes, ses couleurs et sa façon de dessiner les personnages comme point de départ, puis fais mieux et anime tout.
+## Production
+1. **Les images** sont générées avec Gemini (Google AI Pro), avec le prompt de style commun ci-dessous et les fiches personnages jointes à chaque demande pour garder les mêmes visages. Pour chaque plan avec un personnage qui parle : variante A (bouche fermée), B (bouche ouverte), C (yeux fermés), obtenues en modifiant la même image.
+2. **Claude Code** fait toute l'animation et le montage à partir de ces images : mouvements de caméra (zoom lent, panoramique, léger tremblement sur le tonnerre), coupes, alternance A/B synchronisée sur la voix, clignements avec C toutes les 3 à 5 s, effets ajoutés par-dessus (poussière dorée, rayons de lumière, feuilles qui tombent, feu de l'épée, pluie, particules), étalonnage qui change avec l'histoire, sous-titres, cartes de versets, bruitage, mixage.
+3. Toutes les images sont rangées dans `images/` avec le numéro de plan (`01a.png`, `01b.png`, `01c.png`, …).
 
-## RENDU CHOISI : 3D « dessin animé » (toon 3D) avec de vrais effets
-- Les images 2D de `reference/cartoon-*.png` servent pour le DESSIN (personnages, couleurs, décors, mise en page). Le RENDU final est en **3D** : vraie profondeur, caméra qui bouge dans l'espace, lumière et effets animés.
-- Référence de rendu : `reference/apercu-anime-autel.mp4` et `reference/apercu-3d-toon.png`, code dans `reference/apercu-3d-toon-source.html` (WebGL fait main). Reprends cette recette avec Three.js et fais beaucoup mieux :
-  - **Toon shading** : 2 à 3 paliers de lumière nets (MeshToonMaterial ou shader), contour noir autour de chaque objet (coque inversée ou passe de contours), couleurs franches.
-  - **Lumière du jour naturelle** : soleil chaud, ciel bleu avec nuages qui bougent, ombres douces au sol, léger brouillard de profondeur. Jamais de fond noir.
-  - **Effets vivants** : feu en particules (cœur jaune-blanc, orange, rouge) qui lèche et vacille, fumée qui monte et se disperse, braises, lumière du feu qui vacille sur les visages, eau qui coule, feuilles et poussière dans le vent, cheveux et vêtements qui bougent.
-  - **Personnages vivants** : respiration, clignements, sourcils, bouche synchronisée sur la voix, gestes, marche.
-  - **Caméra de cinéma** : travellings, rapprochements, légère profondeur de champ sur le fond.
+## Prompt de style commun (à mettre au début de chaque demande d'image)
+« Illustration de dessin animé semi-réaliste, style bande dessinée numérique moderne : contours noirs fins et nets, couleurs naturelles et lumineuses, ombrage doux, proportions humaines réalistes, visages détaillés et expressifs, décor riche et détaillé, lumière naturelle. Format vertical 9:16. Aucun texte, aucun logo, aucun filigrane. »
 
-## L'esprit
-- **Dessin animé propre et lumineux**, comme un dessin animé télé moderne : contours noirs épais et réguliers, couleurs franches et naturelles, ombres en paliers nets (cel shading), lumière du jour.
-- **Décors riches et dessinés « pour de vrai »** : immeubles avec fenêtres et balcons, palmiers, jardins, tentes, clôtures, ciel avec nuages. Le décor remplit tout l'écran. JAMAIS de fond noir ou vide, jamais d'effet « code ».
-- **Personnages originaux** (inventés pour la série, ne copie aucun personnage existant) : grosse tête ronde, grands yeux blancs avec pupilles noires et reflet, sourcils expressifs, petit nez en courbe, bouche qui change selon l'émotion, oreilles, cheveux en forme (crépus, longs, courts). Corps simples, mains rondes.
-- Personnages africains / camerounais par défaut pour les gens d'aujourd'hui (peaux brunes de plusieurs teintes), et personnages bibliques aux teintes chaudes.
+## Personnages (fiches à générer une fois, sur fond blanc : face, trois-quarts, profil)
+- **WILFRIED (narrateur)** : jeune homme camerounais d'environ 25 ans, peau brun foncé, cheveux courts crépus noirs, visage souriant et bienveillant, chemise blanche à manches longues, pantalon noir, chaussures noires, petite Bible marron à tranche dorée.
+- **ADAM** : homme africain d'environ 30 ans, peau brune, barbe courte noire, cheveux courts crépus, musclé mais simple. Avant la chute : tunique simple en lin clair. Après : ceinture et tunique de feuilles de figuier. Fin : vêtement de peau.
+- **ÈVE** : femme africaine d'environ 25 ans, peau brune, longues tresses noires, visage doux. Avant la chute : longue tunique claire en lin. Après : tunique de feuilles de figuier. Fin : vêtement de peau.
+- **LE SERPENT** : serpent vert brillant aux écailles détaillées, yeux jaunes rusés, sourire en coin, impressionnant mais pas effrayant pour un enfant.
+- **DIEU** n'est jamais dessiné comme une personne : une lumière chaude et dorée, des rayons.
 
-## Format
-- Vertical 9:16, 1080×1920, 30 fps, H.264 CRF 18, yuv420p, AAC 192 kb/s, +faststart.
-- Durée : 60 à 120 s par épisode (introduction : 30 à 60 s).
-- Voix : Google AI Studio (TTS), une seule voix, celle d'Wilfried. Volume final -14 LUFS, pic max -1 dB.
+## Mise en page de la vidéo
+- 1080×1920, 30 fps. Images agrandies proprement (Lanczos) si besoin, sans déformation.
+- Wilfried en entier au début et à la fin ; pendant l'histoire, en buste dans un médaillon rond en bas à gauche (environ 340 px, double bord noir et doré, étiquette « WILFRIED »), bouche animée sur la voix.
+- Sous-titres : 2 lignes max, en haut sous l'étiquette d'épisode (ou en bas quand Wilfried est en entier), majuscules, police grasse arrondie, blanc avec contour noir, mot-clé en jaune, petit rebond.
+- Cartes de versets : parchemin, référence en haut, Louis Segond 1910 mot pour mot.
 
-## Outils
-- HyperFrames (ou Remotion avec @remotion/three) + Three.js + GSAP. Scènes 3D toon, particules (Points ou sprites) pour le feu, la fumée et la poussière, post-traitement léger (bloom doux sur le feu, vignette). Textes et médaillon en 2D par-dessus.
-- Chaque personnage est découpé en parties animables (tête, yeux, paupières, sourcils, bouche, bras, mains, jambes) pour bouger naturellement : clignements, respiration, gestes, marche.
-- Bouche : 5 formes (fermée, petite ouverte, grande ouverte, « o », sourire) synchronisées sur la voix (amplitude + syllabes de la transcription).
-
-## Palette
-- Ciel : ~#5EB8F2 → ~#E3F5FB. Herbe : ~#6CC04A / ~#4CAF50. Sable : ~#E9CF9E.
-- Encre des contours : ~#1D1A1F. Jaune des titres et mots-clés : ~#FFD23F.
-- Couleurs des façades : jaune ~#F4D58D, corail ~#EF8E6A, crème ~#F7F1E3, vert d'eau ~#9BC7A5.
-
-## Caméra et montage (comme un dessin animé télé)
-- Décors plus grands que l'écran : la caméra glisse doucement dessus (panoramique), avec 3 à 4 plans de profondeur qui bougent à des vitesses différentes (parallaxe).
-- Changement de plan toutes les 2 à 4 s : plan large, plan moyen, gros plan sur un visage qui réagit, gros plan sur un objet (le fruit, la flamme, les mains, la Bible).
-- Réactions comiques ou émouvantes sur les visages (yeux qui s'agrandissent, goutte de sueur, larme), petits rebonds à l'apparition des objets.
-- Transitions de temps « Remontons à… » : effet de page qui tourne ou de volet coloré, puis titre d'époque dans une étiquette blanche arrondie (« AU COMMENCEMENT », « AU TEMPS DE MOÏSE », « AU TEMPS DU ROI DAVID »…).
-
-## Narrateur WILFRIED (le même dans tous les épisodes)
-- Jeune homme camerounais souriant, peau brun foncé, cheveux courts crépus noirs, chemise blanche à boutons, pantalon bleu foncé, chaussures noires, petite Bible marron à tranche dorée dans la main gauche (voir `reference/cartoon-1-intro.png`).
-- Il apparaît **en entier** au début (il salue de la main, présente l'épisode) et à la fin (conclusion).
-- Pendant les scènes, il est **en bas à gauche dans un médaillon rond** (environ 340 px, double bord noir et jaune, étiquette jaune « WILFRIED » en bas), en buste, devant un petit décor de rue de Douala (voir `reference/cartoon-2-eden.png`). Il parle, cligne des yeux, hoche la tête, réagit à la scène.
-- Enregistre ses dessins et animations dans `narrateur/` pour les réutiliser à l'identique.
-
-## Textes à l'écran
-- Étiquette d'épisode en haut : pilule blanche, contour noir, texte noir (« ÉPISODE 1 · AU COMMENCEMENT »).
-- Sous-titres : en haut de l'image, juste sous l'étiquette (vers 17 à 22 % de la hauteur), 2 lignes maximum, majuscules, police très grasse et arrondie, blanc avec gros contour noir, mot-clé en jaune. Le mot prononcé fait un petit rebond. Quand Wilfried est en entier, les sous-titres passent en bas (vers 88 %).
-- Titre de série : « LE PARDON » en jaune avec gros contour noir.
-- Versets : carte en parchemin avec contour noir, référence en haut (ex. « GENÈSE 3:6 »), texte Louis Segond 1910 mot pour mot, mots-clés en jaune foncé.
-
-## Règles de représentation
-- Adam et Ève toujours habillés de tuniques de feuilles.
-- Sacrifices : feu, fumée, prêtre (robe blanche, éphod bleu à pierres de couleur, turban blanc), agneau vivant ; pas de sang ni de violence montrée.
-- La croix : émotion par la lumière, le ciel et les visages des témoins ; pas de sang réaliste.
-- Jésus : à confirmer avec les pasteurs. Par défaut, de dos ou dans la lumière, sans visage détaillé.
+## Règles
+- Adam et Ève toujours habillés, aucune nudité. Pas de sang ni de violence montrés.
+- La croix : émotion par la lumière et les visages des témoins. Jésus : par défaut de dos ou dans la lumière (à confirmer).
 - L'apôtre Paris Talla n'apparaît pas.
-
-## Les 6 épisodes
-1. **Au commencement** — Adam et Ève, le péché entre dans le monde (Genèse 2–3, Romains 5:12).
-2. **Le sang des sacrifices** — Abel, Moïse et Aaron, les holocaustes, le roi David (Lévitique 17:11, Hébreux 9:22).
-3. **La promesse** — les prophètes, Ésaïe annonce le Messie (Ésaïe 7:14, Ésaïe 53).
-4. **L'Agneau de Dieu** — Jean-Baptiste, la naissance de Jésus, sa mort à la croix et sa résurrection (Jean 1:29, Jean 19:30).
-5. **Jusqu'aux nations** — les disciples prêchent le pardon partout (Luc 24:47, Actes 10:43).
-6. **Aujourd'hui** — le pasteur Emmanuel prêche le pardon à tous (2 Corinthiens 5:19-20).
-
-Fin de chaque épisode : logo MIDIGRAD, carte « EUD — Consistoire MIDIGRAD », et « À suivre : épisode n+1 ».
 
 ## Sons (bruitage) — obligatoire dans chaque épisode
 - Chaque scène a son ambiance (vent, oiseaux, eau, ville, feu…) et ses bruits ponctuels (animaux, pas, croquement, sifflement du serpent, whoosh des transitions, déroulement du parchemin des versets).
