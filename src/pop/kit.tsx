@@ -4,14 +4,16 @@ import {AbsoluteFill, Easing, Img, interpolate, spring, staticFile, useCurrentFr
 import {DirBlur} from '../components';
 
 /* ───────── Palette stricte ───────── */
+/* Palette professionnelle : gris, kaki, noir, blanc + un zeste de rouge.
+   (o / p / v = les 3 teintes du dégradé signature : kaki clair → kaki → anthracite) */
 export const P = {
   white: '#FFFFFF',
-  o: '#FF7A1A',
-  p: '#FF3D8B',
-  v: '#7B4DFF',
+  o: '#B9AE86',
+  p: '#7F7656',
+  v: '#2A2A2C',
   text: '#111111',
   gray: '#B5B8BE',
-  green: '#34D399',
+  red: '#C8102E',
 };
 export const FONT = "'Inter', system-ui, sans-serif";
 export const cl = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
@@ -95,7 +97,8 @@ export const GiantWord: React.FC<{text: string; at: number; width?: number; y?: 
 };
 
 /** Aura : tache de dégradé floue en traînées verticales (signature de la référence) */
-export const Aura: React.FC<{x: number; y: number; w: number; h: number; opacity?: number; style?: React.CSSProperties}> = ({x, y, w, h, opacity = 0.75, style}) => {
+export const Aura: React.FC<{x: number; y: number; w: number; h: number; opacity?: number; style?: React.CSSProperties}> = ({x, y, w, h, opacity: op0 = 0.75, style}) => {
+  const opacity = op0 * 0.75;
   const bg = useGradBg(1);
   return (
     <DirBlur
@@ -103,7 +106,7 @@ export const Aura: React.FC<{x: number; y: number; w: number; h: number; opacity
       y={70}
       style={{position: 'absolute', left: x - w / 2, top: y - h / 2, width: w, height: h, opacity, pointerEvents: 'none', ...style}}
     >
-      <div style={{width: '100%', height: '100%', borderRadius: '50%', ...bg, backgroundSize: '100% 100%', backgroundImage: `linear-gradient(120deg, ${P.o}, ${P.p} 45%, ${P.v})`}} />
+      <div style={{width: '100%', height: '100%', borderRadius: '50%', ...bg, backgroundSize: '100% 100%', backgroundImage: `linear-gradient(120deg, ${P.o}, ${P.gray} 50%, ${P.p})`}} />
     </DirBlur>
   );
 };
@@ -208,6 +211,7 @@ export const ICONS: Record<string, React.ReactNode> = {
 /* ───────── Cartes du collage ───────── */
 export type CardSpec =
   | {k: 'photo'; pos: string; zoom: number}
+  | {k: 'img'; src: string; ratio: number; cut?: boolean; label?: string}
   | {k: 'icon'; icon: string; label?: string; grad: number}
   | {k: 'bubble'; text: string; me?: boolean}
   | {k: 'place'; text: string; sub: string}
@@ -216,8 +220,8 @@ export type CardSpec =
 const grads = [
   `linear-gradient(135deg, ${P.o}, ${P.p})`,
   `linear-gradient(135deg, ${P.p}, ${P.v})`,
-  `linear-gradient(135deg, ${P.o}, ${P.v})`,
-  `linear-gradient(160deg, ${P.v}, ${P.p} 60%, ${P.o})`,
+  `linear-gradient(135deg, #3a3a3d, ${P.text})`,
+  `linear-gradient(160deg, ${P.gray}, ${P.p})`,
 ];
 
 export const CollageCard: React.FC<{spec: CardSpec; w: number}> = ({spec, w}) => {
@@ -230,6 +234,36 @@ export const CollageCard: React.FC<{spec: CardSpec; w: number}> = ({spec, w}) =>
           src={staticFile('voiture-photo.jpg')}
           style={{width: '100%', height: '100%', objectFit: 'cover', objectPosition: spec.pos, transform: `scale(${spec.zoom})`}}
         />
+      </div>
+    );
+  if (spec.k === 'img')
+    return spec.cut ? (
+      <Img
+        src={staticFile(`pop-img/${spec.src}`)}
+        style={{width: w * spec.ratio, display: 'block', filter: `drop-shadow(0 ${w * 0.08}px ${w * 0.12}px ${rgba(P.v, 0.28)})`}}
+      />
+    ) : (
+      <div style={{position: 'relative', width: w * spec.ratio, height: w, borderRadius: r, overflow: 'hidden', boxShadow: shadow, background: '#eee'}}>
+        <Img src={staticFile(`pop-img/${spec.src}`)} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+        {spec.label && (
+          <div
+            style={{
+              position: 'absolute',
+              left: 0,
+              right: 0,
+              bottom: 0,
+              padding: `${w * 0.18}px ${w * 0.08}px ${w * 0.06}px`,
+              background: 'linear-gradient(180deg, rgba(17,17,17,0) 0%, rgba(17,17,17,0.7) 100%)',
+              color: P.white,
+              fontFamily: FONT,
+              fontWeight: 800,
+              fontSize: w * 0.13,
+              letterSpacing: '-0.02em',
+            }}
+          >
+            {spec.label}
+          </div>
+        )}
       </div>
     );
   if (spec.k === 'icon')
@@ -298,25 +332,25 @@ export const CollageCard: React.FC<{spec: CardSpec; w: number}> = ({spec, w}) =>
 
 export const COLLAGE: CardSpec[] = [
   {k: 'photo', pos: '45% 55%', zoom: 1},
-  {k: 'icon', icon: 'wifi', label: 'Wi-Fi', grad: 0},
+  {k: 'img', src: 'tv.png', ratio: 1.55, cut: true},
   {k: 'bubble', text: 'Un chauffeur demain 9 h ?', me: true},
-  {k: 'place', text: 'Aéroport de Douala', sub: 'Transfert'},
-  {k: 'icon', icon: 'palm', label: 'Kribi', grad: 1},
-  {k: 'photo', pos: '30% 60%', zoom: 1.6},
-  {k: 'stat', big: '4,9', small: '★★★★★'},
-  {k: 'icon', icon: 'snow', label: 'Clim', grad: 2},
+  {k: 'img', src: 'kribi-plage.jpg', ratio: 1.45, label: 'Kribi'},
+  {k: 'img', src: 'whatsapp.png', ratio: 0.8, cut: true},
+  {k: 'img', src: 'yaounde.jpg', ratio: 1, label: 'Yaoundé'},
+  {k: 'img', src: 'etoiles.png', ratio: 1.7, cut: true},
+  {k: 'icon', icon: 'snow', label: 'Clim', grad: 1},
   {k: 'bubble', text: '✓ Confirmé'},
-  {k: 'icon', icon: 'plane', grad: 3},
-  {k: 'place', text: 'Plage de Kribi', sub: 'Voyage'},
-  {k: 'photo', pos: '70% 50%', zoom: 1.8},
-  {k: 'icon', icon: 'clock', label: '24 h/24', grad: 1},
+  {k: 'img', src: 'telephones.jpg', ratio: 0.8},
+  {k: 'img', src: 'buea.jpg', ratio: 0.78, label: 'Buea'},
+  {k: 'img', src: 'voiture-jouet.png', ratio: 1.6, cut: true},
+  {k: 'place', text: 'Aéroport de Douala', sub: 'Transfert'},
+  {k: 'img', src: 'ouest.jpg', ratio: 1, label: 'Ouest'},
+  {k: 'photo', pos: '30% 60%', zoom: 1.5},
+  {k: 'img', src: 'kribi-gites.jpg', ratio: 1.05, label: 'Gîtes de Kribi'},
+  {k: 'icon', icon: 'wifi', label: 'Wi-Fi', grad: 2},
   {k: 'stat', big: '6 min', small: 'Chauffeur en route'},
-  {k: 'icon', icon: 'pin', grad: 0},
   {k: 'bubble', text: 'Akwa → Bonapriso', me: true},
-  {k: 'icon', icon: 'car', label: 'Confort', grad: 2},
-  {k: 'photo', pos: '20% 70%', zoom: 2.2},
-  {k: 'place', text: 'Intérieur', sub: 'Mini écran · Wi-Fi'},
-  {k: 'icon', icon: 'star', grad: 3},
+  {k: 'icon', icon: 'clock', label: '24 h/24', grad: 0},
 ];
 
 /** Collage qui explose depuis le centre puis flotte en parallaxe */

@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, Audio, Easing, interpolate, Sequence, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Audio, Easing, Img, interpolate, Sequence, staticFile, useCurrentFrame} from 'remotion';
 import {DirBlur} from '../components';
 import {
   Aura,
@@ -20,7 +20,7 @@ import {
   useGradBg,
   usePop,
 } from './kit';
-import {DeskScene, mascotPath, MascotScene, SphereScene} from './three';
+import {DeskScene, mascotPath, SphereScene} from './three';
 
 export const POP_DURATION = 1350;
 
@@ -258,7 +258,26 @@ const JPScene: React.FC = () => {
           <polyline points={pts.join(' ')} fill="none" stroke="url(#trail)" strokeWidth={70} strokeLinecap="round" strokeLinejoin="round" opacity={0.85} />
         </svg>
       )}
-      {f >= start && f < start + 60 && <MascotScene start={start} />}
+      {f >= start && f < start + 60 && (() => {
+        const {x, y} = mascotPath(f - start);
+        const n2 = mascotPath(f - start + 1);
+        const ang = (Math.atan2(-(n2.y - y), n2.x - x) * 180) / Math.PI;
+        const spd = Math.hypot(n2.x - x, n2.y - y);
+        return (
+          <DirBlur
+            x={Math.min(18, spd * 0.35)}
+            style={{
+              position: 'absolute',
+              left: 540 + x - 230,
+              top: 960 - y - 120,
+              width: 460,
+              transform: `rotate(${ang * 0.6}deg)`,
+            }}
+          >
+            <Img src={staticFile('pop-img/voiture-jouet.png')} style={{width: 460, transform: 'scaleX(-1)', filter: `drop-shadow(0 30px 30px ${rgba(P.v, 0.3)})`}} />
+          </DirBlur>
+        );
+      })()}
       <div style={{position: 'absolute', top: 1330, left: 60, right: 60, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', columnGap: 22}}>
         <Word at={58} size={86}>
           ton
@@ -286,10 +305,10 @@ const JPScene: React.FC = () => {
 
 /* ───────── 5. Liste en roue + carte téléphone ───────── */
 const SERVICES = [
-  {name: 'Éco', price: '2 500 F/h', sub: 'Berline confortable', icon: 'car'},
-  {name: 'Confort', price: '3 500 F/h', sub: 'Wi-Fi · Clim · Mini écran', icon: 'star'},
-  {name: 'Aéroport', price: 'dès 8 000 F', sub: 'Transfert Douala', icon: 'plane'},
-  {name: 'Voyage', price: '50 000 F/jour', sub: 'Kribi · Limbé · Yaoundé', icon: 'palm'},
+  {name: 'Éco', price: '2 500 F/h', sub: 'Berline confortable', icon: 'car', img: 'voiture-photo.jpg', fit: 'cover'},
+  {name: 'Confort', price: '3 500 F/h', sub: 'Wi-Fi · Clim · Mini écran', icon: 'star', img: 'pop-img/tv.png', fit: 'contain'},
+  {name: 'Aéroport', price: 'dès 8 000 F', sub: 'Transfert Douala', icon: 'plane', img: '', fit: 'cover'},
+  {name: 'Voyage', price: '50 000 F/jour', sub: 'Kribi · Limbé · Yaoundé', icon: 'palm', img: 'pop-img/kribi-plage.jpg', fit: 'cover'},
 ];
 const WHEEL = ['Mariage', 'Navette', 'Éco', 'Confort', 'Aéroport', 'Voyage', 'Pack 5 h', 'Événement'];
 const WheelScene: React.FC = () => {
@@ -340,7 +359,7 @@ const WheelScene: React.FC = () => {
                 whiteSpace: 'nowrap',
               }}
             >
-              <div style={{width: 30, height: 30, borderRadius: 15, background: GRAD_STATIC, opacity: isA ? 1 : 0, transform: `scale(${isA ? card : 0})`}} />
+              <div style={{width: 30, height: 30, borderRadius: 15, background: P.red, opacity: isA ? 1 : 0, transform: `scale(${isA ? card : 0})`}} />
               {w}
             </div>
           );
@@ -365,14 +384,20 @@ const WheelScene: React.FC = () => {
       >
         <div style={{position: 'absolute', top: 14, left: '50%', width: 100, height: 28, marginLeft: -50, borderRadius: 14, background: P.text}} />
         <div key={a} style={{position: 'absolute', inset: 0, padding: '80px 30px 30px', transform: `translateY(${(1 - card) * 120}px)`, opacity: Math.min(1, card * 2)}}>
-          <div style={{width: 110, height: 110, borderRadius: 30, background: GRAD_STATIC, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: `0 16px 30px ${rgba(P.p, 0.35)}`}}>
-            <svg viewBox="0 0 100 100" width={64} height={64}>
-              {ICONS[svc.icon]}
-            </svg>
-          </div>
-          <div style={{marginTop: 30, fontFamily: FONT, fontWeight: 900, fontSize: 56, letterSpacing: '-0.05em', color: P.text}}>{svc.name}</div>
+          {svc.img ? (
+            <div style={{width: '100%', height: 170, borderRadius: 26, overflow: 'hidden', background: svc.fit === 'contain' ? P.white : '#eee', boxShadow: `0 16px 30px ${rgba(P.v, 0.2)}`}}>
+              <Img src={staticFile(svc.img)} style={{width: '100%', height: '100%', objectFit: svc.fit as 'cover' | 'contain'}} />
+            </div>
+          ) : (
+            <div style={{width: '100%', height: 170, borderRadius: 26, background: GRAD_STATIC, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: `0 16px 30px ${rgba(P.v, 0.2)}`}}>
+              <svg viewBox="0 0 100 100" width={96} height={96}>
+                {ICONS[svc.icon]}
+              </svg>
+            </div>
+          )}
+          <div style={{marginTop: 24, fontFamily: FONT, fontWeight: 900, fontSize: 56, letterSpacing: '-0.05em', color: P.text}}>{svc.name}</div>
           <div style={{fontFamily: FONT, fontWeight: 600, fontSize: 24, color: P.gray, marginTop: 6}}>{svc.sub}</div>
-          <div style={{marginTop: 50}}>
+          <div style={{marginTop: 26}}>
             <GradText size={svc.price.length > 11 ? 42 : svc.price.length > 9 ? 52 : 62}>{svc.price}</GradText>
           </div>
           <div
@@ -402,6 +427,31 @@ const WheelScene: React.FC = () => {
 };
 
 /* ───────── 6. Sphère + villes en orbite ───────── */
+const CITY_IMG: Record<string, string> = {Kribi: 'kribi-gites.jpg', Yaoundé: 'yaounde.jpg', Buea: 'buea.jpg', Ouest: 'ouest.jpg'};
+const CityCard: React.FC<{name: string}> = ({name}) => {
+  const img = CITY_IMG[name];
+  return (
+    <div
+      style={{
+        position: 'relative',
+        margin: '0 auto',
+        width: 720,
+        height: 400,
+        borderRadius: 44,
+        overflow: 'hidden',
+        background: `linear-gradient(135deg, ${P.p}, ${P.v})`,
+        boxShadow: `0 40px 80px ${rgba(P.v, 0.25)}`,
+      }}
+    >
+      {img && <Img src={staticFile(`pop-img/${img}`)} style={{width: '100%', height: '100%', objectFit: 'cover'}} />}
+      <div style={{position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(17,17,17,0) 45%, rgba(17,17,17,0.72) 100%)'}} />
+      <div style={{position: 'absolute', left: 40, bottom: 28, display: 'flex', alignItems: 'center', gap: 16, fontFamily: FONT, fontWeight: 900, fontSize: 84, letterSpacing: '-0.05em', color: P.white}}>
+        <div style={{width: 22, height: 22, borderRadius: 11, background: P.red}} />
+        {name}
+      </div>
+    </div>
+  );
+};
 const CITIES: [string, number][] = [
   ['Kribi', 5],
   ['Limbé', 27],
@@ -449,7 +499,7 @@ const SphereSceneWrap: React.FC = () => {
           whiteSpace: 'nowrap',
         }}
       >
-        <div style={{width: 18, height: 18, borderRadius: 9, background: GRAD_STATIC}} />
+        <div style={{width: 18, height: 18, borderRadius: 9, background: P.red}} />
         {name}
       </div>
     );
@@ -463,7 +513,7 @@ const SphereSceneWrap: React.FC = () => {
       </AbsoluteFill>
       {CITIES.map((_, i) => label(i, true))}
       {/* grande ville active en haut */}
-      <div style={{position: 'absolute', top: 330, left: 0, right: 0, height: 260}}>
+      <div style={{position: 'absolute', top: 150, left: 0, right: 0, height: 420}}>
         {CITIES.map(([name, at], i) => {
           const end = CITIES[i + 1]?.[1] ?? 9999;
           if (f < at || f >= end + 5) return null;
@@ -471,7 +521,7 @@ const SphereSceneWrap: React.FC = () => {
           const pout = interpolate(f, [end, end + 5], [0, 1], cl);
           return (
             <DirBlur key={name} y={(1 - pin) * 20 + pout * 20} style={{position: 'absolute', left: 0, right: 0, textAlign: 'center', opacity: Math.min(1, pin * 2) * (1 - pout), transform: `translateY(${(1 - pin) * 70 - pout * 70}px)`}}>
-              <GradText size={210}>{name}</GradText>
+              <CityCard name={name} />
             </DirBlur>
           );
         })}
@@ -481,7 +531,7 @@ const SphereSceneWrap: React.FC = () => {
 };
 
 /* ───────── 7. Interrupteur ON ───────── */
-const GRID = gridLayout(4, 6, 760, 900);
+const GRID = gridLayout(4, 6, 760, 980, 540, 830);
 const SwitchScene: React.FC = () => {
   const f = useCurrentFrame();
   const CLICK = 51;
@@ -489,10 +539,10 @@ const SwitchScene: React.FC = () => {
   const appear = usePop(0, {damping: 11, stiffness: 160});
   const on = f >= CLICK;
   const lbl = usePop(CLICK + 2);
-  const trackCol = on ? P.green : P.gray;
+  const trackCol = on ? P.text : P.gray;
   return (
     <AbsoluteFill>
-      {on && <Collage at={CLICK} layout={GRID} cx={540} cy={1020} />}
+      {on && <Collage at={CLICK} layout={GRID} cx={540} cy={830} />}
       <div style={{position: 'absolute', top: 400, left: 60, right: 60, display: 'flex', justifyContent: 'center', columnGap: 26, zIndex: 30}}>
         <Word at={4} size={120}>
           On t’y
@@ -511,7 +561,7 @@ const SwitchScene: React.FC = () => {
           borderRadius: 120,
           background: trackCol,
           transform: `scale(${appear * (1 + (on ? 0.06 * Math.sin(Math.min(1, (f - CLICK) / 8) * Math.PI) : 0))})`,
-          boxShadow: on ? `0 30px 80px ${rgba(P.green, 0.45)}` : '0 30px 60px rgba(17,17,17,0.12)',
+          boxShadow: on ? `0 30px 80px ${rgba(P.text, 0.35)}` : '0 30px 60px rgba(17,17,17,0.12)',
           zIndex: 30,
         }}
       >
@@ -545,7 +595,7 @@ const SwitchScene: React.FC = () => {
           transform: `scale(${lbl})`,
         }}
       >
-        Mode chauffeur : <span style={{color: P.green}}>ON</span>
+        Mode chauffeur : <span style={{color: P.red}}>ON</span>
       </div>
     </AbsoluteFill>
   );
@@ -682,6 +732,7 @@ const CTAScene: React.FC = () => {
   const f = useCurrentFrame();
   const pill = usePop(5, {damping: 9, stiffness: 160});
   const arrow = usePop(172, {damping: 9, stiffness: 180});
+  const wa = usePop(14, {damping: 8, stiffness: 200});
   const bg = useGradBg();
   return (
     <AbsoluteFill>
@@ -691,6 +742,9 @@ const CTAScene: React.FC = () => {
           <div>Écris «&nbsp;JP&nbsp;»</div>
           <div>sur WhatsApp</div>
         </Pill>
+      </div>
+      <div style={{position: 'absolute', left: 30, top: 230, transform: `scale(${wa}) rotate(${(1 - wa) * -30 - 8}deg)`}}>
+        <Img src={staticFile('pop-img/whatsapp.png')} style={{width: 190, filter: `drop-shadow(0 20px 30px ${rgba(P.v, 0.3)})`}} />
       </div>
       <div style={{position: 'absolute', top: 760, left: 0, right: 0, textAlign: 'center'}}>
         {'+237'.split('').map((c, j) => (
@@ -710,9 +764,8 @@ const CTAScene: React.FC = () => {
         <svg width={120} height={170} viewBox="0 0 120 170" style={{marginTop: 16, transform: `translateY(${Math.sin(f / 4) * 14}px)`}}>
           <defs>
             <linearGradient id="arr" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stopColor={P.o} />
-              <stop offset="0.5" stopColor={P.p} />
-              <stop offset="1" stopColor={P.v} />
+              <stop offset="0" stopColor={P.red} />
+              <stop offset="1" stopColor={P.red} />
             </linearGradient>
           </defs>
           <path d="M60 10 L60 140 M18 100 L60 150 L102 100" fill="none" stroke="url(#arr)" strokeWidth={22} strokeLinecap="round" strokeLinejoin="round" />
@@ -816,7 +869,7 @@ export const JPPop: React.FC = () => (
     {sfx('pop', DIGIT_POPS, 0.22, 6)}
     {sfx('whoosh', [96, 187, 345, 452, 606, 855, 995], 0.45, 20)}
     {sfx('click', [606], 0.7, 8)}
-    {sfx('rocket', [288], 0.55, 50)}
+    {sfx('whoosh', [288, 318], 0.5, 20)}
     {sfx('tick', Array.from({length: 13}, (_, i) => 739 + i * 2), 0.4, 3)}
   </AbsoluteFill>
 );

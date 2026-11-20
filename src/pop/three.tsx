@@ -137,7 +137,7 @@ void main(){
   vec3 g = k < 0.5 ? mix(cO, cP, k*2.0) : mix(cP, cV, (k-0.5)*2.0);
   float fres = pow(1.0 - max(dot(vN, vec3(0.0,0.0,1.0)), 0.0), 2.2);
   float light = 0.78 + 0.22*max(dot(vN, normalize(vec3(-0.4,0.6,0.8))), 0.0);
-  vec3 pearl = mix(vec3(1.0), g, 0.45 + 0.35*sin(p.y*2.0+uT*0.5));
+  vec3 pearl = mix(vec3(1.0), g, 0.28 + 0.22*sin(p.y*2.0+uT*0.5));
   vec3 c = mix(pearl*light, vec3(1.0), fres*0.55);
   gl_FragColor = vec4(c, 1.0);
 }`;
@@ -227,7 +227,7 @@ export const DeskScene: React.FC<{nightAt: number; textSwitch: number}> = ({nigh
       <ambientLight intensity={1.0 - n * 0.82} />
       <directionalLight position={[3, 6, 5]} intensity={1.6 * (1 - n * 0.9)} castShadow shadow-mapSize={[1024, 1024]} />
       {/* lampe de bureau (allumée la nuit) */}
-      <pointLight position={[-1.45, 2.35, 0.3]} intensity={n * 9} distance={6} color={P.o} castShadow />
+      <pointLight position={[-1.45, 2.35, 0.3]} intensity={n * 9} distance={6} color={'#FFD9A0'} castShadow />
       {/* mur + sol */}
       <mesh position={[0, 2.5, -1.2]} receiveShadow>
         <planeGeometry args={[14, 9]} />
@@ -274,7 +274,7 @@ export const DeskScene: React.FC<{nightAt: number; textSwitch: number}> = ({nigh
       </mesh>
       <mesh position={[1.35, 1.17, 0.35]} castShadow>
         <cylinderGeometry args={[0.11, 0.1, 0.24, 24]} />
-        <meshStandardMaterial color={P.o} roughness={0.4} />
+        <meshStandardMaterial color={P.red} roughness={0.4} />
       </mesh>
       {/* lampe */}
       <group position={[-1.45, 1.05, 0.2]}>
@@ -288,7 +288,7 @@ export const DeskScene: React.FC<{nightAt: number; textSwitch: number}> = ({nigh
         </mesh>
         <mesh position={[0.12, 1.15, 0.05]} rotation={[0.3, 0, -0.5]}>
           <coneGeometry args={[0.24, 0.3, 24, 1, true]} />
-          <meshStandardMaterial color={'#111111'} side={THREE.DoubleSide} emissive={col(P.o)} emissiveIntensity={n * 0.6} />
+          <meshStandardMaterial color={'#111111'} side={THREE.DoubleSide} emissive={col('#FFD9A0')} emissiveIntensity={n * 0.6} />
         </mesh>
       </group>
       {/* étagère + livres */}
@@ -296,7 +296,7 @@ export const DeskScene: React.FC<{nightAt: number; textSwitch: number}> = ({nigh
         <boxGeometry args={[3.2, 0.07, 0.4]} />
         <meshStandardMaterial color={'#E6E7EA'} />
       </mesh>
-      {[P.o, P.p, P.v, '#B5B8BE', P.p, P.o, '#111111', P.v].map((c, i) => (
+      {[P.o, P.p, P.v, '#B5B8BE', P.red, P.o, '#111111', P.p].map((c, i) => (
         <mesh key={i} position={[-1.1 + i * 0.17, 3.62, -1.0]} rotation={[0, 0, i === 6 ? 0.18 : 0]} castShadow>
           <boxGeometry args={[0.13, 0.42 + ((i * 7) % 4) * 0.04, 0.3]} />
           <meshStandardMaterial color={c} roughness={0.6} />

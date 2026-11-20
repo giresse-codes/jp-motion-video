@@ -37,4 +37,4 @@ Captures : `COMP=JPPop node scripts/stills.mjs 15 150 300 550 700 950 1100 1300`
 - `src/pop/kit.tsx` : palette, mots en dégradé animé, pilules, auras, collage. `src/pop/three.tsx` : mascotte, sphère, bureau (three.js / @remotion/three).
 - Référence : `assets/ref-holo.mp4`. Voix : `assets/voix-off-pop.mp3` (original 47,9 s, silences ramenés à 0,48 s max → 43,8 s).
 - Musique `public/musique-pop.mp3` et `public/sfx-pop/*` : remplaçants synthétiques (`scripts/gen_audio_pop.py`).
-- Collage : photo de la voiture recadrée + cartes illustrées (aéroport, Kribi, intérieur…) — à remplacer par de vraies photos si disponibles.
+- Palette : gris, kaki, anthracite, noir, blanc + touche de rouge. Photos du client dans `public/pop-img/` (originaux dans `assets/pop-img/`, détourages PNG pour TV, voiture miniature, WhatsApp, étoiles).
