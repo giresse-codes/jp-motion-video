@@ -21,3 +21,11 @@ node scripts/stills.mjs 30 200 # captures de contrôle → out/frame-N.png
 - **Remplaçants à changer** (générés faute de fichiers fournis) : `public/logo.png` (`scripts/gen_images.mjs`),
   `public/voiture-photo.jpg` (illustration, pas une vraie photo), `public/musique.mp3` et `public/sfx/*` (`scripts/gen_audio.py`).
   Remplacez simplement les fichiers dans `public/` puis relancez le rendu.
+
+## Pub « JP Glow » (11 s, style iPhone sombre + pilule vert citron)
+
+Composition `JPGlow` (`src/glow/JPGlow.tsx`) — `npx remotion render JPGlow out/jp-glow-pub.mp4 --codec h264 --crf 18`
+Captures : `COMP=JPGlow node scripts/stills.mjs 10 60 130 200 260 320`.
+- Référence : `assets/ref-granola.mp4`. Voix : `assets/voix-off-glow.mp3` (9,4 s, non retouchée).
+- Musique `public/musique-glow.mp3` et `public/sfx-glow/*` : remplaçants synthétiques (`scripts/gen_audio_glow.py`).
+- `public/logo-glow.png` : logo officiel avec le fond noir rendu transparent.
