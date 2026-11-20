@@ -254,20 +254,30 @@ export const WhatsAppScene: React.FC = () => {
 /** Scène 6 : rupture — vraie photo plein écran légèrement désaturée */
 export const PhotoScene: React.FC<{dur: number}> = ({dur}) => {
   const t = useCurrentFrame();
-  const z = interpolate(t, [0, dur], [1.14, 1.02]);
+  const z = interpolate(t, [0, dur], [1.07, 1.0]);
   return (
     <AbsoluteFill style={{background: C.black}}>
+      {/* fond : même photo, floutée, pour combler le format vertical */}
+      <Img
+        src={staticFile('voiture-photo.jpg')}
+        style={{position: 'absolute', width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(40px) saturate(0.5) brightness(0.85)', transform: 'scale(1.2)'}}
+      />
+      {/* photo entière (voiture complète), fondue en haut et en bas */}
       <Img
         src={staticFile('voiture-photo.jpg')}
         style={{
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          transform: `scale(${z}) translateX(${interpolate(t, [0, dur], [-14, 14])}px)`,
+          position: 'absolute',
+          width: 1296,
+          height: 1728,
+          left: -115,
+          top: 96,
+          transform: `scale(${z}) translateX(${interpolate(t, [0, dur], [-8, 8])}px)`,
+          transformOrigin: '50% 60%',
           filter: 'saturate(0.55) contrast(1.04)',
+          WebkitMaskImage: 'linear-gradient(180deg, transparent 0%, #000 7%, #000 93%, transparent 100%)',
         }}
       />
-      <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(14,14,16,0.35) 0%, rgba(14,14,16,0) 30%)'}} />
+      <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(14,14,16,0.55) 0%, rgba(14,14,16,0) 28%)'}} />
       <div style={{position: 'absolute', top: 150, left: 120}}>
         <Word at={6} color={C.white} size={44} style={{fontWeight: 600, letterSpacing: '-0.01em'}}>
           Samedi · 9 h 00
