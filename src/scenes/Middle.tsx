@@ -30,13 +30,26 @@ export const LogoScene: React.FC<{tagline?: {at: number; text: string}[]}> = ({t
           opacity: interpolate(t, [0, 3], [0, 1], clamp),
         }}
       >
-        <Img src={staticFile('logo.png')} style={{width: 760}} />
+        {/* logo officiel (fond noir, néon) présenté sur une plaque noire flottante */}
+        <div
+          style={{
+            width: 860,
+            padding: '34px 30px 26px',
+            boxSizing: 'border-box',
+            background: C.black,
+            borderRadius: 48,
+            boxShadow: '0 70px 130px rgba(14,14,16,0.28), 0 24px 48px rgba(14,14,16,0.16)',
+            isolation: 'isolate',
+          }}
+        >
+          <Img src={staticFile('logo.png')} style={{width: '100%', display: 'block', mixBlendMode: 'lighten'}} />
+        </div>
       </DirBlur>
       {tagline && (
         <div
           style={{
             position: 'absolute',
-            top: 1340,
+            top: 1180,
             left: 120,
             right: 120,
             display: 'flex',
