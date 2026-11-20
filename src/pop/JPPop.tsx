@@ -638,7 +638,7 @@ const PriceScene: React.FC = () => {
         if (f < at - 1 || f >= end + 6) return null;
         const s = springs[i];
         const pout = interpolate(f, [end, end + 6], [0, 1], cl);
-        const size = fit(price, 740);
+        const size = 170; // taille fixe : « 3 500 F/h » tient dans la largeur même pendant le rebond
         return (
           <DirBlur key={lab} x={pout * 40} style={{position: 'absolute', inset: 0, opacity: 1 - pout, transform: `translateX(${-pout * 300}px)`}}>
             <div style={{position: 'absolute', top: 700, left: 0, right: 0, display: 'flex', justifyContent: 'center', transform: `scale(${s})`}}>
